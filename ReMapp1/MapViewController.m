@@ -6,18 +6,19 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MapViewController.h"
 
-@interface ViewController ()
+@interface MapViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MapViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.mapView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning

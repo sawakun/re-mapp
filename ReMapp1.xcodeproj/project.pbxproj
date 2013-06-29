@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45E48974177F9A87002FF5FB /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E48973177F9A87002FF5FB /* InfoViewController.m */; };
+		45E48977177F9F7D002FF5FB /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E48976177F9F7D002FF5FB /* InfoCell.m */; };
 		45E4AC0B177E8ADF006619F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC0A177E8ADF006619F1 /* UIKit.framework */; };
 		45E4AC0D177E8ADF006619F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC0C177E8ADF006619F1 /* Foundation.framework */; };
 		45E4AC0F177E8ADF006619F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC0E177E8ADF006619F1 /* CoreGraphics.framework */; };
@@ -18,12 +20,16 @@
 		45E4AC21177E8ADF006619F1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E4AC20177E8ADF006619F1 /* Default-568h@2x.png */; };
 		45E4AC24177E8ADF006619F1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E4AC22177E8ADF006619F1 /* MainStoryboard_iPhone.storyboard */; };
 		45E4AC27177E8ADF006619F1 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E4AC25177E8ADF006619F1 /* MainStoryboard_iPad.storyboard */; };
-		45E4AC2A177E8ADF006619F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E4AC29177E8ADF006619F1 /* ViewController.m */; };
+		45E4AC2A177E8ADF006619F1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E4AC29177E8ADF006619F1 /* MapViewController.m */; };
 		45E4AC32177E8ADF006619F1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC31177E8ADF006619F1 /* SenTestingKit.framework */; };
 		45E4AC33177E8ADF006619F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC0A177E8ADF006619F1 /* UIKit.framework */; };
 		45E4AC34177E8ADF006619F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC0C177E8ADF006619F1 /* Foundation.framework */; };
 		45E4AC3C177E8ADF006619F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45E4AC3A177E8ADF006619F1 /* InfoPlist.strings */; };
 		45E4AC3F177E8ADF006619F1 /* ReMapp1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E4AC3E177E8ADF006619F1 /* ReMapp1Tests.m */; };
+		45E4AC4A177E95CC006619F1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC49177E95CC006619F1 /* MobileCoreServices.framework */; };
+		45E4AC4C177E95D5006619F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4B177E95D5006619F1 /* MapKit.framework */; };
+		45E4AC4E177E95DF006619F1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4D177E95DF006619F1 /* AddressBook.framework */; };
+		45E4AC50177E95F3006619F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4F177E95F3006619F1 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45E48972177F9A87002FF5FB /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		45E48973177F9A87002FF5FB /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		45E48975177F9F7D002FF5FB /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = "<group>"; };
+		45E48976177F9F7D002FF5FB /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = "<group>"; };
 		45E4AC07177E8ADF006619F1 /* ReMapp1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReMapp1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E4AC0A177E8ADF006619F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		45E4AC0C177E8ADF006619F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -52,14 +62,18 @@
 		45E4AC20177E8ADF006619F1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		45E4AC23177E8ADF006619F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		45E4AC26177E8ADF006619F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		45E4AC28177E8ADF006619F1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		45E4AC29177E8ADF006619F1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		45E4AC28177E8ADF006619F1 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		45E4AC29177E8ADF006619F1 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		45E4AC30177E8ADF006619F1 /* ReMapp1Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReMapp1Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45E4AC31177E8ADF006619F1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		45E4AC39177E8ADF006619F1 /* ReMapp1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReMapp1Tests-Info.plist"; sourceTree = "<group>"; };
 		45E4AC3B177E8ADF006619F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		45E4AC3D177E8ADF006619F1 /* ReMapp1Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReMapp1Tests.h; sourceTree = "<group>"; };
 		45E4AC3E177E8ADF006619F1 /* ReMapp1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReMapp1Tests.m; sourceTree = "<group>"; };
+		45E4AC49177E95CC006619F1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		45E4AC4B177E95D5006619F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		45E4AC4D177E95DF006619F1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		45E4AC4F177E95F3006619F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +81,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E4AC50177E95F3006619F1 /* CoreLocation.framework in Frameworks */,
+				45E4AC4E177E95DF006619F1 /* AddressBook.framework in Frameworks */,
+				45E4AC4C177E95D5006619F1 /* MapKit.framework in Frameworks */,
+				45E4AC4A177E95CC006619F1 /* MobileCoreServices.framework in Frameworks */,
 				45E4AC0B177E8ADF006619F1 /* UIKit.framework in Frameworks */,
 				45E4AC0D177E8ADF006619F1 /* Foundation.framework in Frameworks */,
 				45E4AC0F177E8ADF006619F1 /* CoreGraphics.framework in Frameworks */,
@@ -86,6 +104,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45E48971177F9A43002FF5FB /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				45E48972177F9A87002FF5FB /* InfoViewController.h */,
+				45E48973177F9A87002FF5FB /* InfoViewController.m */,
+				45E48975177F9F7D002FF5FB /* InfoCell.h */,
+				45E48976177F9F7D002FF5FB /* InfoCell.m */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
 		45E4ABFE177E8ADF006619F1 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +137,10 @@
 		45E4AC09177E8ADF006619F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45E4AC4F177E95F3006619F1 /* CoreLocation.framework */,
+				45E4AC4D177E95DF006619F1 /* AddressBook.framework */,
+				45E4AC4B177E95D5006619F1 /* MapKit.framework */,
+				45E4AC49177E95CC006619F1 /* MobileCoreServices.framework */,
 				45E4AC0A177E8ADF006619F1 /* UIKit.framework */,
 				45E4AC0C177E8ADF006619F1 /* Foundation.framework */,
 				45E4AC0E177E8ADF006619F1 /* CoreGraphics.framework */,
@@ -119,12 +152,12 @@
 		45E4AC10177E8ADF006619F1 /* ReMapp1 */ = {
 			isa = PBXGroup;
 			children = (
+				45E48971177F9A43002FF5FB /* Info */,
+				45E4AC48177E93FF006619F1 /* Map */,
 				45E4AC19177E8ADF006619F1 /* AppDelegate.h */,
 				45E4AC1A177E8ADF006619F1 /* AppDelegate.m */,
 				45E4AC22177E8ADF006619F1 /* MainStoryboard_iPhone.storyboard */,
 				45E4AC25177E8ADF006619F1 /* MainStoryboard_iPad.storyboard */,
-				45E4AC28177E8ADF006619F1 /* ViewController.h */,
-				45E4AC29177E8ADF006619F1 /* ViewController.m */,
 				45E4AC11177E8ADF006619F1 /* Supporting Files */,
 			);
 			path = ReMapp1;
@@ -161,6 +194,15 @@
 				45E4AC3A177E8ADF006619F1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45E4AC48177E93FF006619F1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				45E4AC28177E8ADF006619F1 /* MapViewController.h */,
+				45E4AC29177E8ADF006619F1 /* MapViewController.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +318,9 @@
 			files = (
 				45E4AC17177E8ADF006619F1 /* main.m in Sources */,
 				45E4AC1B177E8ADF006619F1 /* AppDelegate.m in Sources */,
-				45E4AC2A177E8ADF006619F1 /* ViewController.m in Sources */,
+				45E4AC2A177E8ADF006619F1 /* MapViewController.m in Sources */,
+				45E48974177F9A87002FF5FB /* InfoViewController.m in Sources */,
+				45E48977177F9F7D002FF5FB /* InfoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +511,7 @@
 				45E4AC44177E8ADF006619F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45E4AC45177E8ADF006619F1 /* Build configuration list for PBXNativeTarget "ReMapp1Tests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +520,7 @@
 				45E4AC47177E8ADF006619F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
