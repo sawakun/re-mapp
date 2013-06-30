@@ -11,7 +11,7 @@
 
 @class BuzzData;
 
-@interface MapViewController : UIViewController <MKMapViewDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
     @private
     UIViewController *_infoViewController;

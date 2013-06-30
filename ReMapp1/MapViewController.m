@@ -109,17 +109,17 @@
     {
         newCenter = _lowerCenter;
     }
-    else if (center.y == _lowerCenter.y)
-    {
-        newCenter = _hiddenCenter;
-    }
+    //else if (center.y == _lowerCenter.y)
+    //{
+    //    newCenter = _hiddenCenter;
+    //}
     
     [UIView animateWithDuration:0.5f animations:^{
         _infoViewController.view.center = newCenter;
     }];
 }
 
--(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id)annotation{
+-(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
@@ -134,11 +134,16 @@
     
     annotationView.image = [UIImage imageNamed:@"pin.png"];
     annotationView.centerOffset = CGPointMake(-10, -10);
-    annotationView.canShowCallout = NO;
+    annotationView.canShowCallout = YES;
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.annotation = annotation;
     
     return annotationView;
+}
+
+- (void)mapView:(MKMapView *)map annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"Test");
 }
 
 
