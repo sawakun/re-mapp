@@ -11,5 +11,7 @@
 @interface InfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
+- (IBAction)swipeUp:(id)sender;
+- (IBAction)swipeDown:(id)sender;
 
 @end

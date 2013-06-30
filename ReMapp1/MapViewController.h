@@ -10,6 +10,17 @@
 #import <MapKit/MapKit.h>
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
+{
+    @private
+    UIViewController *infoViewController;
+    CGPoint hiddenCenter;
+    CGPoint lowerCenter;
+    CGPoint middleCenter;
+    CGPoint upperCenter;
+}
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+- (void) moveInfoUp;
+- (void) moveInfoDown;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "InfoViewController.h"
 #import "InfoCell.h"
+#import "MapViewController.h"
 
 @interface InfoViewController ()
 
@@ -60,4 +61,13 @@
     return cell;
 }
 
+- (IBAction)swipeUp:(id)sender {
+    MapViewController *parent = (MapViewController *)self.parentViewController;
+    [parent moveInfoUp];
+}
+
+- (IBAction)swipeDown:(id)sender {
+    MapViewController *parent = (MapViewController *)self.parentViewController;
+    [parent moveInfoDown];
+}
 @end
