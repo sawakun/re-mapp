@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+@class BuzzData;
+
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 {
     @private
-    UIViewController *infoViewController;
-    CGPoint hiddenCenter;
-    CGPoint lowerCenter;
-    CGPoint middleCenter;
-    CGPoint upperCenter;
+    UIViewController *_infoViewController;
+    CGPoint _hiddenCenter;
+    CGPoint _lowerCenter;
+    CGPoint _middleCenter;
+    CGPoint _upperCenter;
+    BuzzData *_buzzData;
 }
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 

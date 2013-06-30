@@ -7,6 +7,8 @@
 //
 
 #import "MapViewController.h"
+#import "BuzzData.h"
+#import "Buzz.h"
 
 @interface MapViewController ()
 
@@ -17,31 +19,54 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // set Map
     self.mapView.delegate = self;
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 35.6584;
+    zoomLocation.longitude = 139.7017;
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 1000.0, 1000.0);
+    [_mapView setRegion:viewRegion animated:NO];
     
+    // set InfoView
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    infoViewController = [storyboard instantiateViewControllerWithIdentifier:@"Info"];
-    [infoViewController.view setFrame:self.view.bounds];
-    [self addChildViewController:infoViewController];
-    [self.view addSubview:infoViewController.view];
-    [infoViewController didMoveToParentViewController:self];
+    _infoViewController = [storyboard instantiateViewControllerWithIdentifier:@"Info"];
+    [_infoViewController.view setFrame:self.view.bounds];
+    [self addChildViewController:_infoViewController];
+    [self.view addSubview:_infoViewController.view];
+    [_infoViewController didMoveToParentViewController:self];
     
-    //calculate points of center
+    //calculate points of center of InfoView
     float headlineHeight = 80.0f;
     float xcenter = self.view.center.x;
     float height = self.view.frame.size.height;
-    float infoHeight = infoViewController.view.frame.size.height;
-    hiddenCenter = CGPointMake(xcenter, height + infoHeight * 0.5f);
-    lowerCenter = CGPointMake(xcenter, height + infoHeight * 0.5f - headlineHeight);
-    middleCenter = CGPointMake(xcenter, height);
-    upperCenter = CGPointMake(xcenter, height * 0.5);
+    float infoHeight = _infoViewController.view.frame.size.height;
+    _hiddenCenter = CGPointMake(xcenter, height + infoHeight * 0.5f);
+    _lowerCenter = CGPointMake(xcenter, height + infoHeight * 0.5f - headlineHeight);
+    _middleCenter = CGPointMake(xcenter, height);
+    _upperCenter = CGPointMake(xcenter, height * 0.5);
+    
+    //get BuzzData
+    _buzzData = [[BuzzData alloc] init];
+    [_buzzData reload];
+    NSLog(@"#_buzzData = %d", _buzzData.count);
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    infoViewController.view.center = lowerCenter;
+    _infoViewController.view.center = _lowerCenter;
+    
+    
+    // show Buzz points
+    NSMutableArray *annotations = [NSMutableArray array];
+    for (Buzz *buzz in _buzzData.buzzes)
+    {
+        MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
+        pointAnnotation.coordinate = CLLocationCoordinate2DMake(buzz.lot, buzz.lat);
+        pointAnnotation.title = @"TestTitle";
+        [annotations addObject:pointAnnotation];
+    }
+    [_mapView addAnnotations:annotations];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,46 +77,70 @@
 
 - (void) moveInfoUp
 {
-    CGPoint center = infoViewController.view.center;
-    CGPoint newCenter;
-    if (center.y == hiddenCenter.y)
+    CGPoint center = _infoViewController.view.center;
+    CGPoint newCenter = center;
+    if (center.y == _hiddenCenter.y)
     {
-        newCenter = lowerCenter;
+        newCenter = _lowerCenter;
     }
-    else if (center.y == lowerCenter.y)
+    else if (center.y == _lowerCenter.y)
     {
-        newCenter = middleCenter;
+        newCenter = _middleCenter;
     }
-    else if (center.y == middleCenter.y)
+    else if (center.y == _middleCenter.y)
     {
-        newCenter = upperCenter;
+        newCenter = _upperCenter;
     }
     
     [UIView animateWithDuration:0.5f animations:^{
-        infoViewController.view.center = newCenter;
+        _infoViewController.view.center = newCenter;
     }];
 }
 
 - (void) moveInfoDown
 {
-    CGPoint center = infoViewController.view.center;
-    CGPoint newCenter;
-    if (center.y == upperCenter.y)
+    CGPoint center = _infoViewController.view.center;
+    CGPoint newCenter = center;
+    if (center.y == _upperCenter.y)
     {
-        newCenter = middleCenter;
+        newCenter = _middleCenter;
     }
-    else if (center.y == middleCenter.y)
+    else if (center.y == _middleCenter.y)
     {
-        newCenter = lowerCenter;
+        newCenter = _lowerCenter;
     }
-    else if (center.y == lowerCenter.y)
+    else if (center.y == _lowerCenter.y)
     {
-        newCenter = hiddenCenter;
+        newCenter = _hiddenCenter;
     }
     
     [UIView animateWithDuration:0.5f animations:^{
-        infoViewController.view.center = newCenter;
+        _infoViewController.view.center = newCenter;
     }];
 }
+
+-(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id)annotation{
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    
+    MKAnnotationView *annotationView;
+    NSString* identifier = @"Pin";
+    annotationView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    if(nil == annotationView) {
+        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+    }
+    
+    
+    annotationView.image = [UIImage imageNamed:@"pin.png"];
+    annotationView.centerOffset = CGPointMake(-10, -10);
+    annotationView.canShowCallout = NO;
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    annotationView.annotation = annotation;
+    
+    return annotationView;
+}
+
 
 @end
