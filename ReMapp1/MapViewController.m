@@ -19,6 +19,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //get BuzzData
+    _buzzData = [BuzzData sharedInstance];
+    [_buzzData reload];
+
     // set Map
     self.mapView.delegate = self;
     CLLocationCoordinate2D zoomLocation;
@@ -45,9 +49,6 @@
     _middleCenter = CGPointMake(xcenter, height);
     _upperCenter = CGPointMake(xcenter, height * 0.5);
     
-    //get BuzzData
-    _buzzData = [BuzzData sharedInstance];
-    [_buzzData reload];
 }
 
 - (void)viewWillAppear:(BOOL)animated

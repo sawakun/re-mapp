@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class BuzzData;
 @interface InfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+@private
+    BuzzData *_buzzData;
+}
+
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
 - (IBAction)swipeUp:(id)sender;

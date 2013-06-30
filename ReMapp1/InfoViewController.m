@@ -9,6 +9,8 @@
 #import "InfoViewController.h"
 #import "InfoCell.h"
 #import "MapViewController.h"
+#import "BuzzData.h"
+#import "Buzz.h"
 
 @interface InfoViewController ()
 
@@ -28,6 +30,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // get BuzzData
+    _buzzData = [BuzzData sharedInstance];
+    NSLog(@"N=%d", _buzzData.count);
+    // set info table
     _infoTableView.transform = CGAffineTransformMakeRotation(M_PI * 0.5f);
     _infoTableView.pagingEnabled = YES;
     _infoTableView.bounces = NO;
@@ -50,13 +56,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return _buzzData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"InfoCell";
     InfoCell *cell = (InfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Buzz *buzz = [_buzzData buzzAtIndex:indexPath.row];
+    cell.headlineLabel.text = buzz.text;
     cell.contentView.transform = CGAffineTransformMakeRotation(M_PI * (-0.5f));
     return cell;
 }
