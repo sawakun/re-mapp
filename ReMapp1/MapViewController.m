@@ -132,7 +132,6 @@
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
     }
     
-    
     annotationView.image = [UIImage imageNamed:@"pin.png"];
     annotationView.centerOffset = CGPointMake(-10, -10);
     annotationView.canShowCallout = NO;
