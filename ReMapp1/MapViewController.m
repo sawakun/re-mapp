@@ -46,9 +46,8 @@
     _upperCenter = CGPointMake(xcenter, height * 0.5);
     
     //get BuzzData
-    _buzzData = [[BuzzData alloc] init];
+    _buzzData = [BuzzData sharedInstance];
     [_buzzData reload];
-    NSLog(@"#_buzzData = %d", _buzzData.count);
 }
 
 - (void)viewWillAppear:(BOOL)animated

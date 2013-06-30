@@ -13,14 +13,16 @@
 @implementation BuzzData
 @synthesize buzzes = _buzzes;
 
-- (id)init
++ (BuzzData *) sharedInstance
 {
-    self = [super init];
-    if( self )
-    {
-    }
+    static BuzzData *sharedObject = nil;
+    static dispatch_once_t _singletonPredicate;
     
-    return self;
+    dispatch_once(&_singletonPredicate, ^{
+        sharedObject = [[super allocWithZone:nil] init];
+    });
+    
+    return sharedObject;
 }
 
 - (Buzz *)buzzAtIndex:(NSInteger)index

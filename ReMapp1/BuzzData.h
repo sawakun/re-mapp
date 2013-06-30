@@ -19,6 +19,7 @@
 @property (nonatomic, readonly) NSInteger count;
 @property (nonatomic, readonly) NSMutableArray *buzzes;
 
++ (BuzzData *) sharedInstance;
 - (Buzz *)buzzAtIndex:(NSInteger)index;
 - (void)reload;
 @end
