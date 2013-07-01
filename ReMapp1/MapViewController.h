@@ -21,6 +21,7 @@
     CGPoint _middleCenter;
     CGPoint _upperCenter;
     BuzzData *_buzzData;
+    BOOL annotationIsSelected;
 }
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 

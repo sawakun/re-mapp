@@ -158,24 +158,14 @@
     return annotationView;
 }
 
+/*
 - (void)mapView:(MKMapView *)map annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     NSLog(@"Test");
 }
+ */
 
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"touchesBegan");
-}
-
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-    BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
-    NSLog(@"%d", annotation.index);
-    [_infoViewController showNthCell:annotation.index];
-    [self showInfo];
-}
 
 - (void)showCenter:(NSInteger)index
 {
@@ -185,5 +175,31 @@
     centerLocation.longitude = buzz.lot;
     [self.mapView setCenterCoordinate:centerLocation animated:NO];
 }
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    annotationIsSelected = FALSE;
+    NSLog(@"touchesBegan");
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    annotationIsSelected = TRUE;
+    BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
+    [_infoViewController showNthCell:annotation.index];
+    [self showInfo];
+    NSLog(@"didSelectAnnotationView");
+}
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchPoint = [touch locationInView:self.mapView]; //here locationInView it would be mapView
+    CLLocationCoordinate2D tapPoint = [_mapView convertPoint:touchPoint toCoordinateFromView:self.view];
+    [self.mapView setCenterCoordinate:tapPoint animated:NO];
+}
+
 
 @end
