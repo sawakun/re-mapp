@@ -9,7 +9,7 @@
 #import "Buzz.h"
 
 @implementation Buzz
-
+@synthesize buzzId = _buzzId;
 @synthesize userId = _userId;
 @synthesize text = _text;
 @synthesize img = _img;
@@ -32,13 +32,13 @@
     self = [self init];
     if (self && buzz)
     {
-        _id      = [[buzz objectForKey:@"id"] copy];
+        _buzzId  = [[buzz objectForKey:@"id"] copy];
         _userId  = [[buzz objectForKey:@"userId"] copy];
         _text    = [[buzz objectForKey:@"text"] copy];
         _img     = [[buzz objectForKey:@"img"] copy];
         _date    = [[buzz objectForKey:@"date"] copy];
-        _lot     = [[buzz objectForKey:@"lot"] floatValue];
         _lat     = [[buzz objectForKey:@"lat"] floatValue];
+        _lot     = [[buzz objectForKey:@"lot"] floatValue];
     }
     
     return self;
@@ -49,12 +49,12 @@
     self = [self init];
     if (self && buzz)
     {
-        _id      = buzz[0];
+        _buzzId  = buzz[0];
         _userId  = buzz[1];
         _text    = buzz[2];
         _img     = buzz[3];
-        _lot     = [buzz[4] floatValue];
-        _lat     = [buzz[5] floatValue];
+        _lat     = [buzz[4] floatValue];
+        _lot     = [buzz[5] floatValue];
         _date    = buzz[6];
     }
     

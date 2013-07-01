@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
+- (void)showNthCell:(NSInteger)index;
 - (IBAction)swipeUp:(id)sender;
 - (IBAction)swipeDown:(id)sender;
 

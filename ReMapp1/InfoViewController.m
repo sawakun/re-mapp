@@ -69,6 +69,13 @@
     return cell;
 }
 
+- (void)showNthCell:(NSInteger)index
+{
+    CGFloat pageWidth = _infoTableView.frame.size.width;
+    CGPoint newPoint = CGPointMake(_infoTableView.contentOffset.x,  pageWidth * index);
+    [_infoTableView setContentOffset:newPoint animated:NO];
+}
+
 - (IBAction)swipeUp:(id)sender {
     MapViewController *parent = (MapViewController *)self.parentViewController;
     [parent moveInfoUp];
@@ -78,4 +85,35 @@
     MapViewController *parent = (MapViewController *)self.parentViewController;
     [parent moveInfoDown];
 }
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"bgView height = %f", self.view.frame.size.height);
+    NSLog(@"width = %f", self.infoTableView.frame.size.width);
+    NSLog(@"select = %d",indexPath.row);
+}
+
+/*
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat pageWidth = scrollView.frame.size.width;
+    float fractionalPage = scrollView.contentOffset.y / pageWidth;
+    NSLog(@"scroll = %f @scrollViewDidScroll", pageWidth);
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    CGFloat pageWidth = scrollView.frame.size.width;
+    //float fractionalPage = scrollView.contentOffset.y / pageWidth;
+    NSLog(@"scroll = %f @scrollViewDidEndDragging", pageWidth);
+}
+*/
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    CGFloat pageWidth = scrollView.frame.size.width;
+    float fractionalPage = scrollView.contentOffset.y / pageWidth;
+    MapViewController *parent = (MapViewController *)self.parentViewController;
+    [parent showCenter:fractionalPage];
+}
+
 @end

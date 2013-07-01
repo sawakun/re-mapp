@@ -7,8 +7,13 @@
 //
 
 #import "MapViewController.h"
+#import "InfoViewController.h"
 #import "BuzzData.h"
 #import "Buzz.h"
+
+@implementation BuzzAnnotation
+
+@end
 
 @interface MapViewController ()
 
@@ -24,7 +29,7 @@
     [_buzzData reload];
 
     // set Map
-    self.mapView.delegate = self;
+    _mapView.delegate = self;
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 35.6584;
     zoomLocation.longitude = 139.7017;
@@ -33,14 +38,14 @@
     
     // set InfoView
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    _infoViewController = [storyboard instantiateViewControllerWithIdentifier:@"Info"];
+    _infoViewController = (InfoViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Info"];
     [_infoViewController.view setFrame:self.view.bounds];
     [self addChildViewController:_infoViewController];
     [self.view addSubview:_infoViewController.view];
     [_infoViewController didMoveToParentViewController:self];
     
     //calculate points of center of InfoView
-    float headlineHeight = 80.0f;
+    float headlineHeight = 120.0f;
     float xcenter = self.view.center.x;
     float height = self.view.frame.size.height;
     float infoHeight = _infoViewController.view.frame.size.height;
@@ -54,17 +59,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _infoViewController.view.center = _lowerCenter;
-    
+    _infoViewController.view.center = _hiddenCenter;
     
     // show Buzz points
     NSMutableArray *annotations = [NSMutableArray array];
     for (Buzz *buzz in _buzzData.buzzes)
     {
-        MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
-        pointAnnotation.coordinate = CLLocationCoordinate2DMake(buzz.lot, buzz.lat);
-        pointAnnotation.title = @"TestTitle";
+        static NSInteger index = 0;
+        BuzzAnnotation *pointAnnotation = [[BuzzAnnotation alloc] init];
+        pointAnnotation.coordinate = CLLocationCoordinate2DMake(buzz.lat, buzz.lot);
+        pointAnnotation.index = index;
         [annotations addObject:pointAnnotation];
+        ++index;
     }
     [_mapView addAnnotations:annotations];
 }
@@ -75,7 +81,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) moveInfoUp
+- (void)showInfo
+{
+    CGPoint center = _infoViewController.view.center;
+    if (center.y == _hiddenCenter.y)
+    {
+        [UIView animateWithDuration:0.5f animations:^{
+            _infoViewController.view.center = _lowerCenter;
+        }];
+    }
+}
+
+- (void)moveInfoUp
 {
     CGPoint center = _infoViewController.view.center;
     CGPoint newCenter = center;
@@ -109,10 +126,10 @@
     {
         newCenter = _lowerCenter;
     }
-    //else if (center.y == _lowerCenter.y)
-    //{
-    //    newCenter = _hiddenCenter;
-    //}
+    else if (center.y == _lowerCenter.y)
+    {
+        newCenter = _hiddenCenter;
+    }
     
     [UIView animateWithDuration:0.5f animations:^{
         _infoViewController.view.center = newCenter;
@@ -134,7 +151,7 @@
     
     annotationView.image = [UIImage imageNamed:@"pin.png"];
     annotationView.centerOffset = CGPointMake(-10, -10);
-    annotationView.canShowCallout = YES;
+    annotationView.canShowCallout = NO;
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.annotation = annotation;
     
@@ -146,5 +163,27 @@
     NSLog(@"Test");
 }
 
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"touchesBegan");
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
+    NSLog(@"%d", annotation.index);
+    [_infoViewController showNthCell:annotation.index];
+    [self showInfo];
+}
+
+- (void)showCenter:(NSInteger)index
+{
+    Buzz *buzz = [_buzzData buzzAtIndex:index];
+    CLLocationCoordinate2D centerLocation;
+    centerLocation.latitude = buzz.lat;
+    centerLocation.longitude = buzz.lot;
+    [self.mapView setCenterCoordinate:centerLocation animated:NO];
+}
 
 @end

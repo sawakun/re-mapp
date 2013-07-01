@@ -11,7 +11,7 @@
 @interface Buzz : NSObject
 {
 @private
-    NSString *_id;
+    NSString *_buzzId;
     NSString *_userId;
     NSString *_text;
     NSString *_img;
@@ -20,6 +20,7 @@
     float _lat;
 }
 
+@property (nonatomic, readonly) NSString* buzzId;
 @property (nonatomic, readonly) NSString* userId;
 @property (nonatomic, readonly) NSString* text;
 @property (nonatomic, readonly) NSString* img;

@@ -59,7 +59,7 @@
                                                         <constraint firstAttribute="height" constant="442" id="2ll-Hm-ZIl"/>
                                                     </constraints>
                                                     <prototypes>
-                                                        <tableViewCell contentMode="scaleToFill" restorationIdentifier="DetailsCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="DetailsCell" id="Lz8-KD-0Cy" customClass="DetailsCell">
+                                                        <tableViewCell contentMode="scaleToFill" restorationIdentifier="DetailsCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="DetailsCell" id="Lz8-KD-0Cy">
                                                             <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -83,7 +83,7 @@
                                             <constraint firstItem="htl-tW-G5M" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="14" id="W1W-Bw-9eq"/>
                                             <constraint firstAttribute="trailing" secondItem="htl-tW-G5M" secondAttribute="trailing" constant="20" type="default" id="fBq-rE-B9e"/>
                                             <constraint firstItem="J4U-6o-kpZ" firstAttribute="leading" secondItem="f5E-Ad-kgE" secondAttribute="leading" type="default" id="tcn-CD-JPN"/>
-                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="87" id="vTc-iB-AS3"/>
+                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="120" type="user" id="vTc-iB-AS3"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="headlineLabel" destination="htl-tW-G5M" id="dOv-o4-Dqa"/>
@@ -92,6 +92,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="uf7-QA-ni0" id="94D-Dx-bsb"/>
+                                    <outlet property="delegate" destination="uf7-QA-ni0" id="KAg-os-MuW"/>
                                 </connections>
                             </tableView>
                         </subviews>

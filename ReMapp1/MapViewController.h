@@ -10,11 +10,12 @@
 #import <MapKit/MapKit.h>
 
 @class BuzzData;
+@class InfoViewController;
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
     @private
-    UIViewController *_infoViewController;
+    InfoViewController *_infoViewController;
     CGPoint _hiddenCenter;
     CGPoint _lowerCenter;
     CGPoint _middleCenter;
@@ -23,7 +24,12 @@
 }
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-- (void) moveInfoUp;
-- (void) moveInfoDown;
+- (void)moveInfoUp;
+- (void)moveInfoDown;
+- (void)showCenter:(NSInteger)index;
+@end
 
+
+@interface BuzzAnnotation : MKPointAnnotation
+@property (nonatomic, assign) NSInteger index;
 @end
