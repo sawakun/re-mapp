@@ -10,6 +10,7 @@
 #import "InfoViewController.h"
 #import "BuzzData.h"
 #import "Buzz.h"
+#import "BuzzFormViewController.h"
 
 @implementation BuzzAnnotation
 
@@ -44,6 +45,9 @@
     [self.view addSubview:_infoViewController.view];
     [_infoViewController didMoveToParentViewController:self];
     
+    // set BuzzForm
+    _buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
+    
     //calculate points of center of InfoView
     float headlineHeight = 120.0f;
     float xcenter = self.view.center.x;
@@ -53,13 +57,6 @@
     _lowerCenter = CGPointMake(xcenter, height + infoHeight * 0.5f - headlineHeight);
     _middleCenter = CGPointMake(xcenter, height);
     _upperCenter = CGPointMake(xcenter, height * 0.5);
-    
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    _infoViewController.view.center = _hiddenCenter;
     
     // show Buzz points
     NSMutableArray *annotations = [NSMutableArray array];
@@ -73,6 +70,18 @@
         ++index;
     }
     [_mapView addAnnotations:annotations];
+    
+    // regist UILongPressGestureRecognizer
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.0;
+    [self.mapView addGestureRecognizer:lpgr];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _infoViewController.view.center = _hiddenCenter;
 }
 
 - (void)didReceiveMemoryWarning
@@ -150,9 +159,9 @@
     }
     
     annotationView.image = [UIImage imageNamed:@"pin.png"];
-    annotationView.centerOffset = CGPointMake(-10, -10);
+    //annotationView.centerOffset = CGPointMake(-10, -10);
     annotationView.canShowCallout = NO;
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     annotationView.annotation = annotation;
     
     return annotationView;
@@ -173,33 +182,47 @@
     CLLocationCoordinate2D centerLocation;
     centerLocation.latitude = buzz.lat;
     centerLocation.longitude = buzz.lot;
-    [self.mapView setCenterCoordinate:centerLocation animated:NO];
+    [self.mapView setCenterCoordinate:centerLocation animated:YES];
 }
 
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    annotationIsSelected = FALSE;
-    NSLog(@"touchesBegan");
-}
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    annotationIsSelected = TRUE;
     BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
+    NSLog(@"%d", annotation.index);
     [_infoViewController showNthCell:annotation.index];
     [self showInfo];
-    NSLog(@"didSelectAnnotationView");
 }
 
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)showBuzzForm:(CLLocationCoordinate2D)tapPoint
 {
-    UITouch *touch = [[event allTouches] anyObject];
-    CGPoint touchPoint = [touch locationInView:self.mapView]; //here locationInView it would be mapView
-    CLLocationCoordinate2D tapPoint = [_mapView convertPoint:touchPoint toCoordinateFromView:self.view];
-    [self.mapView setCenterCoordinate:tapPoint animated:NO];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    BuzzFormViewController *buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
+    buzzFormViewController.location = tapPoint;
+    [self presentViewController:buzzFormViewController animated:YES completion:NULL];
 }
 
+- (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
+{
+    static BuzzAnnotation *annot;
+    
+    
+    CGPoint tapPoint = [gestureRecognizer locationInView:self.mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:self.mapView];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
+    {
+        [self showBuzzForm:touchMapCoordinate];
+        [_mapView removeAnnotation:annot];
+        return;
+    }
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        annot = [[BuzzAnnotation alloc] init];
+    }
+    annot.coordinate = touchMapCoordinate;
+    [self.mapView addAnnotation:annot];
+}
 
 @end

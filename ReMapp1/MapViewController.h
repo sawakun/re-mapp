@@ -11,17 +11,18 @@
 
 @class BuzzData;
 @class InfoViewController;
+@class BuzzFormViewController;
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
     @private
     InfoViewController *_infoViewController;
+    BuzzFormViewController *_buzzFormViewController;
     CGPoint _hiddenCenter;
     CGPoint _lowerCenter;
     CGPoint _middleCenter;
     CGPoint _upperCenter;
     BuzzData *_buzzData;
-    BOOL annotationIsSelected;
 }
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 

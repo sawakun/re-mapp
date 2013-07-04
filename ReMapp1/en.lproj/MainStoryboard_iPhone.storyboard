@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PGe-qp-L6R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -8,53 +8,107 @@
         <scene sceneID="5">
             <objects>
                 <viewController storyboardIdentifier="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="MapViewController" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="c44-KI-m1W">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                    </mapView>
+                    <view key="view" contentMode="scaleToFill" id="gCj-i9-D1h">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="Gu8-az-OU0"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="NrK-Fq-xDb"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="jDG-wW-pgK"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="jZK-if-0WC"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="mapView" destination="c44-KI-m1W" id="FHd-ej-gQx"/>
+                        <outlet property="mapView" destination="fUz-D1-JIw" id="4T9-au-RCO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-171" y="-40"/>
+            <point key="canvasLocation" x="-164" y="-32"/>
         </scene>
-        <!--View Controller-->
+        <!--Buzz Form View Controller-->
         <scene sceneID="TjK-PH-Bgu">
             <objects>
-                <viewController id="PGe-qp-L6R" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BuzzForm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PGe-qp-L6R" customClass="BuzzFormViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p5L-xl-0Jx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6W-ZE-fjS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oW4-eo-mk4">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="0UI-XP-L0Y"/>
+                                    <constraint firstAttribute="height" constant="42" id="jJU-x7-BQW"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-CA-olp">
+                                <items>
+                                    <navigationItem id="Wbk-ro-3zj">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ikq-ES-nwK">
+                                            <connections>
+                                                <action selector="tappedCancel:" destination="PGe-qp-L6R" id="Q0e-hU-Dmo"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6W-ZE-fjS" customClass="UIPlaceHolderTextView">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="232" id="g2i-Gm-5XF"/>
+                                    <constraint firstAttribute="height" constant="83" id="lpI-jT-XXS"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PGe-qp-L6R" id="hUU-p4-iMR"/>
+                                </connections>
                             </textView>
+                            <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-ky-eIo">
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="k55-I9-xUZ"/>
+                                    <barButtonItem title="Photos" id="zvp-2N-ezR">
+                                        <connections>
+                                            <action selector="tappedPhotos:" destination="PGe-qp-L6R" id="l2E-KM-rQA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="a6W-ZE-fjS" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="hJ4-qk-AaK"/>
-                            <constraint firstItem="a6W-ZE-fjS" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="lUY-sN-NKr"/>
-                            <constraint firstItem="a6W-ZE-fjS" firstAttribute="top" secondItem="p5L-xl-0Jx" secondAttribute="top" type="default" id="nVJ-AF-es2"/>
+                            <constraint firstItem="dq9-CA-olp" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="2aB-rT-OKT"/>
+                            <constraint firstItem="eSA-ky-eIo" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="8ZL-vM-k6f"/>
+                            <constraint firstItem="a6W-ZE-fjS" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="DgT-N0-vp6"/>
+                            <constraint firstItem="dq9-CA-olp" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="Glh-aj-hyM"/>
+                            <constraint firstItem="oW4-eo-mk4" firstAttribute="top" secondItem="dq9-CA-olp" secondAttribute="bottom" type="default" id="QBx-6B-bPz"/>
+                            <constraint firstItem="a6W-ZE-fjS" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="VOb-hU-6FT"/>
+                            <constraint firstItem="eSA-ky-eIo" firstAttribute="bottom" secondItem="p5L-xl-0Jx" secondAttribute="bottom" type="user" id="bSq-Wu-Taw"/>
+                            <constraint firstItem="a6W-ZE-fjS" firstAttribute="top" secondItem="p5L-xl-0Jx" secondAttribute="top" constant="85" id="jgH-Hl-ek1"/>
+                            <constraint firstItem="eSA-ky-eIo" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="o8s-kk-ggw"/>
+                            <constraint firstItem="oW4-eo-mk4" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" constant="72" id="rAC-rN-UTI"/>
+                            <constraint firstItem="dq9-CA-olp" firstAttribute="top" secondItem="p5L-xl-0Jx" secondAttribute="top" type="default" id="uDe-yX-sxt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="oW4-eo-mk4" id="txC-sb-V1C"/>
+                        <outlet property="textView" destination="a6W-ZE-fjS" id="5i5-Q8-FuG"/>
+                        <outlet property="toolbar" destination="eSA-ky-eIo" id="Um3-PV-Vqs"/>
+                        <outlet property="toolbarVerticalSpaceConstraint" destination="bSq-Wu-Taw" id="Fm4-Tn-fQj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQi-u3-CV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="8"/>
+            <point key="canvasLocation" x="315" y="-26"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="qdD-mF-cut">
             <objects>
                 <viewController storyboardIdentifier="Info" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uf7-QA-ni0" customClass="InfoViewController" sceneMemberID="viewController">
                     <view key="view" alpha="0.60000000000000009" contentMode="scaleToFill" id="e2e-DZ-6PN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="568" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UhF-Xt-Ira">
@@ -75,7 +129,7 @@
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="J4U-6o-kpZ">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="442" id="2ll-Hm-ZIl"/>
+                                                        <constraint firstAttribute="height" constant="442" id="Kd1-8d-lvq"/>
                                                     </constraints>
                                                     <prototypes>
                                                         <tableViewCell contentMode="scaleToFill" restorationIdentifier="DetailsCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="DetailsCell" id="Lz8-KD-0Cy">
@@ -97,12 +151,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="trailing" secondItem="f5E-Ad-kgE" secondAttribute="trailing" type="default" id="FLs-MU-rJ9"/>
-                                            <constraint firstItem="htl-tW-G5M" firstAttribute="leading" secondItem="f5E-Ad-kgE" secondAttribute="leading" constant="20" type="default" id="SrD-za-3Bm"/>
-                                            <constraint firstItem="htl-tW-G5M" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="14" id="W1W-Bw-9eq"/>
-                                            <constraint firstAttribute="trailing" secondItem="htl-tW-G5M" secondAttribute="trailing" constant="20" type="default" id="fBq-rE-B9e"/>
-                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="leading" secondItem="f5E-Ad-kgE" secondAttribute="leading" type="default" id="tcn-CD-JPN"/>
-                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="120" type="user" id="vTc-iB-AS3"/>
+                                            <constraint firstItem="htl-tW-G5M" firstAttribute="leading" secondItem="f5E-Ad-kgE" secondAttribute="leading" constant="20" type="default" id="KwW-tr-kxn"/>
+                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="trailing" secondItem="f5E-Ad-kgE" secondAttribute="trailing" type="default" id="NjL-3G-G8t"/>
+                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="leading" secondItem="f5E-Ad-kgE" secondAttribute="leading" type="default" id="R3R-Be-VoU"/>
+                                            <constraint firstItem="htl-tW-G5M" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="14" id="VGs-Vt-kTQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="htl-tW-G5M" secondAttribute="trailing" constant="20" type="default" id="acx-4J-Giw"/>
+                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="120" id="feQ-KQ-oUa"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="headlineLabel" destination="htl-tW-G5M" id="dOv-o4-Dqa"/>
@@ -117,10 +171,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="trailing" secondItem="e2e-DZ-6PN" secondAttribute="trailing" type="default" id="0aq-ap-UdS"/>
-                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="top" secondItem="e2e-DZ-6PN" secondAttribute="top" type="default" id="ZWZ-gY-Fot"/>
-                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="bottom" secondItem="e2e-DZ-6PN" secondAttribute="bottom" type="default" id="bHm-dA-QRz"/>
-                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="leading" secondItem="e2e-DZ-6PN" secondAttribute="leading" type="default" id="xgZ-94-PFr"/>
+                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="bottom" secondItem="e2e-DZ-6PN" secondAttribute="bottom" type="default" id="AEL-Xs-Vwq"/>
+                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="leading" secondItem="e2e-DZ-6PN" secondAttribute="leading" type="default" id="DwQ-it-MjK"/>
+                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="trailing" secondItem="e2e-DZ-6PN" secondAttribute="trailing" type="default" id="LrK-RH-SSe"/>
+                            <constraint firstItem="UhF-Xt-Ira" firstAttribute="top" secondItem="e2e-DZ-6PN" secondAttribute="top" type="default" id="eyP-HD-Fu7"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="U8G-6Z-P4e" appends="YES" id="FH8-66-DI5"/>
@@ -148,6 +202,18 @@
         </scene>
     </scenes>
     <classes>
+        <class className="BuzzFormViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuzzFormViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedCancel:"/>
+                <relationship kind="action" name="tappedPhotos:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="innerScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UIPlaceHolderTextView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="toolbarVerticalSpaceConstraint" candidateClass="NSLayoutConstraint"/>
+            </relationships>
+        </class>
         <class className="InfoCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoCell.h"/>
             <relationships>
@@ -172,10 +238,13 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="UIPlaceHolderTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPlaceHolderTextView.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
