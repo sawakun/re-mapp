@@ -30,9 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // get BuzzData
-    _buzzData = [BuzzData sharedInstance];
-    NSLog(@"N=%d", _buzzData.count);
     // set info table
     _infoTableView.transform = CGAffineTransformMakeRotation(M_PI * 0.5f);
     _infoTableView.pagingEnabled = YES;
@@ -62,8 +59,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"InfoCell";
-    InfoCell *cell = (InfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Buzz *buzz = [_buzzData buzzAtIndex:indexPath.row];
+    InfoCell *cell = (InfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.headlineLabel.text = buzz.text;
     cell.contentView.transform = CGAffineTransformMakeRotation(M_PI * (-0.5f));
     return cell;
@@ -88,12 +85,14 @@
 
 #pragma mark - Table view delegate
 
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"bgView height = %f", self.view.frame.size.height);
     NSLog(@"width = %f", self.infoTableView.frame.size.width);
     NSLog(@"select = %d",indexPath.row);
 }
+ */
 
 /*
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

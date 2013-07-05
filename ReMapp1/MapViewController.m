@@ -11,10 +11,7 @@
 #import "BuzzData.h"
 #import "Buzz.h"
 #import "BuzzFormViewController.h"
-
-@implementation BuzzAnnotation
-
-@end
+#import "BuzzAnnotation.h"
 
 @interface MapViewController ()
 
@@ -25,9 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //get BuzzData
-    _buzzData = [BuzzData sharedInstance];
-    [_buzzData reload];
+    //set BuzzData
+    _buzzData = [[BuzzData alloc] init];
 
     // set Map
     _mapView.delegate = self;
@@ -36,14 +32,17 @@
     zoomLocation.longitude = 139.7017;
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 1000.0, 1000.0);
     [_mapView setRegion:viewRegion animated:NO];
+
     
     // set InfoView
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     _infoViewController = (InfoViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Info"];
+    _infoViewController.buzzData = _buzzData;
     [_infoViewController.view setFrame:self.view.bounds];
     [self addChildViewController:_infoViewController];
     [self.view addSubview:_infoViewController.view];
     [_infoViewController didMoveToParentViewController:self];
+    
     
     // set BuzzForm
     _buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
@@ -57,21 +56,8 @@
     _lowerCenter = CGPointMake(xcenter, height + infoHeight * 0.5f - headlineHeight);
     _middleCenter = CGPointMake(xcenter, height);
     _upperCenter = CGPointMake(xcenter, height * 0.5);
-    
-    // show Buzz points
-    NSMutableArray *annotations = [NSMutableArray array];
-    for (Buzz *buzz in _buzzData.buzzes)
-    {
-        static NSInteger index = 0;
-        BuzzAnnotation *pointAnnotation = [[BuzzAnnotation alloc] init];
-        pointAnnotation.coordinate = CLLocationCoordinate2DMake(buzz.lat, buzz.lot);
-        pointAnnotation.index = index;
-        [annotations addObject:pointAnnotation];
-        ++index;
-    }
-    [_mapView addAnnotations:annotations];
-    
-    // regist UILongPressGestureRecognizer
+        
+    // regist UIGestureRecognizer
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0;
@@ -82,6 +68,13 @@
 {
     [super viewWillAppear:animated];
     _infoViewController.view.center = _hiddenCenter;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    // show Buzz points
+    [self reload];
 }
 
 - (void)didReceiveMemoryWarning
@@ -145,24 +138,28 @@
     }];
 }
 
--(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
+
+
+-(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
     }
     
-    MKAnnotationView *annotationView;
-    NSString* identifier = @"Pin";
-    annotationView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    static NSString* identifier = @"Pin";
+    MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
     if(nil == annotationView) {
         annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        annotationView.image = [UIImage imageNamed:@"pin.png"];
+        annotationView.canShowCallout = NO;
+    }
+    else {
+        annotationView.annotation = annotation;
     }
     
-    annotationView.image = [UIImage imageNamed:@"pin.png"];
     //annotationView.centerOffset = CGPointMake(-10, -10);
-    annotationView.canShowCallout = NO;
     //annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    annotationView.annotation = annotation;
     
     return annotationView;
 }
@@ -189,7 +186,6 @@
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
-    NSLog(@"%d", annotation.index);
     [_infoViewController showNthCell:annotation.index];
     [self showInfo];
 }
@@ -205,24 +201,50 @@
 
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
-    static BuzzAnnotation *annot;
-    
+    static BuzzAnnotation *annotation;
     
     CGPoint tapPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:self.mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:_mapView];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
     {
         [self showBuzzForm:touchMapCoordinate];
-        [_mapView removeAnnotation:annot];
+        [_mapView removeAnnotation:annotation];
         return;
     }
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        annot = [[BuzzAnnotation alloc] init];
+        annotation = [[BuzzAnnotation alloc] init];
     }
-    annot.coordinate = touchMapCoordinate;
-    [self.mapView addAnnotation:annot];
+    annotation.coordinate = touchMapCoordinate;
+    [self.mapView addAnnotation:annotation];
+}
+
+- (void)reload
+{
+    CGPoint northEast = CGPointMake(self.view.bounds.origin.x+self.view.bounds.size.width,
+                                    self.view.bounds.origin.y);
+    CLLocationCoordinate2D neCoordinate = [_mapView convertPoint:northEast toCoordinateFromView:_mapView];
+    
+    CGPoint southWest = CGPointMake(self.view.bounds.origin.x,
+                                    self.view.bounds.origin.y+self.view.bounds.size.height);
+    CLLocationCoordinate2D swCoordinate = [_mapView convertPoint:southWest toCoordinateFromView:_mapView];
+    
+    [_buzzData reloadWithNorthEastCordinate:neCoordinate SouthWestCoordinate:swCoordinate];
+    [_infoViewController.infoTableView reloadData];
+    
+    NSMutableArray *annotations = [NSMutableArray array];
+    for (Buzz *buzz in _buzzData.buzzes)
+    {
+        [annotations addObject:buzz.annotation];
+    }
+    [_mapView removeAnnotations:_mapView.annotations];
+    [_mapView addAnnotations:annotations];
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    [self reload];
 }
 
 @end

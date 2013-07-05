@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <MapKit/MapKit.h>
 @class Buzz;
 
 @interface BuzzData : NSObject
@@ -19,7 +19,8 @@
 @property (nonatomic, readonly) NSInteger count;
 @property (nonatomic, readonly) NSMutableArray *buzzes;
 
-+ (BuzzData *) sharedInstance;
+- (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
+                  SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate;
 - (Buzz *)buzzAtIndex:(NSInteger)index;
 - (void)reload;
 @end

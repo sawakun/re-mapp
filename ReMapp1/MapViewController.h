@@ -31,7 +31,3 @@
 - (void)showCenter:(NSInteger)index;
 @end
 
-
-@interface BuzzAnnotation : MKPointAnnotation
-@property (nonatomic, assign) NSInteger index;
-@end

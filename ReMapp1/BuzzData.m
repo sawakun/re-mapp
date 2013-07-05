@@ -13,18 +13,15 @@
 @implementation BuzzData
 @synthesize buzzes = _buzzes;
 
-+ (BuzzData *) sharedInstance
+- (id) init
 {
-    static BuzzData *sharedObject = nil;
-    static dispatch_once_t _singletonPredicate;
-    
-    dispatch_once(&_singletonPredicate, ^{
-        sharedObject = [[super allocWithZone:nil] init];
-    });
-    
-    return sharedObject;
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        _buzzes = [[NSMutableArray alloc] init];
+    }
+    return self;
 }
-
 - (Buzz *)buzzAtIndex:(NSInteger)index
 {
     return [_buzzes objectAtIndex:index];
@@ -36,11 +33,42 @@
     static NSString *fileName = @"BuzzData.csv";
     NSMutableArray *data = readCSVFile(fileName);
     
+    NSInteger index = 0;
     for(NSArray *d in data)
     {
-        Buzz* buzz = [[Buzz alloc] initWithArray:d];
+        Buzz* buzz = [[Buzz alloc] initWithArray:d Index:index];
         [_buzzes addObject:buzz];
+        ++index;
     }
+}
+
+- (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
+                  SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate
+{
+    static NSString *fileName = @"BuzzData.csv";
+    NSMutableArray *data = readCSVFile(fileName);
+    
+    NSInteger index = 0;
+    [_buzzes removeAllObjects];
+    for(NSArray *d in data)
+    {
+        float lat = [d[4] floatValue];
+        float lot = [d[5] floatValue];
+        if (lat < northEastCordinate.latitude &&
+            lat > southWestCoordinate.latitude &&
+            lot < northEastCordinate.longitude &&
+            lot > southWestCoordinate.longitude)
+        {
+            Buzz* buzz = [[Buzz alloc] initWithArray:d Index:index];
+            [_buzzes addObject:buzz];
+            ++index;
+        }
+        if (index > 1000) {
+            goto next;
+        }
+    }
+next:
+    return;
 }
 
 

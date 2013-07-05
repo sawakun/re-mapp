@@ -12,14 +12,20 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="336" id="2qv-ly-cpu"/>
+                                    <constraint firstAttribute="height" constant="468" id="dUA-yF-7Y4"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="zE2-ei-1Cx"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="Gu8-az-OU0"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="NrK-Fq-xDb"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="jDG-wW-pgK"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="jZK-if-0WC"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerY" secondItem="gCj-i9-D1h" secondAttribute="centerY" type="default" id="J9c-5N-RTe"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerX" secondItem="gCj-i9-D1h" secondAttribute="centerX" type="default" id="kRZ-XV-FhU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -80,10 +86,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dq9-CA-olp" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="2aB-rT-OKT"/>
+                            <constraint firstItem="oW4-eo-mk4" firstAttribute="top" secondItem="dq9-CA-olp" secondAttribute="bottom" type="default" id="4R8-DC-Gse"/>
                             <constraint firstItem="eSA-ky-eIo" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="8ZL-vM-k6f"/>
                             <constraint firstItem="a6W-ZE-fjS" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="DgT-N0-vp6"/>
                             <constraint firstItem="dq9-CA-olp" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="Glh-aj-hyM"/>
-                            <constraint firstItem="oW4-eo-mk4" firstAttribute="top" secondItem="dq9-CA-olp" secondAttribute="bottom" type="default" id="QBx-6B-bPz"/>
                             <constraint firstItem="a6W-ZE-fjS" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="VOb-hU-6FT"/>
                             <constraint firstItem="eSA-ky-eIo" firstAttribute="bottom" secondItem="p5L-xl-0Jx" secondAttribute="bottom" type="user" id="bSq-Wu-Taw"/>
                             <constraint firstItem="a6W-ZE-fjS" firstAttribute="top" secondItem="p5L-xl-0Jx" secondAttribute="top" constant="85" id="jgH-Hl-ek1"/>
@@ -208,7 +214,6 @@
                 <relationship kind="action" name="tappedCancel:"/>
                 <relationship kind="action" name="tappedPhotos:"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="innerScrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="textView" candidateClass="UIPlaceHolderTextView"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="toolbarVerticalSpaceConstraint" candidateClass="NSLayoutConstraint"/>

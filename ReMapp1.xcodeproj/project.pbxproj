@@ -16,6 +16,7 @@
 		45952DD1177FE7750083B7D0 /* CSVHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DD0177FE7750083B7D0 /* CSVHandler.m */; };
 		45952DD2177FE7750083B7D0 /* CSVHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DD0177FE7750083B7D0 /* CSVHandler.m */; };
 		45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */; };
+		45AD9DCB17856A0800242750 /* BuzzAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD9DCA17856A0800242750 /* BuzzAnnotation.m */; };
 		45E370D51782EADD006EE5F9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E370D31782EADD006EE5F9 /* MainStoryboard_iPhone.storyboard */; };
 		45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */; };
 		45E48974177F9A87002FF5FB /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E48973177F9A87002FF5FB /* InfoViewController.m */; };
@@ -62,6 +63,8 @@
 		45952DD0177FE7750083B7D0 /* CSVHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVHandler.m; sourceTree = "<group>"; };
 		45AD9DC51784EC9900242750 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		45AD9DC917856A0800242750 /* BuzzAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzAnnotation.h; sourceTree = "<group>"; };
+		45AD9DCA17856A0800242750 /* BuzzAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzAnnotation.m; sourceTree = "<group>"; };
 		45E370D41782EADD006EE5F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = ReMapp1/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		45E370D61782EBC5006EE5F9 /* BuzzFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzFormViewController.h; sourceTree = "<group>"; };
 		45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzFormViewController.m; sourceTree = "<group>"; };
@@ -152,13 +155,26 @@
 			name = TestData;
 			sourceTree = "<group>";
 		};
+		45AD9DCC1785749400242750 /* Buzz */ = {
+			isa = PBXGroup;
+			children = (
+				45AD9DC917856A0800242750 /* BuzzAnnotation.h */,
+				45AD9DCA17856A0800242750 /* BuzzAnnotation.m */,
+				45952DCB177FE7340083B7D0 /* Buzz.h */,
+				45952DCC177FE7340083B7D0 /* Buzz.m */,
+				45952DC7177FE7250083B7D0 /* BuzzData.h */,
+				45952DC8177FE7250083B7D0 /* BuzzData.m */,
+			);
+			name = Buzz;
+			sourceTree = "<group>";
+		};
 		45E48971177F9A43002FF5FB /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				45E48972177F9A87002FF5FB /* InfoViewController.h */,
-				45E48973177F9A87002FF5FB /* InfoViewController.m */,
 				45E48975177F9F7D002FF5FB /* InfoCell.h */,
 				45E48976177F9F7D002FF5FB /* InfoCell.m */,
+				45E48972177F9A87002FF5FB /* InfoViewController.h */,
+				45E48973177F9A87002FF5FB /* InfoViewController.m */,
 			);
 			name = Info;
 			sourceTree = "<group>";
@@ -166,10 +182,7 @@
 		45E48978177FB85A002FF5FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				45952DCB177FE7340083B7D0 /* Buzz.h */,
-				45952DCC177FE7340083B7D0 /* Buzz.m */,
-				45952DC7177FE7250083B7D0 /* BuzzData.h */,
-				45952DC8177FE7250083B7D0 /* BuzzData.m */,
+				45AD9DCC1785749400242750 /* Buzz */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -390,6 +403,7 @@
 				45952DD1177FE7750083B7D0 /* CSVHandler.m in Sources */,
 				45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */,
 				45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */,
+				45AD9DCB17856A0800242750 /* BuzzAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
