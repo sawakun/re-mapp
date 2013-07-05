@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450C35B61787831D00484A9E /* bigmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 450C35B51787831D00484A9E /* bigmarker.png */; };
 		45952DBB177FDE5D0083B7D0 /* BuzzData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 45952DBA177FDE5D0083B7D0 /* BuzzData.csv */; };
 		45952DC3177FDFFD0083B7D0 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45952DC2177FDFFD0083B7D0 /* pin.png */; };
 		45952DC9177FE7250083B7D0 /* BuzzData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* BuzzData.m */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		450C35B51787831D00484A9E /* bigmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigmarker.png; sourceTree = "<group>"; };
 		45952DBA177FDE5D0083B7D0 /* BuzzData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BuzzData.csv; sourceTree = "<group>"; };
 		45952DC2177FDFFD0083B7D0 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		45952DC7177FE7250083B7D0 /* BuzzData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzData.h; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				45952DC2177FDFFD0083B7D0 /* pin.png */,
+				450C35B51787831D00484A9E /* bigmarker.png */,
 				45E4AC28177E8ADF006619F1 /* MapViewController.h */,
 				45E4AC29177E8ADF006619F1 /* MapViewController.m */,
 			);
@@ -359,6 +362,7 @@
 				45952DBB177FDE5D0083B7D0 /* BuzzData.csv in Resources */,
 				45952DC3177FDFFD0083B7D0 /* pin.png in Resources */,
 				45E370D51782EADD006EE5F9 /* MainStoryboard_iPhone.storyboard in Resources */,
+				450C35B61787831D00484A9E /* bigmarker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

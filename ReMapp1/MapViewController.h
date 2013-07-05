@@ -29,5 +29,6 @@
 - (void)moveInfoUp;
 - (void)moveInfoDown;
 - (void)showCenter:(NSInteger)index;
+- (void)showAnnotation:(NSInteger)index;
 @end
 

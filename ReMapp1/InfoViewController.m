@@ -112,7 +112,8 @@
     CGFloat pageWidth = scrollView.frame.size.width;
     float fractionalPage = scrollView.contentOffset.y / pageWidth;
     MapViewController *parent = (MapViewController *)self.parentViewController;
-    [parent showCenter:fractionalPage];
+    [parent showAnnotation:fractionalPage];
+    //[parent showCenter:fractionalPage];
 }
 
 @end

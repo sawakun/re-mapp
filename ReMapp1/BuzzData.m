@@ -48,6 +48,7 @@
     static NSString *fileName = @"BuzzData.csv";
     NSMutableArray *data = readCSVFile(fileName);
     
+    
     NSInteger index = 0;
     [_buzzes removeAllObjects];
     for(NSArray *d in data)

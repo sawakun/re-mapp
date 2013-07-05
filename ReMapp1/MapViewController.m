@@ -94,6 +94,17 @@
     }
 }
 
+- (void)hideInfo
+{
+    CGPoint center = _infoViewController.view.center;
+    if (center.y != _hiddenCenter.y)
+    {
+        [UIView animateWithDuration:0.5f animations:^{
+            _infoViewController.view.center = _hiddenCenter;
+        }];
+    }
+}
+
 - (void)moveInfoUp
 {
     CGPoint center = _infoViewController.view.center;
@@ -182,12 +193,27 @@
     [self.mapView setCenterCoordinate:centerLocation animated:YES];
 }
 
+- (void)showAnnotation:(NSInteger)index
+{
+    Buzz *buzz = [_buzzData buzzAtIndex:index];
+    [_mapView selectAnnotation:buzz.annotation animated:NO];
+}
+
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
     [_infoViewController showNthCell:annotation.index];
+    
+    [UIView animateWithDuration:0.2f animations:^{
+        view.image = [UIImage imageNamed:@"bigmarker.png"];
+    }];
     [self showInfo];
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    view.image = [UIImage imageNamed:@"pin.png"];
 }
 
 
@@ -244,6 +270,7 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
+    [self hideInfo];
     [self reload];
 }
 
