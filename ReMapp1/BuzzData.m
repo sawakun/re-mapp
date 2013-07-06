@@ -64,9 +64,9 @@
             [_buzzes addObject:buzz];
             ++index;
         }
-        if (index > 1000) {
-            goto next;
-        }
+        //if (index > 1000) {
+        //    goto next;
+        //}
     }
 next:
     return;
