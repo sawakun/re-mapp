@@ -10,13 +10,11 @@
 
 @class BuzzData;
 @interface InfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-{
-@private
-    BuzzData *_buzzData;
-}
 
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
+@property (weak, nonatomic) BuzzData *buzzData;
+- (void)showNthCell:(NSInteger)index;
 - (IBAction)swipeUp:(id)sender;
 - (IBAction)swipeDown:(id)sender;
 
