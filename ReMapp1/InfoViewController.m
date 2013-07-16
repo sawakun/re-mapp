@@ -11,6 +11,10 @@
 #import "MapViewController.h"
 #import "BuzzData.h"
 #import "Buzz.h"
+#import "MapViewController.h"
+
+
+NSString *const InfoCellDidMove = @"InfoCellDidMove";
 
 @interface InfoViewController ()
 
@@ -37,6 +41,11 @@
     _infoTableView.showsVerticalScrollIndicator = NO;
     _infoTableView.rowHeight = self.view.frame.size.width;
     [_infoTableView reloadData];
+    
+    _buzzData = [BuzzData sharedManager];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNthCell:) name:MapViewDidSelectAnnotation object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:MapViewDidReload object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,6 +54,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)reload
+{
+    [self.infoTableView reloadData];
+}
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -66,22 +79,14 @@
     return cell;
 }
 
-- (void)showNthCell:(NSInteger)index
+- (void)showNthCell:(NSNotification *)center
 {
+    NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
     CGFloat pageWidth = _infoTableView.frame.size.width;
-    CGPoint newPoint = CGPointMake(_infoTableView.contentOffset.x,  pageWidth * index);
+    CGPoint newPoint = CGPointMake(_infoTableView.contentOffset.x,  pageWidth * annotationIndex);
     [_infoTableView setContentOffset:newPoint animated:NO];
 }
 
-- (IBAction)swipeUp:(id)sender {
-    MapViewController *parent = (MapViewController *)self.parentViewController;
-    [parent moveInfoUp];
-}
-
-- (IBAction)swipeDown:(id)sender {
-    MapViewController *parent = (MapViewController *)self.parentViewController;
-    [parent moveInfoDown];
-}
 
 #pragma mark - Table view delegate
 
@@ -111,9 +116,14 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;
     float fractionalPage = scrollView.contentOffset.y / pageWidth;
-    MapViewController *parent = (MapViewController *)self.parentViewController;
-    [parent showAnnotation:fractionalPage];
-    //[parent showCenter:fractionalPage];
+
+    //post notification
+    NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:fractionalPage]};
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:InfoCellDidMove
+                                                            object:self
+                                                          userInfo:userInfo];
+    });
 }
 
 @end
