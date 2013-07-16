@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		450C35B61787831D00484A9E /* bigmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 450C35B51787831D00484A9E /* bigmarker.png */; };
+		457D160017942E20007F2E8A /* RMPVerticalSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D15FF17942E20007F2E8A /* RMPVerticalSlidingViewController.m */; };
+		457D160317942F57007F2E8A /* RMPInitialVerticalSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D160217942F57007F2E8A /* RMPInitialVerticalSlidingViewController.m */; };
 		45952DBB177FDE5D0083B7D0 /* BuzzData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 45952DBA177FDE5D0083B7D0 /* BuzzData.csv */; };
 		45952DC3177FDFFD0083B7D0 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45952DC2177FDFFD0083B7D0 /* pin.png */; };
 		45952DC9177FE7250083B7D0 /* BuzzData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* BuzzData.m */; };
@@ -55,6 +57,10 @@
 
 /* Begin PBXFileReference section */
 		450C35B51787831D00484A9E /* bigmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigmarker.png; sourceTree = "<group>"; };
+		457D15FE17942E20007F2E8A /* RMPVerticalSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPVerticalSlidingViewController.h; sourceTree = "<group>"; };
+		457D15FF17942E20007F2E8A /* RMPVerticalSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPVerticalSlidingViewController.m; sourceTree = "<group>"; };
+		457D160117942F57007F2E8A /* RMPInitialVerticalSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPInitialVerticalSlidingViewController.h; sourceTree = "<group>"; };
+		457D160217942F57007F2E8A /* RMPInitialVerticalSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPInitialVerticalSlidingViewController.m; sourceTree = "<group>"; };
 		45952DBA177FDE5D0083B7D0 /* BuzzData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BuzzData.csv; sourceTree = "<group>"; };
 		45952DC2177FDFFD0083B7D0 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 		45952DC7177FE7250083B7D0 /* BuzzData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzData.h; sourceTree = "<group>"; };
@@ -138,6 +144,23 @@
 				45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */,
 			);
 			name = WriteForm;
+			sourceTree = "<group>";
+		};
+		457D15FC17942CCE007F2E8A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				457D15FD17942DF4007F2E8A /* RMPVerticalSlidingViewController */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		457D15FD17942DF4007F2E8A /* RMPVerticalSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				457D15FE17942E20007F2E8A /* RMPVerticalSlidingViewController.h */,
+				457D15FF17942E20007F2E8A /* RMPVerticalSlidingViewController.m */,
+			);
+			name = RMPVerticalSlidingViewController;
 			sourceTree = "<group>";
 		};
 		45952DB5177FDE370083B7D0 /* File */ = {
@@ -226,6 +249,7 @@
 		45E4AC10177E8ADF006619F1 /* ReMapp1 */ = {
 			isa = PBXGroup;
 			children = (
+				457D15FC17942CCE007F2E8A /* Library */,
 				45E4AC19177E8ADF006619F1 /* AppDelegate.h */,
 				45E4AC1A177E8ADF006619F1 /* AppDelegate.m */,
 				45952DB5177FDE370083B7D0 /* File */,
@@ -236,6 +260,8 @@
 				45E4AC11177E8ADF006619F1 /* Supporting Files */,
 				45952DB9177FDE4E0083B7D0 /* TestData */,
 				45193D051782E0D300E29FAA /* WriteForm */,
+				457D160117942F57007F2E8A /* RMPInitialVerticalSlidingViewController.h */,
+				457D160217942F57007F2E8A /* RMPInitialVerticalSlidingViewController.m */,
 			);
 			path = ReMapp1;
 			sourceTree = "<group>";
@@ -408,6 +434,8 @@
 				45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */,
 				45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */,
 				45AD9DCB17856A0800242750 /* BuzzAnnotation.m in Sources */,
+				457D160017942E20007F2E8A /* RMPVerticalSlidingViewController.m in Sources */,
+				457D160317942F57007F2E8A /* RMPInitialVerticalSlidingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

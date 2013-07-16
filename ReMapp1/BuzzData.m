@@ -13,15 +13,34 @@
 @implementation BuzzData
 @synthesize buzzes = _buzzes;
 
-- (id) init
+
++(BuzzData*)sharedManager
+{
+    static BuzzData *sharedBuzzData;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedBuzzData = [[BuzzData alloc] initSharedInstance];
+    });
+    return sharedBuzzData;
+}
+
+- (id)initSharedInstance
 {
     self = [super init];
     if (self) {
-        // Custom initialization
         _buzzes = [[NSMutableArray alloc] init];
     }
     return self;
 }
+
+- (id) init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+
+
 - (Buzz *)buzzAtIndex:(NSInteger)index
 {
     return [_buzzes objectAtIndex:index];

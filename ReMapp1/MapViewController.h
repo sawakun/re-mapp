@@ -13,21 +13,19 @@
 @class InfoViewController;
 @class BuzzFormViewController;
 
+/** Notification that gets posted when an annotation was selected. */
+extern NSString *const MapViewDidSelectAnnotation;
+/** Notification that gets posted when the map was reloaded. */
+extern NSString *const MapViewDidReload;
+
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 {
     @private
-    InfoViewController *_infoViewController;
     BuzzFormViewController *_buzzFormViewController;
-    CGPoint _hiddenCenter;
-    CGPoint _lowerCenter;
-    CGPoint _middleCenter;
-    CGPoint _upperCenter;
     BuzzData *_buzzData;
 }
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-- (void)moveInfoUp;
-- (void)moveInfoDown;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 - (void)showCenter:(NSInteger)index;
 - (void)showAnnotation:(NSInteger)index;
 @end

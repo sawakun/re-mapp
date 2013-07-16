@@ -19,6 +19,8 @@
 @property (nonatomic, readonly) NSInteger count;
 @property (nonatomic, readonly) NSMutableArray *buzzes;
 
++(BuzzData*)sharedManager;
+
 - (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
                   SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate;
 - (Buzz *)buzzAtIndex:(NSInteger)index;
