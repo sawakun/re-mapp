@@ -12,10 +12,15 @@
 #import "Buzz.h"
 #import "BuzzFormViewController.h"
 #import "BuzzAnnotation.h"
+#import "RMPVerticalSlidingViewController.h"
+#import "InfoViewController.h"
 
 @interface MapViewController ()
 
 @end
+
+NSString *const MapViewDidSelectAnnotation = @"MapViewDidSelectAnnotation";
+NSString *const MapViewDidReload = @"MapViewDidReload";
 
 @implementation MapViewController
 
@@ -23,7 +28,7 @@
 {
     [super viewDidLoad];
     //set BuzzData
-    _buzzData = [[BuzzData alloc] init];
+    _buzzData = [BuzzData sharedManager];
 
     // set Map
     _mapView.delegate = self;
@@ -32,43 +37,23 @@
     zoomLocation.longitude = 139.7017;
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 1000.0, 1000.0);
     [_mapView setRegion:viewRegion animated:NO];
-
-    
-    // set InfoView
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    _infoViewController = (InfoViewController *)[storyboard instantiateViewControllerWithIdentifier:@"Info"];
-    _infoViewController.buzzData = _buzzData;
-    [_infoViewController.view setFrame:self.view.bounds];
-    [self addChildViewController:_infoViewController];
-    [self.view addSubview:_infoViewController.view];
-    [_infoViewController didMoveToParentViewController:self];
-    
-    
+        
     // set BuzzForm
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     _buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
     
-    //calculate points of center of InfoView
-    float headlineHeight = 120.0f;
-    float xcenter = self.view.center.x;
-    float height = self.view.frame.size.height;
-    float infoHeight = _infoViewController.view.frame.size.height;
-    _hiddenCenter = CGPointMake(xcenter, height + infoHeight * 0.5f);
-    _lowerCenter = CGPointMake(xcenter, height + infoHeight * 0.5f - headlineHeight);
-    _middleCenter = CGPointMake(xcenter, height);
-    _upperCenter = CGPointMake(xcenter, height * 0.5);
-        
     // regist UIGestureRecognizer
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0;
     [self.mapView addGestureRecognizer:lpgr];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showAnnotationWhenReceiveNotification:)
+                                                 name:InfoCellDidMove
+                                               object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    _infoViewController.view.center = _hiddenCenter;
-}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -77,77 +62,6 @@
     [self reload];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)showInfo
-{
-    CGPoint center = _infoViewController.view.center;
-    if (center.y == _hiddenCenter.y)
-    {
-        [UIView animateWithDuration:0.5f animations:^{
-            _infoViewController.view.center = _lowerCenter;
-        }];
-    }
-}
-
-- (void)hideInfo
-{
-    CGPoint center = _infoViewController.view.center;
-    if (center.y != _hiddenCenter.y)
-    {
-        [UIView animateWithDuration:0.5f animations:^{
-            _infoViewController.view.center = _hiddenCenter;
-        }];
-    }
-}
-
-- (void)moveInfoUp
-{
-    CGPoint center = _infoViewController.view.center;
-    CGPoint newCenter = center;
-    if (center.y == _hiddenCenter.y)
-    {
-        newCenter = _lowerCenter;
-    }
-    else if (center.y == _lowerCenter.y)
-    {
-        newCenter = _middleCenter;
-    }
-    else if (center.y == _middleCenter.y)
-    {
-        newCenter = _upperCenter;
-    }
-    
-    [UIView animateWithDuration:0.5f animations:^{
-        _infoViewController.view.center = newCenter;
-    }];
-}
-
-- (void) moveInfoDown
-{
-    CGPoint center = _infoViewController.view.center;
-    CGPoint newCenter = center;
-    if (center.y == _upperCenter.y)
-    {
-        newCenter = _middleCenter;
-    }
-    else if (center.y == _middleCenter.y)
-    {
-        newCenter = _lowerCenter;
-    }
-    else if (center.y == _lowerCenter.y)
-    {
-        newCenter = _hiddenCenter;
-    }
-    
-    [UIView animateWithDuration:0.5f animations:^{
-        _infoViewController.view.center = newCenter;
-    }];
-}
 
 
 
@@ -169,18 +83,8 @@
         annotationView.annotation = annotation;
     }
     
-    //annotationView.centerOffset = CGPointMake(-10, -10);
-    //annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
     return annotationView;
 }
-
-/*
-- (void)mapView:(MKMapView *)map annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
-    NSLog(@"Test");
-}
- */
 
 
 
@@ -199,16 +103,32 @@
     [_mapView selectAnnotation:buzz.annotation animated:NO];
 }
 
+- (void)showAnnotationWhenReceiveNotification:(NSNotification *)center
+{
+    [self showAnnotation:[center.userInfo[@"annotationIndex"] intValue]];
+}
+
+
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
-    BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
-    [_infoViewController showNthCell:annotation.index];
     
     [UIView animateWithDuration:0.2f animations:^{
         view.image = [UIImage imageNamed:@"bigmarker.png"];
     }];
-    [self showInfo];
+    
+    //post notification
+    BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
+    NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:annotation.index]};
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidSelectAnnotation
+                                                            object:self
+                                                          userInfo:userInfo];
+    });
+    
+    if (!self.rmp_verticalSlidingViewController.isTopViewShowing) {
+        [self.rmp_verticalSlidingViewController anchorTopViewTo:RMPMiddle];
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
@@ -257,7 +177,6 @@
     CLLocationCoordinate2D swCoordinate = [_mapView convertPoint:southWest toCoordinateFromView:_mapView];
     
     [_buzzData reloadWithNorthEastCordinate:neCoordinate SouthWestCoordinate:swCoordinate];
-    [_infoViewController.infoTableView reloadData];
     
     NSMutableArray *annotations = [NSMutableArray array];
     for (Buzz *buzz in _buzzData.buzzes)
@@ -266,11 +185,16 @@
     }
     [_mapView removeAnnotations:_mapView.annotations];
     [_mapView addAnnotations:annotations];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidReload
+                                                            object:self
+                                                          userInfo:nil];
+    });
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    [self hideInfo];
     [self reload];
 }
 
