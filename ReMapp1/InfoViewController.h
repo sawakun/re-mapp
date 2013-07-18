@@ -19,7 +19,5 @@ extern NSString *const InfoCellDidMove;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
 @property (weak, nonatomic) BuzzData *buzzData;
 - (void)showNthCell:(NSNotification *)center;
-- (IBAction)swipeUp:(id)sender;
-- (IBAction)swipeDown:(id)sender;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class BuzzAnnotation;
+@class RMPBuzzAnnotation;
 
 
 @interface Buzz : NSObject
@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) NSString* date;
 @property (nonatomic, readonly) float lot;
 @property (nonatomic, readonly) float lat;
-@property (nonatomic, readonly) BuzzAnnotation* annotation;
+@property (nonatomic, readonly) RMPBuzzAnnotation* annotation;
 
 
 

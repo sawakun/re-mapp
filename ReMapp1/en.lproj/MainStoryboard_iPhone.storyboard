@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cdv-DF-RZo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AYv-rq-Art">
     <dependencies>
+        <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Initial View Controller-->
+        <scene sceneID="WKX-38-EMI">
+            <objects>
+                <viewController id="AYv-rq-Art" customClass="RMPInitialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hs6-8f-IJF">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ECSlidingViewController" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLi-eR-46J">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yLi-eR-46J" firstAttribute="top" secondItem="hs6-8f-IJF" secondAttribute="top" constant="219" id="Hme-VL-GaC"/>
+                            <constraint firstItem="yLi-eR-46J" firstAttribute="centerX" secondItem="hs6-8f-IJF" secondAttribute="centerX" type="default" id="b15-2o-H82"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s67-pH-CyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1334" y="296"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ilC-hT-jrb">
+            <objects>
+                <viewController storyboardIdentifier="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EtR-jD-iBJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Cm-RL-tih">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNG-q9-w6S">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jNG-q9-w6S" firstAttribute="centerX" secondItem="8Cm-RL-tih" secondAttribute="centerX" type="default" id="Zin-vK-jeq"/>
+                            <constraint firstItem="jNG-q9-w6S" firstAttribute="top" secondItem="8Cm-RL-tih" secondAttribute="top" constant="219" id="bD8-nL-f1I"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8S-D6-Jfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-925" y="293"/>
+        </scene>
         <!--Initial Vertical Sliding View Controller-->
         <scene sceneID="ugI-ZW-pyg">
             <objects>
@@ -18,6 +69,31 @@
             </objects>
             <point key="canvasLocation" x="-549" y="296"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="JVN-cN-7oG">
+            <objects>
+                <viewController storyboardIdentifier="TimeLine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uF0-dd-pg3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="14O-ES-xYw">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Timeline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpQ-Ue-reM">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YpQ-Ue-reM" firstAttribute="top" secondItem="14O-ES-xYw" secondAttribute="top" constant="219" id="aoP-yH-Xic"/>
+                            <constraint firstItem="YpQ-Ue-reM" firstAttribute="centerX" secondItem="14O-ES-xYw" secondAttribute="centerX" type="default" id="h6w-rw-4Pa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAj-BI-3VD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-163" y="293"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="5">
             <objects>
@@ -26,7 +102,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="2qv-ly-cpu"/>
                                     <constraint firstAttribute="height" constant="468" id="dUA-yF-7Y4"/>
@@ -35,11 +111,61 @@
                                     <outlet property="delegate" destination="2" id="zE2-ei-1Cx"/>
                                 </connections>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="meD-lq-8M9" customClass="RMPNonVisibleToolBar">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="8pK-bb-lJP"/>
+                                </constraints>
+                                <items/>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="PAJ-4P-jUs" customClass="RMPNonVisibleToolBar">
+                                <items>
+                                    <barButtonItem systemItem="refresh" id="ad9-sa-1d5">
+                                        <connections>
+                                            <action selector="tappedToCurrentLocation:" destination="2" id="FAy-YK-6LP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="I6P-LG-aZy" customClass="RMPNonVisibleToolBar">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="Vi0-p5-cFM"/>
+                                </constraints>
+                                <items/>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="HQq-uU-vps">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="HO6-nC-cgq"/>
+                                    <constraint firstAttribute="width" constant="22" id="U7D-t4-GU7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="jKn-l4-c9r">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="7a5-n0-dk0"/>
+                                    <constraint firstAttribute="width" constant="22" id="zvD-dt-NXT"/>
+                                </constraints>
+                            </imageView>
+                            <searchBar contentMode="redraw" barStyle="blackTranslucent" placeholder="What..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO" customClass="RMPNonVisibleSearchBar">
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PAJ-4P-jUs" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="BPi-d7-kmH"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerX" secondItem="VRc-20-keO" secondAttribute="centerX" type="default" id="E0W-KY-ZuE"/>
+                            <constraint firstItem="VRc-20-keO" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="HFQ-lN-ZyA"/>
+                            <constraint firstItem="I6P-LG-aZy" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="Hqp-V4-aXg"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="centerY" secondItem="gCj-i9-D1h" secondAttribute="centerY" type="default" id="J9c-5N-RTe"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerX" secondItem="gCj-i9-D1h" secondAttribute="centerX" type="default" id="kRZ-XV-FhU"/>
+                            <constraint firstItem="I6P-LG-aZy" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" constant="120" id="RCf-hd-3iw"/>
+                            <constraint firstItem="HQq-uU-vps" firstAttribute="centerY" secondItem="I6P-LG-aZy" secondAttribute="centerY" type="default" id="RIT-Np-cSx"/>
+                            <constraint firstItem="meD-lq-8M9" firstAttribute="bottom" secondItem="jKn-l4-c9r" secondAttribute="bottom" type="default" id="YVF-TX-Fs2"/>
+                            <constraint firstItem="PAJ-4P-jUs" firstAttribute="trailing" secondItem="I6P-LG-aZy" secondAttribute="trailing" type="default" id="ZF7-l8-ELb"/>
+                            <constraint firstItem="HQq-uU-vps" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="-1" id="ZcO-2z-Qyi"/>
+                            <constraint firstItem="PAJ-4P-jUs" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="a7q-lg-2UM"/>
+                            <constraint firstItem="meD-lq-8M9" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="b3d-UV-DEq"/>
+                            <constraint firstItem="VRc-20-keO" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="bfo-E5-ky8"/>
+                            <constraint firstItem="jKn-l4-c9r" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="gJI-01-u5a"/>
+                            <constraint firstItem="VRc-20-keO" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="kMR-MO-SGw"/>
+                            <constraint firstItem="meD-lq-8M9" firstAttribute="top" secondItem="I6P-LG-aZy" secondAttribute="top" type="default" id="u0v-1L-cks"/>
                         </constraints>
                     </view>
                     <connections>
@@ -48,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="-32"/>
+            <point key="canvasLocation" x="-558" y="-316"/>
         </scene>
         <!--Buzz Form View Controller-->
         <scene sceneID="TjK-PH-Bgu">
@@ -121,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQi-u3-CV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315" y="-26"/>
+            <point key="canvasLocation" x="-191" y="-310"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="qdD-mF-cut">
@@ -218,9 +344,12 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-159" y="652"/>
+            <point key="canvasLocation" x="-549" y="916"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bar.png" width="20" height="44"/>
+    </resources>
     <classes>
         <class className="BuzzFormViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BuzzFormViewController.h"/>
@@ -233,6 +362,9 @@
                 <relationship kind="outlet" name="toolbarVerticalSpaceConstraint" candidateClass="NSLayoutConstraint"/>
             </relationships>
         </class>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
         <class className="InfoCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoCell.h"/>
             <relationships>
@@ -242,8 +374,6 @@
         <class className="InfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
             <relationships>
-                <relationship kind="action" name="swipeDown:"/>
-                <relationship kind="action" name="swipeUp:"/>
                 <relationship kind="outlet" name="infoTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="infoView" candidateClass="UIView"/>
             </relationships>
@@ -251,6 +381,7 @@
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
+                <relationship kind="action" name="tappedToCurrentLocation:"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
@@ -259,6 +390,15 @@
         </class>
         <class className="RMPInitialVerticalSlidingViewController" superclassName="RMPVerticalSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialVerticalSlidingViewController.h"/>
+        </class>
+        <class className="RMPInitialViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialViewController.h"/>
+        </class>
+        <class className="RMPNonVisibleSearchBar" superclassName="UISearchBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPNonVisibleSearchBar.h"/>
+        </class>
+        <class className="RMPNonVisibleToolBar" superclassName="UIToolbar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPNonVisibleToolBar.h"/>
         </class>
         <class className="RMPVerticalSlidingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPVerticalSlidingViewController.h"/>
