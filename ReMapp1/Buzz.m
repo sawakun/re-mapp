@@ -7,7 +7,7 @@
 //
 
 #import "Buzz.h"
-#import "BuzzAnnotation.h"
+#import "RMPAnnotation.h"
 
 @implementation Buzz
 
@@ -33,7 +33,7 @@
         _date    = [[buzz objectForKey:@"date"] copy];
         _lat     = [[buzz objectForKey:@"lat"] floatValue];
         _lot     = [[buzz objectForKey:@"lot"] floatValue];
-        _annotation = [[BuzzAnnotation alloc] init];
+        _annotation = [[RMPBuzzAnnotation alloc] init];
         _annotation.coordinate = CLLocationCoordinate2DMake(_lat, _lot);
         _annotation.index = index;
     }
@@ -53,7 +53,7 @@
         _lat     = [buzz[4] floatValue];
         _lot     = [buzz[5] floatValue];
         _date    = buzz[6];
-        _annotation = [[BuzzAnnotation alloc] init];
+        _annotation = [[RMPBuzzAnnotation alloc] init];
         _annotation.coordinate = CLLocationCoordinate2DMake(_lat, _lot);
         _annotation.index = index;
     }

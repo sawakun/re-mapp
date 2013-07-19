@@ -11,9 +11,10 @@
 #import "BuzzData.h"
 #import "Buzz.h"
 #import "BuzzFormViewController.h"
-#import "BuzzAnnotation.h"
+#import "RMPAnnotation.h"
 #import "RMPVerticalSlidingViewController.h"
 #import "InfoViewController.h"
+#import "RMPAnnotation.h"
 
 @interface MapViewController ()
 
@@ -28,19 +29,20 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     [super viewDidLoad];
     //set BuzzData
-    _buzzData = [BuzzData sharedManager];
+    self.buzzData = [BuzzData sharedManager];
 
     // set Map
-    _mapView.delegate = self;
+    self.mapView.delegate = self;
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 35.6584;
     zoomLocation.longitude = 139.7017;
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 1000.0, 1000.0);
-    [_mapView setRegion:viewRegion animated:NO];
-        
+    [self.mapView setRegion:viewRegion animated:NO];
+    self.mapView.showsUserLocation = NO;
+    
     // set BuzzForm
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    _buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
+    self.buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
     
     // regist UIGestureRecognizer
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
@@ -52,39 +54,17 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                              selector:@selector(showAnnotationWhenReceiveNotification:)
                                                  name:InfoCellDidMove
                                                object:nil];
+    
 }
 
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    // show Buzz points
     [self reload];
 }
 
 
-
-
--(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id <MKAnnotation>)annotation
-{
-    
-    if ([annotation isKindOfClass:[MKUserLocation class]]) {
-        return nil;
-    }
-    
-    static NSString* identifier = @"Pin";
-    MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    if(nil == annotationView) {
-        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-        annotationView.image = [UIImage imageNamed:@"pin.png"];
-        annotationView.canShowCallout = NO;
-    }
-    else {
-        annotationView.annotation = annotation;
-    }
-    
-    return annotationView;
-}
 
 
 
@@ -109,34 +89,6 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 }
 
 
-
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-    
-    [UIView animateWithDuration:0.2f animations:^{
-        view.image = [UIImage imageNamed:@"bigmarker.png"];
-    }];
-    
-    //post notification
-    BuzzAnnotation *annotation = (BuzzAnnotation *)view.annotation;
-    NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:annotation.index]};
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidSelectAnnotation
-                                                            object:self
-                                                          userInfo:userInfo];
-    });
-    
-    if (!self.rmp_verticalSlidingViewController.isTopViewShowing) {
-        [self.rmp_verticalSlidingViewController anchorTopViewTo:RMPMiddle];
-    }
-}
-
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
-{
-    view.image = [UIImage imageNamed:@"pin.png"];
-}
-
-
 - (void)showBuzzForm:(CLLocationCoordinate2D)tapPoint
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
@@ -147,7 +99,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
-    static BuzzAnnotation *annotation;
+    static RMPWriteFormAnnotation *annotation;
     
     CGPoint tapPoint = [gestureRecognizer locationInView:self.mapView];
     CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:_mapView];
@@ -160,8 +112,9 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     }
     
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        annotation = [[BuzzAnnotation alloc] init];
+        annotation = [[RMPWriteFormAnnotation alloc] init];
     }
+    
     annotation.coordinate = touchMapCoordinate;
     [self.mapView addAnnotation:annotation];
 }
@@ -197,5 +150,77 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     [self reload];
 }
+
+- (IBAction)tappedToCurrentLocation:(id)sender {
+    //self.mapView.showsUserLocation = YES;
+    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+    [locationManager startUpdatingLocation];
+    while (locationManager.location.coordinate.longitude == 0)
+    {
+        NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    }
+    NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    self.mapView.centerCoordinate = locationManager.location.coordinate;
+    [locationManager stopUpdatingLocation];
+    //self.mapView.userLocationVisible = NO;
+}
+
+#pragma mark - MKMapViewDelegate
+-(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MKUserLocation class]] ||
+        ![annotation isKindOfClass:[RMPAnnotation class]]) {
+        return nil;
+    }
+    
+    RMPAnnotation *thisAnnotation = (RMPAnnotation*)annotation;
+    NSString* identifier = thisAnnotation.identifier;
+    
+    MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    if(nil == annotationView) {
+        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        annotationView.image = thisAnnotation.pinImage;
+        annotationView.centerOffset = thisAnnotation.centerOffset;
+        annotationView.canShowCallout = NO;
+    }
+    else {
+        annotationView.annotation = annotation;
+    }
+    
+    return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+ 
+    RMPSelectedAnnotation *selectedAnnotation = [[RMPSelectedAnnotation alloc] init];
+    [UIView animateWithDuration:0.2f animations:^{
+        view.image = selectedAnnotation.pinImage;
+    }];
+    
+    //post notification
+    RMPAnnotation *annotation = (RMPAnnotation *)view.annotation;
+    NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:annotation.index]};
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidSelectAnnotation
+                                                            object:self
+                                                          userInfo:userInfo];
+    });
+    
+    if (!self.rmp_verticalSlidingViewController.isTopViewShowing) {
+        [self.rmp_verticalSlidingViewController anchorTopViewTo:RMPMiddle];
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    if (![view.annotation isKindOfClass:[RMPAnnotation class]]) {
+        return;
+    }
+    
+    RMPAnnotation *thisAnnotation = (RMPAnnotation*)view.annotation;
+    view.image = thisAnnotation.pinImage;
+}
+
 
 @end

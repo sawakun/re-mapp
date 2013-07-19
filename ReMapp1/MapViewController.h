@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "ECSlidingViewController.h"
+#import "RMPAnnotation.h"
 
 @class BuzzData;
 @class InfoViewController;
@@ -19,11 +21,9 @@ extern NSString *const MapViewDidSelectAnnotation;
 extern NSString *const MapViewDidReload;
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
-{
-    @private
-    BuzzFormViewController *_buzzFormViewController;
-    BuzzData *_buzzData;
-}
+- (IBAction)tappedToCurrentLocation:(id)sender;
+@property (nonatomic) BuzzFormViewController *buzzFormViewController;
+@property (nonatomic) BuzzData *buzzData;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 - (void)showCenter:(NSInteger)index;
