@@ -9,6 +9,21 @@
 #import "Buzz.h"
 #import "RMPAnnotation.h"
 
+@interface Buzz()
+@property (nonatomic) NSString *buzzId;
+@property (nonatomic) NSString *userId;
+@property (nonatomic) NSString *userName;
+@property (nonatomic) NSString *iconURL;
+@property (nonatomic) UIImage *iconImage;
+@property (nonatomic) NSString *text;
+@property (nonatomic) NSString *imageURL;
+@property (nonatomic) UIImage *image;
+@property (nonatomic) NSString *date;
+@property (nonatomic) float lat;
+@property (nonatomic) float lot;
+@property (nonatomic) RMPBuzzAnnotation* annotation;
+@end
+
 @implementation Buzz
 
 - (id)init
@@ -26,16 +41,16 @@
     self = [self init];
     if (self && buzz)
     {
-        _buzzId  = [[buzz objectForKey:@"id"] copy];
-        _userId  = [[buzz objectForKey:@"userId"] copy];
-        _text    = [[buzz objectForKey:@"text"] copy];
-        _img     = [[buzz objectForKey:@"img"] copy];
-        _date    = [[buzz objectForKey:@"date"] copy];
-        _lat     = [[buzz objectForKey:@"lat"] floatValue];
-        _lot     = [[buzz objectForKey:@"lot"] floatValue];
-        _annotation = [[RMPBuzzAnnotation alloc] init];
-        _annotation.coordinate = CLLocationCoordinate2DMake(_lat, _lot);
-        _annotation.index = index;
+        self.buzzId  = [[buzz objectForKey:@"id"] copy];
+        self.userId  = [[buzz objectForKey:@"userId"] copy];
+        self.text    = [[buzz objectForKey:@"text"] copy];
+        self.imageURL  = [[buzz objectForKey:@"img"] copy];
+        self.date    = [[buzz objectForKey:@"date"] copy];
+        self.lat     = [[buzz objectForKey:@"lat"] floatValue];
+        self.lot     = [[buzz objectForKey:@"lot"] floatValue];
+        self.annotation = [[RMPBuzzAnnotation alloc] init];
+        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
+        self.annotation.index = index;
     }
     
     return self;
@@ -46,16 +61,24 @@
     self = [self init];
     if (self && buzz)
     {
-        _buzzId  = buzz[0];
-        _userId  = buzz[1];
-        _text    = buzz[2];
-        _img     = buzz[3];
-        _lat     = [buzz[4] floatValue];
-        _lot     = [buzz[5] floatValue];
-        _date    = buzz[6];
-        _annotation = [[RMPBuzzAnnotation alloc] init];
-        _annotation.coordinate = CLLocationCoordinate2DMake(_lat, _lot);
-        _annotation.index = index;
+        self.buzzId   = buzz[0];
+        self.userId   = buzz[1];
+        self.userName = buzz[2];
+        self.iconURL  = buzz[3];
+        self.text     = buzz[4];
+        self.imageURL = buzz[5];
+        self.lat      = [buzz[6] floatValue];
+        self.lot      = [buzz[7] floatValue];
+        self.date     = buzz[8];
+        self.annotation = [[RMPBuzzAnnotation alloc] init];
+        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
+        self.annotation.index = index;
+        
+        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.iconURL]];
+        self.iconImage = [UIImage imageWithData:iconData];
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
+        self.image = [UIImage imageWithData:imageData];
     }
     
     return self;
