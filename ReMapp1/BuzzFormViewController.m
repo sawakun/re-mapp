@@ -14,14 +14,6 @@
 
 @implementation BuzzFormViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -33,7 +25,21 @@
     _textView.returnKeyType = UIReturnKeyDone;
     _textView.delegate = self;
     _textView.placeholder = @"What's happening?";
-    }
+    
+    //set user info
+    RMPUser *user = [RMPUser sharedManager];
+    self.iconImageView.image = user.icon;
+    self.nameLabel.text = user.name;
+    
+    self.textCountLabel.text = @"0";
+    
+    //set tap gesture
+    self.imageView.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
+    tapped.numberOfTapsRequired = 1;
+    [self.imageView addGestureRecognizer:tapped];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -64,6 +70,9 @@
     NSMutableString *str = [textView.text mutableCopy];
     [str replaceCharactersInRange:range withString:text];
     
+    //set the length of test
+    self.textCountLabel.text = [@([str length]) stringValue];
+    
     if ([str length] > maxInputLength) {
         return NO;
     }
@@ -79,6 +88,11 @@
 
 - (BOOL)registBuzz
 {
+    RMPUser *user = [RMPUser sharedManager];
+    [RMPHTTPConnection sendNewBuzzWithUserSystemId:user.systemId
+                                          BuzzText:self.textView.text
+                                          Location:self.location
+                                             Image:self.imageView.image];
     return TRUE;
 }
 
@@ -111,5 +125,35 @@
     UIImage * pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     _imageView.image = pickedImage;
     //[self.navigationController pushViewController:controller animated:YES];
+}
+
+
+-(void)tappedImageView:(id)sender{
+    if (self.imageView.image == nil) {
+        return;
+    }
+    
+    UIActionSheet *sheet =[[UIActionSheet alloc]
+                           initWithTitle:@"Action Sheet"
+                           delegate:self
+                           cancelButtonTitle:@"Cancel"
+                           destructiveButtonTitle:@"Delete photo"
+                           otherButtonTitles:nil, nil];
+    
+    [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    
+    [sheet showInView:self.view];
+}
+
+
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+    }else if (buttonIndex == [actionSheet destructiveButtonIndex]) {
+        self.imageView.image = nil;
+    }else{
+        //[selectLabel setText:[actionSheet buttonTitleAtIndex:buttonIndex]];
+    }
 }
 @end
