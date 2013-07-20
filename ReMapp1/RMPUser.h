@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface RMPUser : NSObject
-@property (nonatomic, readonly) NSString* system_id;
++ (RMPUser*)sharedManager;
+@property (nonatomic, readonly) NSString* systemId;
+@property (nonatomic, readonly) NSString* name;
+@property (nonatomic, readonly) UIImage* icon;
+@property (nonatomic, readonly) NSString* profile;
 @end

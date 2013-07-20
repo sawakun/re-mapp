@@ -42,6 +42,7 @@
     if (self) {
         self.pinImage = [UIImage imageNamed:@"writeFormPin.png"];
         self.identifier = @"RMPWriteFormAnnotation";
+        self.tapPointOffset = CGPointMake(0.0f, -55.0f);
     }
     return self;
 }

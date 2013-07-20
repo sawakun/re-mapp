@@ -10,10 +10,6 @@
 
 @implementation RMPNonVisibleToolBar
 
-- (id)init
-{
-    self = [super init];
-}
 
 - (id)initWithFrame:(CGRect)frame
 {
