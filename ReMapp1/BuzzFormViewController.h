@@ -10,13 +10,18 @@
 #import <MapKit/MapKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "UIPlaceHolderTextView.h"
+#import "RMPUser.h"
+#import "RMPHTTPConnection.h"
 
-@interface BuzzFormViewController : UIViewController <UINavigationControllerDelegate, UITextViewDelegate, UIImagePickerControllerDelegate>
+@interface BuzzFormViewController : UIViewController <UINavigationControllerDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIPlaceHolderTextView *textView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarVerticalSpaceConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (assign, nonatomic) CLLocationCoordinate2D location;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *textCountLabel;
 - (IBAction)tappedCancel:(id)sender;
 - (IBAction)tappedPhotos:(id)sender;
 

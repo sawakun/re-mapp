@@ -30,7 +30,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     [super viewDidLoad];
     //set BuzzData
     self.buzzData = [BuzzData sharedManager];
-
+    
     // set Map
     self.mapView.delegate = self;
     CLLocationCoordinate2D zoomLocation;
@@ -49,7 +49,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0;
     [self.mapView addGestureRecognizer:lpgr];
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showAnnotationWhenReceiveNotification:)
                                                  name:InfoCellDidMove
@@ -102,12 +102,17 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     static RMPWriteFormAnnotation *annotation;
     
     CGPoint tapPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:_mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint
+                                                      toCoordinateFromView:_mapView];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
     {
-        [self showBuzzForm:touchMapCoordinate];
-        [_mapView removeAnnotation:annotation];
+        CGPoint adjustedTapPoint = CGPointMake(tapPoint.x+annotation.tapPointOffset.x,
+                                               tapPoint.y+annotation.tapPointOffset.y);
+        CLLocationCoordinate2D pointedMapCoordinate = [self.mapView convertPoint:adjustedTapPoint
+                                                          toCoordinateFromView:_mapView];
+        [self showBuzzForm:pointedMapCoordinate];
+        [self.mapView removeAnnotation:annotation];
         return;
     }
     
@@ -138,7 +143,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     }
     [_mapView removeAnnotations:_mapView.annotations];
     [_mapView addAnnotations:annotations];
-
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidReload
                                                             object:self
@@ -155,11 +160,6 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     //self.mapView.showsUserLocation = YES;
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
     [locationManager startUpdatingLocation];
-    while (locationManager.location.coordinate.longitude == 0)
-    {
-        NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
-    }
-    NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
     self.mapView.centerCoordinate = locationManager.location.coordinate;
     [locationManager stopUpdatingLocation];
     //self.mapView.userLocationVisible = NO;
@@ -192,7 +192,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
- 
+    
     RMPSelectedAnnotation *selectedAnnotation = [[RMPSelectedAnnotation alloc] init];
     [UIView animateWithDuration:0.2f animations:^{
         view.image = selectedAnnotation.pinImage;

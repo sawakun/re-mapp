@@ -26,6 +26,7 @@
 		45952DD1177FE7750083B7D0 /* CSVHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DD0177FE7750083B7D0 /* CSVHandler.m */; };
 		45952DD2177FE7750083B7D0 /* CSVHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DD0177FE7750083B7D0 /* CSVHandler.m */; };
 		45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */; };
+		45B2BDDC1799FE400051B90A /* RMPHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */; };
 		45C76F301796BF7000BD184C /* pin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C76F2E1796BF7000BD184C /* pin1.png */; };
 		45C76F311796BF7000BD184C /* pin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C76F2F1796BF7000BD184C /* pin2.png */; };
 		45C76F391796C73200BD184C /* RMPNonVisibleToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C76F381796C73200BD184C /* RMPNonVisibleToolBar.m */; };
@@ -93,6 +94,8 @@
 		45952DD0177FE7750083B7D0 /* CSVHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVHandler.m; sourceTree = "<group>"; };
 		45AD9DC51784EC9900242750 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		45B2BDDA1799FE400051B90A /* RMPHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPHTTPConnection.h; sourceTree = "<group>"; };
+		45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPHTTPConnection.m; sourceTree = "<group>"; };
 		45C76F2E1796BF7000BD184C /* pin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin1.png; sourceTree = "<group>"; };
 		45C76F2F1796BF7000BD184C /* pin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin2.png; sourceTree = "<group>"; };
 		45C76F371796C73200BD184C /* RMPNonVisibleToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPNonVisibleToolBar.h; sourceTree = "<group>"; };
@@ -168,8 +171,6 @@
 		45193D051782E0D300E29FAA /* WriteForm */ = {
 			isa = PBXGroup;
 			children = (
-				45AD9DC51784EC9900242750 /* UIPlaceHolderTextView.h */,
-				45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */,
 				45E370D61782EBC5006EE5F9 /* BuzzFormViewController.h */,
 				45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */,
 			);
@@ -189,6 +190,7 @@
 		457D15FC17942CCE007F2E8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				45B2BDDD179A09690051B90A /* UIPlaceHolderTextView */,
 				45F39AA717974FDB003B943A /* RMPNonVisibleSearchBar */,
 				45839E441796E8D000F81420 /* ECSlidingViewController */,
 				45C76F331796C30000BD184C /* RMPNonVisibleToolBar */,
@@ -243,6 +245,24 @@
 				45952DC8177FE7250083B7D0 /* BuzzData.m */,
 			);
 			name = Buzz;
+			sourceTree = "<group>";
+		};
+		45B2BDD61799FB2E0051B90A /* HTTPConnection */ = {
+			isa = PBXGroup;
+			children = (
+				45B2BDDA1799FE400051B90A /* RMPHTTPConnection.h */,
+				45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */,
+			);
+			name = HTTPConnection;
+			sourceTree = "<group>";
+		};
+		45B2BDDD179A09690051B90A /* UIPlaceHolderTextView */ = {
+			isa = PBXGroup;
+			children = (
+				45AD9DC51784EC9900242750 /* UIPlaceHolderTextView.h */,
+				45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */,
+			);
+			name = UIPlaceHolderTextView;
 			sourceTree = "<group>";
 		};
 		45C76F321796BF9600BD184C /* image */ = {
@@ -322,6 +342,7 @@
 		45E4AC10177E8ADF006619F1 /* ReMapp1 */ = {
 			isa = PBXGroup;
 			children = (
+				45B2BDD61799FB2E0051B90A /* HTTPConnection */,
 				45F6EBAB179819250091C4E0 /* User */,
 				45F39AB1179758AD003B943A /* Place */,
 				45E4AC19177E8ADF006619F1 /* AppDelegate.h */,
@@ -549,6 +570,7 @@
 				45839E641796EC0900F81420 /* UIImage+ImageWithUIView.m in Sources */,
 				45F39AAA17975002003B943A /* RMPNonVisibleSearchBar.m in Sources */,
 				45F6EBAE179819580091C4E0 /* RMPUser.m in Sources */,
+				45B2BDDC1799FE400051B90A /* RMPHTTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

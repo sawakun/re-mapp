@@ -35,6 +35,7 @@ void addCSVFile (NSString *fileName, NSString *line)
     
     NSFileHandle* fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
     NSData* data = [line dataUsingEncoding:NSShiftJISStringEncoding];
+    [fileHandle seekToEndOfFile];
     [fileHandle writeData:data];
     [fileHandle closeFile];
 }

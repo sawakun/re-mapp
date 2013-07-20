@@ -190,7 +190,7 @@
                                     <constraint firstAttribute="height" constant="42" id="jJU-x7-BQW"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-CA-olp">
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-CA-olp">
                                 <items>
                                     <navigationItem id="Wbk-ro-3zj">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ikq-ES-nwK">
@@ -206,13 +206,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="lpI-jT-XXS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
                                     <outlet property="delegate" destination="PGe-qp-L6R" id="hUU-p4-iMR"/>
                                 </connections>
                             </textView>
-                            <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-ky-eIo">
+                            <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-ky-eIo">
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="k55-I9-xUZ"/>
                                     <barButtonItem title="Photos" id="zvp-2N-ezR">
@@ -222,24 +222,56 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzo-Bd-HKu">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="KSS-w8-3fi"/>
+                                    <constraint firstAttribute="width" constant="36" id="dFh-iO-Jvn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcv-GR-PYr">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="0rM-x6-z5l"/>
+                                    <constraint firstAttribute="height" constant="21" id="fQ9-Hk-BtL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="n" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIn-eA-zfK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="DPA-Ee-SmV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rzo-Bd-HKu" firstAttribute="centerY" secondItem="oW4-eo-mk4" secondAttribute="centerY" type="default" id="0iy-i8-59q"/>
                             <constraint firstItem="dq9-CA-olp" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="2aB-rT-OKT"/>
                             <constraint firstItem="oW4-eo-mk4" firstAttribute="top" secondItem="dq9-CA-olp" secondAttribute="bottom" type="default" id="4R8-DC-Gse"/>
+                            <constraint firstItem="bcv-GR-PYr" firstAttribute="top" secondItem="rzo-Bd-HKu" secondAttribute="top" type="default" id="4fy-ME-cXy"/>
+                            <constraint firstAttribute="trailing" secondItem="LIn-eA-zfK" secondAttribute="trailing" constant="5" id="7Ya-YW-elv"/>
                             <constraint firstItem="eSA-ky-eIo" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="8ZL-vM-k6f"/>
                             <constraint firstItem="a6W-ZE-fjS" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="DgT-N0-vp6"/>
                             <constraint firstItem="dq9-CA-olp" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="Glh-aj-hyM"/>
+                            <constraint firstItem="bcv-GR-PYr" firstAttribute="leading" secondItem="rzo-Bd-HKu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="IqT-mB-kcW"/>
                             <constraint firstItem="a6W-ZE-fjS" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="VOb-hU-6FT"/>
                             <constraint firstItem="eSA-ky-eIo" firstAttribute="bottom" secondItem="p5L-xl-0Jx" secondAttribute="bottom" type="user" id="bSq-Wu-Taw"/>
+                            <constraint firstItem="rzo-Bd-HKu" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" constant="5" id="ix0-Kv-d0V"/>
                             <constraint firstItem="a6W-ZE-fjS" firstAttribute="top" secondItem="p5L-xl-0Jx" secondAttribute="top" constant="85" id="jgH-Hl-ek1"/>
+                            <constraint firstAttribute="trailing" secondItem="oW4-eo-mk4" secondAttribute="trailing" constant="65" id="mHb-E6-bXc"/>
+                            <constraint firstItem="LIn-eA-zfK" firstAttribute="top" secondItem="p5L-xl-0Jx" secondAttribute="top" constant="11" id="mdU-Vm-hfs"/>
                             <constraint firstItem="eSA-ky-eIo" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" type="default" id="o8s-kk-ggw"/>
-                            <constraint firstItem="oW4-eo-mk4" firstAttribute="leading" secondItem="p5L-xl-0Jx" secondAttribute="leading" constant="72" id="rAC-rN-UTI"/>
                             <constraint firstItem="dq9-CA-olp" firstAttribute="top" secondItem="p5L-xl-0Jx" secondAttribute="top" type="default" id="uDe-yX-sxt"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="iconImageView" destination="rzo-Bd-HKu" id="nkZ-mo-9I6"/>
                         <outlet property="imageView" destination="oW4-eo-mk4" id="txC-sb-V1C"/>
+                        <outlet property="nameLabel" destination="bcv-GR-PYr" id="jLC-LQ-uKy"/>
+                        <outlet property="textCountLabel" destination="LIn-eA-zfK" id="tcz-8B-V93"/>
                         <outlet property="textView" destination="a6W-ZE-fjS" id="5i5-Q8-FuG"/>
                         <outlet property="toolbar" destination="eSA-ky-eIo" id="Um3-PV-Vqs"/>
                         <outlet property="toolbarVerticalSpaceConstraint" destination="bSq-Wu-Taw" id="Fm4-Tn-fQj"/>
@@ -356,7 +388,10 @@
             <relationships>
                 <relationship kind="action" name="tappedCancel:"/>
                 <relationship kind="action" name="tappedPhotos:"/>
+                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textView" candidateClass="UIPlaceHolderTextView"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="toolbarVerticalSpaceConstraint" candidateClass="NSLayoutConstraint"/>

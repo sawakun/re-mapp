@@ -27,6 +27,7 @@
 @property (nonatomic) NSString *identifier;
 @property (nonatomic) CGPoint centerOffset;
 @property (nonatomic) NSInteger index;
+@property (nonatomic) CGPoint tapPointOffset;
 @end
 
 @interface RMPSelectedAnnotation : RMPAnnotation
