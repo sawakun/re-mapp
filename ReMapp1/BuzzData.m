@@ -72,8 +72,8 @@
     [_buzzes removeAllObjects];
     for(NSArray *d in data)
     {
-        float lat = [d[4] floatValue];
-        float lot = [d[5] floatValue];
+        float lat = [d[6] floatValue];
+        float lot = [d[7] floatValue];
         if (lat < northEastCordinate.latitude &&
             lat > southWestCoordinate.latitude &&
             lot < northEastCordinate.longitude &&

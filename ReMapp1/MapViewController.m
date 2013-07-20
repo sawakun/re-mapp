@@ -36,7 +36,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 35.6584;
     zoomLocation.longitude = 139.7017;
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 1000.0, 1000.0);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 10000.0, 10000.0);
     [self.mapView setRegion:viewRegion animated:NO];
     self.mapView.showsUserLocation = NO;
     
@@ -102,16 +102,11 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     static RMPWriteFormAnnotation *annotation;
     
     CGPoint tapPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint
-                                                      toCoordinateFromView:_mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:_mapView];
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
     {
-        CGPoint adjustedTapPoint = CGPointMake(tapPoint.x+annotation.tapPointOffset.x,
-                                               tapPoint.y+annotation.tapPointOffset.y);
-        CLLocationCoordinate2D pointedMapCoordinate = [self.mapView convertPoint:adjustedTapPoint
-                                                          toCoordinateFromView:_mapView];
-        [self showBuzzForm:pointedMapCoordinate];
+        [self showBuzzForm:touchMapCoordinate];
         [self.mapView removeAnnotation:annotation];
         return;
     }
@@ -160,6 +155,11 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     //self.mapView.showsUserLocation = YES;
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
     [locationManager startUpdatingLocation];
+    while (locationManager.location.coordinate.longitude == 0)
+    {
+        NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    }
+    NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
     self.mapView.centerCoordinate = locationManager.location.coordinate;
     [locationManager stopUpdatingLocation];
     //self.mapView.userLocationVisible = NO;
