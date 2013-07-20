@@ -33,23 +33,22 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
 
 @implementation RMPVerticalSlidingViewController
 
-
-- (void)setTopViewController:(UIViewController *)topViewController
+- (void)setBottomViewController:(UIViewController *)bottomViewController
 {
-    CGRect topViewFram = _topViewController ? topViewController.view.frame : self.view.bounds;
+    CGRect bottomViewFram = _bottomViewController ? bottomViewController.view.frame : self.view.bounds;
     
-    [_topViewController.view removeFromSuperview];
-    [_topViewController willMoveToParentViewController:nil];
-    [_topViewController removeFromParentViewController];
+    [_bottomViewController.view removeFromSuperview];
+    [_bottomViewController willMoveToParentViewController:nil];
+    [_bottomViewController removeFromParentViewController];
     
-    _topViewController = topViewController;
+    _bottomViewController = bottomViewController;
     
-    [self addChildViewController:self.topViewController];
-    [self.topViewController didMoveToParentViewController:self];
-    [_topViewController.view setAutoresizesSubviews:self.autoResizeToFillScreen];
-    [_topViewController.view setFrame:topViewFram];
-    [_topViewController.view addGestureRecognizer:self.panGesture];
-    [self.view addSubview:_topViewController.view];
+    [self addChildViewController:_bottomViewController];
+    [_bottomViewController didMoveToParentViewController:self];
+    [_bottomViewController.view setAutoresizesSubviews:self.autoResizeToFillScreen];
+    [_bottomViewController.view setFrame:bottomViewFram];
+    [_bottomViewController.view addGestureRecognizer:self.panGesture];
+    [self.view addSubview:_bottomViewController.view];
 }
 
 - (void)setUnderViewController:(UIViewController *)underViewController
@@ -70,8 +69,8 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(updateTopViewVerticalCenterWithRecognize:)];
-    self.topViewHeightAtMiddlePosition = 0.0f;
+    self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(updateTopViewVerticalCenterWithRecognize:)];
+    self.bottomViewHeightAtMiddlePosition = 0.0f;
     self.topViewShowing = YES;
 }
 
@@ -144,7 +143,7 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
 
 - (CGFloat)verticalCenterAtMiddlePosition
 {
-    return self.view.frame.size.height + self.topView.frame.size.height * 0.5 - self.topViewHeightAtMiddlePosition;
+    return self.view.frame.size.height + self.topView.frame.size.height * 0.5 - self.bottomViewHeightAtMiddlePosition;
 }
 
 
@@ -171,10 +170,6 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
     } completion:nil];
 }
 
-- (UIPanGestureRecognizer *)panGesture
-{
-    return _panGesture;
-}
 
 - (NSUInteger)autoResizeToFillScreen
 {
@@ -188,7 +183,7 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
 
 - (UIView *)topView
 {
-    return self.topViewController.view;
+    return self.bottomViewController.view;
 }
 
 - (UIView *)underView
@@ -234,8 +229,6 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
     [self.underView setAutoresizingMask:self.autoResizeToFillScreen];
     [self.underView setFrame:self.view.bounds];
 }
-
-
 
 @end
 

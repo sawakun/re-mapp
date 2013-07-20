@@ -20,9 +20,9 @@
 	// Do any additional setup after loading the view.
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
+    self.bottomViewController = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
     self.underViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
-    self.topViewHeightAtMiddlePosition = 120.0f;
+    self.bottomViewHeightAtMiddlePosition = 120.0f;
     [self anchorTopViewTo:RMPBottom];
     
 }

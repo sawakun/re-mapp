@@ -13,16 +13,14 @@
 extern NSString *const RMPVerticalSlidingViewTopDidMove;
 
 @interface RMPVerticalSlidingViewController : UIViewController
-/** Returns the view controller that is presented above another view controller. */
-@property (nonatomic) UIViewController *topViewController;
+/** Returns the view controller that is presented above underViewController and will appear from bottom. */
+@property (nonatomic) UIViewController *bottomViewController;
 /** Returns the view controller that will appear when the top view controller slides to bottom. */
 @property (nonatomic) UIViewController *underViewController;
-/** Returns the height of the visible part of the top view. */
-@property (nonatomic) CGFloat topViewHeightAtMiddlePosition;
+/** Returns the height of the visible part of the bottomView. */
+@property (nonatomic) CGFloat bottomViewHeightAtMiddlePosition;
 /** Returns if the top view is showed */
 @property (nonatomic, readonly, getter=isTopViewShowing) BOOL topViewShowing;
-/** Returns vertiacal panning gesture for moving the top view. */
-- (UIPanGestureRecognizer *)panGesture;
 
 /** RMPSide of screen */
 typedef enum {
