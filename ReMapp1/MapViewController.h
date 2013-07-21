@@ -24,6 +24,9 @@ extern NSString *const MapViewDidReload;
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;
 @property (nonatomic) BuzzData *buzzData;
+@property (weak, nonatomic) IBOutlet UIView *rightScratchView;
+@property (weak, nonatomic) IBOutlet UIView *leftScratchView;
+
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 - (void)showCenter:(NSInteger)index;

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPInitialVerticalSlidingViewController.h"
+#import "RMPInitialSlidingViewController.h"
 
-@interface RMPInitialVerticalSlidingViewController ()
+@interface RMPInitialSlidingViewController ()
 
 @end
 
-@implementation RMPInitialVerticalSlidingViewController
+@implementation RMPInitialSlidingViewController
 
 - (void)viewDidLoad
 {
@@ -22,9 +22,14 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     self.bottomViewController = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
     self.underViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    self.rightViewController = [storyboard instantiateViewControllerWithIdentifier:@"TimeLine"];
+    self.leftViewController = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     self.bottomViewHeightAtMiddlePosition = 120.0f;
-    [self anchorTopViewTo:RMPBottom];
-    
+    self.anchorRightPeekAmount = 20.0f;
+    self.anchorLeftPeekAmount = 20.0f;
+    [self anchorBottomViewTo:RMPBottom];
+    [self anchorRightViewTo:RMPRight];
+    [self anchorLeftViewTo:RMPLeft];
 }
 
 - (void)viewDidAppear:(BOOL)animated

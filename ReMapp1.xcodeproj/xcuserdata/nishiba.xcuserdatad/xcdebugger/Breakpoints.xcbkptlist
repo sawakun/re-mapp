@@ -293,39 +293,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPVerticalSlidingViewController.m"
-         timestampString = "396022644.618707"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
-         landmarkName = "-updateTopViewVerticalCenterWithRecognize:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPInitialVerticalSlidingViewController.m"
-         timestampString = "395614115.068585"
+         timestampString = "396066370.566427"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-viewDidAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPVerticalSlidingViewController.m"
-         timestampString = "396022393.804531"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
-         landmarkName = "-setUnderViewController:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -345,32 +319,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPVerticalSlidingViewController.m"
-         timestampString = "396022393.804531"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
-         landmarkName = "-setUnderViewController:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPVerticalSlidingViewController.m"
-         timestampString = "395664241.602546"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "@interface RMPVerticalSlidingViewController()"
-         landmarkType = "2">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
          timestampString = "395997721.142925"
          startingColumnNumber = "9223372036854775807"
@@ -391,19 +339,6 @@
          startingLineNumber = "33"
          endingLineNumber = "33"
          landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPVerticalSlidingViewController.m"
-         timestampString = "396022644.618707"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "158"
-         endingLineNumber = "158"
-         landmarkName = "-anchorTopViewTo:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -430,19 +365,6 @@
          startingLineNumber = "86"
          endingLineNumber = "86"
          landmarkName = "-showNthCell:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPVerticalSlidingViewController.m"
-         timestampString = "396022644.618707"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
-         landmarkName = "-anchorTopViewTo:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -723,11 +645,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "395972648.79446"
+         timestampString = "396067006.078"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "196"
-         endingLineNumber = "196"
+         startingLineNumber = "197"
+         endingLineNumber = "197"
          landmarkName = "-mapView:didSelectAnnotationView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -736,11 +658,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "395972648.79446"
+         timestampString = "396067006.078"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "202"
-         endingLineNumber = "202"
+         startingLineNumber = "203"
+         endingLineNumber = "203"
          landmarkName = "-mapView:didSelectAnnotationView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -821,6 +743,32 @@
          endingLineNumber = "98"
          landmarkName = "-tableView:heightForRowAtIndexPath:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/RMPInitialVerticalSlidingViewController.m"
+         timestampString = "396069199.454911"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-didReceiveMemoryWarning"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/InfoViewController.h"
+         timestampString = "396069332.745059"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "17"
+         endingLineNumber = "17"
+         landmarkName = "@interface InfoViewController"
+         landmarkType = "2">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
