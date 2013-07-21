@@ -69,30 +69,85 @@
             </objects>
             <point key="canvasLocation" x="-549" y="296"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="JVN-cN-7oG">
+        <!--Time Line View Controller-->
+        <scene sceneID="WhX-qw-Lnx">
             <objects>
-                <viewController storyboardIdentifier="TimeLine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uF0-dd-pg3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="14O-ES-xYw">
+                <tableViewController storyboardIdentifier="TimeLine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rgF-CQ-s9N" customClass="RMPTimeLineViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" id="rX6-ya-xBy">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Timeline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpQ-Ue-reM">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="YpQ-Ue-reM" firstAttribute="top" secondItem="14O-ES-xYw" secondAttribute="top" constant="219" id="aoP-yH-Xic"/>
-                            <constraint firstItem="YpQ-Ue-reM" firstAttribute="centerX" secondItem="14O-ES-xYw" secondAttribute="centerX" type="default" id="h6w-rw-4Pa"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UAj-BI-3VD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="RMPBuzzCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RMPBuzzCell" rowHeight="168" id="Oaw-Jk-Z4r" customClass="RMPBuzzCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="168"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-Jd-Rfp">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="J74-wa-fea"/>
+                                                <constraint firstAttribute="width" constant="44" id="a9H-2b-eRs"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" preferredMaxLayoutWidth="237" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-CP-6U9">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="GYS-3n-FJ8"/>
+                                                <constraint firstAttribute="width" constant="237" id="PNE-Uo-H6d"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="qh5-a6-G6Y">
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="832" constant="28" type="user" id="m1Y-vo-Lb5"/>
+                                                <constraint firstAttribute="width" constant="230" id="phV-fL-Ua6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00  00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1m-J0-xuX">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="165" id="cxf-Gv-CiZ"/>
+                                                <constraint firstAttribute="height" constant="21" id="ldo-cu-nnu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="tdy-Jd-Rfp" firstAttribute="top" secondItem="Oaw-Jk-Z4r" secondAttribute="top" constant="11" id="6l2-ED-txf"/>
+                                    <constraint firstItem="kOX-CP-6U9" firstAttribute="leading" secondItem="tdy-Jd-Rfp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="EOp-PX-mbG"/>
+                                    <constraint firstAttribute="trailing" secondItem="B1m-J0-xuX" secondAttribute="trailing" constant="20" type="default" id="Or1-xi-rQH"/>
+                                    <constraint firstAttribute="trailing" secondItem="kOX-CP-6U9" secondAttribute="trailing" constant="20" type="default" id="W00-8o-hdC"/>
+                                    <constraint firstItem="kOX-CP-6U9" firstAttribute="top" secondItem="tdy-Jd-Rfp" secondAttribute="top" type="default" id="dus-ro-5IR"/>
+                                    <constraint firstItem="qh5-a6-G6Y" firstAttribute="top" secondItem="kOX-CP-6U9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="esO-la-2uO"/>
+                                    <constraint firstAttribute="bottom" secondItem="B1m-J0-xuX" secondAttribute="bottom" constant="8" id="hRo-ST-5bS"/>
+                                    <constraint firstItem="qh5-a6-G6Y" firstAttribute="leading" secondItem="tdy-Jd-Rfp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="kHv-kV-aQt"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="buzzLabel" destination="qh5-a6-G6Y" id="yf4-ra-Oot"/>
+                                    <outlet property="dateLabel" destination="B1m-J0-xuX" id="aCH-Mu-QeQ"/>
+                                    <outlet property="iconImageView" destination="tdy-Jd-Rfp" id="4Q5-si-0ct"/>
+                                    <outlet property="nameLabel" destination="kOX-CP-6U9" id="kN3-7w-kSU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rgF-CQ-s9N" id="j1B-iN-Rca"/>
+                            <outlet property="delegate" destination="rgF-CQ-s9N" id="jwS-js-7UH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Q1-bW-WAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-163" y="293"/>
+            <point key="canvasLocation" x="-146" y="299"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="5">
@@ -423,6 +478,15 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="RMPBuzzCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPBuzzCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buzzLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="RMPInitialVerticalSlidingViewController" superclassName="RMPVerticalSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialVerticalSlidingViewController.h"/>
         </class>
@@ -434,6 +498,9 @@
         </class>
         <class className="RMPNonVisibleToolBar" superclassName="UIToolbar">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPNonVisibleToolBar.h"/>
+        </class>
+        <class className="RMPTimeLineViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPTimeLineViewController.h"/>
         </class>
         <class className="RMPVerticalSlidingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPVerticalSlidingViewController.h"/>

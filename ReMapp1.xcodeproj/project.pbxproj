@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		450C35B61787831D00484A9E /* bigmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 450C35B51787831D00484A9E /* bigmarker.png */; };
+		45274E6C179A774300A4CE59 /* RMPBuzzCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45274E6B179A774300A4CE59 /* RMPBuzzCell.m */; };
+		45274E6F179A779400A4CE59 /* RMPTimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45274E6E179A779400A4CE59 /* RMPTimeLineTableViewController.m */; };
 		457D160017942E20007F2E8A /* RMPVerticalSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D15FF17942E20007F2E8A /* RMPVerticalSlidingViewController.m */; };
 		457D160317942F57007F2E8A /* RMPInitialVerticalSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D160217942F57007F2E8A /* RMPInitialVerticalSlidingViewController.m */; };
 		457FEB541795E20900616D23 /* RMPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FEB531795E20900616D23 /* RMPAnnotation.m */; };
@@ -72,6 +74,10 @@
 
 /* Begin PBXFileReference section */
 		450C35B51787831D00484A9E /* bigmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigmarker.png; sourceTree = "<group>"; };
+		45274E6A179A774300A4CE59 /* RMPBuzzCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPBuzzCell.h; sourceTree = "<group>"; };
+		45274E6B179A774300A4CE59 /* RMPBuzzCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPBuzzCell.m; sourceTree = "<group>"; };
+		45274E6D179A779400A4CE59 /* RMPTimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPTimeLineTableViewController.h; sourceTree = "<group>"; };
+		45274E6E179A779400A4CE59 /* RMPTimeLineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPTimeLineTableViewController.m; sourceTree = "<group>"; };
 		457D15FE17942E20007F2E8A /* RMPVerticalSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPVerticalSlidingViewController.h; sourceTree = "<group>"; };
 		457D15FF17942E20007F2E8A /* RMPVerticalSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPVerticalSlidingViewController.m; sourceTree = "<group>"; };
 		457D160117942F57007F2E8A /* RMPInitialVerticalSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPInitialVerticalSlidingViewController.h; sourceTree = "<group>"; };
@@ -175,6 +181,17 @@
 				45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */,
 			);
 			name = WriteForm;
+			sourceTree = "<group>";
+		};
+		45274E69179A772E00A4CE59 /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				45274E6A179A774300A4CE59 /* RMPBuzzCell.h */,
+				45274E6B179A774300A4CE59 /* RMPBuzzCell.m */,
+				45274E6D179A779400A4CE59 /* RMPTimeLineTableViewController.h */,
+				45274E6E179A779400A4CE59 /* RMPTimeLineTableViewController.m */,
+			);
+			name = TimeLine;
 			sourceTree = "<group>";
 		};
 		45500B3717957CC500DCE98D /* Annotation */ = {
@@ -342,6 +359,7 @@
 		45E4AC10177E8ADF006619F1 /* ReMapp1 */ = {
 			isa = PBXGroup;
 			children = (
+				45274E69179A772E00A4CE59 /* TimeLine */,
 				45B2BDD61799FB2E0051B90A /* HTTPConnection */,
 				45F6EBAB179819250091C4E0 /* User */,
 				45F39AB1179758AD003B943A /* Place */,
@@ -571,6 +589,8 @@
 				45F39AAA17975002003B943A /* RMPNonVisibleSearchBar.m in Sources */,
 				45F6EBAE179819580091C4E0 /* RMPUser.m in Sources */,
 				45B2BDDC1799FE400051B90A /* RMPHTTPConnection.m in Sources */,
+				45274E6C179A774300A4CE59 /* RMPBuzzCell.m in Sources */,
+				45274E6F179A779400A4CE59 /* RMPTimeLineTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
