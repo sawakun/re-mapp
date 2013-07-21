@@ -9,20 +9,26 @@
         <scene sceneID="ilC-hT-jrb">
             <objects>
                 <viewController storyboardIdentifier="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EtR-jD-iBJ" sceneMemberID="viewController">
-                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="8Cm-RL-tih">
+                    <view key="view" contentMode="scaleToFill" id="8Cm-RL-tih">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view alpha="0.50000000000000011" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWR-Rv-L05">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNG-q9-w6S">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jNG-q9-w6S" firstAttribute="centerX" secondItem="8Cm-RL-tih" secondAttribute="centerX" type="default" id="Zin-vK-jeq"/>
-                            <constraint firstItem="jNG-q9-w6S" firstAttribute="top" secondItem="8Cm-RL-tih" secondAttribute="top" constant="219" id="bD8-nL-f1I"/>
+                            <constraint firstItem="fWR-Rv-L05" firstAttribute="centerX" secondItem="jNG-q9-w6S" secondAttribute="centerX" type="default" id="DUS-Q5-Znn"/>
+                            <constraint firstItem="fWR-Rv-L05" firstAttribute="trailing" secondItem="8Cm-RL-tih" secondAttribute="trailing" type="default" id="FE4-N1-Qsr"/>
+                            <constraint firstItem="fWR-Rv-L05" firstAttribute="leading" secondItem="8Cm-RL-tih" secondAttribute="leading" type="default" id="OQ7-P1-reO"/>
+                            <constraint firstAttribute="bottom" secondItem="jNG-q9-w6S" secondAttribute="bottom" constant="209" id="atO-1f-FHX"/>
+                            <constraint firstItem="fWR-Rv-L05" firstAttribute="top" secondItem="8Cm-RL-tih" secondAttribute="top" type="default" id="dLh-MF-DV1"/>
+                            <constraint firstItem="fWR-Rv-L05" firstAttribute="bottom" secondItem="8Cm-RL-tih" secondAttribute="bottom" type="default" id="gA2-pd-Xtl"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -318,12 +324,15 @@
         <scene sceneID="sNH-uP-Qcq">
             <objects>
                 <viewController storyboardIdentifier="TimeLine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6hM-wa-KBC" customClass="RMPTimeLineViewController" sceneMemberID="viewController">
-                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="f38-2E-MTS">
+                    <view key="view" contentMode="scaleToFill" id="f38-2E-MTS">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rX6-ya-xBy">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsT-M1-ix3">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rX6-ya-xBy">
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="RMPBuzzCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RMPBuzzCell" rowHeight="168" id="Oaw-Jk-Z4r" customClass="RMPBuzzCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="168"/>
@@ -394,8 +403,12 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="rX6-ya-xBy" firstAttribute="top" secondItem="f38-2E-MTS" secondAttribute="top" type="default" id="9PH-Mh-al0"/>
+                            <constraint firstItem="ZsT-M1-ix3" firstAttribute="bottom" secondItem="f38-2E-MTS" secondAttribute="bottom" type="default" id="ITv-hk-rc6"/>
+                            <constraint firstItem="ZsT-M1-ix3" firstAttribute="top" secondItem="f38-2E-MTS" secondAttribute="top" type="default" id="Ifb-nY-Jpa"/>
+                            <constraint firstItem="ZsT-M1-ix3" firstAttribute="trailing" secondItem="f38-2E-MTS" secondAttribute="trailing" type="default" id="JnB-cJ-rSR"/>
                             <constraint firstItem="rX6-ya-xBy" firstAttribute="bottom" secondItem="f38-2E-MTS" secondAttribute="bottom" type="default" id="QFB-ag-YoF"/>
                             <constraint firstItem="rX6-ya-xBy" firstAttribute="trailing" secondItem="f38-2E-MTS" secondAttribute="trailing" type="default" id="Xpn-N4-Z1c"/>
+                            <constraint firstItem="ZsT-M1-ix3" firstAttribute="leading" secondItem="f38-2E-MTS" secondAttribute="leading" type="default" id="oNF-bk-HXK"/>
                             <constraint firstItem="rX6-ya-xBy" firstAttribute="leading" secondItem="f38-2E-MTS" secondAttribute="leading" type="default" id="z17-Zg-ob8"/>
                         </constraints>
                     </view>
