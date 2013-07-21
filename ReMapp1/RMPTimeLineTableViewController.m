@@ -8,18 +8,18 @@
 
 #import "RMPTimeLineTableViewController.h"
 #import "Buzz.h"
-#import "BuzzData.h"
+#import "RMPBuzzData.h"
 #import "RMPBuzzCell.h"
 
 @interface RMPTimeLineViewController ()
-@property (nonatomic) BuzzData *buzzData;
+@property (nonatomic) RMPBuzzData *buzzData;
 @end
 
 @implementation RMPTimeLineViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -36,7 +36,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.buzzData = [BuzzData sharedManager];
+    self.buzzData = [RMPBuzzData sharedManager];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
+}
+
+- (void)reload
+{
+    [self.timeLineTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,7 +100,6 @@
                                      constrainedToSize:maximumLabelSize
                                          lineBreakMode:NSLineBreakByWordWrapping];
     
-    NSLog(@"labelSize.height=%f", expectedLabelSize.height);
     return expectedLabelSize.height + 70;
     
     /*

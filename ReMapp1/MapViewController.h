@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "RMPAnnotation.h"
 
-@class BuzzData;
+@class RMPBuzzData;
 @class InfoViewController;
 @class BuzzFormViewController;
 
@@ -22,7 +22,7 @@ extern NSString *const MapViewDidReload;
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;
-@property (nonatomic) BuzzData *buzzData;
+@property (nonatomic) RMPBuzzData *buzzData;
 @property (weak, nonatomic) IBOutlet UIView *rightScratchView;
 @property (weak, nonatomic) IBOutlet UIView *leftScratchView;
 

@@ -318,6 +318,12 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
     }
     else if (RMPMiddle == side) {
         newCenter.y = [self verticalCenterAtMiddlePosition];
+        if (self.isRightViewShowing) {
+            [self anchorRightViewTo:RMPRight];
+        }
+        if (self.isLeftViewShowing) {
+            [self anchorLeftViewTo:RMPLeft];
+        }
     }
     else if (RMPBottom == side) {
         newCenter.y = self.view.frame.size.height + self.bottomView.frame.size.height * 0.5;

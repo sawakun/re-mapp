@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "InfoViewController.h"
-#import "BuzzData.h"
+#import "RMPBuzzData.h"
 #import "Buzz.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
@@ -28,8 +28,6 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //set BuzzData
-    self.buzzData = [BuzzData sharedManager];
     
     // set Map
     self.mapView.delegate = self;
@@ -49,19 +47,23 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0;
     [self.mapView addGestureRecognizer:lpgr];
+    [self.rightScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.rightPanGesture];
+    [self.leftScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.leftPanGesture];
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showAnnotationWhenReceiveNotification:)
                                                  name:InfoCellDidMove
                                                object:nil];
-    [self.rightScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.rightPanGesture];
-    [self.leftScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.leftPanGesture];
 }
 
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    //set BuzzData
+    self.buzzData = [RMPBuzzData sharedManager];
     [self reload];
 }
 
@@ -140,11 +142,13 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     [_mapView removeAnnotations:_mapView.annotations];
     [_mapView addAnnotations:annotations];
     
+    /*
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidReload
                                                             object:self
                                                           userInfo:nil];
     });
+     */
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
@@ -156,11 +160,11 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     //self.mapView.showsUserLocation = YES;
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
     [locationManager startUpdatingLocation];
-    while (locationManager.location.coordinate.longitude == 0)
-    {
-        NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
-    }
-    NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    //while (locationManager.location.coordinate.longitude == 0)
+    //{
+    //    NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
+    //}
+    //NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
     self.mapView.centerCoordinate = locationManager.location.coordinate;
     [locationManager stopUpdatingLocation];
     //self.mapView.userLocationVisible = NO;

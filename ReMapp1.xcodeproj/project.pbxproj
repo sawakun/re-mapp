@@ -15,8 +15,8 @@
 		457FEB541795E20900616D23 /* RMPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FEB531795E20900616D23 /* RMPAnnotation.m */; };
 		45952DBB177FDE5D0083B7D0 /* BuzzData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 45952DBA177FDE5D0083B7D0 /* BuzzData.csv */; };
 		45952DC3177FDFFD0083B7D0 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45952DC2177FDFFD0083B7D0 /* pin.png */; };
-		45952DC9177FE7250083B7D0 /* BuzzData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* BuzzData.m */; };
-		45952DCA177FE7250083B7D0 /* BuzzData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* BuzzData.m */; };
+		45952DC9177FE7250083B7D0 /* RMPBuzzData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* RMPBuzzData.m */; };
+		45952DCA177FE7250083B7D0 /* RMPBuzzData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* RMPBuzzData.m */; };
 		45952DCD177FE7340083B7D0 /* Buzz.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DCC177FE7340083B7D0 /* Buzz.m */; };
 		45952DCE177FE7340083B7D0 /* Buzz.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DCC177FE7340083B7D0 /* Buzz.m */; };
 		45952DD1177FE7750083B7D0 /* CSVHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DD0177FE7750083B7D0 /* CSVHandler.m */; };
@@ -80,8 +80,8 @@
 		457FEB531795E20900616D23 /* RMPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPAnnotation.m; sourceTree = "<group>"; };
 		45952DBA177FDE5D0083B7D0 /* BuzzData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BuzzData.csv; sourceTree = "<group>"; };
 		45952DC2177FDFFD0083B7D0 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
-		45952DC7177FE7250083B7D0 /* BuzzData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzData.h; sourceTree = "<group>"; };
-		45952DC8177FE7250083B7D0 /* BuzzData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzData.m; sourceTree = "<group>"; };
+		45952DC7177FE7250083B7D0 /* RMPBuzzData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPBuzzData.h; sourceTree = "<group>"; };
+		45952DC8177FE7250083B7D0 /* RMPBuzzData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPBuzzData.m; sourceTree = "<group>"; };
 		45952DCB177FE7340083B7D0 /* Buzz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buzz.h; sourceTree = "<group>"; };
 		45952DCC177FE7340083B7D0 /* Buzz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Buzz.m; sourceTree = "<group>"; };
 		45952DCF177FE7750083B7D0 /* CSVHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVHandler.h; sourceTree = "<group>"; };
@@ -206,18 +206,18 @@
 				45B2BDDD179A09690051B90A /* UIPlaceHolderTextView */,
 				45F39AA717974FDB003B943A /* RMPNonVisibleSearchBar */,
 				45C76F331796C30000BD184C /* RMPNonVisibleToolBar */,
-				457D15FD17942DF4007F2E8A /* RMPVerticalSlidingViewController */,
+				457D15FD17942DF4007F2E8A /* RMPSlidingViewController */,
 			);
 			name = Library;
 			sourceTree = "<group>";
 		};
-		457D15FD17942DF4007F2E8A /* RMPVerticalSlidingViewController */ = {
+		457D15FD17942DF4007F2E8A /* RMPSlidingViewController */ = {
 			isa = PBXGroup;
 			children = (
 				457D15FE17942E20007F2E8A /* RMPSlidingViewController.h */,
 				457D15FF17942E20007F2E8A /* RMPSlidingViewController.m */,
 			);
-			name = RMPVerticalSlidingViewController;
+			name = RMPSlidingViewController;
 			sourceTree = "<group>";
 		};
 		45952DB5177FDE370083B7D0 /* File */ = {
@@ -242,8 +242,8 @@
 			children = (
 				45952DCB177FE7340083B7D0 /* Buzz.h */,
 				45952DCC177FE7340083B7D0 /* Buzz.m */,
-				45952DC7177FE7250083B7D0 /* BuzzData.h */,
-				45952DC8177FE7250083B7D0 /* BuzzData.m */,
+				45952DC7177FE7250083B7D0 /* RMPBuzzData.h */,
+				45952DC8177FE7250083B7D0 /* RMPBuzzData.m */,
 			);
 			name = Buzz;
 			sourceTree = "<group>";
@@ -556,7 +556,7 @@
 				45E4AC2A177E8ADF006619F1 /* MapViewController.m in Sources */,
 				45E48974177F9A87002FF5FB /* InfoViewController.m in Sources */,
 				45E48977177F9F7D002FF5FB /* InfoCell.m in Sources */,
-				45952DC9177FE7250083B7D0 /* BuzzData.m in Sources */,
+				45952DC9177FE7250083B7D0 /* RMPBuzzData.m in Sources */,
 				45952DCD177FE7340083B7D0 /* Buzz.m in Sources */,
 				45952DD1177FE7750083B7D0 /* CSVHandler.m in Sources */,
 				45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */,
@@ -578,7 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E4AC3F177E8ADF006619F1 /* ReMapp1Tests.m in Sources */,
-				45952DCA177FE7250083B7D0 /* BuzzData.m in Sources */,
+				45952DCA177FE7250083B7D0 /* RMPBuzzData.m in Sources */,
 				45952DCE177FE7340083B7D0 /* Buzz.m in Sources */,
 				45952DD2177FE7750083B7D0 /* CSVHandler.m in Sources */,
 			);

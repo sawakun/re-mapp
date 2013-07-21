@@ -84,4 +84,32 @@
     return self;
 }
 
+- (id)initWithDictionary:(NSDictionary *)buzzDictionary Index:(NSInteger)index
+{
+    self = [self init];
+    if (self && buzzDictionary)
+    {
+        self.buzzId   = buzzDictionary[@"buzz_id"];
+        self.userId   = buzzDictionary[@"user_id"];
+        self.userName = buzzDictionary[@"user_name"];
+        self.iconURL  = buzzDictionary[@"user_img_url"];
+        self.text     = buzzDictionary[@"buzz_body"];
+        self.imageURL = buzzDictionary[@"buzz_img_url"];
+        self.lat      = [buzzDictionary[@"lat"] floatValue];
+        self.lot      = [buzzDictionary[@"lot"] floatValue];
+        self.date     = buzzDictionary[@"time"];
+        self.annotation = [[RMPBuzzAnnotation alloc] init];
+        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
+        self.annotation.index = index;
+        
+        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.iconURL]];
+        self.iconImage = [UIImage imageWithData:iconData];
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
+        self.image = [UIImage imageWithData:imageData];
+    }
+    
+    return self;
+}
+
 @end
