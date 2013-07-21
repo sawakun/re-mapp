@@ -30,5 +30,6 @@
 
 - (id)initWithBuzz:(NSDictionary *)buzz Index:(NSInteger)index;
 - (id)initWithArray:(NSArray *)buzz Index:(NSInteger)index;
+- (id)initWithDictionary:(NSDictionary *)buzz Index:(NSInteger)index;
 
 @end

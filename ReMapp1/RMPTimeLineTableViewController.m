@@ -100,7 +100,6 @@
                                      constrainedToSize:maximumLabelSize
                                          lineBreakMode:NSLineBreakByWordWrapping];
     
-    NSLog(@"labelSize.height=%f", expectedLabelSize.height);
     return expectedLabelSize.height + 70;
     
     /*

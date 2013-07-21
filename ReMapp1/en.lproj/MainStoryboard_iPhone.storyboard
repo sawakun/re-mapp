@@ -5,31 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Initial View Controller-->
-        <scene sceneID="WKX-38-EMI">
-            <objects>
-                <viewController id="AYv-rq-Art" customClass="RMPInitialViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hs6-8f-IJF">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ECSlidingViewController" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLi-eR-46J">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="yLi-eR-46J" firstAttribute="top" secondItem="hs6-8f-IJF" secondAttribute="top" constant="219" id="Hme-VL-GaC"/>
-                            <constraint firstItem="yLi-eR-46J" firstAttribute="centerX" secondItem="hs6-8f-IJF" secondAttribute="centerX" type="default" id="b15-2o-H82"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="s67-pH-CyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1334" y="296"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="ilC-hT-jrb">
             <objects>

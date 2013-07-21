@@ -10,7 +10,7 @@
 #import "Buzz.h"
 #import "CSVHandler.h"
 
-extern NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
+NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 
 @implementation RMPBuzzData
@@ -64,34 +64,76 @@ extern NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     }
 }
 
+
+
+/*
+ - (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
+ SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate
+ {
+  
+ static NSString *fileName = @"BuzzData.csv";
+ NSMutableArray *data = readCSVFile(fileName);
+ 
+ 
+ NSInteger index = 0;
+ [_buzzes removeAllObjects];
+ for(NSArray *d in data)
+ {
+ float lat = [d[6] floatValue];
+ float lot = [d[7] floatValue];
+ if (lat < northEastCordinate.latitude &&
+ lat > southWestCoordinate.latitude &&
+ lot < northEastCordinate.longitude &&
+ lot > southWestCoordinate.longitude)
+ {
+ Buzz* buzz = [[Buzz alloc] initWithArray:d Index:index];
+ [_buzzes addObject:buzz];
+ ++index;
+ }
+ //if (index > 1000) {
+ //    goto next;
+ //}
+ }
+ next:
+ 
+ dispatch_async(dispatch_get_main_queue(), ^{
+ [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzDataReloaded object:self userInfo:nil];
+ });
+ 
+ return;
+ }
+ */
 - (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
                   SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate
 {
-    static NSString *fileName = @"BuzzData.csv";
-    NSMutableArray *data = readCSVFile(fileName);
     
+    //test json
+    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSString *jsonStr = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                     options:NSJSONReadingAllowFragments
+                                                       error:nil];
+    NSLog(@"reload!!");
     
     NSInteger index = 0;
     [_buzzes removeAllObjects];
-    for(NSArray *d in data)
-    {
-        float lat = [d[6] floatValue];
-        float lot = [d[7] floatValue];
+    for (NSDictionary *buzzDictionary in buzzArray) {
+        float lat = [buzzDictionary[@"lat"] floatValue];
+        float lot = [buzzDictionary[@"lot"] floatValue];
         if (lat < northEastCordinate.latitude &&
             lat > southWestCoordinate.latitude &&
             lot < northEastCordinate.longitude &&
             lot > southWestCoordinate.longitude)
         {
-            Buzz* buzz = [[Buzz alloc] initWithArray:d Index:index];
+            Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
             [_buzzes addObject:buzz];
             ++index;
         }
-        //if (index > 1000) {
-        //    goto next;
-        //}
     }
-next:
-
+    
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzDataReloaded object:self userInfo:nil];
     });
