@@ -10,16 +10,21 @@
 #import <MapKit/MapKit.h>
 @class Buzz;
 
-@interface BuzzData : NSObject
+/** Notification that gets posted when the buzz date are reloaded. */
+extern NSString *const RMPBuzzDataReloaded;
+
+
+@interface RMPBuzzData : NSObject
 {
 @private
     NSMutableArray *_buzzes;
 }
+
 // return the number of buzzes
 @property (nonatomic, readonly) NSInteger count;
 @property (nonatomic, readonly) NSMutableArray *buzzes;
 
-+(BuzzData*)sharedManager;
++(RMPBuzzData*)sharedManager;
 
 - (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
                   SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate;

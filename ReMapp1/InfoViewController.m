@@ -9,7 +9,7 @@
 #import "InfoViewController.h"
 #import "InfoCell.h"
 #import "MapViewController.h"
-#import "BuzzData.h"
+#import "RMPBuzzData.h"
 #import "Buzz.h"
 #import "MapViewController.h"
 
@@ -42,10 +42,10 @@ NSString *const InfoCellDidMove = @"InfoCellDidMove";
     _infoTableView.rowHeight = self.view.frame.size.width;
     [_infoTableView reloadData];
     
-    _buzzData = [BuzzData sharedManager];
+    self.buzzData = [RMPBuzzData sharedManager];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNthCell:) name:MapViewDidSelectAnnotation object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:MapViewDidReload object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
 }
 
 - (void)didReceiveMemoryWarning
