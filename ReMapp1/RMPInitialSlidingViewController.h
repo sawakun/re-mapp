@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPVerticalSlidingViewController.h"
+#import "RMPSlidingViewController.h"
 
-@interface RMPInitialVerticalSlidingViewController : RMPVerticalSlidingViewController
+@interface RMPInitialSlidingViewController : RMPSlidingViewController
 
 @end
