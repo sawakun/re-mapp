@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "ECSlidingViewController.h"
 #import "RMPAnnotation.h"
 
 @class BuzzData;
