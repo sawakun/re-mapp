@@ -12,7 +12,7 @@
 #import "Buzz.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
-#import "RMPVerticalSlidingViewController.h"
+#import "RMPSlidingViewController.h"
 #import "InfoViewController.h"
 #import "RMPAnnotation.h"
 
@@ -54,7 +54,8 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                              selector:@selector(showAnnotationWhenReceiveNotification:)
                                                  name:InfoCellDidMove
                                                object:nil];
-    
+    [self.rightScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.rightPanGesture];
+    [self.leftScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.leftPanGesture];
 }
 
 
@@ -207,8 +208,8 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                                           userInfo:userInfo];
     });
     
-    if (!self.rmp_verticalSlidingViewController.isTopViewShowing) {
-        [self.rmp_verticalSlidingViewController anchorTopViewTo:RMPMiddle];
+    if (!self.rmp_verticalSlidingViewController.isBottomViewShowing) {
+        [self.rmp_verticalSlidingViewController anchorBottomViewTo:RMPMiddle];
     }
 }
 
