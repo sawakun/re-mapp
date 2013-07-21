@@ -69,86 +69,6 @@
             </objects>
             <point key="canvasLocation" x="-549" y="296"/>
         </scene>
-        <!--Time Line View Controller-->
-        <scene sceneID="WhX-qw-Lnx">
-            <objects>
-                <tableViewController storyboardIdentifier="TimeLine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rgF-CQ-s9N" customClass="RMPTimeLineViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" id="rX6-ya-xBy">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell alpha="0.80000000000000004" contentMode="scaleToFill" restorationIdentifier="RMPBuzzCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RMPBuzzCell" rowHeight="168" id="Oaw-Jk-Z4r" customClass="RMPBuzzCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="168"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-Jd-Rfp">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="J74-wa-fea"/>
-                                                <constraint firstAttribute="width" constant="44" id="a9H-2b-eRs"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" preferredMaxLayoutWidth="237" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-CP-6U9">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="GYS-3n-FJ8"/>
-                                                <constraint firstAttribute="width" constant="237" id="PNE-Uo-H6d"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="qh5-a6-G6Y">
-                                            <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="832" constant="28" type="user" id="m1Y-vo-Lb5"/>
-                                                <constraint firstAttribute="width" constant="230" id="phV-fL-Ua6"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00  00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1m-J0-xuX">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="165" id="cxf-Gv-CiZ"/>
-                                                <constraint firstAttribute="height" constant="21" id="ldo-cu-nnu"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="tdy-Jd-Rfp" firstAttribute="top" secondItem="Oaw-Jk-Z4r" secondAttribute="top" constant="11" id="6l2-ED-txf"/>
-                                    <constraint firstItem="kOX-CP-6U9" firstAttribute="leading" secondItem="tdy-Jd-Rfp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="EOp-PX-mbG"/>
-                                    <constraint firstAttribute="trailing" secondItem="B1m-J0-xuX" secondAttribute="trailing" constant="20" type="default" id="Or1-xi-rQH"/>
-                                    <constraint firstAttribute="trailing" secondItem="kOX-CP-6U9" secondAttribute="trailing" constant="20" type="default" id="W00-8o-hdC"/>
-                                    <constraint firstItem="kOX-CP-6U9" firstAttribute="top" secondItem="tdy-Jd-Rfp" secondAttribute="top" type="default" id="dus-ro-5IR"/>
-                                    <constraint firstItem="qh5-a6-G6Y" firstAttribute="top" secondItem="kOX-CP-6U9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="esO-la-2uO"/>
-                                    <constraint firstAttribute="bottom" secondItem="B1m-J0-xuX" secondAttribute="bottom" constant="8" id="hRo-ST-5bS"/>
-                                    <constraint firstItem="qh5-a6-G6Y" firstAttribute="leading" secondItem="tdy-Jd-Rfp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="kHv-kV-aQt"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="buzzLabel" destination="qh5-a6-G6Y" id="yf4-ra-Oot"/>
-                                    <outlet property="dateLabel" destination="B1m-J0-xuX" id="aCH-Mu-QeQ"/>
-                                    <outlet property="iconImageView" destination="tdy-Jd-Rfp" id="4Q5-si-0ct"/>
-                                    <outlet property="nameLabel" destination="kOX-CP-6U9" id="kN3-7w-kSU"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="rgF-CQ-s9N" id="j1B-iN-Rca"/>
-                            <outlet property="delegate" destination="rgF-CQ-s9N" id="jwS-js-7UH"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Q1-bW-WAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-151" y="305"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="5">
             <objects>
@@ -419,6 +339,99 @@
             </objects>
             <point key="canvasLocation" x="-549" y="916"/>
         </scene>
+        <!--Time Line View Controller-->
+        <scene sceneID="sNH-uP-Qcq">
+            <objects>
+                <viewController storyboardIdentifier="TimeLine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6hM-wa-KBC" customClass="RMPTimeLineViewController" sceneMemberID="viewController">
+                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="f38-2E-MTS">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.80000000000000004" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="168" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rX6-ya-xBy">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="RMPBuzzCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RMPBuzzCell" rowHeight="168" id="Oaw-Jk-Z4r" customClass="RMPBuzzCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="168"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-Jd-Rfp">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="J74-wa-fea"/>
+                                                        <constraint firstAttribute="width" constant="44" id="a9H-2b-eRs"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" preferredMaxLayoutWidth="237" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-CP-6U9">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="GYS-3n-FJ8"/>
+                                                        <constraint firstAttribute="width" constant="237" id="PNE-Uo-H6d"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="qh5-a6-G6Y">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="832" constant="28" type="user" id="m1Y-vo-Lb5"/>
+                                                        <constraint firstAttribute="width" constant="230" id="phV-fL-Ua6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00  00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1m-J0-xuX">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="165" id="cxf-Gv-CiZ"/>
+                                                        <constraint firstAttribute="height" constant="21" id="ldo-cu-nnu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="tdy-Jd-Rfp" firstAttribute="top" secondItem="Oaw-Jk-Z4r" secondAttribute="top" constant="11" id="6l2-ED-txf"/>
+                                            <constraint firstItem="kOX-CP-6U9" firstAttribute="leading" secondItem="tdy-Jd-Rfp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="EOp-PX-mbG"/>
+                                            <constraint firstAttribute="trailing" secondItem="kOX-CP-6U9" secondAttribute="trailing" constant="20" type="default" id="W00-8o-hdC"/>
+                                            <constraint firstItem="kOX-CP-6U9" firstAttribute="top" secondItem="tdy-Jd-Rfp" secondAttribute="top" type="default" id="dus-ro-5IR"/>
+                                            <constraint firstItem="B1m-J0-xuX" firstAttribute="trailing" secondItem="qh5-a6-G6Y" secondAttribute="trailing" type="default" id="g40-Fp-iyM"/>
+                                            <constraint firstAttribute="bottom" secondItem="B1m-J0-xuX" secondAttribute="bottom" constant="8" id="hRo-ST-5bS"/>
+                                            <constraint firstItem="qh5-a6-G6Y" firstAttribute="top" secondItem="Oaw-Jk-Z4r" secondAttribute="top" constant="28" id="i2m-ZX-aRV"/>
+                                            <constraint firstItem="qh5-a6-G6Y" firstAttribute="leading" secondItem="tdy-Jd-Rfp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="kHv-kV-aQt"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="buzzLabel" destination="qh5-a6-G6Y" id="yf4-ra-Oot"/>
+                                            <outlet property="dateLabel" destination="B1m-J0-xuX" id="aCH-Mu-QeQ"/>
+                                            <outlet property="iconImageView" destination="tdy-Jd-Rfp" id="4Q5-si-0ct"/>
+                                            <outlet property="nameLabel" destination="kOX-CP-6U9" id="kN3-7w-kSU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6hM-wa-KBC" id="G5g-xj-LSv"/>
+                                    <outlet property="delegate" destination="6hM-wa-KBC" id="sJt-vN-9db"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="rX6-ya-xBy" firstAttribute="top" secondItem="f38-2E-MTS" secondAttribute="top" type="default" id="9PH-Mh-al0"/>
+                            <constraint firstItem="rX6-ya-xBy" firstAttribute="bottom" secondItem="f38-2E-MTS" secondAttribute="bottom" type="default" id="QFB-ag-YoF"/>
+                            <constraint firstItem="rX6-ya-xBy" firstAttribute="trailing" secondItem="f38-2E-MTS" secondAttribute="trailing" type="default" id="Xpn-N4-Z1c"/>
+                            <constraint firstItem="rX6-ya-xBy" firstAttribute="leading" secondItem="f38-2E-MTS" secondAttribute="leading" type="default" id="z17-Zg-ob8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="timeLineTableView" destination="rX6-ya-xBy" id="XDK-8i-Y4L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wiB-7n-5fD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-168" y="306"/>
+        </scene>
     </scenes>
     <classes>
         <class className="BuzzFormViewController" superclassName="UIViewController">
@@ -434,9 +447,6 @@
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
                 <relationship kind="outlet" name="toolbarVerticalSpaceConstraint" candidateClass="NSLayoutConstraint"/>
             </relationships>
-        </class>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
         </class>
         <class className="InfoCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoCell.h"/>
@@ -472,8 +482,8 @@
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="RMPInitialViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialViewController.h"/>
+        <class className="RMPInitialSlidingViewController" superclassName="RMPSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialSlidingViewController.h"/>
         </class>
         <class className="RMPNonVisibleSearchBar" superclassName="UISearchBar">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPNonVisibleSearchBar.h"/>
@@ -481,8 +491,14 @@
         <class className="RMPNonVisibleToolBar" superclassName="UIToolbar">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPNonVisibleToolBar.h"/>
         </class>
-        <class className="RMPTimeLineViewController" superclassName="UITableViewController">
+        <class className="RMPSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPSlidingViewController.h"/>
+        </class>
+        <class className="RMPTimeLineViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPTimeLineViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="timeLineTableView" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="UIPlaceHolderTextView" superclassName="UITextView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPlaceHolderTextView.h"/>

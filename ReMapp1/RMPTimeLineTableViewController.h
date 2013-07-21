@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMPTimeLineViewController : UITableViewController
+@interface RMPTimeLineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *timeLineTableView;
 
 @end

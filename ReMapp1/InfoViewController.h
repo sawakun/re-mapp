@@ -12,12 +12,12 @@
 extern NSString *const InfoCellDidMove;
 
 
-@class BuzzData;
+@class RMPBuzzData;
 @interface InfoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
-@property (weak, nonatomic) BuzzData *buzzData;
+@property (weak, nonatomic) RMPBuzzData *buzzData;
 - (void)showNthCell:(NSNotification *)center;
 
 @end

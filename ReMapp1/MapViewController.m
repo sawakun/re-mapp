@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "InfoViewController.h"
-#import "BuzzData.h"
+#import "RMPBuzzData.h"
 #import "Buzz.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
@@ -29,7 +29,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     [super viewDidLoad];
     //set BuzzData
-    self.buzzData = [BuzzData sharedManager];
+    self.buzzData = [RMPBuzzData sharedManager];
     
     // set Map
     self.mapView.delegate = self;

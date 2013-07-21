@@ -6,20 +6,23 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "BuzzData.h"
+#import "RMPBuzzData.h"
 #import "Buzz.h"
 #import "CSVHandler.h"
 
-@implementation BuzzData
+extern NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
+
+
+@implementation RMPBuzzData
 @synthesize buzzes = _buzzes;
 
 
-+(BuzzData*)sharedManager
++(RMPBuzzData*)sharedManager
 {
-    static BuzzData *sharedBuzzData;
+    static RMPBuzzData *sharedBuzzData;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedBuzzData = [[BuzzData alloc] initSharedInstance];
+        sharedBuzzData = [[RMPBuzzData alloc] initSharedInstance];
     });
     return sharedBuzzData;
 }
@@ -88,6 +91,11 @@
         //}
     }
 next:
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzDataReloaded object:self userInfo:nil];
+    });
+
     return;
 }
 
