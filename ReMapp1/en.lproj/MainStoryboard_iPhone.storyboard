@@ -58,14 +58,11 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw" customClass="RMPMapView">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="2qv-ly-cpu"/>
                                     <constraint firstAttribute="height" constant="468" id="dUA-yF-7Y4"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="delegate" destination="2" id="zE2-ei-1Cx"/>
-                                </connections>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="PAJ-4P-jUs" customClass="RMPNonVisibleToolBar">
                                 <constraints>
@@ -81,12 +78,15 @@
                             </toolbar>
                             <searchBar contentMode="redraw" barStyle="blackTranslucent" placeholder="What..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO" customClass="RMPNonVisibleSearchBar">
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="kVV-3b-vcr"/>
+                                </connections>
                             </searchBar>
                             <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-CV-J8J">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view alpha="0.10000000000000014" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-VO-otW">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-VO-otW">
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -112,6 +112,7 @@
                         <outlet property="leftScratchView" destination="ayf-VO-otW" id="Gzj-D6-yDU"/>
                         <outlet property="mapView" destination="fUz-D1-JIw" id="4T9-au-RCO"/>
                         <outlet property="rightScratchView" destination="2SP-CV-J8J" id="6WO-Pg-ryw"/>
+                        <outlet property="searchBar" destination="VRc-20-keO" id="nB1-Fy-7MP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -122,7 +123,7 @@
         <scene sceneID="TjK-PH-Bgu">
             <objects>
                 <viewController storyboardIdentifier="BuzzForm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PGe-qp-L6R" customClass="BuzzFormViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="p5L-xl-0Jx">
+                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="p5L-xl-0Jx">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -188,7 +189,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rzo-Bd-HKu" firstAttribute="centerY" secondItem="oW4-eo-mk4" secondAttribute="centerY" type="default" id="0iy-i8-59q"/>
                             <constraint firstItem="dq9-CA-olp" firstAttribute="trailing" secondItem="p5L-xl-0Jx" secondAttribute="trailing" type="default" id="2aB-rT-OKT"/>
@@ -454,8 +455,9 @@
             <relationships>
                 <relationship kind="action" name="tappedToCurrentLocation:"/>
                 <relationship kind="outlet" name="leftScratchView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="mapView" candidateClass="RMPMapView"/>
                 <relationship kind="outlet" name="rightScratchView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="RMPNonVisibleSearchBar"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -472,6 +474,9 @@
         </class>
         <class className="RMPInitialSlidingViewController" superclassName="RMPSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialSlidingViewController.h"/>
+        </class>
+        <class className="RMPMapView" superclassName="MKMapView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPMapView.h"/>
         </class>
         <class className="RMPNonVisibleSearchBar" superclassName="UISearchBar">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPNonVisibleSearchBar.h"/>

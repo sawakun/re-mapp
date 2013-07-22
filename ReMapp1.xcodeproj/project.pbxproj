@@ -26,7 +26,9 @@
 		45C76F301796BF7000BD184C /* pin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C76F2E1796BF7000BD184C /* pin1.png */; };
 		45C76F311796BF7000BD184C /* pin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C76F2F1796BF7000BD184C /* pin2.png */; };
 		45C76F391796C73200BD184C /* RMPNonVisibleToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C76F381796C73200BD184C /* RMPNonVisibleToolBar.m */; };
-		45C76F3B1796E4A700BD184C /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C76F3A1796E4A700BD184C /* bar.png */; };
+		45DABF04179D3530001E9A7C /* RMPMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DABF03179D3530001E9A7C /* RMPMapView.m */; };
+		45DABF06179D7755001E9A7C /* buzzPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DABF05179D7755001E9A7C /* buzzPin.png */; };
+		45DABF08179D7927001E9A7C /* playPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45DABF07179D7927001E9A7C /* playPin.png */; };
 		45E370D51782EADD006EE5F9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E370D31782EADD006EE5F9 /* MainStoryboard_iPhone.storyboard */; };
 		45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */; };
 		45E48974177F9A87002FF5FB /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E48973177F9A87002FF5FB /* InfoViewController.m */; };
@@ -94,7 +96,10 @@
 		45C76F2F1796BF7000BD184C /* pin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin2.png; sourceTree = "<group>"; };
 		45C76F371796C73200BD184C /* RMPNonVisibleToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPNonVisibleToolBar.h; sourceTree = "<group>"; };
 		45C76F381796C73200BD184C /* RMPNonVisibleToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPNonVisibleToolBar.m; sourceTree = "<group>"; };
-		45C76F3A1796E4A700BD184C /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
+		45DABF02179D3530001E9A7C /* RMPMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMapView.h; sourceTree = "<group>"; };
+		45DABF03179D3530001E9A7C /* RMPMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMapView.m; sourceTree = "<group>"; };
+		45DABF05179D7755001E9A7C /* buzzPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buzzPin.png; sourceTree = "<group>"; };
+		45DABF07179D7927001E9A7C /* playPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playPin.png; sourceTree = "<group>"; };
 		45E370D41782EADD006EE5F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = ReMapp1/en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		45E370D61782EBC5006EE5F9 /* BuzzFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuzzFormViewController.h; sourceTree = "<group>"; };
 		45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuzzFormViewController.m; sourceTree = "<group>"; };
@@ -269,6 +274,8 @@
 		45C76F321796BF9600BD184C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				45DABF05179D7755001E9A7C /* buzzPin.png */,
+				45DABF07179D7927001E9A7C /* playPin.png */,
 				45F39AAE1797550E003B943A /* writeFormPin.png */,
 				45952DC2177FDFFD0083B7D0 /* pin.png */,
 				45C76F2E1796BF7000BD184C /* pin1.png */,
@@ -403,7 +410,8 @@
 				45500B3717957CC500DCE98D /* Annotation */,
 				45E4AC28177E8ADF006619F1 /* MapViewController.h */,
 				45E4AC29177E8ADF006619F1 /* MapViewController.m */,
-				45C76F3A1796E4A700BD184C /* bar.png */,
+				45DABF02179D3530001E9A7C /* RMPMapView.h */,
+				45DABF03179D3530001E9A7C /* RMPMapView.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -514,8 +522,9 @@
 				450C35B61787831D00484A9E /* bigmarker.png in Resources */,
 				45C76F301796BF7000BD184C /* pin1.png in Resources */,
 				45C76F311796BF7000BD184C /* pin2.png in Resources */,
-				45C76F3B1796E4A700BD184C /* bar.png in Resources */,
 				45F39AAF1797550E003B943A /* writeFormPin.png in Resources */,
+				45DABF06179D7755001E9A7C /* buzzPin.png in Resources */,
+				45DABF08179D7927001E9A7C /* playPin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +579,7 @@
 				45B2BDDC1799FE400051B90A /* RMPHTTPConnection.m in Sources */,
 				45274E6C179A774300A4CE59 /* RMPBuzzCell.m in Sources */,
 				45274E6F179A779400A4CE59 /* RMPTimeLineTableViewController.m in Sources */,
+				45DABF04179D3530001E9A7C /* RMPMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

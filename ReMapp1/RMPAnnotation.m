@@ -27,9 +27,22 @@
 {
     self = [super init];
     if (self) {
-        self.pinImage = [UIImage imageNamed:@"pin1.png"];
+        self.pinImage = [UIImage imageNamed:@"buzzPin.png"];
         self.identifier = @"RMPBuzzAnnotation";
-        self.centerOffset = CGPointMake(0.0f, -15.0f);
+        self.centerOffset = CGPointMake(0.0f, -16.5f);
+    }
+    return self;
+}
+@end
+
+@implementation RMPPlayAnnotation
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.pinImage = [UIImage imageNamed:@"playPin.png"];
+        self.identifier = @"RMPPlayAnnotation";
+        self.centerOffset = CGPointMake(0.0f, -16.5f);
     }
     return self;
 }
