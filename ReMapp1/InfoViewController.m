@@ -12,7 +12,7 @@
 #import "RMPBuzzData.h"
 #import "Buzz.h"
 #import "MapViewController.h"
-
+#import "RMPMapView.h"
 
 NSString *const InfoCellDidMove = @"InfoCellDidMove";
 
@@ -44,7 +44,7 @@ NSString *const InfoCellDidMove = @"InfoCellDidMove";
     
     self.buzzData = [RMPBuzzData sharedManager];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNthCell:) name:MapViewDidSelectAnnotation object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNthCell:) name:RMPMapViewDidSelectAnnotation object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
 }
 
