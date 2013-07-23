@@ -23,6 +23,7 @@
 		45952DD2177FE7750083B7D0 /* CSVHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DD0177FE7750083B7D0 /* CSVHandler.m */; };
 		45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */; };
 		45B2BDDC1799FE400051B90A /* RMPHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */; };
+		45C537FB179D7DCB0077FFA3 /* currentLocation.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C537FA179D7DCB0077FFA3 /* currentLocation.png */; };
 		45C76F301796BF7000BD184C /* pin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C76F2E1796BF7000BD184C /* pin1.png */; };
 		45C76F311796BF7000BD184C /* pin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 45C76F2F1796BF7000BD184C /* pin2.png */; };
 		45C76F391796C73200BD184C /* RMPNonVisibleToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C76F381796C73200BD184C /* RMPNonVisibleToolBar.m */; };
@@ -92,6 +93,7 @@
 		45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		45B2BDDA1799FE400051B90A /* RMPHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPHTTPConnection.h; sourceTree = "<group>"; };
 		45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPHTTPConnection.m; sourceTree = "<group>"; };
+		45C537FA179D7DCB0077FFA3 /* currentLocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = currentLocation.png; sourceTree = "<group>"; };
 		45C76F2E1796BF7000BD184C /* pin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin1.png; sourceTree = "<group>"; };
 		45C76F2F1796BF7000BD184C /* pin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin2.png; sourceTree = "<group>"; };
 		45C76F371796C73200BD184C /* RMPNonVisibleToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPNonVisibleToolBar.h; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 		45E4AC48177E93FF006619F1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				45C537FA179D7DCB0077FFA3 /* currentLocation.png */,
 				45500B3717957CC500DCE98D /* Annotation */,
 				45E4AC28177E8ADF006619F1 /* MapViewController.h */,
 				45E4AC29177E8ADF006619F1 /* MapViewController.m */,
@@ -525,6 +528,7 @@
 				45F39AAF1797550E003B943A /* writeFormPin.png in Resources */,
 				45DABF06179D7755001E9A7C /* buzzPin.png in Resources */,
 				45DABF08179D7927001E9A7C /* playPin.png in Resources */,
+				45C537FB179D7DCB0077FFA3 /* currentLocation.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
