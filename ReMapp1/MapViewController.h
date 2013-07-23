@@ -13,21 +13,24 @@
 @class RMPBuzzData;
 @class InfoViewController;
 @class BuzzFormViewController;
+@class RMPNonVisibleSearchBar;
+@class RMPMapView;
 
-/** Notification that gets posted when an annotation was selected. */
-extern NSString *const MapViewDidSelectAnnotation;
 /** Notification that gets posted when the map was reloaded. */
 extern NSString *const MapViewDidReload;
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
+
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;
 @property (nonatomic) RMPBuzzData *buzzData;
 @property (weak, nonatomic) IBOutlet UIView *rightScratchView;
 @property (weak, nonatomic) IBOutlet UIView *leftScratchView;
+@property (weak, nonatomic) IBOutlet RMPMapView *mapView;
+
+@property (weak, nonatomic) IBOutlet RMPNonVisibleSearchBar *searchBar;
 
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 - (void)showCenter:(NSInteger)index;
 - (void)showAnnotation:(NSInteger)index;
 @end

@@ -15,12 +15,13 @@
 #import "RMPSlidingViewController.h"
 #import "InfoViewController.h"
 #import "RMPAnnotation.h"
+#import "RMPNonVisibleSearchBar.h"
+#import "RMPMapView.h"
 
 @interface MapViewController ()
 
 @end
 
-NSString *const MapViewDidSelectAnnotation = @"MapViewDidSelectAnnotation";
 NSString *const MapViewDidReload = @"MapViewDidReload";
 
 @implementation MapViewController
@@ -30,7 +31,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     [super viewDidLoad];
     
     // set Map
-    self.mapView.delegate = self;
+    //self.mapView.delegate = self;
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 35.6584;
     zoomLocation.longitude = 139.7017;
@@ -55,6 +56,25 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                              selector:@selector(showAnnotationWhenReceiveNotification:)
                                                  name:InfoCellDidMove
                                                object:nil];
+    
+    //set the map delegate
+    self.mapView.delegate = self.mapView;
+ 
+    //set notifications related to the map
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showInfoView)
+                                                 name:RMPMapViewDidSelectAnnotation
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reload)
+                                                 name:RMPMapViewRegionDidChangeAnimated
+                                               object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(hideInfoView)
+                                                 name:RMPMapViewRegionDidChangeAnimated
+                                               object:nil];
 }
 
 
@@ -67,7 +87,19 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     [self reload];
 }
 
+- (void)showInfoView
+{
+    if (!self.rmp_verticalSlidingViewController.isBottomViewShowing) {
+        [self.rmp_verticalSlidingViewController anchorBottomViewTo:RMPMiddle];
+    }
+}
 
+- (void)hideInfoView
+{
+    if (self.rmp_verticalSlidingViewController.isBottomViewShowing) {
+        [self.rmp_verticalSlidingViewController anchorBottomViewTo:RMPBottom];
+    }
+}
 
 
 
@@ -141,91 +173,35 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     }
     [_mapView removeAnnotations:_mapView.annotations];
     [_mapView addAnnotations:annotations];
-    
-    /*
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidReload
-                                                            object:self
-                                                          userInfo:nil];
-    });
-     */
 }
 
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
-    [self reload];
-}
 
 - (IBAction)tappedToCurrentLocation:(id)sender {
-    //self.mapView.showsUserLocation = YES;
+    self.mapView.showsUserLocation = YES;
     CLLocationManager *locationManager = [[CLLocationManager alloc] init];
     [locationManager startUpdatingLocation];
-    //while (locationManager.location.coordinate.longitude == 0)
-    //{
-    //    NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
-    //}
-    //NSLog(@"%f, %f", locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude);
     self.mapView.centerCoordinate = locationManager.location.coordinate;
     [locationManager stopUpdatingLocation];
-    //self.mapView.userLocationVisible = NO;
+    [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                     target:self
+                                   selector:@selector(stopShowUserLocation:)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
-#pragma mark - MKMapViewDelegate
--(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+- (void)stopShowUserLocation:(NSTimer *)timer
 {
-    if ([annotation isKindOfClass:[MKUserLocation class]] ||
-        ![annotation isKindOfClass:[RMPAnnotation class]]) {
-        return nil;
-    }
-    
-    RMPAnnotation *thisAnnotation = (RMPAnnotation*)annotation;
-    NSString* identifier = thisAnnotation.identifier;
-    
-    MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    if(nil == annotationView) {
-        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-        annotationView.image = thisAnnotation.pinImage;
-        annotationView.centerOffset = thisAnnotation.centerOffset;
-        annotationView.canShowCallout = NO;
-    }
-    else {
-        annotationView.annotation = annotation;
-    }
-    
-    return annotationView;
+    self.mapView.showsUserLocation = NO;
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-    
-    RMPSelectedAnnotation *selectedAnnotation = [[RMPSelectedAnnotation alloc] init];
-    [UIView animateWithDuration:0.2f animations:^{
-        view.image = selectedAnnotation.pinImage;
-    }];
-    
-    //post notification
-    RMPAnnotation *annotation = (RMPAnnotation *)view.annotation;
-    NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:annotation.index]};
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:MapViewDidSelectAnnotation
-                                                            object:self
-                                                          userInfo:userInfo];
-    });
-    
-    if (!self.rmp_verticalSlidingViewController.isBottomViewShowing) {
-        [self.rmp_verticalSlidingViewController anchorBottomViewTo:RMPMiddle];
-    }
+#pragma mark - UISearchBar
+
+- (void) searchBarSearchButtonClicked: (UISearchBar *) searchBar {
+    [searchBar resignFirstResponder];
 }
 
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
-{
-    if (![view.annotation isKindOfClass:[RMPAnnotation class]]) {
-        return;
-    }
-    
-    RMPAnnotation *thisAnnotation = (RMPAnnotation*)view.annotation;
-    view.image = thisAnnotation.pinImage;
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [[self view] endEditing:YES];
 }
-
 
 @end
