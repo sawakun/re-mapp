@@ -17,7 +17,18 @@ extern NSString *const RMPBuzzDataReloaded;
 @interface RMPBuzzData : NSObject
 {
 @private
-    NSMutableArray *_buzzes;
+    NSMutableArray *_currentViewBuzzData;
+    NSMutableArray *_buzzData;
+    double _buzzDataNorthEastLat;
+    double _buzzDataNorthEastLot;
+    double _buzzDataSouthWestLat;
+    double _buzzDataSouthWestLot;
+    double _urlRequestNorthEastLat;
+    double _urlRequestNorthEastLot;
+    double _urlRequestSouthWestLat;
+    double _urlRequestSouthWestLot;
+    double _widthCurrentView;
+    dispatch_queue_t _queue;
 }
 
 // return the number of buzzes
@@ -26,8 +37,9 @@ extern NSString *const RMPBuzzDataReloaded;
 
 +(RMPBuzzData*)sharedManager;
 
-- (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
-                  SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate;
+- (void)reloadWithNorthEastLat:(double)northEastLat
+                  NorthEastLot:(double)northEastLot
+                  SouthWestLat:(double)southWestLat
+                  SouthWestLot:(double)southWestLot;
 - (Buzz *)buzzAtIndex:(NSInteger)index;
-- (void)reload;
 @end

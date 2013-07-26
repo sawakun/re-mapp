@@ -53,6 +53,7 @@
 		45E4AC4C177E95D5006619F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4B177E95D5006619F1 /* MapKit.framework */; };
 		45E4AC4E177E95DF006619F1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4D177E95DF006619F1 /* AddressBook.framework */; };
 		45E4AC50177E95F3006619F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4F177E95F3006619F1 /* CoreLocation.framework */; };
+		45F35691179EB51E009171A4 /* RMPPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F35690179EB51E009171A4 /* RMPPlace.m */; };
 		45F39AAA17975002003B943A /* RMPNonVisibleSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F39AA917975002003B943A /* RMPNonVisibleSearchBar.m */; };
 		45F39AAF1797550E003B943A /* writeFormPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F39AAE1797550E003B943A /* writeFormPin.png */; };
 		45F39AB01797550E003B943A /* writeFormPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F39AAE1797550E003B943A /* writeFormPin.png */; };
@@ -134,6 +135,8 @@
 		45E4AC4B177E95D5006619F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		45E4AC4D177E95DF006619F1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		45E4AC4F177E95F3006619F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45F3568F179EB51E009171A4 /* RMPPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPlace.h; sourceTree = "<group>"; };
+		45F35690179EB51E009171A4 /* RMPPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPlace.m; sourceTree = "<group>"; };
 		45F39AA817975002003B943A /* RMPNonVisibleSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPNonVisibleSearchBar.h; sourceTree = "<group>"; };
 		45F39AA917975002003B943A /* RMPNonVisibleSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPNonVisibleSearchBar.m; sourceTree = "<group>"; };
 		45F39AAE1797550E003B943A /* writeFormPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeFormPin.png; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				45952DCC177FE7340083B7D0 /* Buzz.m */,
 				45952DC7177FE7250083B7D0 /* RMPBuzzData.h */,
 				45952DC8177FE7250083B7D0 /* RMPBuzzData.m */,
+				45F3568F179EB51E009171A4 /* RMPPlace.h */,
+				45F35690179EB51E009171A4 /* RMPPlace.m */,
 			);
 			name = Buzz;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 				45274E6C179A774300A4CE59 /* RMPBuzzCell.m in Sources */,
 				45274E6F179A779400A4CE59 /* RMPTimeLineTableViewController.m in Sources */,
 				45DABF04179D3530001E9A7C /* RMPMapView.m in Sources */,
+				45F35691179EB51E009171A4 /* RMPPlace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

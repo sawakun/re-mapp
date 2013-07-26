@@ -361,7 +361,7 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="qh5-a6-G6Y">
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="832" constant="28" type="user" id="m1Y-vo-Lb5"/>
-                                                        <constraint firstAttribute="width" constant="230" id="phV-fL-Ua6"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" type="user" id="phV-fL-Ua6"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
