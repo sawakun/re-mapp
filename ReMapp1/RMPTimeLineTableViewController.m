@@ -80,12 +80,6 @@
     [cell.buzzLabel setNumberOfLines:0];
     [cell.buzzLabel sizeToFit];
     cell.dateLabel.text = buzz.date;
-    
-    /*
-    [label setLineBreakMode:UILineBreakModeWordWrap];
-    CGRect frame = [label frame];
-     */
-    
      return cell;
 }
 

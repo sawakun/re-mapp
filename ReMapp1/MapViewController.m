@@ -31,7 +31,6 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     [super viewDidLoad];
     
     // set Map
-    //self.mapView.delegate = self;
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 35.6584;
     zoomLocation.longitude = 139.7017;
@@ -67,14 +66,14 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                                object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reload)
+                                             selector:@selector(hideInfoView)
                                                  name:RMPMapViewRegionDidChangeAnimated
                                                object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(hideInfoView)
-                                                 name:RMPMapViewRegionDidChangeAnimated
-                                               object:nil];
+                                             selector:@selector(reload)
+                                                 name:RMPBuzzDataReloaded
+                                               object:self.buzzData];
 }
 
 
@@ -84,7 +83,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     
     //set BuzzData
     self.buzzData = [RMPBuzzData sharedManager];
-    [self reload];
+    //[self reload];
 }
 
 - (void)showInfoView
@@ -156,16 +155,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)reload
 {
-    CGPoint northEast = CGPointMake(self.view.bounds.origin.x+self.view.bounds.size.width,
-                                    self.view.bounds.origin.y);
-    CLLocationCoordinate2D neCoordinate = [_mapView convertPoint:northEast toCoordinateFromView:_mapView];
-    
-    CGPoint southWest = CGPointMake(self.view.bounds.origin.x,
-                                    self.view.bounds.origin.y+self.view.bounds.size.height);
-    CLLocationCoordinate2D swCoordinate = [_mapView convertPoint:southWest toCoordinateFromView:_mapView];
-    
-    [_buzzData reloadWithNorthEastCordinate:neCoordinate SouthWestCoordinate:swCoordinate];
-    
+
     NSMutableArray *annotations = [NSMutableArray array];
     for (Buzz *buzz in _buzzData.buzzes)
     {

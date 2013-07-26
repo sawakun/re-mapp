@@ -8,6 +8,7 @@
 
 #import "RMPMapView.h"
 #import "RMPAnnotation.h"
+#import "RMPBuzzData.h"
 
 NSString *const RMPMapViewDidSelectAnnotation = @"RMPMapViewDidSelectAnnotation";
 NSString *const RMPMapViewRegionDidChangeAnimated = @"RMPMapViewRegionDidChangeAnimated";
@@ -52,10 +53,24 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
+    CGPoint northEast = CGPointMake(self.bounds.origin.x+self.bounds.size.width,
+                                    self.bounds.origin.y);
+    CLLocationCoordinate2D neCoordinate = [self convertPoint:northEast toCoordinateFromView:self];
+    
+    CGPoint southWest = CGPointMake(self.bounds.origin.x,
+                                    self.bounds.origin.y+self.bounds.size.height);
+    CLLocationCoordinate2D swCoordinate = [self convertPoint:southWest toCoordinateFromView:self];
+    
+
+    NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:neCoordinate.latitude],
+                               @"northEastLot":[NSNumber numberWithDouble:neCoordinate.longitude],
+                               @"southWestLat":[NSNumber numberWithDouble:swCoordinate.latitude],
+                               @"southWestLot":[NSNumber numberWithDouble:swCoordinate.longitude]};
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
                                                             object:nil
-                                                          userInfo:nil];
+                                                          userInfo:userInfo];
     });
 }
 

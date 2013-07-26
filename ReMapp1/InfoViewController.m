@@ -90,28 +90,6 @@ NSString *const InfoCellDidMove = @"InfoCellDidMove";
 
 #pragma mark - Table view delegate
 
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"bgView height = %f", self.view.frame.size.height);
-    NSLog(@"width = %f", self.infoTableView.frame.size.width);
-    NSLog(@"select = %d",indexPath.row);
-}
- */
-
-/*
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat pageWidth = scrollView.frame.size.width;
-    float fractionalPage = scrollView.contentOffset.y / pageWidth;
-    NSLog(@"scroll = %f @scrollViewDidScroll", pageWidth);
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    CGFloat pageWidth = scrollView.frame.size.width;
-    //float fractionalPage = scrollView.contentOffset.y / pageWidth;
-    NSLog(@"scroll = %f @scrollViewDidEndDragging", pageWidth);
-}
-*/
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;

@@ -9,12 +9,13 @@
 #import "RMPBuzzData.h"
 #import "Buzz.h"
 #import "CSVHandler.h"
+#import "RMPMapView.h"
 
 NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 
 @implementation RMPBuzzData
-@synthesize buzzes = _buzzes;
+@synthesize buzzes = _currentViewBuzzData;
 
 
 +(RMPBuzzData*)sharedManager
@@ -31,7 +32,23 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 {
     self = [super init];
     if (self) {
-        _buzzes = [[NSMutableArray alloc] init];
+        _currentViewBuzzData = [[NSMutableArray alloc] init];
+        _buzzData = [[NSMutableArray alloc] init];
+        _buzzDataNorthEastLat = 0.0f;
+        _buzzDataNorthEastLot = 0.0f;
+        _buzzDataSouthWestLat = 0.0f;
+        _buzzDataSouthWestLot = 0.0f;
+        _urlRequestNorthEastLat = 0.0f;
+        _urlRequestNorthEastLot = 0.0f;
+        _urlRequestSouthWestLat = 0.0f;
+        _urlRequestSouthWestLot = 0.0f;
+        _widthCurrentView = 0.0;
+        _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(reload:)
+                                                     name:RMPMapViewRegionDidChangeAnimated
+                                                   object:nil];
+        
     }
     return self;
 }
@@ -46,105 +63,243 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 - (Buzz *)buzzAtIndex:(NSInteger)index
 {
-    return [_buzzes objectAtIndex:index];
+    return [_buzzData objectAtIndex:index];
 }
 
-- (void)reload
+
+- (void)reload:(NSNotification *)center
 {
-    _buzzes = [[NSMutableArray alloc] init];
-    static NSString *fileName = @"BuzzData.csv";
-    NSMutableArray *data = readCSVFile(fileName);
+    double northEastLat = [center.userInfo[@"northEastLat"] doubleValue];
+    double northEastLot = [center.userInfo[@"northEastLot"] doubleValue];
+    double southWestLat = [center.userInfo[@"southWestLat"] doubleValue];
+    double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
+    dispatch_async(_queue, ^{
+        [self reloadWithNorthEastLat:northEastLat NorthEastLot:northEastLot SouthWestLat:southWestLat SouthWestLot:southWestLot];
+    });
+}
+
+- (void)reloadWithNorthEastLat:(double)northEastLat
+                  NorthEastLot:(double)northEastLot
+                  SouthWestLat:(double)southWestLat
+                  SouthWestLot:(double)southWestLot
+{
     
-    NSInteger index = 0;
-    for(NSArray *d in data)
+    if ([self isOutOrRangeBuzzDataWithNorthEastLat:northEastLat
+                                      NorthEastLot:northEastLot
+                                      SouthWestLat:southWestLat
+                                      SouthWestLot:southWestLot] ||
+        (northEastLot- southWestLot) != _widthCurrentView) {
+
+
+        
+        NSLog(@"Case 1");
+        NSLog(@"%f, %f", northEastLat, southWestLat);
+        [self fetchBuzzDataWithNorthEastLat:northEastLat
+                               NorthEastLot:northEastLot
+                               SouthWestLat:southWestLat
+                               SouthWestLot:southWestLot];
+        
+        [self setCurrentBuzzDataWithNorthEastLat:northEastLat
+                                    NorthEastLot:northEastLot
+                                    SouthWestLat:southWestLat
+                                    SouthWestLot:southWestLot];
+        return;
+    }
+    
+    if ([self isOutOrRangeNoURLRequestWithNorthEastLat:northEastLat
+                                          NorthEastLot:northEastLot
+                                          SouthWestLat:southWestLat
+                                          SouthWestLot:southWestLot])
     {
-        Buzz* buzz = [[Buzz alloc] initWithArray:d Index:index];
-        [_buzzes addObject:buzz];
-        ++index;
+        NSLog(@"Case 2");
+        [self setCurrentBuzzDataWithNorthEastLat:northEastLat
+                                    NorthEastLot:northEastLot
+                                    SouthWestLat:southWestLat
+                                    SouthWestLot:southWestLot];
+        
+        [self fetchBuzzDataWithNorthEastLat:northEastLat
+                               NorthEastLot:northEastLot
+                               SouthWestLat:southWestLat
+                               SouthWestLot:southWestLot];
+        return;
     }
+
+    
+    NSLog(@"Case 3");
+    [self setCurrentBuzzDataWithNorthEastLat:northEastLat
+                                NorthEastLot:northEastLot
+                                SouthWestLat:southWestLat
+                                SouthWestLot:southWestLot];
+    
+    return;
+}
+
+- (BOOL)isOutOrRangeBuzzDataWithNorthEastLat:(double)northEastLat
+                                NorthEastLot:(double)northEastLot
+                                SouthWestLat:(double)southWestLat
+                                SouthWestLot:(double)southWestLot
+{
+    if (_buzzDataNorthEastLat > northEastLat &&
+        _buzzDataSouthWestLat < southWestLat &&
+        _buzzDataNorthEastLot > northEastLot &&
+        _buzzDataSouthWestLot < southWestLot)
+    {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)isOutOrRangeNoURLRequestWithNorthEastLat:(double)northEastLat
+                                    NorthEastLot:(double)northEastLot
+                                    SouthWestLat:(double)southWestLat
+                                    SouthWestLot:(double)southWestLot
+{
+    if (_urlRequestNorthEastLat > northEastLat &&
+        _urlRequestSouthWestLat < southWestLat &&
+        _urlRequestNorthEastLot > northEastLot &&
+        _urlRequestSouthWestLot < southWestLot)
+    {
+        return NO;
+    }
+    return YES;
 }
 
 
-
-/*
- - (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
- SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate
- {
-  
- static NSString *fileName = @"BuzzData.csv";
- NSMutableArray *data = readCSVFile(fileName);
- 
- 
- NSInteger index = 0;
- [_buzzes removeAllObjects];
- for(NSArray *d in data)
- {
- float lat = [d[6] floatValue];
- float lot = [d[7] floatValue];
- if (lat < northEastCordinate.latitude &&
- lat > southWestCoordinate.latitude &&
- lot < northEastCordinate.longitude &&
- lot > southWestCoordinate.longitude)
- {
- Buzz* buzz = [[Buzz alloc] initWithArray:d Index:index];
- [_buzzes addObject:buzz];
- ++index;
- }
- //if (index > 1000) {
- //    goto next;
- //}
- }
- next:
- 
- dispatch_async(dispatch_get_main_queue(), ^{
- [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzDataReloaded object:self userInfo:nil];
- });
- 
- return;
- }
- */
-- (void) reloadWithNorthEastCordinate:(CLLocationCoordinate2D)northEastCordinate
-                  SouthWestCoordinate:(CLLocationCoordinate2D)southWestCoordinate
+- (void)setCurrentBuzzDataWithNorthEastLat:(double)northEastLat
+                              NorthEastLot:(double)northEastLot
+                              SouthWestLat:(double)southWestLat
+                              SouthWestLot:(double)southWestLot
 {
     
-    //test json
-    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSString *jsonStr = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                     options:NSJSONReadingAllowFragments
-                                                       error:nil];
-    NSLog(@"reload!!");
-    
-    NSInteger index = 0;
-    [_buzzes removeAllObjects];
-    for (NSDictionary *buzzDictionary in buzzArray) {
-        float lat = [buzzDictionary[@"lat"] floatValue];
-        float lot = [buzzDictionary[@"lot"] floatValue];
-        if (lat < northEastCordinate.latitude &&
-            lat > southWestCoordinate.latitude &&
-            lot < northEastCordinate.longitude &&
-            lot > southWestCoordinate.longitude)
-        {
-            Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
-            [_buzzes addObject:buzz];
-            ++index;
-        }
-    }
-    
-    
+//NSInteger index = 0;
+    NSLog(@"Send notification.");
     dispatch_async(dispatch_get_main_queue(), ^{
+        [_currentViewBuzzData removeAllObjects];
+        for (Buzz *buzz in _buzzData) {
+            if (buzz.lat < northEastLat &&
+                buzz.lat > southWestLat &&
+                buzz.lot < northEastLot &&
+                buzz.lot > southWestLot)
+            {
+                [_currentViewBuzzData addObject:buzz];
+            }
+        }
         [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzDataReloaded object:self userInfo:nil];
     });
+}
 
-    return;
+- (void)fetchBuzzDataWithNorthEastLat:(double)northEastLat
+                         NorthEastLot:(double)northEastLot
+                         SouthWestLat:(double)southWestLat
+                         SouthWestLot:(double)southWestLot
+{
+    // set new _buzzDataNorthEastLat...
+    double widthLot = northEastLot - southWestLot;
+    double heigthLat = northEastLat - southWestLat;
+    _buzzDataNorthEastLat = northEastLat + 2 * heigthLat;
+    _buzzDataNorthEastLot = northEastLot + 2 * widthLot;
+    _buzzDataSouthWestLat = southWestLat - 2 * heigthLat;
+    _buzzDataSouthWestLot = southWestLot - 2 * widthLot;
+    _urlRequestNorthEastLat = northEastLat + heigthLat;
+    _urlRequestNorthEastLot = northEastLot + widthLot;
+    _urlRequestSouthWestLat = southWestLat - heigthLat;
+    _urlRequestSouthWestLot = southWestLot - widthLot;
+    _widthCurrentView = widthLot;
+    
+    
+    //json
+    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    NSURLResponse *response;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                        returningResponse:&response
+                                                    error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Error happend = %@", error);
+    }
+    else if ([data length] == 0) {
+        NSLog(@"Nothing was downloaded.");
+    }
+    else
+    {
+        NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:nil];
+        //             NSInteger index = 0;
+        [_buzzData removeAllObjects];
+        for (NSDictionary *buzzDictionary in buzzArray) {
+            double lat = [buzzDictionary[@"lat"] doubleValue];
+            double lot = [buzzDictionary[@"lot"] doubleValue];
+            // This check must be done on the server.
+            if (lat < _buzzDataNorthEastLat &&
+                lat > _buzzDataSouthWestLat &&
+                lot < _buzzDataNorthEastLot &&
+                lot > _buzzDataSouthWestLot)
+            {
+                //                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
+                Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:0];
+                [_buzzData addObject:buzz];
+                //                     ++index;
+            }
+        }
+    }
+    NSLog(@"fetch data.");
+
+    
+    /*
+     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:queue
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data,
+                                               NSError *error)
+     {
+         if (error != nil) {
+             NSLog(@"Error happend = %@", error);
+         }
+         else if ([data length] == 0) {
+             NSLog(@"Nothing was downloaded.");
+         }
+         else
+         {
+             NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+             NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                  options:NSJSONReadingAllowFragments
+                                                                    error:nil];
+//             NSInteger index = 0;
+             [_currentViewBuzzData removeAllObjects];
+             for (NSDictionary *buzzDictionary in buzzArray) {
+                 double lat = [buzzDictionary[@"lat"] doubleValue];
+                 double lot = [buzzDictionary[@"lot"] doubleValue];
+                 // This check must be done on the server.
+                 if (lat < _buzzDataNorthEastLat &&
+                     lat > _buzzDataSouthWestLat &&
+                     lot < _buzzDataNorthEastLot &&
+                     lot > _buzzDataSouthWestLot)
+                 {
+//                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
+                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:0];
+                     [_buzzData addObject:buzz];
+//                     ++index;
+                 }
+             }
+         }
+         NSLog(@"fetch data.");
+     }];
+     */
+    
 }
 
 
 - (NSInteger)count
 {
-    return [_buzzes count];
+    return [_currentViewBuzzData count];
 }
 
 @end
