@@ -4,7 +4,7 @@
 //
 //  Created by nishiba on 2013/07/20.
 //  Copyright (c) 2013年 nishiba. All rights reserved.
-// test
+//
 
 #import "RMPTimeLineTableViewController.h"
 #import "Buzz.h"
