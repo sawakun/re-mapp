@@ -43,8 +43,8 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
         _urlRequestSouthWestLat = 0.0f;
         _urlRequestSouthWestLot = 0.0f;
         _widthCurrentView = 0.0;
-//        _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
-        _queue = dispatch_queue_create("com.re-mapp", NULL);
+        _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
+//        _queue = dispatch_queue_create("com.re-mapp", NULL);
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reload:)
                                                      name:RMPMapViewRegionDidChangeAnimated

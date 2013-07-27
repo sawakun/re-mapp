@@ -124,7 +124,7 @@
         <scene sceneID="TjK-PH-Bgu">
             <objects>
                 <viewController storyboardIdentifier="BuzzForm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PGe-qp-L6R" customClass="BuzzFormViewController" sceneMemberID="viewController">
-                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="p5L-xl-0Jx">
+                    <view key="view" contentMode="scaleToFill" id="p5L-xl-0Jx">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
