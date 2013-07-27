@@ -103,7 +103,7 @@
         self.annotation.index = index;
         
         
-        
+        /*
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
             NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.iconURL]];
@@ -113,7 +113,7 @@
             NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
             self.image = [UIImage imageWithData:imageData];
         });
-        
+        */
     }
     
     return self;

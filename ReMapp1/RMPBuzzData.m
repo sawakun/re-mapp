@@ -44,7 +44,6 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
         _urlRequestSouthWestLot = 0.0f;
         _widthCurrentView = 0.0;
         _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
-//        _queue = dispatch_queue_create("com.re-mapp", NULL);
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reload:)
                                                      name:RMPMapViewRegionDidChangeAnimated
@@ -216,27 +215,33 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     //json
     NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
     NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0f];
     NSURLResponse *response;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
                                         returningResponse:&response
                                                     error:&error];    
     if (error != nil) {
-        NSLog(@"Error happend = %@", error);
+//        NSLog(@"Error happend = %@", error);
+        NSLog(@"Error happend.");
+        return;
     }
     else if ([data length] == 0) {
         NSLog(@"Nothing was downloaded.");
+        return;
     }
     else
     {
+        NSLog(@"fetch data.");
         NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"set array.");
         NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
                                                              options:NSJSONReadingAllowFragments
                                                                error:nil];
         
         // NSInteger index = 0;
+        NSLog(@"remove data.");
         [_buzzData removeAllObjects];
         for (NSDictionary *buzzDictionary in buzzArray) {
             double lat = [buzzDictionary[@"lat"] doubleValue];
@@ -253,8 +258,9 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                 //                     ++index;
             }
         }
+        NSLog(@"Sorted Buzz Data.");
+        return;
     }
-    NSLog(@"fetch data.");
 
     
     /*
