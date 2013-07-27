@@ -18,6 +18,26 @@
 #import "RMPNonVisibleSearchBar.h"
 #import "RMPMapView.h"
 
+// TEST
+@interface NSObject (Extension)
+- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
+@end
+
+// TEST
+@implementation NSObject (Extension)
+- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay
+{
+    [self performSelector:@selector(executeBlock__:)
+               withObject:[block copy]
+               afterDelay:delay];
+}
+
+- (void)executeBlock__:(void (^)(void))block
+{
+    block();
+}
+@end
+
 @interface MapViewController ()
 
 @end
@@ -80,10 +100,78 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
     //set BuzzData
     self.buzzData = [RMPBuzzData sharedManager];
-    //[self reload];
+    
+    /*
+    // TEST
+    [self performBlock:^(void){
+        double lat1 = 35.6584;
+        double lot1 = 139.7017;
+        double lat2 = lat1 - 1;
+        double lot2 = lot1 - 2;
+        NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
+                                   @"northEastLot":[NSNumber numberWithDouble:lot1],
+                                   @"southWestLat":[NSNumber numberWithDouble:lat2],
+                                   @"southWestLot":[NSNumber numberWithDouble:lot2]};
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
+                                                                object:nil
+                                                              userInfo:userInfo];
+        });} afterDelay:1];
+    
+    
+    // TEST
+    [self performBlock:^(void){
+        double lat1 = 30.6584;
+        double lot1 = 130.7017;
+        double lat2 = lat1 - 1;
+        double lot2 = lot1 - 2;
+        NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
+                                   @"northEastLot":[NSNumber numberWithDouble:lot1],
+                                   @"southWestLat":[NSNumber numberWithDouble:lat2],
+                                   @"southWestLot":[NSNumber numberWithDouble:lot2]};
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
+                                                                object:nil
+                                                              userInfo:userInfo];
+        });} afterDelay:2];
+
+    [self performBlock:^(void){
+        double lat1 = 25.6584;
+        double lot1 = 125.7017;
+        double lat2 = lat1 - 1;
+        double lot2 = lot1 - 2;
+        NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
+                                   @"northEastLot":[NSNumber numberWithDouble:lot1],
+                                   @"southWestLat":[NSNumber numberWithDouble:lat2],
+                                   @"southWestLot":[NSNumber numberWithDouble:lot2]};
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
+                                                                object:nil
+                                                              userInfo:userInfo];
+        });} afterDelay:3];
+
+
+    [self performBlock:^(void){
+        double lat1 = 20.6584;
+        double lot1 = 120.7017;
+        double lat2 = lat1 - 1;
+        double lot2 = lot1 - 2;
+        NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
+                                   @"northEastLot":[NSNumber numberWithDouble:lot1],
+                                   @"southWestLat":[NSNumber numberWithDouble:lat2],
+                                   @"southWestLot":[NSNumber numberWithDouble:lot2]};
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
+                                                                object:nil
+                                                              userInfo:userInfo];
+        });} afterDelay:4];
+     */
 }
 
 - (void)showInfoView
