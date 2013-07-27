@@ -74,7 +74,11 @@
     RMPBuzzCell *cell = (RMPBuzzCell*)[tableView
                                        dequeueReusableCellWithIdentifier:CellIdentifier
                                        forIndexPath:indexPath];
-    cell.iconImageView.image = buzz.iconImage;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:buzz.iconURL]];
+        cell.iconImageView.image = [UIImage imageWithData:iconData];
+    });
     cell.nameLabel.text = buzz.userName;
     cell.buzzLabel.text = buzz.text;
     [cell.buzzLabel setNumberOfLines:0];
