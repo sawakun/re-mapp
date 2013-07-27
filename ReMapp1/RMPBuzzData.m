@@ -43,7 +43,8 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
         _urlRequestSouthWestLat = 0.0f;
         _urlRequestSouthWestLot = 0.0f;
         _widthCurrentView = 0.0;
-        _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
+//        _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
+        _queue = dispatch_queue_create("com.re-mapp", NULL);
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reload:)
                                                      name:RMPMapViewRegionDidChangeAnimated
@@ -63,6 +64,9 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 - (Buzz *)buzzAtIndex:(NSInteger)index
 {
+    if (index >= [_buzzData count]) {
+        return nil;
+    }
     return [_buzzData objectAtIndex:index];
 }
 
@@ -73,6 +77,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     double northEastLot = [center.userInfo[@"northEastLot"] doubleValue];
     double southWestLat = [center.userInfo[@"southWestLat"] doubleValue];
     double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
+    //dispatch_queue_t queue = dispatch_queue_create("com.re-mapp", NULL);
     dispatch_async(_queue, ^{
         [self reloadWithNorthEastLat:northEastLat NorthEastLot:northEastLot SouthWestLat:southWestLat SouthWestLot:southWestLot];
     });
@@ -93,6 +98,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
         
         NSLog(@"Case 1");
+        [NSURLConnection cancelPreviousPerformRequestsWithTarget:self];
         NSLog(@"%f, %f", northEastLat, southWestLat);
         [self fetchBuzzDataWithNorthEastLat:northEastLat
                                NorthEastLot:northEastLot
@@ -173,17 +179,17 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     
 //NSInteger index = 0;
     NSLog(@"Send notification.");
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [_currentViewBuzzData removeAllObjects];
-        for (Buzz *buzz in _buzzData) {
-            if (buzz.lat < northEastLat &&
-                buzz.lat > southWestLat &&
-                buzz.lot < northEastLot &&
-                buzz.lot > southWestLot)
-            {
-                [_currentViewBuzzData addObject:buzz];
-            }
+    [_currentViewBuzzData removeAllObjects];
+    for (Buzz *buzz in _buzzData) {
+        if (buzz.lat < northEastLat &&
+            buzz.lat > southWestLat &&
+            buzz.lot < northEastLot &&
+            buzz.lot > southWestLot)
+        {
+            [_currentViewBuzzData addObject:buzz];
         }
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzDataReloaded object:self userInfo:nil];
     });
 }
@@ -215,8 +221,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
                                         returningResponse:&response
-                                                    error:&error];
-    
+                                                    error:&error];    
     if (error != nil) {
         NSLog(@"Error happend = %@", error);
     }
@@ -230,7 +235,8 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
         NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
                                                              options:NSJSONReadingAllowFragments
                                                                error:nil];
-        //             NSInteger index = 0;
+        
+        // NSInteger index = 0;
         [_buzzData removeAllObjects];
         for (NSDictionary *buzzDictionary in buzzArray) {
             double lat = [buzzDictionary[@"lat"] doubleValue];
@@ -241,7 +247,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                 lot < _buzzDataNorthEastLot &&
                 lot > _buzzDataSouthWestLot)
             {
-                //                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
+                //Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
                 Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:0];
                 [_buzzData addObject:buzz];
                 //                     ++index;
