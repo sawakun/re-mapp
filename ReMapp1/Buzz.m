@@ -102,11 +102,18 @@
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.annotation.index = index;
         
-        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.iconURL]];
-        self.iconImage = [UIImage imageWithData:iconData];
         
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
-        self.image = [UIImage imageWithData:imageData];
+        
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.iconURL]];
+            self.iconImage = [UIImage imageWithData:iconData];
+        });
+        dispatch_async(queue, ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
+            self.image = [UIImage imageWithData:imageData];
+        });
+        
     }
     
     return self;
