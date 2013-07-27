@@ -45,6 +45,7 @@
 		472B8E6217A2981F00AFB170 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 472B8E5E17A2981F00AFB170 /* README.md */; };
 		472B8E6317A2981F00AFB170 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 472B8E5F17A2981F00AFB170 /* release_notes.md */; };
 		472B8E6517A298DA00AFB170 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 472B8E6417A298DA00AFB170 /* libz.dylib */; };
+		472B8E6717A373F200AFB170 /* ReMapp1-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 472B8E6617A373F200AFB170 /* ReMapp1-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +83,6 @@
 		45E4AC0A177E8ADF006619F1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		45E4AC0C177E8ADF006619F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45E4AC0E177E8ADF006619F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		45E4AC12177E8ADF006619F1 /* ReMapp1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReMapp1-Info.plist"; sourceTree = "<group>"; };
 		45E4AC14177E8ADF006619F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		45E4AC16177E8ADF006619F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45E4AC18177E8ADF006619F1 /* ReMapp1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReMapp1-Prefix.pch"; sourceTree = "<group>"; };
@@ -108,6 +108,7 @@
 		472B8E5F17A2981F00AFB170 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		472B8E6017A2981F00AFB170 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		472B8E6417A298DA00AFB170 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		472B8E6617A373F200AFB170 /* ReMapp1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ReMapp1-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,13 +257,13 @@
 		45E4AC11177E8ADF006619F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				45E4AC12177E8ADF006619F1 /* ReMapp1-Info.plist */,
 				45E4AC13177E8ADF006619F1 /* InfoPlist.strings */,
 				45E4AC16177E8ADF006619F1 /* main.m */,
 				45E4AC18177E8ADF006619F1 /* ReMapp1-Prefix.pch */,
 				45E4AC1C177E8ADF006619F1 /* Default.png */,
 				45E4AC1E177E8ADF006619F1 /* Default@2x.png */,
 				45E4AC20177E8ADF006619F1 /* Default-568h@2x.png */,
+				472B8E6617A373F200AFB170 /* ReMapp1-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -389,6 +390,7 @@
 				450C35B61787831D00484A9E /* bigmarker.png in Resources */,
 				472B8E6217A2981F00AFB170 /* README.md in Resources */,
 				472B8E6317A2981F00AFB170 /* release_notes.md in Resources */,
+				472B8E6717A373F200AFB170 /* ReMapp1-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
