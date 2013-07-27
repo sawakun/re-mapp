@@ -243,8 +243,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="567"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="headLine " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htl-tW-G5M">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="2gk-8D-MgM">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" type="user" id="O47-ZG-kue"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="832" constant="28" type="user" id="Ohg-ch-yqJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -269,19 +273,51 @@
                                                         <outlet property="delegate" destination="f5E-Ad-kgE" id="f3A-VB-Kc2"/>
                                                     </connections>
                                                 </tableView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" preferredMaxLayoutWidth="237" translatesAutoresizingMaskIntoConstraints="NO" id="kYh-iH-Ose">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="3Aa-qJ-cBZ"/>
+                                                        <constraint firstAttribute="width" constant="237" id="MtD-p5-mzT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00  00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfV-RI-aNI">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="165" id="LAZ-Qh-TNe"/>
+                                                        <constraint firstAttribute="height" constant="21" id="ZSD-NJ-hPT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3b-8u-C8X">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="Y1F-ab-EBG"/>
+                                                        <constraint firstAttribute="width" constant="44" id="n61-mN-cxR"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="htl-tW-G5M" firstAttribute="leading" secondItem="f5E-Ad-kgE" secondAttribute="leading" constant="20" type="default" id="KwW-tr-kxn"/>
+                                            <constraint firstItem="2gk-8D-MgM" firstAttribute="centerX" secondItem="kYh-iH-Ose" secondAttribute="centerX" type="default" id="6JF-ZA-6yU"/>
+                                            <constraint firstItem="F3b-8u-C8X" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="10" id="Bi4-1s-O0d"/>
+                                            <constraint firstAttribute="trailing" secondItem="hfV-RI-aNI" secondAttribute="trailing" constant="20" type="default" id="DuU-IU-Czn"/>
+                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="top" secondItem="hfV-RI-aNI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LEF-Vq-KNg"/>
                                             <constraint firstItem="J4U-6o-kpZ" firstAttribute="trailing" secondItem="f5E-Ad-kgE" secondAttribute="trailing" type="default" id="NjL-3G-G8t"/>
+                                            <constraint firstItem="kYh-iH-Ose" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="5" id="PKO-aJ-olI"/>
+                                            <constraint firstItem="hfV-RI-aNI" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="91" id="Qq0-id-4PU"/>
                                             <constraint firstItem="J4U-6o-kpZ" firstAttribute="leading" secondItem="f5E-Ad-kgE" secondAttribute="leading" type="default" id="R3R-Be-VoU"/>
-                                            <constraint firstItem="htl-tW-G5M" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="14" id="VGs-Vt-kTQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="htl-tW-G5M" secondAttribute="trailing" constant="20" type="default" id="acx-4J-Giw"/>
-                                            <constraint firstItem="J4U-6o-kpZ" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="120" id="feQ-KQ-oUa"/>
+                                            <constraint firstItem="2gk-8D-MgM" firstAttribute="top" secondItem="f5E-Ad-kgE" secondAttribute="top" constant="20" type="default" id="WE2-5Z-dzK"/>
+                                            <constraint firstItem="2gk-8D-MgM" firstAttribute="leading" secondItem="F3b-8u-C8X" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="b2M-Nb-FTd"/>
+                                            <constraint firstAttribute="trailing" secondItem="kYh-iH-Ose" secondAttribute="trailing" constant="20" type="default" id="c4W-0C-TAs"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="headlineLabel" destination="htl-tW-G5M" id="dOv-o4-Dqa"/>
+                                            <outlet property="buzzLabel" destination="2gk-8D-MgM" id="idH-kT-3gT"/>
+                                            <outlet property="dateLabel" destination="hfV-RI-aNI" id="nfX-yX-2Bh"/>
+                                            <outlet property="iconImageView" destination="F3b-8u-C8X" id="sau-de-iV5"/>
+                                            <outlet property="nameLabel" destination="kYh-iH-Ose" id="Mel-qH-qht"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -320,7 +356,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-549" y="916"/>
+            <point key="canvasLocation" x="182" y="306"/>
         </scene>
         <!--Time Line View Controller-->
         <scene sceneID="sNH-uP-Qcq">
@@ -444,7 +480,10 @@
         <class className="InfoCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="headlineLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="buzzLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="InfoViewController" superclassName="UIViewController">
