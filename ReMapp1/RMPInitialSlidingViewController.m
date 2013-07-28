@@ -25,8 +25,8 @@
     self.rightViewController = [storyboard instantiateViewControllerWithIdentifier:@"TimeLine"];
     self.leftViewController = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     self.bottomViewHeightAtMiddlePosition = 120.0f;
-    self.anchorRightPeekAmount = 20.0f;
-    self.anchorLeftPeekAmount = 20.0f;
+    self.anchorRightPeekAmount = 0.0f;
+    self.anchorLeftPeekAmount = 0.0f;
     [self anchorBottomViewTo:RMPBottom];
     [self anchorRightViewTo:RMPRight];
     [self anchorLeftViewTo:RMPLeft];

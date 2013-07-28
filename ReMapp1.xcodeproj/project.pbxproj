@@ -10,6 +10,7 @@
 		450C35B61787831D00484A9E /* bigmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 450C35B51787831D00484A9E /* bigmarker.png */; };
 		45274E6C179A774300A4CE59 /* RMPBuzzCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45274E6B179A774300A4CE59 /* RMPBuzzCell.m */; };
 		45274E6F179A779400A4CE59 /* RMPTimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45274E6E179A779400A4CE59 /* RMPTimeLineTableViewController.m */; };
+		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
 		457D160017942E20007F2E8A /* RMPSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D15FF17942E20007F2E8A /* RMPSlidingViewController.m */; };
 		457D160317942F57007F2E8A /* RMPInitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D160217942F57007F2E8A /* RMPInitialSlidingViewController.m */; };
 		457FEB541795E20900616D23 /* RMPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FEB531795E20900616D23 /* RMPAnnotation.m */; };
@@ -80,6 +81,8 @@
 		45274E6B179A774300A4CE59 /* RMPBuzzCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPBuzzCell.m; sourceTree = "<group>"; };
 		45274E6D179A779400A4CE59 /* RMPTimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPTimeLineTableViewController.h; sourceTree = "<group>"; };
 		45274E6E179A779400A4CE59 /* RMPTimeLineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPTimeLineTableViewController.m; sourceTree = "<group>"; };
+		452C975B17A3FBE00000CF51 /* RMPLazyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPLazyImageView.h; sourceTree = "<group>"; };
+		452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPLazyImageView.m; sourceTree = "<group>"; };
 		457D15FE17942E20007F2E8A /* RMPSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPSlidingViewController.h; sourceTree = "<group>"; };
 		457D15FF17942E20007F2E8A /* RMPSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPSlidingViewController.m; sourceTree = "<group>"; };
 		457D160117942F57007F2E8A /* RMPInitialSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPInitialSlidingViewController.h; sourceTree = "<group>"; };
@@ -210,6 +213,15 @@
 			name = TimeLine;
 			sourceTree = "<group>";
 		};
+		452C975A17A3FB8E0000CF51 /* RMPLazyImageView */ = {
+			isa = PBXGroup;
+			children = (
+				452C975B17A3FBE00000CF51 /* RMPLazyImageView.h */,
+				452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */,
+			);
+			name = RMPLazyImageView;
+			sourceTree = "<group>";
+		};
 		45500B3717957CC500DCE98D /* Annotation */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +235,7 @@
 		457D15FC17942CCE007F2E8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				452C975A17A3FB8E0000CF51 /* RMPLazyImageView */,
 				4506EA42179AD43D00AE8D0D /* RMPHorizontalSlidingViewController */,
 				45B2BDDD179A09690051B90A /* UIPlaceHolderTextView */,
 				45F39AA717974FDB003B943A /* RMPNonVisibleSearchBar */,
@@ -616,6 +629,7 @@
 				45274E6F179A779400A4CE59 /* RMPTimeLineTableViewController.m in Sources */,
 				45DABF04179D3530001E9A7C /* RMPMapView.m in Sources */,
 				45F35691179EB51E009171A4 /* RMPPlace.m in Sources */,
+				452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
