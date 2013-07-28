@@ -10,6 +10,7 @@
 #import "Buzz.h"
 #import "RMPBuzzData.h"
 #import "RMPBuzzCell.h"
+#import "RMPSlidingViewController.h"
 
 @interface RMPTimeLineViewController ()
 @property (nonatomic) RMPBuzzData *buzzData;
@@ -37,7 +38,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.buzzData = [RMPBuzzData sharedManager];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPSlidingViewRightViewWillAppear object:self.rmp_verticalSlidingViewController];
 }
 
 - (void)reload
@@ -74,17 +75,28 @@
     RMPBuzzCell *cell = (RMPBuzzCell*)[tableView
                                        dequeueReusableCellWithIdentifier:CellIdentifier
                                        forIndexPath:indexPath];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:buzz.iconURL]];
-        cell.iconImageView.image = [UIImage imageWithData:iconData];
-    });
     cell.nameLabel.text = buzz.userName;
     cell.buzzLabel.text = buzz.text;
     [cell.buzzLabel setNumberOfLines:0];
     [cell.buzzLabel sizeToFit];
     cell.dateLabel.text = buzz.date;
-     return cell;
+    NSLog(@"%d : %p", indexPath.row, cell.iconImageView.image);
+    cell.iconImageView.image = buzz.iconImage;
+    if (cell.iconImageView.image == nil) {
+        [self downloadIconImage:buzz forIndexPath:indexPath];
+    }
+    return cell;
+}
+
+- (void)downloadIconImage:(Buzz *)buzz forIndexPath:(NSIndexPath *)indexPath
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:buzz.iconURL]];
+        buzz.iconImage = [UIImage imageWithData:iconData];
+        RMPBuzzCell *cell = (RMPBuzzCell*)[self.timeLineTableView cellForRowAtIndexPath:indexPath];
+        cell.iconImageView.image= buzz.iconImage;
+    });
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

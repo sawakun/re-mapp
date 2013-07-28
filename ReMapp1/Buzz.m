@@ -14,7 +14,6 @@
 @property (nonatomic) NSString *userId;
 @property (nonatomic) NSString *userName;
 @property (nonatomic) NSString *iconURL;
-@property (nonatomic) UIImage *iconImage;
 @property (nonatomic) NSString *text;
 @property (nonatomic) NSString *imageURL;
 @property (nonatomic) UIImage *image;
@@ -56,35 +55,8 @@
     return self;
 }
 
-- (id)initWithArray:(NSArray *)buzz Index:(NSInteger)index
-{
-    self = [self init];
-    if (self && buzz)
-    {
-        self.buzzId   = buzz[0];
-        self.userId   = buzz[1];
-        self.userName = buzz[2];
-        self.iconURL  = buzz[3];
-        self.text     = buzz[4];
-        self.imageURL = buzz[5];
-        self.lat      = [buzz[6] floatValue];
-        self.lot      = [buzz[7] floatValue];
-        self.date     = buzz[8];
-        self.annotation = [[RMPBuzzAnnotation alloc] init];
-        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
-        self.annotation.index = index;
-        
-        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.iconURL]];
-        self.iconImage = [UIImage imageWithData:iconData];
-        
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
-        self.image = [UIImage imageWithData:imageData];
-    }
-    
-    return self;
-}
 
-- (id)initWithDictionary:(NSDictionary *)buzzDictionary Index:(NSInteger)index
+- (id)initWithDictionary:(NSDictionary *)buzzDictionary
 {
     self = [self init];
     if (self && buzzDictionary)
@@ -100,23 +72,23 @@
         self.date     = buzzDictionary[@"time"];
         self.annotation = [[RMPBuzzAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
-        self.annotation.index = index;
-        
-        
-        
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-        dispatch_async(queue, ^{
-            NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.iconURL]];
-            self.iconImage = [UIImage imageWithData:iconData];
-        });
-        dispatch_async(queue, ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageURL]];
-            self.image = [UIImage imageWithData:imageData];
-        });
-        
+        self.iconImage = nil;
+        self.image = nil;
     }
     
     return self;
+}
+
+
+
+- (void)setAnnotationIndex:(NSInteger)index
+{
+    self.annotation.index = index;
+}
+
+- (NSInteger)getAnnotationIndex
+{
+    return self.annotation.index;
 }
 
 @end

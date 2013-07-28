@@ -33,7 +33,7 @@ extern NSString *const RMPBuzzDataReloaded;
 
 // return the number of buzzes
 @property (nonatomic, readonly) NSInteger count;
-@property (nonatomic, readonly) NSMutableArray *buzzes;
+@property (atomic, readonly) NSMutableArray *buzzes;
 
 +(RMPBuzzData*)sharedManager;
 
