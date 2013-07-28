@@ -80,7 +80,7 @@
     [cell.buzzLabel setNumberOfLines:0];
     [cell.buzzLabel sizeToFit];
     cell.dateLabel.text = buzz.date;
-    NSLog(@"%d : %p", indexPath.row, cell.iconImageView.image);
+
     cell.iconImageView.image = buzz.iconImage;
     if (cell.iconImageView.image == nil) {
         [self downloadIconImage:buzz forIndexPath:indexPath];
@@ -102,15 +102,19 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Buzz *buzz = [self.buzzData buzzAtIndex:indexPath.row];
-    CGSize maximumLabelSize = CGSizeMake(296,999);
+    CGSize maximumLabelSize = CGSizeMake(280,999);
     
     NSString *cellText = buzz.text;
-    UIFont *cellFont = [UIFont systemFontOfSize:16];
+    UIFont *cellFont = [UIFont systemFontOfSize:14];
     CGSize expectedLabelSize = [cellText sizeWithFont:cellFont
                                      constrainedToSize:maximumLabelSize
                                          lineBreakMode:NSLineBreakByWordWrapping];
     
+    NSLog(@"%f, %f", expectedLabelSize.height, expectedLabelSize.width);
     return expectedLabelSize.height + 70;
+
+    
+    
     
     /*
      UIFont *cellFont = [UIFont fontWithName:@"System" size:14.0];
@@ -171,4 +175,7 @@
      */
 }
 
+- (IBAction)tappedToReturnToMap:(id)sender {
+    [self.rmp_verticalSlidingViewController anchorRightViewTo:RMPRight];
+}
 @end
