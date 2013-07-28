@@ -9,8 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-/** Notification that gets posted when the top view moved */
-extern NSString *const RMPVerticalSlidingViewTopDidMove;
+/** Notification that gets posted when the bottom view moved */
+extern NSString *const RMPSlidingViewBottomViewDidMove;
+/** Notification that gets posted when the right view appear */
+extern NSString *const RMPSlidingViewRightViewDidAppear;
+/** Notification that gets posted when the left view appear */
+extern NSString *const RMPSlidingViewLeftViewDidAppear;
+/** Notification that gets posted when the right view disappear */
+extern NSString *const RMPSlidingViewRightViewDidDisppear;
+/** Notification that gets posted when the left view disappear */
+extern NSString *const RMPSlidingViewLeftViewDidDisppear;
+/** Notification that gets posted when the right view will appear */
+extern NSString *const RMPSlidingViewRightViewWillAppear;
+/** Notification that gets posted when the left view will appear */
+extern NSString *const RMPSlidingViewLeftViewWillAppear;
+
 
 @interface RMPSlidingViewController : UIViewController
 /** Returns the view controller that is presented above underViewController and will appear from bottom. */

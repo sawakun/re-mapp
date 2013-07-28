@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RMPLazyImageView : UIImageView
-
+@property (nonatomic) UIImage *image;
+@property (nonatomic) NSURL *imageURL;
+-(void)loadImageWithURL:(NSURL *)imageURL;
 @end

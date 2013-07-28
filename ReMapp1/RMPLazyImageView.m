@@ -15,8 +15,22 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.image = nil;
+        self.imageURL = nil;
     }
     return self;
+}
+
+-(void)loadImageWithURL:(NSURL *)imageURL
+{
+    if (self.image == nil || self.imageURL != imageURL) {
+        self.imageURL = imageURL;
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:self.imageURL];
+            self.image = [UIImage imageWithData:imageData];
+        });
+    }
 }
 
 /*

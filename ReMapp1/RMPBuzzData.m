@@ -63,10 +63,10 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 - (Buzz *)buzzAtIndex:(NSInteger)index
 {
-    if (index >= [_buzzData count]) {
+    if (index >= [_currentViewBuzzData count]) {
         return nil;
     }
-    return [_buzzData objectAtIndex:index];
+    return [_currentViewBuzzData objectAtIndex:index];
 }
 
 
@@ -176,7 +176,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                               SouthWestLot:(double)southWestLot
 {
     
-//NSInteger index = 0;
+    NSInteger index = 0;
     NSLog(@"Send notification.");
     [_currentViewBuzzData removeAllObjects];
     for (Buzz *buzz in _buzzData) {
@@ -185,7 +185,9 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
             buzz.lot < northEastLot &&
             buzz.lot > southWestLot)
         {
+            buzz.annotationIndex = index;
             [_currentViewBuzzData addObject:buzz];
+            ++index;
         }
     }
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -252,10 +254,8 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                 lot < _buzzDataNorthEastLot &&
                 lot > _buzzDataSouthWestLot)
             {
-                //Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
-                Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:0];
+                Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary];
                 [_buzzData addObject:buzz];
-                //                     ++index;
             }
         }
         NSLog(@"Sorted Buzz Data.");
