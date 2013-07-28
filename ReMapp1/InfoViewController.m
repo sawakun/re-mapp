@@ -45,6 +45,7 @@ NSString *const InfoCellDidMove = @"InfoCellDidMove";
     self.buzzData = [RMPBuzzData sharedManager];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNthCell:) name:RMPMapViewDidSelectAnnotation object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
 }
 
@@ -58,6 +59,7 @@ NSString *const InfoCellDidMove = @"InfoCellDidMove";
 {
     [self.infoTableView reloadData];
 }
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -74,7 +76,15 @@ NSString *const InfoCellDidMove = @"InfoCellDidMove";
     static NSString *CellIdentifier = @"InfoCell";
     Buzz *buzz = [_buzzData buzzAtIndex:indexPath.row];
     InfoCell *cell = (InfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.headlineLabel.text = buzz.text;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:buzz.iconURL]];
+        cell.iconImageView.image = [UIImage imageWithData:iconData];
+    });
+    cell.nameLabel.text = buzz.userName;
+    cell.buzzLabel.text = buzz.text;
+    cell.dateLabel.text = buzz.date;
+
     cell.contentView.transform = CGAffineTransformMakeRotation(M_PI * (-0.5f));
     return cell;
 }

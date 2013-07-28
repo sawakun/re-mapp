@@ -8,7 +8,13 @@
 
 #import "RMPSlidingViewController.h"
 
-NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDidMove";
+NSString *const RMPSlidingViewBottomViewDidMove = @"RMPSlidingViewBottomViewDidMove";
+NSString *const RMPSlidingViewRightViewDidAppear = @"RMPSlidingViewRightViewDidAppear";
+NSString *const RMPSlidingViewLeftViewDidAppear = @"RMPSlidingViewLeftViewDidAppear";
+NSString *const RMPSlidingViewRightViewDidDisppear = @"RMPSlidingViewRightViewDidDisppear";
+NSString *const RMPSlidingViewLeftViewDidDisppear = @"RMPSlidingViewLeftViewDidDisppear";
+NSString *const RMPSlidingViewRightViewWillAppear = @"RMPSlidingViewRightViewWillAppear";
+NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillAppear";
 
 
 @interface RMPSlidingViewController ()
@@ -22,7 +28,6 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
 @property (nonatomic) UIPanGestureRecognizer *leftInnerPanGesture;
 @property (nonatomic) UIPanGestureRecognizer *rightPanGesture;
 @property (nonatomic) UIPanGestureRecognizer *leftPanGesture;
-
 
 @end
 
@@ -163,7 +168,7 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
         
         //post notification
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RMPVerticalSlidingViewTopDidMove object:self userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:RMPSlidingViewBottomViewDidMove object:self userInfo:nil];
         });
     }
 }
@@ -180,6 +185,12 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
         self.initialCenterX = self.rightView.center.x;
         [self anchorBottomViewTo:RMPBottom];
         [self anchorLeftViewTo:RMPLeft];
+        if (![self isRightViewShowing]) {
+            //post notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:RMPSlidingViewRightViewWillAppear object:self userInfo:nil];
+            });
+        }
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged) {
         [self moveRightViewControllerWhileSlidingWithHorizontalCenter:newHorizontalCenterPosition];
@@ -190,11 +201,6 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
         CGFloat currentVelocityX = currentVelocityPoint.x;
         [self moveRightViewControllerEndSlidingWithHorizontalCenter:newHorizontalCenterPosition
                                                           VelocityX:currentVelocityX];
-        
-        //post notification
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RMPVerticalSlidingViewTopDidMove object:self userInfo:nil];
-        });
     }
 }
 
@@ -208,6 +214,12 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         self.initialTouchPositionX = currentTouchPositionX;
         self.initialCenterX = self.leftView.center.x;
+        if (![self isLeftViewShowing]) {
+            //post notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:RMPSlidingViewLeftViewWillAppear object:self userInfo:nil];
+            });
+        }
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged) {
         [self moveLeftViewControllerWhileSlidingWithHorizontalCenter:newHorizontalCenterPosition];
@@ -219,12 +231,7 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
         CGPoint currentVelocityPoint = [recognizer velocityInView:self.view];
         CGFloat currentVelocityX = currentVelocityPoint.x;
         [self moveLeftViewControllerEndSlidingWithHorizontalCenter:newHorizontalCenterPosition
-                                                         VelocityX:currentVelocityX];
-        
-        //post notification
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RMPVerticalSlidingViewTopDidMove object:self userInfo:nil];
-        });
+                                                         VelocityX:currentVelocityX];        
     }
 }
 
@@ -283,20 +290,20 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
 
 - (void)moveRightViewControllerEndSlidingWithHorizontalCenter:(CGFloat)newHorizontalCenterPosition VelocityX:(CGFloat)currentVelocityX
 {
-    if (currentVelocityX > 100) {
+    if (currentVelocityX > 0) {
         [self anchorRightViewTo:RMPRight];
     }
-    else if (currentVelocityX < -100) {
+    else if (currentVelocityX < -0) {
         [self anchorRightViewTo:RMPLeft];
     }
 }
 
 - (void)moveLeftViewControllerEndSlidingWithHorizontalCenter:(CGFloat)newHorizontalCenterPosition VelocityX:(CGFloat)currentVelocityX
 {
-    if (currentVelocityX > 100) {
+    if (currentVelocityX > 0) {
         [self anchorLeftViewTo:RMPRight];
     }
-    else if (currentVelocityX < -100) {
+    else if (currentVelocityX < -0) {
         [self anchorLeftViewTo:RMPLeft];
     }
 }
@@ -339,35 +346,56 @@ NSString *const RMPVerticalSlidingViewTopDidMove = @"RMPVerticalSlidingViewTopDi
 - (void)anchorRightViewTo:(RMPSide)side
 {
     CGPoint newCenter = self.rightView.center;
+    NSString *notificationName;
     if (RMPLeft == side) {
         newCenter.x = [self screenHorizontalCenter] + self.anchorRightPeekAmount;
+        notificationName = RMPSlidingViewRightViewDidAppear;
     }
     else if (RMPRight == side) {
         newCenter.x = self.view.frame.size.width + self.rightView.frame.size.width * 0.5;
+        notificationName = RMPSlidingViewRightViewDidDisppear;
     }
     
     [UIView animateWithDuration:0.25f animations:^{
         [self rightViewHorizontalCenterWillChange:newCenter.x];
         [self updateRightViewHorizontalCenter:newCenter.x];
         [self rightViewHorizontalCenterDidChange:newCenter.x];
-    } completion:nil];
+    } completion:^(BOOL finished){
+        if (finished) {
+            //post notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:nil];
+            });
+        }
+    }];
+    
 }
 
 - (void)anchorLeftViewTo:(RMPSide)side
 {
     CGPoint newCenter = self.leftView.center;
+    NSString *notificationName;
     if (RMPRight == side) {
         newCenter.x = [self screenHorizontalCenter] - self.anchorLeftPeekAmount;
+        notificationName = RMPSlidingViewLeftViewDidAppear;
     }
     else if (RMPLeft == side) {
         newCenter.x = - self.leftView.frame.size.width * 0.5;
+        notificationName = RMPSlidingViewLeftViewDidDisppear;
     }
     
     [UIView animateWithDuration:0.25f animations:^{
         [self leftViewHorizontalCenterWillChange:newCenter.x];
         [self updateLeftViewHorizontalCenter:newCenter.x];
         [self leftViewHorizontalCenterDidChange:newCenter.x];
-    } completion:nil];
+    } completion:^(BOOL finished){
+        if (finished) {
+            //post notification
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:nil];
+            });
+        }
+    }];
 }
 
 

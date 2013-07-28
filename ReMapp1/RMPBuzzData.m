@@ -43,8 +43,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
         _urlRequestSouthWestLat = 0.0f;
         _urlRequestSouthWestLot = 0.0f;
         _widthCurrentView = 0.0;
-//        _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
-        _queue = dispatch_queue_create("com.re-mapp", NULL);
+        _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reload:)
                                                      name:RMPMapViewRegionDidChangeAnimated
@@ -64,10 +63,10 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 - (Buzz *)buzzAtIndex:(NSInteger)index
 {
-    if (index >= [_buzzData count]) {
+    if (index >= [_currentViewBuzzData count]) {
         return nil;
     }
-    return [_buzzData objectAtIndex:index];
+    return [_currentViewBuzzData objectAtIndex:index];
 }
 
 
@@ -177,7 +176,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                               SouthWestLot:(double)southWestLot
 {
     
-//NSInteger index = 0;
+    NSInteger index = 0;
     NSLog(@"Send notification.");
     [_currentViewBuzzData removeAllObjects];
     for (Buzz *buzz in _buzzData) {
@@ -186,7 +185,9 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
             buzz.lot < northEastLot &&
             buzz.lot > southWestLot)
         {
+            buzz.annotationIndex = index;
             [_currentViewBuzzData addObject:buzz];
+            ++index;
         }
     }
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -216,27 +217,33 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     //json
     NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
     NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0f];
     NSURLResponse *response;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
                                         returningResponse:&response
                                                     error:&error];    
     if (error != nil) {
-        NSLog(@"Error happend = %@", error);
+//        NSLog(@"Error happend = %@", error);
+        NSLog(@"Error happend.");
+        return;
     }
     else if ([data length] == 0) {
         NSLog(@"Nothing was downloaded.");
+        return;
     }
     else
     {
+        NSLog(@"fetch data.");
         NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"set array.");
         NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
                                                              options:NSJSONReadingAllowFragments
                                                                error:nil];
         
         // NSInteger index = 0;
+        NSLog(@"remove data.");
         [_buzzData removeAllObjects];
         for (NSDictionary *buzzDictionary in buzzArray) {
             double lat = [buzzDictionary[@"lat"] doubleValue];
@@ -247,14 +254,13 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                 lot < _buzzDataNorthEastLot &&
                 lot > _buzzDataSouthWestLot)
             {
-                //Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
-                Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:0];
+                Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary];
                 [_buzzData addObject:buzz];
-                //                     ++index;
             }
         }
+        NSLog(@"Sorted Buzz Data.");
+        return;
     }
-    NSLog(@"fetch data.");
 
     
     /*
