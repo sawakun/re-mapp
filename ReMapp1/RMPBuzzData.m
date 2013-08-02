@@ -7,12 +7,16 @@
 //
 
 #import "RMPBuzzData.h"
-#import "Buzz.h"
+#import "RMPPlace.h"
 #import "CSVHandler.h"
 #import "RMPMapView.h"
+#import "RMPPlaceFactory.h"
 
 NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
+
+@interface RMPBuzzData()
+@end
 
 @implementation RMPBuzzData
 @synthesize buzzes = _currentViewBuzzData;
@@ -61,7 +65,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 
 
-- (Buzz *)buzzAtIndex:(NSInteger)index
+- (RMPBuzzPlace *)buzzAtIndex:(NSInteger)index
 {
     if (index >= [_currentViewBuzzData count]) {
         return nil;
@@ -76,7 +80,6 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     double northEastLot = [center.userInfo[@"northEastLot"] doubleValue];
     double southWestLat = [center.userInfo[@"southWestLat"] doubleValue];
     double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
-    //dispatch_queue_t queue = dispatch_queue_create("com.re-mapp", NULL);
     dispatch_async(_queue, ^{
         [self reloadWithNorthEastLat:northEastLat NorthEastLot:northEastLot SouthWestLat:southWestLat SouthWestLot:southWestLot];
     });
@@ -179,7 +182,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     NSInteger index = 0;
     NSLog(@"Send notification.");
     [_currentViewBuzzData removeAllObjects];
-    for (Buzz *buzz in _buzzData) {
+    for (RMPBuzzPlace *buzz in _buzzData) {
         if (buzz.lat < northEastLat &&
             buzz.lat > southWestLat &&
             buzz.lot < northEastLot &&
@@ -253,8 +256,8 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                 lot < _buzzDataNorthEastLot &&
                 lot > _buzzDataSouthWestLot)
             {
-                Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary];
-                [_buzzData addObject:buzz];
+                RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
+                [_buzzData addObject:place];
             }
         }
         NSLog(@"Sorted Buzz Data.");

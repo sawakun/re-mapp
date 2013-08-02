@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-@class Buzz;
+@class RMPBuzzPlace;
 
 /** Notification that gets posted when the buzz date are reloaded. */
 extern NSString *const RMPBuzzDataReloaded;
@@ -41,5 +41,5 @@ extern NSString *const RMPBuzzDataReloaded;
                   NorthEastLot:(double)northEastLot
                   SouthWestLat:(double)southWestLat
                   SouthWestLot:(double)southWestLot;
-- (Buzz *)buzzAtIndex:(NSInteger)index;
+- (RMPBuzzPlace *)buzzAtIndex:(NSInteger)index;
 @end

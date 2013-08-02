@@ -7,7 +7,7 @@
 //
 
 #import "RMPTimeLineTableViewController.h"
-#import "Buzz.h"
+#import "RMPPlace.h"
 #import "RMPBuzzData.h"
 #import "RMPBuzzCell.h"
 #import "RMPSlidingViewController.h"
@@ -70,7 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"RMPBuzzCell";
-    Buzz *buzz = [self.buzzData buzzAtIndex:indexPath.row];
+    RMPBuzzPlace *buzz = [self.buzzData buzzAtIndex:indexPath.row];
     
     RMPBuzzCell *cell = (RMPBuzzCell*)[tableView
                                        dequeueReusableCellWithIdentifier:CellIdentifier
@@ -88,7 +88,7 @@
     return cell;
 }
 
-- (void)downloadIconImage:(Buzz *)buzz forIndexPath:(NSIndexPath *)indexPath
+- (void)downloadIconImage:(RMPBuzzPlace *)buzz forIndexPath:(NSIndexPath *)indexPath
 {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
@@ -101,7 +101,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Buzz *buzz = [self.buzzData buzzAtIndex:indexPath.row];
+    RMPBuzzPlace *buzz = [self.buzzData buzzAtIndex:indexPath.row];
     CGSize maximumLabelSize = CGSizeMake(280,999);
     
     NSString *cellText = buzz.text;
