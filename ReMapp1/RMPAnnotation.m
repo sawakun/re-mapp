@@ -96,7 +96,7 @@
     if (self) {
         self.pinImage = [UIImage imageNamed:@"bigmarker.png"];
         self.identifier = @"RMPSelectedAnnotation";
-        self.centerOffset = CGPointMake(0.0f, -15.0f);
+        self.centerOffset = CGPointMake(0.0f, -65.0f);
     }
     return self;
 }
