@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RMPProblemViewController : UIViewController
+- (IBAction)tappedToReturnToMenu:(id)sender;
 
 @end

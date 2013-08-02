@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RMPMuteListViewController : UIViewController
+- (IBAction)tappedToReturnToMenu:(id)sender;
 
 @end

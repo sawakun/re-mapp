@@ -11,8 +11,13 @@
 #import "CSVHandler.h"
 
 @interface RMPHTTPConnection : NSObject
-+ (BOOL)sendNewBuzzWithUserSystemId:(NSString*)userSystemId
++ (BOOL)sendNewBuzzWithUserSystemId:(NSInteger)userSystemId
                            BuzzText:(NSString*)buzzText
                            Location:(CLLocationCoordinate2D)location
                               Image:(UIImage*)image;
+
++ (BOOL)sendModifiedUserName:(NSString*)name
+                       Email:(NSString*)email
+                     Profile:(NSString*)profile;
+
 @end

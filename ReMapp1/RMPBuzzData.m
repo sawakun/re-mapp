@@ -224,7 +224,6 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                                         returningResponse:&response
                                                     error:&error];    
     if (error != nil) {
-//        NSLog(@"Error happend = %@", error);
         NSLog(@"Error happend.");
         return;
     }
@@ -262,50 +261,6 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
         return;
     }
 
-    
-    /*
-     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [NSURLConnection sendAsynchronousRequest:urlRequest
-                                       queue:queue
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data,
-                                               NSError *error)
-     {
-         if (error != nil) {
-             NSLog(@"Error happend = %@", error);
-         }
-         else if ([data length] == 0) {
-             NSLog(@"Nothing was downloaded.");
-         }
-         else
-         {
-             NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-             NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-             NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                  options:NSJSONReadingAllowFragments
-                                                                    error:nil];
-//             NSInteger index = 0;
-             [_currentViewBuzzData removeAllObjects];
-             for (NSDictionary *buzzDictionary in buzzArray) {
-                 double lat = [buzzDictionary[@"lat"] doubleValue];
-                 double lot = [buzzDictionary[@"lot"] doubleValue];
-                 // This check must be done on the server.
-                 if (lat < _buzzDataNorthEastLat &&
-                     lat > _buzzDataSouthWestLat &&
-                     lot < _buzzDataNorthEastLot &&
-                     lot > _buzzDataSouthWestLot)
-                 {
-//                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
-                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:0];
-                     [_buzzData addObject:buzz];
-//                     ++index;
-                 }
-             }
-         }
-         NSLog(@"fetch data.");
-     }];
-     */
-    
 }
 
 

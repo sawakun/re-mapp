@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RMPLogOutViewController : UIViewController
+- (IBAction)tappedToReturnToMenu:(id)sender;
 
 @end

@@ -35,4 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)tappedToReturnToMenu:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

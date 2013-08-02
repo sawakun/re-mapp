@@ -29,7 +29,7 @@
     self.anchorLeftPeekAmount = 0.0f;
     [self anchorBottomViewTo:RMPBottom];
     [self anchorRightViewTo:RMPRight];
-    [self anchorLeftViewTo:RMPLeft];
+    //[self anchorLeftViewTo:RMPLeft];
 }
 
 - (void)viewDidAppear:(BOOL)animated
