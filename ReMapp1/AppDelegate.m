@@ -13,6 +13,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+ 
+    // !!!: Use the next line only during beta
+    // [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    
+    [TestFlight takeOff:@"4d98dbe9-ba43-4779-8494-5c00d79d5e01"];
+    #define TESTING 1
+    #ifdef TESTING
+    
+    #pragma GCC diagnostic ignored "-Wdeprecated-declarations" // 非推薦メソッドの警告を無視
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    #pragma GCC diagnostic warning "-Wdeprecated-declarations" // 非推薦メソッドの警告を再開
+    
+    [TestFlight passCheckpoint:@"didFinishLaunchingWithOptions"];  // チェックポイントの追加
+    #endif
+    
     return YES;
 }
 							
