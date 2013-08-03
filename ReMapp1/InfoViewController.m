@@ -10,7 +10,7 @@
 #import "InfoCell.h"
 #import "MapViewController.h"
 #import "RMPBuzzData.h"
-#import "Buzz.h"
+#import "RMPPlace.h"
 #import "MapViewController.h"
 #import "RMPMapView.h"
 
@@ -74,7 +74,7 @@ NSString *const InfoCellDidMove = @"InfoCellDidMove";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"InfoCell";
-    Buzz *buzz = [_buzzData buzzAtIndex:indexPath.row];
+    RMPBuzzPlace *buzz = [_buzzData buzzAtIndex:indexPath.row];
     InfoCell *cell = (InfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{

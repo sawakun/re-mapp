@@ -10,5 +10,6 @@
 
 @interface RMPTimeLineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *timeLineTableView;
+- (IBAction)tappedToReturnToMap:(id)sender;
 
 @end

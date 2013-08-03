@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import "InfoViewController.h"
 #import "RMPBuzzData.h"
-#import "Buzz.h"
+#import "RMPPlace.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
 #import "RMPSlidingViewController.h"
@@ -54,7 +54,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 35.6584;
     zoomLocation.longitude = 139.7017;
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 10000.0, 10000.0);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 3000.0, 3000.0);
     [self.mapView setRegion:viewRegion animated:NO];
     self.mapView.showsUserLocation = NO;
     
@@ -124,7 +124,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)showCenter:(NSInteger)index
 {
-    Buzz *buzz = [_buzzData buzzAtIndex:index];
+    RMPBuzzPlace *buzz = [_buzzData buzzAtIndex:index];
     CLLocationCoordinate2D centerLocation;
     centerLocation.latitude = buzz.lat;
     centerLocation.longitude = buzz.lot;
@@ -133,7 +133,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)showAnnotation:(NSInteger)index
 {
-    Buzz *buzz = [_buzzData buzzAtIndex:index];
+    RMPBuzzPlace *buzz = [_buzzData buzzAtIndex:index];
     [_mapView selectAnnotation:buzz.annotation animated:NO];
 }
 
@@ -177,7 +177,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
 
     NSMutableArray *annotations = [NSMutableArray array];
-    for (Buzz *buzz in _buzzData.buzzes)
+    for (RMPBuzzPlace *buzz in _buzzData.buzzes)
     {
         [annotations addObject:buzz.annotation];
     }
@@ -211,7 +211,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [[self view] endEditing:YES];
+    [self.view endEditing:YES];
 }
 
 - (void)test

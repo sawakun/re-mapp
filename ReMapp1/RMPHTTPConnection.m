@@ -7,9 +7,10 @@
 //
 
 #import "RMPHTTPConnection.h"
+#import "RMPUser.h"
 
 @implementation RMPHTTPConnection
-+ (BOOL)sendNewBuzzWithUserSystemId:(NSString*)userSystemId
++ (BOOL)sendNewBuzzWithUserSystemId:(NSInteger)userSystemId
                            BuzzText:(NSString*)buzzText
                            Location:(CLLocationCoordinate2D)location
                               Image:(UIImage*)image
@@ -25,7 +26,7 @@
     NSString *nowDateString = [formatter stringFromDate:nowDate];
 
     //make a new  csv line
-    NSString *newLine = [[NSString alloc] initWithFormat:@"\n%@,%@,%@,%@,%f,%f,%@",
+    NSString *newLine = [[NSString alloc] initWithFormat:@"\n%@,%d,%@,%@,%f,%f,%@",
                          nowDateString,
                          userSystemId,
                          buzzText,
@@ -36,4 +37,19 @@
     addCSVFile(fileName, newLine);
     return TRUE;
 }
+
++ (BOOL)sendModifiedUserName:(NSString*)name
+                       Email:(NSString*)email
+                     Profile:(NSString*)profile
+{
+    //Connect to the server...
+    
+    
+    RMPUser *user = [RMPUser sharedManager];
+    user.name = name;
+    user.email = email;
+    user.profile = profile;
+    return TRUE;
+}
+
 @end

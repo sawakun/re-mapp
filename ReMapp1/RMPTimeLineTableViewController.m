@@ -7,7 +7,7 @@
 //
 
 #import "RMPTimeLineTableViewController.h"
-#import "Buzz.h"
+#import "RMPPlace.h"
 #import "RMPBuzzData.h"
 #import "RMPBuzzCell.h"
 #import "RMPSlidingViewController.h"
@@ -70,7 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"RMPBuzzCell";
-    Buzz *buzz = [self.buzzData buzzAtIndex:indexPath.row];
+    RMPBuzzPlace *buzz = [self.buzzData buzzAtIndex:indexPath.row];
     
     RMPBuzzCell *cell = (RMPBuzzCell*)[tableView
                                        dequeueReusableCellWithIdentifier:CellIdentifier
@@ -80,7 +80,7 @@
     [cell.buzzLabel setNumberOfLines:0];
     [cell.buzzLabel sizeToFit];
     cell.dateLabel.text = buzz.date;
-    NSLog(@"%d : %p", indexPath.row, cell.iconImageView.image);
+
     cell.iconImageView.image = buzz.iconImage;
     if (cell.iconImageView.image == nil) {
         [self downloadIconImage:buzz forIndexPath:indexPath];
@@ -88,7 +88,7 @@
     return cell;
 }
 
-- (void)downloadIconImage:(Buzz *)buzz forIndexPath:(NSIndexPath *)indexPath
+- (void)downloadIconImage:(RMPBuzzPlace *)buzz forIndexPath:(NSIndexPath *)indexPath
 {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
@@ -101,62 +101,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Buzz *buzz = [self.buzzData buzzAtIndex:indexPath.row];
-    CGSize maximumLabelSize = CGSizeMake(296,999);
+    RMPBuzzPlace *buzz = [self.buzzData buzzAtIndex:indexPath.row];
+    CGSize maximumLabelSize = CGSizeMake(280,999);
     
     NSString *cellText = buzz.text;
-    UIFont *cellFont = [UIFont systemFontOfSize:16];
+    UIFont *cellFont = [UIFont systemFontOfSize:14];
     CGSize expectedLabelSize = [cellText sizeWithFont:cellFont
                                      constrainedToSize:maximumLabelSize
                                          lineBreakMode:NSLineBreakByWordWrapping];
     
+    NSLog(@"%f, %f", expectedLabelSize.height, expectedLabelSize.width);
     return expectedLabelSize.height + 70;
-    
-    /*
-     UIFont *cellFont = [UIFont fontWithName:@"System" size:14.0];
-     CGSize constraintSize = CGSizeMake(230.0f, MAXFLOAT);
-     CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
-     */
 }
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 #pragma mark - Table view delegate
 
@@ -171,4 +127,7 @@
      */
 }
 
+- (IBAction)tappedToReturnToMap:(id)sender {
+    [self.rmp_verticalSlidingViewController anchorRightViewTo:RMPRight];
+}
 @end
