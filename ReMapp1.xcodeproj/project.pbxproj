@@ -81,6 +81,10 @@
 		45E4AC4C177E95D5006619F1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4B177E95D5006619F1 /* MapKit.framework */; };
 		45E4AC4E177E95DF006619F1 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4D177E95DF006619F1 /* AddressBook.framework */; };
 		45E4AC50177E95F3006619F1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E4AC4F177E95F3006619F1 /* CoreLocation.framework */; };
+		45E64EC517AC793B007DC8CB /* PIN_BUZZ_SELECTED.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E64EC117AC793B007DC8CB /* PIN_BUZZ_SELECTED.png */; };
+		45E64EC617AC793B007DC8CB /* PIN_EAT_SELECTED.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E64EC217AC793B007DC8CB /* PIN_EAT_SELECTED.png */; };
+		45E64EC717AC793B007DC8CB /* PIN_PLAY_SELECTED.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E64EC317AC793B007DC8CB /* PIN_PLAY_SELECTED.png */; };
+		45E64EC817AC793B007DC8CB /* PIN_SHOP_SELECTED.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E64EC417AC793B007DC8CB /* PIN_SHOP_SELECTED.png */; };
 		45E9977B17A66C7A00C8675A /* PROBLEM_BAR.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E9977A17A66C7A00C8675A /* PROBLEM_BAR.png */; };
 		45E9977E17A66C9600C8675A /* PROFILE_BAR.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E9977D17A66C9600C8675A /* PROFILE_BAR.png */; };
 		45F29A4717AA70B5007E7205 /* RMPHTTPImageUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F29A4617AA70B5007E7205 /* RMPHTTPImageUpload.m */; };
@@ -204,6 +208,10 @@
 		45E4AC4B177E95D5006619F1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		45E4AC4D177E95DF006619F1 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		45E4AC4F177E95F3006619F1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		45E64EC117AC793B007DC8CB /* PIN_BUZZ_SELECTED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIN_BUZZ_SELECTED.png; sourceTree = "<group>"; };
+		45E64EC217AC793B007DC8CB /* PIN_EAT_SELECTED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIN_EAT_SELECTED.png; sourceTree = "<group>"; };
+		45E64EC317AC793B007DC8CB /* PIN_PLAY_SELECTED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIN_PLAY_SELECTED.png; sourceTree = "<group>"; };
+		45E64EC417AC793B007DC8CB /* PIN_SHOP_SELECTED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PIN_SHOP_SELECTED.png; sourceTree = "<group>"; };
 		45E9977A17A66C7A00C8675A /* PROBLEM_BAR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PROBLEM_BAR.png; sourceTree = "<group>"; };
 		45E9977D17A66C9600C8675A /* PROFILE_BAR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PROFILE_BAR.png; sourceTree = "<group>"; };
 		45F29A4517AA70B5007E7205 /* RMPHTTPImageUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPHTTPImageUpload.h; sourceTree = "<group>"; };
@@ -390,6 +398,10 @@
 			isa = PBXGroup;
 			children = (
 				45DE4BBB17ABE0A50088C2AB /* PIN_PLAY.png */,
+				45E64EC117AC793B007DC8CB /* PIN_BUZZ_SELECTED.png */,
+				45E64EC217AC793B007DC8CB /* PIN_EAT_SELECTED.png */,
+				45E64EC317AC793B007DC8CB /* PIN_PLAY_SELECTED.png */,
+				45E64EC417AC793B007DC8CB /* PIN_SHOP_SELECTED.png */,
 				45DE4BC117ABE0C70088C2AB /* PIN_SHOP.png */,
 				45DABF05179D7755001E9A7C /* buzzPin.png */,
 				45DE4BBF17ABE0BC0088C2AB /* PIN_BUZZ.png */,
@@ -697,6 +709,10 @@
 				45DE4BBE17ABE0B40088C2AB /* PIN_EAT.png in Resources */,
 				45DE4BC017ABE0BC0088C2AB /* PIN_BUZZ.png in Resources */,
 				45DE4BC217ABE0C70088C2AB /* PIN_SHOP.png in Resources */,
+				45E64EC517AC793B007DC8CB /* PIN_BUZZ_SELECTED.png in Resources */,
+				45E64EC617AC793B007DC8CB /* PIN_EAT_SELECTED.png in Resources */,
+				45E64EC717AC793B007DC8CB /* PIN_PLAY_SELECTED.png in Resources */,
+				45E64EC817AC793B007DC8CB /* PIN_SHOP_SELECTED.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

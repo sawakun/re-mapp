@@ -124,7 +124,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)showCenter:(NSInteger)index
 {
-    RMPBuzzPlace *buzz = [_buzzData buzzAtIndex:index];
+    RMPPlace *buzz = [_buzzData buzzAtIndex:index];
     CLLocationCoordinate2D centerLocation;
     centerLocation.latitude = buzz.lat;
     centerLocation.longitude = buzz.lot;
@@ -133,7 +133,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)showAnnotation:(NSInteger)index
 {
-    RMPBuzzPlace *buzz = [_buzzData buzzAtIndex:index];
+    RMPPlace *buzz = [_buzzData buzzAtIndex:index];
     [_mapView selectAnnotation:buzz.annotation animated:NO];
 }
 
@@ -177,7 +177,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
 
     NSMutableArray *annotations = [NSMutableArray array];
-    for (RMPBuzzPlace *buzz in _buzzData.buzzes)
+    for (RMPPlace *buzz in _buzzData.buzzes)
     {
         [annotations addObject:buzz.annotation];
     }
@@ -213,6 +213,10 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+
+
+#pragma mark - TEST
 
 - (void)test
 {

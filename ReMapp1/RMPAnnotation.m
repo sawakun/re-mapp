@@ -8,19 +8,23 @@
 
 #import "RMPAnnotation.h"
 
+@implementation RMPAnnotationData : MKPointAnnotation
+@end
+
 @implementation RMPAnnotation
-- (id)init
+- (RMPSelectedAnnotation *)createSelectedAnnotation
 {
-    self = [super init];
-    if (self) {
-        self.pinImage = [UIImage imageNamed:@"pin.png"];
-        self.identifier = @"RMPAnnotation";
-        self.centerOffset = CGPointMake(0.0f, 0.0f);
-        self.index = 1;
-    }
-    return self;
+    return nil;
 }
 @end
+
+@implementation RMPSelectedAnnotation
+- (RMPAnnotation *)createAnnotation
+{
+    return nil;
+}
+@end
+
 
 @implementation RMPBuzzAnnotation
 - (id)init
@@ -32,6 +36,13 @@
         self.centerOffset = CGPointMake(0.0f, -16.5f);
     }
     return self;
+}
+- (RMPSelectedAnnotation *)createSelectedAnnotation
+{
+    RMPSelectedAnnotation *selectedAnnotation = (RMPSelectedAnnotation*)[[RMPSelectedBuzzAnnotation alloc] init];
+    selectedAnnotation.coordinate = self.coordinate;
+    selectedAnnotation.index = self.index;
+    return selectedAnnotation;
 }
 @end
 
@@ -46,6 +57,13 @@
     }
     return self;
 }
+- (RMPSelectedAnnotation *)createSelectedAnnotation
+{
+    RMPSelectedAnnotation *selectedAnnotation = (RMPSelectedAnnotation*)[[RMPSelectedPlayAnnotation alloc] init];
+    selectedAnnotation.coordinate = self.coordinate;
+    selectedAnnotation.index = self.index;
+    return selectedAnnotation;
+}
 @end
 
 @implementation RMPShopAnnotation
@@ -58,6 +76,13 @@
         self.centerOffset = CGPointMake(0.0f, -16.5f);
     }
     return self;
+}
+- (RMPSelectedAnnotation *)createSelectedAnnotation
+{
+    RMPSelectedAnnotation *selectedAnnotation = (RMPSelectedAnnotation*)[[RMPSelectedShopAnnotation alloc] init];
+    selectedAnnotation.coordinate = self.coordinate;
+    selectedAnnotation.index = self.index;
+    return selectedAnnotation;
 }
 @end
 
@@ -72,8 +97,96 @@
     }
     return self;
 }
+- (RMPSelectedAnnotation *)createSelectedAnnotation
+{
+    RMPSelectedAnnotation *selectedAnnotation = (RMPSelectedAnnotation*)[[RMPSelectedEatAnnotation alloc] init];
+    selectedAnnotation.coordinate = self.coordinate;
+    selectedAnnotation.index = self.index;
+    return selectedAnnotation;
+}
 @end
 
+@implementation RMPSelectedBuzzAnnotation
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.pinImage = [UIImage imageNamed:@"PIN_BUZZ_SELECTED.png"];
+        self.identifier = @"RMPSelectedBuzzAnnotation";
+        self.centerOffset = CGPointMake(0.0f, -22.0f);
+    }
+    return self;
+}
+
+- (RMPAnnotation *)createAnnotation
+{
+    RMPAnnotation *annotation = (RMPAnnotation*)[[RMPBuzzAnnotation alloc] init];
+    annotation.coordinate = self.coordinate;
+    annotation.index = self.index;
+    return annotation;
+}
+@end
+
+@implementation RMPSelectedPlayAnnotation
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.pinImage = [UIImage imageNamed:@"PIN_PLAY_SELECTED.png"];
+        self.identifier = @"RMPSelectedPlayAnnotation";
+        self.centerOffset = CGPointMake(0.0f, -22.0f);
+    }
+    return self;
+}
+
+- (RMPAnnotation *)createAnnotation
+{
+    RMPAnnotation *annotation = (RMPAnnotation*)[[RMPPlayAnnotation alloc] init];
+    annotation.coordinate = self.coordinate;
+    annotation.index = self.index;
+    return annotation;
+}
+@end
+
+@implementation RMPSelectedShopAnnotation
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.pinImage = [UIImage imageNamed:@"PIN_SHOP_SELECTED.png"];
+        self.identifier = @"RMPSelectedShopAnnotation";
+        self.centerOffset = CGPointMake(0.0f, -22.0f);
+    }
+    return self;
+}
+- (RMPAnnotation *)createAnnotation
+{
+    RMPAnnotation *annotation = (RMPAnnotation*)[[RMPShopAnnotation alloc] init];
+    annotation.coordinate = self.coordinate;
+    annotation.index = self.index;
+    return annotation;
+}
+@end
+
+@implementation RMPSelectedEatAnnotation
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.pinImage = [UIImage imageNamed:@"PIN_EAT_SELECTED.png"];
+        self.identifier = @"RMPSelectedEatAnnotation";
+        self.centerOffset = CGPointMake(0.0f, -22.0f);
+    }
+    return self;
+}
+- (RMPAnnotation *)createAnnotation
+{
+    RMPAnnotation *annotation = (RMPAnnotation*)[[RMPEatAnnotation alloc] init];
+    annotation.coordinate = self.coordinate;
+    annotation.index = self.index;
+    return annotation;
+}
+@end
 
 @implementation RMPWriteFormAnnotation
 - (id)init
@@ -88,16 +201,3 @@
 }
 @end
 
-
-@implementation RMPSelectedAnnotation
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        self.pinImage = [UIImage imageNamed:@"bigmarker.png"];
-        self.identifier = @"RMPSelectedAnnotation";
-        self.centerOffset = CGPointMake(0.0f, -65.0f);
-    }
-    return self;
-}
-@end
