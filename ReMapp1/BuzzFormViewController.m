@@ -28,14 +28,13 @@
     
     //set user info
     RMPUser *user = [RMPUser sharedManager];
-    self.iconImageView.image = user.icon;
+    self.iconImageView.image = user.iconImage;
     self.nameLabel.text = user.name;
     
     self.textCountLabel.text = @"0";
     
     //set tap gesture
     self.imageView.userInteractionEnabled = YES;
-    
     UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImageView:)];
     tapped.numberOfTapsRequired = 1;
     [self.imageView addGestureRecognizer:tapped];

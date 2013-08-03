@@ -9,10 +9,8 @@
 #import "RMPUser.h"
 
 @interface RMPUser()
-@property (nonatomic) NSString* systemId;
-@property (nonatomic) NSString* name;
-@property (nonatomic) UIImage* icon;
-@property (nonatomic) NSString* profile;
+@property (nonatomic) NSInteger systemId;
+@property (nonatomic) UIImage* iconImage;
 @end
 
 @implementation RMPUser
@@ -30,14 +28,15 @@
 {
     self = [super init];
     if (self) {
-        self.systemId = @"asdfghjkl";
+        self.systemId = 124;
         self.name = @"nishiba";
+        self.email = @"nishiba.m@gmail.com";
         
         NSURL *imageURL = [NSURL URLWithString:@"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/161869_715062914_374717427_q.jpg"];
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        self.icon = [UIImage imageWithData:imageData];
+        self.iconImage = [UIImage imageWithData:imageData];
         
-        self.profile = @"I'm a banker.";
+        self.profile = @"A user profile is a visual display of personal data associated with a specific user, or a customized desktop environment. A profile refers therefore to the explicit digital representation of a person's identity. A user profile can also be considered as the computer representation of a user model.";
     }
     return self;
 }

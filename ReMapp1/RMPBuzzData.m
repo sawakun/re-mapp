@@ -7,12 +7,16 @@
 //
 
 #import "RMPBuzzData.h"
-#import "Buzz.h"
+#import "RMPPlace.h"
 #import "CSVHandler.h"
 #import "RMPMapView.h"
+#import "RMPPlaceFactory.h"
 
 NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
+
+@interface RMPBuzzData()
+@end
 
 @implementation RMPBuzzData
 @synthesize buzzes = _currentViewBuzzData;
@@ -61,7 +65,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 
 
-- (Buzz *)buzzAtIndex:(NSInteger)index
+- (RMPBuzzPlace *)buzzAtIndex:(NSInteger)index
 {
     if (index >= [_currentViewBuzzData count]) {
         return nil;
@@ -76,7 +80,6 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     double northEastLot = [center.userInfo[@"northEastLot"] doubleValue];
     double southWestLat = [center.userInfo[@"southWestLat"] doubleValue];
     double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
-    //dispatch_queue_t queue = dispatch_queue_create("com.re-mapp", NULL);
     dispatch_async(_queue, ^{
         [self reloadWithNorthEastLat:northEastLat NorthEastLot:northEastLot SouthWestLat:southWestLat SouthWestLot:southWestLot];
     });
@@ -179,7 +182,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     NSInteger index = 0;
     NSLog(@"Send notification.");
     [_currentViewBuzzData removeAllObjects];
-    for (Buzz *buzz in _buzzData) {
+    for (RMPBuzzPlace *buzz in _buzzData) {
         if (buzz.lat < northEastLat &&
             buzz.lat > southWestLat &&
             buzz.lot < northEastLot &&
@@ -224,7 +227,6 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                                         returningResponse:&response
                                                     error:&error];    
     if (error != nil) {
-//        NSLog(@"Error happend = %@", error);
         NSLog(@"Error happend.");
         return;
     }
@@ -254,58 +256,14 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                 lot < _buzzDataNorthEastLot &&
                 lot > _buzzDataSouthWestLot)
             {
-                Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary];
-                [_buzzData addObject:buzz];
+                RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
+                [_buzzData addObject:place];
             }
         }
         NSLog(@"Sorted Buzz Data.");
         return;
     }
 
-    
-    /*
-     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [NSURLConnection sendAsynchronousRequest:urlRequest
-                                       queue:queue
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data,
-                                               NSError *error)
-     {
-         if (error != nil) {
-             NSLog(@"Error happend = %@", error);
-         }
-         else if ([data length] == 0) {
-             NSLog(@"Nothing was downloaded.");
-         }
-         else
-         {
-             NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-             NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-             NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                  options:NSJSONReadingAllowFragments
-                                                                    error:nil];
-//             NSInteger index = 0;
-             [_currentViewBuzzData removeAllObjects];
-             for (NSDictionary *buzzDictionary in buzzArray) {
-                 double lat = [buzzDictionary[@"lat"] doubleValue];
-                 double lot = [buzzDictionary[@"lot"] doubleValue];
-                 // This check must be done on the server.
-                 if (lat < _buzzDataNorthEastLat &&
-                     lat > _buzzDataSouthWestLat &&
-                     lot < _buzzDataNorthEastLot &&
-                     lot > _buzzDataSouthWestLot)
-                 {
-//                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:index];
-                     Buzz* buzz = [[Buzz alloc] initWithDictionary:buzzDictionary Index:0];
-                     [_buzzData addObject:buzz];
-//                     ++index;
-                 }
-             }
-         }
-         NSLog(@"fetch data.");
-     }];
-     */
-    
 }
 
 

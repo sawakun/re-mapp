@@ -80,6 +80,7 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
     RMPSelectedAnnotation *selectedAnnotation = [[RMPSelectedAnnotation alloc] init];
     [UIView animateWithDuration:0.2f animations:^{
         view.image = selectedAnnotation.pinImage;
+        view.centerOffset = selectedAnnotation.centerOffset;
     }];
     
     //post notification

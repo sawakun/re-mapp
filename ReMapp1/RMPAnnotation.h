@@ -29,6 +29,20 @@
 @property (nonatomic) NSInteger index;
 @end
 
+@interface RMPShopAnnotation : RMPAnnotation
+@property (nonatomic) UIImage *pinImage;
+@property (nonatomic) NSString *identifier;
+@property (nonatomic) CGPoint centerOffset;
+@property (nonatomic) NSInteger index;
+@end
+
+@interface RMPEatAnnotation : RMPAnnotation
+@property (nonatomic) UIImage *pinImage;
+@property (nonatomic) NSString *identifier;
+@property (nonatomic) CGPoint centerOffset;
+@property (nonatomic) NSInteger index;
+@end
+
 @interface RMPWriteFormAnnotation : RMPAnnotation
 @property (nonatomic) UIImage *pinImage;
 @property (nonatomic) NSString *identifier;

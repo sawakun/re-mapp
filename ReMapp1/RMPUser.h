@@ -10,8 +10,9 @@
 
 @interface RMPUser : NSObject
 + (RMPUser*)sharedManager;
-@property (nonatomic, readonly) NSString* systemId;
-@property (nonatomic, readonly) NSString* name;
-@property (nonatomic, readonly) UIImage* icon;
-@property (nonatomic, readonly) NSString* profile;
+@property (nonatomic, readonly) NSInteger systemId;
+@property (nonatomic) NSString *name;
+@property (nonatomic, readonly) UIImage *iconImage;
+@property (nonatomic) NSString *email;
+@property (nonatomic) NSString *profile;
 @end
