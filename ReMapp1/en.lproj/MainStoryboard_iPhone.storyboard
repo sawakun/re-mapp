@@ -16,6 +16,10 @@
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="fWR-Rv-L05">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFJ-N3-Wxc">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="a4R-Ah-ILS"/>
+                                            <constraint firstAttribute="width" constant="161" id="kxm-Eg-3a8"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="MENU_PROFILE_BUTTON.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,6 +33,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdL-WN-Ae4">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="161" id="xu8-MC-aVZ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="MENU_YOUR TIMELINE_BUTTON.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,6 +49,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="872" verticalHuggingPriority="836" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEh-m2-mRy">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="IFV-Kq-Y21"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" image="MENU_CHECK LIST_BUTTON.png">
                                             <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,6 +78,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbG-k9-lmw">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="hKW-Sp-9bR"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="MENU_SETTING_BUTTON.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,35 +135,59 @@
                                             <segue destination="wsP-F4-o8K" kind="modal" id="v0j-tY-Ghp"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MENU_OTHERS_BAR.png" translatesAutoresizingMaskIntoConstraints="NO" id="0pU-hR-LjE"/>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MENU_LIST_BAR.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nmo-c1-aew"/>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MENU_YOU_BAR.png" translatesAutoresizingMaskIntoConstraints="NO" id="utM-2Z-kwJ"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MENU_OTHERS_BAR.png" translatesAutoresizingMaskIntoConstraints="NO" id="0pU-hR-LjE">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="e8Y-xH-bna"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MENU_LIST_BAR.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nmo-c1-aew">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="rMp-Hm-4fg"/>
+                                            <constraint firstAttribute="width" constant="322" id="uxQ-jM-Sqq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MENU_YOU_BAR.png" translatesAutoresizingMaskIntoConstraints="NO" id="utM-2Z-kwJ">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="322" id="R4I-Rf-skq"/>
+                                            <constraint firstAttribute="height" constant="32" id="fVF-IC-rQl"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fbG-k9-lmw" firstAttribute="top" secondItem="fWR-Rv-L05" secondAttribute="top" constant="271" id="08f-Cq-Ptf"/>
+                                    <constraint firstItem="rJu-De-GT4" firstAttribute="baseline" secondItem="vMe-Qb-siC" secondAttribute="baseline" type="default" id="24N-6w-FMD"/>
                                     <constraint firstItem="vMe-Qb-siC" firstAttribute="top" secondItem="rJu-De-GT4" secondAttribute="top" type="default" id="2Ib-8M-Ps7"/>
                                     <constraint firstItem="vMe-Qb-siC" firstAttribute="top" secondItem="fWR-Rv-L05" secondAttribute="top" constant="344" id="5lh-I7-buO"/>
+                                    <constraint firstItem="0pU-hR-LjE" firstAttribute="trailing" secondItem="Nmo-c1-aew" secondAttribute="trailing" type="default" id="60E-qb-aNU"/>
                                     <constraint firstItem="0pU-hR-LjE" firstAttribute="top" secondItem="fWR-Rv-L05" secondAttribute="top" constant="238" id="61g-g4-D1V"/>
+                                    <constraint firstItem="6SF-dF-VpZ" firstAttribute="top" secondItem="fbG-k9-lmw" secondAttribute="top" type="default" id="6Mf-Zr-k33"/>
+                                    <constraint firstItem="vMe-Qb-siC" firstAttribute="trailing" secondItem="fbG-k9-lmw" secondAttribute="trailing" type="default" id="7M1-CO-AjN"/>
+                                    <constraint firstItem="rJu-De-GT4" firstAttribute="trailing" secondItem="6SF-dF-VpZ" secondAttribute="trailing" type="default" id="7pA-8L-Nuc"/>
                                     <constraint firstItem="Nmo-c1-aew" firstAttribute="leading" secondItem="TFJ-N3-Wxc" secondAttribute="leading" type="default" id="9Rd-N1-aIE"/>
                                     <constraint firstItem="vMe-Qb-siC" firstAttribute="bottom" secondItem="rJu-De-GT4" secondAttribute="bottom" type="default" id="BG3-05-paa"/>
                                     <constraint firstItem="fEh-m2-mRy" firstAttribute="top" secondItem="mKA-PY-GZB" secondAttribute="top" type="default" id="CFc-zo-xPi"/>
+                                    <constraint firstItem="zdL-WN-Ae4" firstAttribute="trailing" secondItem="mKA-PY-GZB" secondAttribute="trailing" type="default" id="CoU-EI-iwC"/>
                                     <constraint firstItem="fEh-m2-mRy" firstAttribute="baseline" secondItem="mKA-PY-GZB" secondAttribute="baseline" type="default" id="EUW-yZ-pOo"/>
                                     <constraint firstItem="TFJ-N3-Wxc" firstAttribute="top" secondItem="fWR-Rv-L05" secondAttribute="top" constant="41" id="Hpt-7M-Xbb"/>
                                     <constraint firstItem="6SF-dF-VpZ" firstAttribute="leading" secondItem="mKA-PY-GZB" secondAttribute="leading" type="default" id="IF0-GW-i3j"/>
                                     <constraint firstItem="utM-2Z-kwJ" firstAttribute="trailing" secondItem="fWR-Rv-L05" secondAttribute="trailing" type="default" id="Iu8-ms-kvz"/>
-                                    <constraint firstItem="fbG-k9-lmw" firstAttribute="baseline" secondItem="6SF-dF-VpZ" secondAttribute="baseline" type="default" id="Knj-Nu-veE"/>
+                                    <constraint firstItem="mKA-PY-GZB" firstAttribute="trailing" secondItem="6SF-dF-VpZ" secondAttribute="trailing" type="default" id="NXZ-7t-YD9"/>
                                     <constraint firstItem="Nmo-c1-aew" firstAttribute="top" secondItem="fWR-Rv-L05" secondAttribute="top" constant="123" id="OX1-PV-wK5"/>
+                                    <constraint firstItem="0pU-hR-LjE" firstAttribute="centerX" secondItem="fWR-Rv-L05" secondAttribute="centerX" type="default" id="PDQ-aJ-ygx"/>
+                                    <constraint firstItem="zdL-WN-Ae4" firstAttribute="top" secondItem="TFJ-N3-Wxc" secondAttribute="top" type="default" id="Qma-Sv-0HK"/>
                                     <constraint firstItem="rJu-De-GT4" firstAttribute="leading" secondItem="6SF-dF-VpZ" secondAttribute="leading" type="default" id="Tug-kU-FRv"/>
                                     <constraint firstItem="0pU-hR-LjE" firstAttribute="leading" secondItem="fbG-k9-lmw" secondAttribute="leading" type="default" id="XRi-Vd-yDs"/>
                                     <constraint firstItem="vMe-Qb-siC" firstAttribute="leading" secondItem="fbG-k9-lmw" secondAttribute="leading" type="default" id="Xat-ix-JPc"/>
+                                    <constraint firstItem="TFJ-N3-Wxc" firstAttribute="trailing" secondItem="fEh-m2-mRy" secondAttribute="trailing" type="default" id="YnI-dU-Pat"/>
                                     <constraint firstItem="fEh-m2-mRy" firstAttribute="top" secondItem="fWR-Rv-L05" secondAttribute="top" constant="156" id="aka-hl-6Oz"/>
-                                    <constraint firstItem="zdL-WN-Ae4" firstAttribute="baseline" secondItem="TFJ-N3-Wxc" secondAttribute="baseline" type="default" id="bc0-VL-b4o"/>
                                     <constraint firstItem="zdL-WN-Ae4" firstAttribute="leading" secondItem="fWR-Rv-L05" secondAttribute="leading" constant="161" id="cn0-Vo-kYp"/>
+                                    <constraint firstItem="TFJ-N3-Wxc" firstAttribute="bottom" secondItem="zdL-WN-Ae4" secondAttribute="bottom" type="default" id="ghA-aH-dcf"/>
+                                    <constraint firstItem="fbG-k9-lmw" firstAttribute="bottom" secondItem="6SF-dF-VpZ" secondAttribute="bottom" type="default" id="lba-xa-BoB"/>
+                                    <constraint firstItem="fEh-m2-mRy" firstAttribute="trailing" secondItem="fbG-k9-lmw" secondAttribute="trailing" type="default" id="rPz-Ia-Feb"/>
                                     <constraint firstItem="zdL-WN-Ae4" firstAttribute="leading" secondItem="mKA-PY-GZB" secondAttribute="leading" type="default" id="t4x-9L-cXu"/>
                                     <constraint firstItem="0pU-hR-LjE" firstAttribute="leading" secondItem="fEh-m2-mRy" secondAttribute="leading" type="default" id="tfl-tW-1SQ"/>
                                     <constraint firstItem="utM-2Z-kwJ" firstAttribute="top" secondItem="fWR-Rv-L05" secondAttribute="top" constant="7" id="v7W-Ce-hM8"/>
-                                    <constraint firstItem="Nmo-c1-aew" firstAttribute="centerX" secondItem="fWR-Rv-L05" secondAttribute="centerX" type="default" id="vkI-Lp-DlY"/>
                                     <constraint firstItem="Nmo-c1-aew" firstAttribute="leading" secondItem="fEh-m2-mRy" secondAttribute="leading" type="default" id="xbm-FX-TI0"/>
                                 </constraints>
                             </view>
@@ -579,7 +616,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tL3-Ro-ddN">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="27j-cK-zsn"/>
                                     <constraint firstAttribute="width" constant="44" id="ft5-sI-Yt9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -932,6 +968,9 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn0-fh-2Dz">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="160" id="64T-ia-FQr"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <state key="normal" image="LIKE_BUTTON.png">
                                                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -944,6 +983,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="bn0-fh-2Dz" firstAttribute="bottom" secondItem="fj3-In-46A" secondAttribute="bottom" type="default" id="9XY-11-QtK"/>
                                                         <constraint firstItem="VgX-yx-rbE" firstAttribute="leading" secondItem="fj3-In-46A" secondAttribute="leading" constant="161" id="Gfj-hd-ueg"/>
                                                         <constraint firstItem="bn0-fh-2Dz" firstAttribute="leading" secondItem="fj3-In-46A" secondAttribute="leading" type="default" id="Wh2-cZ-72F"/>
                                                         <constraint firstItem="VgX-yx-rbE" firstAttribute="bottom" secondItem="fj3-In-46A" secondAttribute="bottom" type="user" id="ZPj-Ut-xto"/>
@@ -959,6 +999,7 @@
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="59" id="Fhs-4y-wyD"/>
                                             <constraint firstItem="zvF-nc-bCm" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="10" id="Mmh-py-I3t"/>
                                             <constraint firstItem="qNU-ob-pOq" firstAttribute="bottom" secondItem="q2u-qa-d61" secondAttribute="bottom" type="default" id="OyK-p0-9SG"/>
+                                            <constraint firstItem="fj3-In-46A" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="425" id="WeB-Yx-R0X"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="G96-0o-m5d" secondAttribute="leading" type="default" id="ZMt-Sl-8nh"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="qNU-ob-pOq" secondAttribute="top" type="default" id="brK-RU-xRq"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="zvF-nc-bCm" secondAttribute="top" type="default" id="fzy-zQ-LiK"/>
@@ -1116,169 +1157,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LIKE_BUTTON.png" width="160" height="35"/>
-        <image name="MENU_CHECK LIST_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_LIST_BAR.png" width="322" height="32"/>
-        <image name="MENU_LOGOUT_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_MUTE LIST_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_OTHERS_BAR.png" width="322" height="32"/>
-        <image name="MENU_PROBLEM_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_PROFILE_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_SETTING_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_TERM OF USE_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_YOUR TIMELINE_BUTTON.png" width="161" height="72"/>
-        <image name="MENU_YOU_BAR.png" width="322" height="32"/>
-        <image name="MUTE_BUTTON.png" width="159" height="35"/>
-        <image name="currentLocation.png" width="44" height="44"/>
+        <image name="LIKE_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_CHECK LIST_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_LIST_BAR.png" width="16" height="16"/>
+        <image name="MENU_LOGOUT_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_MUTE LIST_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_OTHERS_BAR.png" width="16" height="16"/>
+        <image name="MENU_PROBLEM_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_PROFILE_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_SETTING_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_TERM OF USE_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_YOUR TIMELINE_BUTTON.png" width="16" height="16"/>
+        <image name="MENU_YOU_BAR.png" width="16" height="16"/>
+        <image name="MUTE_BUTTON.png" width="16" height="16"/>
+        <image name="currentLocation.png" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="BuzzFormViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuzzFormViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedCancel:"/>
-                <relationship kind="action" name="tappedPhotos:"/>
-                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textCountLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textView" candidateClass="UIPlaceHolderTextView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="toolbarVerticalSpaceConstraint" candidateClass="NSLayoutConstraint"/>
-            </relationships>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToCurrentLocation:"/>
-                <relationship kind="outlet" name="leftScratchView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapView" candidateClass="RMPMapView"/>
-                <relationship kind="outlet" name="rightScratchView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="RMPNonVisibleSearchBar"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RMPBuzzCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPBuzzCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="buzzLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RMPBuzzCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPBuzzCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bodyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="likeAndMuteButtonVerticalConstraint" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RMPCheckListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPCheckListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-            </relationships>
-        </class>
-        <class className="RMPInitialSlidingViewController" superclassName="RMPSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialSlidingViewController.h"/>
-        </class>
-        <class className="RMPLogOutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPLogOutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-            </relationships>
-        </class>
-        <class className="RMPMapView" superclassName="MKMapView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPMapView.h"/>
-        </class>
-        <class className="RMPMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPMenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMap:"/>
-            </relationships>
-        </class>
-        <class className="RMPMuteListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPMuteListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-            </relationships>
-        </class>
-        <class className="RMPNonVisibleSearchBar" superclassName="UISearchBar">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPNonVisibleSearchBar.h"/>
-        </class>
-        <class className="RMPPlaceCollectionView" superclassName="UICollectionView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlaceCollectionView.h"/>
-        </class>
-        <class className="RMPPlaceViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlaceViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="collectionView" candidateClass="RMPPlaceCollectionView"/>
-            </relationships>
-        </class>
-        <class className="RMPProblemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPProblemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-            </relationships>
-        </class>
-        <class className="RMPProfileViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPProfileViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-                <relationship kind="action" name="tappedToSave:"/>
-                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="profileTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="RMPSettingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPSettingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-            </relationships>
-        </class>
-        <class className="RMPSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPSlidingViewController.h"/>
-        </class>
-        <class className="RMPTermOfUseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPTermOfUseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-            </relationships>
-        </class>
-        <class className="RMPTimeLineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPTimeLineViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMap:"/>
-                <relationship kind="outlet" name="timeLineTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="RMPYourTimeLineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPYourTimeLineViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="tappedToReturnToMenu:"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UIPlaceHolderTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPlaceHolderTextView.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
