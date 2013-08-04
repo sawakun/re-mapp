@@ -15,7 +15,6 @@
 +(RMPPlace*)createPlace:(NSDictionary *)buzzDictionary
 {
     NSString *thisType = buzzDictionary[@"type"];
-    NSLog(@"%@", thisType);
     if ([thisType isEqualToString:@"buzz"]) {
         return [[RMPBuzzPlace alloc] initWithDictionary:buzzDictionary];
     }
