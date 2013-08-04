@@ -10,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="Menu" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EtR-jD-iBJ" customClass="RMPMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Cm-RL-tih">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="fWR-Rv-L05">
@@ -186,7 +186,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPInitialVerticalSlidingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cdv-DF-RZo" customClass="RMPInitialSlidingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pr4-1P-2bA">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="RMPInitialSlidingViewController" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-hC-M74">
@@ -211,7 +211,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPMuteListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LWu-Y4-MVc" customClass="RMPMuteListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wvw-st-5ej">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFD-Mo-FnP">
@@ -243,7 +243,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ncy-JZ-nRc" customClass="RMPProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RMK-WB-0tH">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWH-Nj-plP">
@@ -364,7 +364,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPYourTimeLineViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zqc-7f-e0d" customClass="RMPYourTimeLineViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pES-eQ-xsb">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1IW-iT-aIs">
@@ -396,7 +396,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPTermOfUseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IgT-Xw-WUE" customClass="RMPTermOfUseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0r4-Cm-dBD">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDP-SV-a0e">
@@ -428,7 +428,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPProblemViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FIq-9m-WMf" customClass="RMPProblemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hP2-6t-Vyl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ore-oW-XFq">
@@ -460,7 +460,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPCheckListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qPk-lM-Nus" customClass="RMPCheckListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dAD-Pl-aC5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpd-dw-KO8">
@@ -492,7 +492,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPLogOutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wsP-F4-o8K" customClass="RMPLogOutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s9r-43-hOd">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDF-cN-kBA">
@@ -524,7 +524,7 @@
             <objects>
                 <viewController storyboardIdentifier="RMPSettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QHT-pD-AT1" customClass="RMPSettingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0wQ-rI-fRQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLs-hS-SNO">
@@ -556,13 +556,13 @@
             <objects>
                 <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gCj-i9-D1h">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw" customClass="RMPMapView">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="2qv-ly-cpu"/>
-                                    <constraint firstAttribute="height" constant="468" id="dUA-yF-7Y4"/>
+                                    <constraint firstAttribute="height" constant="508" id="JlJ-YK-0f1"/>
                                 </constraints>
                             </mapView>
                             <searchBar contentMode="redraw" barStyle="blackTranslucent" placeholder="What..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO" customClass="RMPNonVisibleSearchBar">
@@ -594,15 +594,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tL3-Ro-ddN" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="8" id="3WV-VM-uJW"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="5sl-mO-hcI"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="centerX" secondItem="VRc-20-keO" secondAttribute="centerX" type="default" id="E0W-KY-ZuE"/>
                             <constraint firstItem="ayf-VO-otW" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="EDu-Wc-8Ca"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="HFQ-lN-ZyA"/>
                             <constraint firstAttribute="trailing" secondItem="ayf-VO-otW" secondAttribute="trailing" constant="285" id="Prm-61-ky9"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="283" id="SQB-6c-nS5"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerY" secondItem="ayf-VO-otW" secondAttribute="centerY" type="default" id="XaF-sS-lr2"/>
+                            <constraint firstItem="ayf-VO-otW" firstAttribute="top" secondItem="VRc-20-keO" secondAttribute="bottom" type="default" id="VwS-W9-CsS"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="bfo-E5-ky8"/>
                             <constraint firstAttribute="trailing" secondItem="2SP-CV-J8J" secondAttribute="trailing" constant="2" id="dXt-QV-UFG"/>
-                            <constraint firstItem="2SP-CV-J8J" firstAttribute="top" secondItem="VRc-20-keO" secondAttribute="bottom" type="default" id="eij-bm-EBz"/>
                             <constraint firstAttribute="bottom" secondItem="tL3-Ro-ddN" secondAttribute="bottom" constant="8" id="hMj-Mx-dMs"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="kMR-MO-SGw"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="m1V-JG-baJ"/>
@@ -626,7 +626,7 @@
             <objects>
                 <viewController storyboardIdentifier="BuzzForm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PGe-qp-L6R" customClass="BuzzFormViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p5L-xl-0Jx">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oW4-eo-mk4">
@@ -731,7 +731,7 @@
             <objects>
                 <viewController storyboardIdentifier="InfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uf7-QA-ni0" customClass="InfoViewController" sceneMemberID="viewController">
                     <view key="view" alpha="0.60000000000000009" contentMode="scaleToFill" id="e2e-DZ-6PN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="568" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UhF-Xt-Ira">
@@ -863,12 +863,15 @@
         <scene sceneID="hRE-e5-KUl">
             <objects>
                 <viewController storyboardIdentifier="RMPPlaceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O3N-6w-bd6" customClass="RMPPlaceViewController" sceneMemberID="viewController">
-                    <view key="view" alpha="0.80000000000000004" contentMode="scaleToFill" id="C9r-8Y-U1Z">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                    <view key="view" contentMode="scaleToFill" id="C9r-8Y-U1Z">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" restorationIdentifier="RMPPlaceCollectionView" bounces="NO" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Z0-rC-5ep" customClass="RMPPlaceCollectionView">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POp-NB-f2B">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="RMPPlaceCollectionView" bounces="NO" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Z0-rC-5ep" customClass="RMPPlaceCollectionView">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pQi-Zs-4EF">
                                     <size key="itemSize" width="318" height="460"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -876,8 +879,8 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" reuseIdentifier="RMPBuzzCollectionViewCell" id="eXe-Zt-q7H" customClass="RMPBuzzCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="318" height="460"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RMPBuzzCollectionViewCell" id="eXe-Zt-q7H" customClass="RMPBuzzCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="44" width="318" height="460"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="318" height="460"/>
@@ -954,20 +957,19 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="zvF-nc-bCm" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="10" id="7L6-6c-ttp"/>
                                             <constraint firstAttribute="trailing" secondItem="qNU-ob-pOq" secondAttribute="trailing" constant="18" id="Aoh-h0-1zC"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="59" id="Fhs-4y-wyD"/>
                                             <constraint firstAttribute="trailing" secondItem="fj3-In-46A" secondAttribute="trailing" constant="-2" id="KCO-fm-CEC"/>
                                             <constraint firstItem="zvF-nc-bCm" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="10" id="Mmh-py-I3t"/>
                                             <constraint firstItem="qNU-ob-pOq" firstAttribute="bottom" secondItem="q2u-qa-d61" secondAttribute="bottom" type="default" id="OyK-p0-9SG"/>
+                                            <constraint firstItem="G96-0o-m5d" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="26" id="WTW-im-vjD"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="G96-0o-m5d" secondAttribute="leading" type="default" id="ZMt-Sl-8nh"/>
                                             <constraint firstItem="fj3-In-46A" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" type="default" id="aXs-V2-WaS"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="qNU-ob-pOq" secondAttribute="top" type="default" id="brK-RU-xRq"/>
                                             <constraint firstItem="fj3-In-46A" firstAttribute="bottom" secondItem="eXe-Zt-q7H" secondAttribute="bottom" type="default" id="buf-Bx-G1V"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="zvF-nc-bCm" secondAttribute="top" type="default" id="fzy-zQ-LiK"/>
-                                            <constraint firstItem="G96-0o-m5d" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="26" id="i5c-L1-pn8"/>
-                                            <constraint firstItem="zvF-nc-bCm" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="10" id="joO-Z6-rYR"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="bodyLabel" destination="G96-0o-m5d" id="erO-dW-QXc"/>
@@ -981,12 +983,15 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="POp-NB-f2B" firstAttribute="bottom" secondItem="C9r-8Y-U1Z" secondAttribute="bottom" type="default" id="1nd-Gv-jhH"/>
+                            <constraint firstItem="POp-NB-f2B" firstAttribute="trailing" secondItem="C9r-8Y-U1Z" secondAttribute="trailing" type="default" id="GVP-qX-zo1"/>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="top" secondItem="C9r-8Y-U1Z" secondAttribute="top" type="default" id="QSH-DP-1Do"/>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="leading" secondItem="C9r-8Y-U1Z" secondAttribute="leading" type="default" id="YSy-Ef-pG9"/>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="trailing" secondItem="C9r-8Y-U1Z" secondAttribute="trailing" type="default" id="cNT-Rc-wI8"/>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="bottom" secondItem="C9r-8Y-U1Z" secondAttribute="bottom" type="default" id="qUE-2z-z8O"/>
+                            <constraint firstItem="POp-NB-f2B" firstAttribute="leading" secondItem="C9r-8Y-U1Z" secondAttribute="leading" type="default" id="tFO-yc-iLv"/>
+                            <constraint firstItem="POp-NB-f2B" firstAttribute="top" secondItem="C9r-8Y-U1Z" secondAttribute="top" type="default" id="w8X-43-ytw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1002,7 +1007,7 @@
             <objects>
                 <viewController storyboardIdentifier="TimeLine" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6hM-wa-KBC" customClass="RMPTimeLineViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f38-2E-MTS">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsT-M1-ix3">
@@ -1284,6 +1289,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
