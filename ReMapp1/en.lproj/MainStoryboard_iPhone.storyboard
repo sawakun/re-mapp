@@ -870,17 +870,17 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" restorationIdentifier="RMPPlaceCollectionView" bounces="NO" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Z0-rC-5ep" customClass="RMPPlaceCollectionView">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pQi-Zs-4EF">
-                                    <size key="itemSize" width="320" height="460"/>
+                                    <size key="itemSize" width="318" height="460"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="center" reuseIdentifier="RMPBuzzCollectionViewCell" id="eXe-Zt-q7H" customClass="RMPBuzzCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="460"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="460"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00  00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNU-ob-pOq">
@@ -956,23 +956,24 @@
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="qNU-ob-pOq" secondAttribute="trailing" constant="18" id="Aoh-h0-1zC"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="59" id="Fhs-4y-wyD"/>
+                                            <constraint firstAttribute="trailing" secondItem="fj3-In-46A" secondAttribute="trailing" constant="-2" id="KCO-fm-CEC"/>
                                             <constraint firstItem="zvF-nc-bCm" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="10" id="Mmh-py-I3t"/>
                                             <constraint firstItem="qNU-ob-pOq" firstAttribute="bottom" secondItem="q2u-qa-d61" secondAttribute="bottom" type="default" id="OyK-p0-9SG"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="G96-0o-m5d" secondAttribute="leading" type="default" id="ZMt-Sl-8nh"/>
+                                            <constraint firstItem="fj3-In-46A" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" type="default" id="aXs-V2-WaS"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="qNU-ob-pOq" secondAttribute="top" type="default" id="brK-RU-xRq"/>
+                                            <constraint firstItem="fj3-In-46A" firstAttribute="bottom" secondItem="eXe-Zt-q7H" secondAttribute="bottom" type="default" id="buf-Bx-G1V"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="zvF-nc-bCm" secondAttribute="top" type="default" id="fzy-zQ-LiK"/>
-                                            <constraint firstAttribute="trailing" secondItem="qNU-ob-pOq" secondAttribute="trailing" constant="20" type="default" id="gx4-Cb-jhm"/>
                                             <constraint firstItem="G96-0o-m5d" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="26" id="i5c-L1-pn8"/>
                                             <constraint firstItem="zvF-nc-bCm" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="10" id="joO-Z6-rYR"/>
-                                            <constraint firstItem="fj3-In-46A" firstAttribute="bottom" secondItem="eXe-Zt-q7H" secondAttribute="bottom" type="default" id="ncU-BZ-bAt"/>
-                                            <constraint firstItem="fj3-In-46A" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" type="default" id="qds-q1-Otq"/>
-                                            <constraint firstItem="fj3-In-46A" firstAttribute="trailing" secondItem="eXe-Zt-q7H" secondAttribute="trailing" type="default" id="u9m-mQ-L5w"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="bodyLabel" destination="G96-0o-m5d" id="erO-dW-QXc"/>
                                             <outlet property="iconImageView" destination="zvF-nc-bCm" id="AE6-Wi-Yk8"/>
                                             <outlet property="likeAndMuteButtonVerticalConstraint" destination="ZPj-Ut-xto" id="Igl-13-OFb"/>
+                                            <outlet property="likeAndMuteView" destination="fj3-In-46A" id="S2T-wi-aIe"/>
                                             <outlet property="nameLabel" destination="q2u-qa-d61" id="3C3-xj-dhb"/>
                                             <outlet property="timeLabel" destination="qNU-ob-pOq" id="f4u-xh-clP"/>
                                         </connections>
@@ -983,9 +984,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="top" secondItem="C9r-8Y-U1Z" secondAttribute="top" type="default" id="QSH-DP-1Do"/>
-                            <constraint firstItem="9Z0-rC-5ep" firstAttribute="leading" secondItem="C9r-8Y-U1Z" secondAttribute="leading" type="default" id="RSj-X4-d9O"/>
+                            <constraint firstItem="9Z0-rC-5ep" firstAttribute="leading" secondItem="C9r-8Y-U1Z" secondAttribute="leading" type="default" id="YSy-Ef-pG9"/>
+                            <constraint firstItem="9Z0-rC-5ep" firstAttribute="trailing" secondItem="C9r-8Y-U1Z" secondAttribute="trailing" type="default" id="cNT-Rc-wI8"/>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="bottom" secondItem="C9r-8Y-U1Z" secondAttribute="bottom" type="default" id="qUE-2z-z8O"/>
-                            <constraint firstItem="9Z0-rC-5ep" firstAttribute="trailing" secondItem="C9r-8Y-U1Z" secondAttribute="trailing" type="default" id="xe2-yb-VR1"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1174,6 +1175,7 @@
                 <relationship kind="outlet" name="bodyLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="likeAndMuteButtonVerticalConstraint" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="likeAndMuteView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
             </relationships>

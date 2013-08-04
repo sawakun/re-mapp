@@ -48,7 +48,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     self.delegate = self;
     self.buzzData = [RMPBuzzData sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCell:) name:RMPMapViewDidSelectAnnotation object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
 }
 
@@ -73,11 +72,11 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     static NSString *CellIdentifier = @"RMPBuzzCollectionViewCell";
     RMPPlace *buzz = [_buzzData buzzAtIndex:indexPath.row];
     RMPBuzzCollectionViewCell *cell = (RMPBuzzCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    [cell configureLayout];
     cell.nameLabel.text = buzz.userName;
     cell.bodyLabel.text = buzz.text;
-    [cell.bodyLabel setNumberOfLines:0];
-    [cell.bodyLabel sizeToFit];
+    //[cell.bodyLabel setNumberOfLines:0];
+    //[cell.bodyLabel sizeToFit];
     cell.timeLabel.text = buzz.date;
     
     cell.iconImageView.image = buzz.iconImage;
@@ -108,11 +107,22 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 - (void)showCell:(NSNotification *)center
 {
     [self reloadData];
+    
+    // Load the cells of both sides, to arrage layouts correctly.
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        CGRect thisBounds = self.bounds;
+        CGRect newBounds = CGRectMake(thisBounds.origin.x + 1, thisBounds.origin.y, thisBounds.size.width - 2, thisBounds.size.height);
+        self.bounds = newBounds;
+    });
+
+    
     NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
-    CGFloat pageWidth = self.frame.size.width;
-    CGPoint newPoint = CGPointMake(pageWidth * annotationIndex, self.contentOffset.y);
+    CGFloat offset = self.frame.size.width * annotationIndex;
+    CGPoint newPoint = CGPointMake(offset, self.contentOffset.y);
     self.contentOffset = newPoint;
 }
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {

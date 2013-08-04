@@ -519,8 +519,9 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 - (void)sendNotificationForBottomViewDidMove
 {
     //post notification
+    NSDictionary *userInfo = @{@"frame.origin.y":[NSNumber numberWithFloat:self.bottomView.frame.origin.y]};
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:RMPSlidingViewBottomViewDidMove object:self userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:RMPSlidingViewBottomViewDidMove object:self userInfo:userInfo];
     });
 }
 

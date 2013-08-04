@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface RMPBuzzCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -14,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *likeAndMuteButtonVerticalConstraint;
-
+@property (weak, nonatomic) IBOutlet UIView *likeAndMuteView;
+- (void)configureLayout;
 @end
