@@ -8,52 +8,48 @@
 
 #import <MapKit/MapKit.h>
 
-@interface RMPAnnotation : MKPointAnnotation
+@interface RMPAnnotationData : MKPointAnnotation
 @property (nonatomic) UIImage *pinImage;
 @property (nonatomic) NSString *identifier;
 @property (nonatomic) CGPoint centerOffset;
 @property (nonatomic) NSInteger index;
 @end
 
+@class RMPSelectedAnnotation;
+@interface RMPAnnotation : RMPAnnotationData
+- (RMPSelectedAnnotation *)createSelectedAnnotation;
+@end
+
+@interface RMPSelectedAnnotation : RMPAnnotationData
+- (RMPAnnotation *)createAnnotation;
+@end
+
+
 @interface RMPBuzzAnnotation : RMPAnnotation
-@property (nonatomic) UIImage *pinImage;
-@property (nonatomic) NSString *identifier;
-@property (nonatomic) CGPoint centerOffset;
-@property (nonatomic) NSInteger index;
 @end
 
 @interface RMPPlayAnnotation : RMPAnnotation
-@property (nonatomic) UIImage *pinImage;
-@property (nonatomic) NSString *identifier;
-@property (nonatomic) CGPoint centerOffset;
-@property (nonatomic) NSInteger index;
 @end
 
 @interface RMPShopAnnotation : RMPAnnotation
-@property (nonatomic) UIImage *pinImage;
-@property (nonatomic) NSString *identifier;
-@property (nonatomic) CGPoint centerOffset;
-@property (nonatomic) NSInteger index;
 @end
 
 @interface RMPEatAnnotation : RMPAnnotation
-@property (nonatomic) UIImage *pinImage;
-@property (nonatomic) NSString *identifier;
-@property (nonatomic) CGPoint centerOffset;
-@property (nonatomic) NSInteger index;
+@end
+
+@interface RMPSelectedBuzzAnnotation : RMPSelectedAnnotation
+@end
+
+@interface RMPSelectedPlayAnnotation : RMPSelectedAnnotation
+@end
+
+@interface RMPSelectedShopAnnotation : RMPSelectedAnnotation
+@end
+
+@interface RMPSelectedEatAnnotation : RMPSelectedAnnotation
 @end
 
 @interface RMPWriteFormAnnotation : RMPAnnotation
-@property (nonatomic) UIImage *pinImage;
-@property (nonatomic) NSString *identifier;
-@property (nonatomic) CGPoint centerOffset;
-@property (nonatomic) NSInteger index;
 @property (nonatomic) CGPoint tapPointOffset;
 @end
 
-@interface RMPSelectedAnnotation : RMPAnnotation
-@property (nonatomic) UIImage *pinImage;
-@property (nonatomic) NSString *identifier;
-@property (nonatomic) CGPoint centerOffset;
-@property (nonatomic) NSInteger index;
-@end

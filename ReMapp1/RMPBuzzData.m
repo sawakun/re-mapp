@@ -182,7 +182,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     NSInteger index = 0;
     NSLog(@"Send notification.");
     [_currentViewBuzzData removeAllObjects];
-    for (RMPBuzzPlace *buzz in _buzzData) {
+    for (RMPPlace *buzz in _buzzData) {
         if (buzz.lat < northEastLat &&
             buzz.lat > southWestLat &&
             buzz.lot < northEastLot &&

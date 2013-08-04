@@ -20,17 +20,18 @@
 	// Do any additional setup after loading the view.
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    self.bottomViewController = [storyboard instantiateViewControllerWithIdentifier:@"InfoViewController"];
     self.underViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    
+    self.bottomViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPPlaceViewController"];
     self.rightViewController = [storyboard instantiateViewControllerWithIdentifier:@"TimeLine"];
     self.leftViewController = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    
     self.bottomViewHeightAtMiddlePosition = 120.0f;
     self.anchorRightPeekAmount = 0.0f;
     self.anchorLeftPeekAmount = 0.0f;
-    [self anchorBottomViewTo:RMPBottom];
-    [self anchorRightViewTo:RMPRight];
-    [self anchorLeftViewTo:RMPLeft];
-}
+    
+    [self hideSubViews];
+ }
 
 - (void)viewDidAppear:(BOOL)animated
 {

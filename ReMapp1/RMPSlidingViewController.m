@@ -159,6 +159,7 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged) {
         [self moveBottomViewControllerWhileSlidingWithVerticalCenter:newVerticalCenterPosition];
+        [self sendNotificationForBottomViewDidMove];
     }
     else if (recognizer.state == UIGestureRecognizerStateEnded ||
              recognizer.state == UIGestureRecognizerStateCancelled) {
@@ -166,10 +167,7 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
         CGFloat currentVelocityY = currentVelocityPoint.y;
         [self moveBottomViewControllerEndSlidingWithVerticalCenter:newVerticalCenterPosition VelocityY:currentVelocityY];
         
-        //post notification
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RMPSlidingViewBottomViewDidMove object:self userInfo:nil];
-        });
+        [self sendNotificationForBottomViewDidMove];
     }
 }
 
@@ -333,7 +331,7 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
         }
     }
     else if (RMPBottom == side) {
-        newCenter.y = self.view.frame.size.height + self.bottomView.frame.size.height * 0.5;
+        newCenter.y = self.view.frame.size.height + self.bottomView.frame.size.height * 0.5 + 5.0;
     }
     
     [UIView animateWithDuration:0.25f animations:^{
@@ -352,7 +350,7 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
         notificationName = RMPSlidingViewRightViewDidAppear;
     }
     else if (RMPRight == side) {
-        newCenter.x = self.view.frame.size.width + self.rightView.frame.size.width * 0.5;
+        newCenter.x = self.view.frame.size.width + self.rightView.frame.size.width * 0.5 + 5.0;
         notificationName = RMPSlidingViewRightViewDidDisppear;
     }
     
@@ -380,7 +378,7 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
         notificationName = RMPSlidingViewLeftViewDidAppear;
     }
     else if (RMPLeft == side) {
-        newCenter.x = - self.leftView.frame.size.width * 0.5;
+        newCenter.x = - self.leftView.frame.size.width * 0.5 - 5.0;
         notificationName = RMPSlidingViewLeftViewDidDisppear;
     }
     
@@ -518,7 +516,43 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 }
 
 
+- (void)sendNotificationForBottomViewDidMove
+{
+    //post notification
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:RMPSlidingViewBottomViewDidMove object:self userInfo:nil];
+    });
+}
 
+
+- (void)hideSubViews
+{
+    [self underViewWillAppear];
+    [self hideBottomView];
+    [self hideRightView];
+    [self hideLeftView];
+}
+
+- (void)hideBottomView
+{
+    CGPoint newCenter = self.bottomView.center;
+    newCenter.y = self.view.frame.size.height + self.bottomView.frame.size.height * 0.5 + 5.0;
+    [self updateBottomViewVerticalCenter:newCenter.y];
+}
+
+- (void)hideRightView
+{
+    CGPoint newCenter = self.rightView.center;
+    newCenter.x = self.view.frame.size.width + self.rightView.frame.size.width * 0.5 + 5.0;
+    [self updateRightViewHorizontalCenter:newCenter.x];
+}
+
+- (void)hideLeftView
+{
+    CGPoint newCenter = self.leftView.center;
+    newCenter.x = - self.leftView.frame.size.width * 0.5 - 5.0;
+    [self updateLeftViewHorizontalCenter:newCenter.x];
+}
 
 @end
 
