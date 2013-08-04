@@ -72,6 +72,9 @@ typedef enum {
 /** Returns if the left view is showed */
 - (BOOL)isLeftViewShowing;
 
+
+- (void)hideSubViews;
+
 @end
 
 

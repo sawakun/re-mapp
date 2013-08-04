@@ -7,16 +7,15 @@
 //
 
 #import "MapViewController.h"
-#import "InfoViewController.h"
 #import "RMPBuzzData.h"
 #import "RMPPlace.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
 #import "RMPSlidingViewController.h"
-#import "InfoViewController.h"
 #import "RMPAnnotation.h"
 #import "RMPNonVisibleSearchBar.h"
 #import "RMPMapView.h"
+#import "RMPPlaceCollectionView.h"
 
 // TEST
 @interface NSObject (Extension)
@@ -73,7 +72,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showAnnotationWhenReceiveNotification:)
-                                                 name:InfoCellDidMove
+                                                 name:RMPPlaceCollectionViewCellDidMove
                                                object:nil];
     
     //set the map delegate
