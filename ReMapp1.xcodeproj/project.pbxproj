@@ -89,8 +89,6 @@
 		45F39AB01797550E003B943A /* writeFormPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F39AAE1797550E003B943A /* writeFormPin.png */; };
 		45F6EBAE179819580091C4E0 /* RMPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EBAD179819580091C4E0 /* RMPUser.m */; };
 		472B8E6D17A37C9C00AFB170 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 472B8E6917A37C9C00AFB170 /* libTestFlight.a */; };
-		472B8E6E17A37C9C00AFB170 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 472B8E6A17A37C9C00AFB170 /* README.md */; };
-		472B8E6F17A37C9C00AFB170 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 472B8E6B17A37C9C00AFB170 /* release_notes.md */; };
 		472B8E7117A37CC200AFB170 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 472B8E7017A37CC200AFB170 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
