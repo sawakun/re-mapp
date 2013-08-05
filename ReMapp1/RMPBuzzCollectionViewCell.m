@@ -64,6 +64,7 @@ static CGPoint _currentLikeAndMuteViewCenter;
     dispatch_once(&onceToken, ^{
         _currentLikeAndMuteViewCenter = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height - self.likeAndMuteView.frame.size.height / 2.0);
     });
+    NSLog(@"_currentLikeAndMuteViewCenter:%f",_currentLikeAndMuteViewCenter.y);
     self.likeAndMuteView.layer.position = _currentLikeAndMuteViewCenter;
 }
 
@@ -80,4 +81,40 @@ static CGPoint _currentLikeAndMuteViewCenter;
 
 }
 
+- (void)setValuesWithBuzz:(RMPBuzzPlace *)buzz
+{
+     [self configureLayout];
+     self.nameLabel.text = buzz.userName;
+     self.bodyLabel.text = buzz.text;
+     self.timeLabel.text = buzz.date;
+     
+     self.iconImageView.image = buzz.iconImage;
+//     if (self.iconImageView.image == nil) {
+//     [self downloadIconImage:buzz forIndexPath:indexPath];
+//     }
+     
+     // set image for like and mute button.
+     UIImage *likeImage = [UIImage imageNamed:@"LIKE_BUTTON.png"];
+     UIImage *likedImage = [UIImage imageNamed:@"LIKED_BUTTON.png"];
+     UIImage *muteImage = [UIImage imageNamed:@"MUTE_BUTTON.png"];
+     UIImage *mutedImage = [UIImage imageNamed:@"MUTED_BUTTON.png"];
+     
+     
+     if (buzz.isLiked) {
+         [self.likeButton setImage:likedImage forState:UIControlStateNormal];
+         [self.likeButton setImage:likeImage forState:UIControlStateHighlighted];
+     } else {
+         [self.likeButton setImage:likeImage forState:UIControlStateNormal];
+         [self.likeButton setImage:likedImage forState:UIControlStateHighlighted];
+     }
+     
+     if (buzz.isMuted) {
+         [self.muteButton setImage:mutedImage forState:UIControlStateNormal];
+         [self.muteButton setImage:muteImage forState:UIControlStateHighlighted];
+     } else {
+         [self.muteButton setImage:muteImage forState:UIControlStateNormal];
+         [self.muteButton setImage:mutedImage forState:UIControlStateHighlighted];
+     }
+}
+    
 @end

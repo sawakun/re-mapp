@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "RMPPlace.h"
+#import "RMPPlaceCollectionViewCell.h"
 
-@interface RMPBuzzCollectionViewCell : UICollectionViewCell
+@interface RMPBuzzCollectionViewCell : RMPPlaceCollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -18,4 +20,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *muteButton;
 - (void)configureLayout;
+- (void)setValuesWithBuzz:(RMPBuzzPlace *)buzz;
 @end

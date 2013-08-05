@@ -22,6 +22,7 @@
 @property (nonatomic) float lot;
 @property (nonatomic) BOOL like;
 @property (nonatomic) BOOL mute;
+@property (nonatomic) NSString *type;
 @property (nonatomic) RMPBuzzAnnotation* annotation;
 @end
 
@@ -83,6 +84,7 @@
         self.date     = buzzDictionary[@"time"];
         self.like      = [buzzDictionary[@"like"] boolValue];
         self.mute      = [buzzDictionary[@"mute"] boolValue];
+        self.type      = buzzDictionary[@"type"];
         self.annotation = [[RMPBuzzAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;
@@ -124,6 +126,7 @@
         self.date     = buzzDictionary[@"time"];
         self.like      = [buzzDictionary[@"like"] boolValue];
         self.mute      = [buzzDictionary[@"mute"] boolValue];
+        self.type      = buzzDictionary[@"type"];
         self.annotation = [[RMPPlayAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;
@@ -164,6 +167,7 @@
         self.date     = buzzDictionary[@"time"];
         self.like      = [buzzDictionary[@"like"] boolValue];
         self.mute      = [buzzDictionary[@"mute"] boolValue];
+        self.type      = buzzDictionary[@"type"];
         self.annotation = [[RMPEatAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;
@@ -205,6 +209,7 @@
         self.date     = buzzDictionary[@"time"];
         self.like      = [buzzDictionary[@"like"] boolValue];
         self.mute      = [buzzDictionary[@"mute"] boolValue];
+        self.type      = buzzDictionary[@"type"];
         self.annotation = [[RMPShopAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;

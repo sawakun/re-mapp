@@ -69,45 +69,11 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"RMPBuzzCollectionViewCell";
-    RMPPlace *buzz = [_buzzData buzzAtIndex:indexPath.row];
-    RMPBuzzCollectionViewCell *cell = (RMPBuzzCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    [cell configureLayout];
-    cell.nameLabel.text = buzz.userName;
-    cell.bodyLabel.text = buzz.text;
-    //[cell.bodyLabel setNumberOfLines:0];
-    //[cell.bodyLabel sizeToFit];
-    cell.timeLabel.text = buzz.date;
+    RMPPlace *place = [_buzzData buzzAtIndex:indexPath.row];
     
-    cell.iconImageView.image = buzz.iconImage;
-    if (cell.iconImageView.image == nil) {
-        [self downloadIconImage:buzz forIndexPath:indexPath];
-    }
-    
-    // set image for like and mute button.
-    UIImage *likeImage = [UIImage imageNamed:@"LIKE_BUTTON.png"];
-    UIImage *likedImage = [UIImage imageNamed:@"LIKED_BUTTON.png"];
-    UIImage *muteImage = [UIImage imageNamed:@"MUTE_BUTTON.png"];
-    UIImage *mutedImage = [UIImage imageNamed:@"MUTED_BUTTON.png"];
-    
-    
-    if (buzz.isLiked) {
-        [cell.likeButton setImage:likedImage forState:UIControlStateNormal];
-        [cell.likeButton setImage:likeImage forState:UIControlStateHighlighted];
-    } else {
-        [cell.likeButton setImage:likeImage forState:UIControlStateNormal];
-        [cell.likeButton setImage:likedImage forState:UIControlStateHighlighted];
-    }
-    
-    if (buzz.isMuted) {
-        [cell.muteButton setImage:mutedImage forState:UIControlStateNormal];
-        [cell.muteButton setImage:muteImage forState:UIControlStateHighlighted];
-    } else {
-        [cell.muteButton setImage:muteImage forState:UIControlStateNormal];
-        [cell.muteButton setImage:mutedImage forState:UIControlStateHighlighted];
-    }
-
-    return cell;
+    return [RMPPlaceCollectionViewCellFactory createCellWithCollectionView:collectionView
+                                                    cellForItemAtIndexPath:indexPath
+                                                                     place:place];
 }
 
 - (void)downloadIconImage:(RMPPlace *)buzz forIndexPath:(NSIndexPath *)indexPath
