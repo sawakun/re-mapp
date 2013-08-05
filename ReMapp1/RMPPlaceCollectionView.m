@@ -106,18 +106,19 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 - (void)showCell:(NSNotification *)center
 {
-    [self reloadData];
-    
     // Load the cells of both sides, to arrage layouts correctly.
     static dispatch_once_t onceToken;
+    static CGRect bounds;
     dispatch_once(&onceToken, ^{
         CGRect thisBounds = self.bounds;
-        CGRect newBounds = CGRectMake(thisBounds.origin.x + 1, thisBounds.origin.y, thisBounds.size.width - 2, thisBounds.size.height);
-        self.bounds = newBounds;
+        bounds = CGRectMake(thisBounds.origin.x + 1, thisBounds.origin.y, thisBounds.size.width - 2, thisBounds.size.height);
     });
-
+    self.bounds = bounds;
+    
     
     NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
+    NSLog(@"%d",  annotationIndex);
+    NSLog(@"%f",  self.frame.size.width);
     CGFloat offset = self.frame.size.width * annotationIndex;
     CGPoint newPoint = CGPointMake(offset, self.contentOffset.y);
     self.contentOffset = newPoint;

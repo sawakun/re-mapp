@@ -909,9 +909,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="G96-0o-m5d">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="texttexttexttexttexttexttexttexttexttexttexttexttexttext" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="G96-0o-m5d">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="31" id="0eo-cN-QX9"/>
+                                                        <constraint firstAttribute="height" constant="45" id="3cu-q2-kjs"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" type="user" id="YO7-e0-Ri2"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="832" constant="28" type="user" id="rGA-EK-TbG"/>
                                                     </constraints>
@@ -961,15 +961,15 @@
                                             <constraint firstItem="zvF-nc-bCm" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="10" id="7L6-6c-ttp"/>
                                             <constraint firstAttribute="trailing" secondItem="qNU-ob-pOq" secondAttribute="trailing" constant="18" id="Aoh-h0-1zC"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="59" id="Fhs-4y-wyD"/>
+                                            <constraint firstItem="fj3-In-46A" firstAttribute="bottom" secondItem="eXe-Zt-q7H" secondAttribute="bottom" type="default" id="JSh-h9-zez"/>
                                             <constraint firstAttribute="trailing" secondItem="fj3-In-46A" secondAttribute="trailing" constant="-2" id="KCO-fm-CEC"/>
                                             <constraint firstItem="zvF-nc-bCm" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" constant="10" id="Mmh-py-I3t"/>
                                             <constraint firstItem="qNU-ob-pOq" firstAttribute="bottom" secondItem="q2u-qa-d61" secondAttribute="bottom" type="default" id="OyK-p0-9SG"/>
                                             <constraint firstItem="G96-0o-m5d" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="26" id="WTW-im-vjD"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="G96-0o-m5d" secondAttribute="leading" type="default" id="ZMt-Sl-8nh"/>
-                                            <constraint firstItem="fj3-In-46A" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" type="default" id="aXs-V2-WaS"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="qNU-ob-pOq" secondAttribute="top" type="default" id="brK-RU-xRq"/>
-                                            <constraint firstItem="fj3-In-46A" firstAttribute="bottom" secondItem="eXe-Zt-q7H" secondAttribute="bottom" type="default" id="buf-Bx-G1V"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="zvF-nc-bCm" secondAttribute="top" type="default" id="fzy-zQ-LiK"/>
+                                            <constraint firstItem="fj3-In-46A" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" type="default" id="vLT-qz-bBS"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="bodyLabel" destination="G96-0o-m5d" id="erO-dW-QXc"/>
