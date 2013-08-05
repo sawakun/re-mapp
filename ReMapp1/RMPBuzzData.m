@@ -67,7 +67,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 - (RMPBuzzPlace *)buzzAtIndex:(NSInteger)index
 {
-    if (index >= [_currentViewBuzzData count]) {
+    if (index >= [_currentViewBuzzData count] || _currentViewBuzzData == nil) {
         return nil;
     }
     return [_currentViewBuzzData objectAtIndex:index];

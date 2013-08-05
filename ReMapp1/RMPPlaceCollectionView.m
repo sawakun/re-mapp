@@ -48,7 +48,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     self.delegate = self;
     self.buzzData = [RMPBuzzData sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCell:) name:RMPMapViewDidSelectAnnotation object:nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
 }
 
@@ -70,22 +69,11 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"RMPBuzzCollectionViewCell";
-    RMPPlace *buzz = [_buzzData buzzAtIndex:indexPath.row];
-    RMPBuzzCollectionViewCell *cell = (RMPBuzzCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    RMPPlace *place = [_buzzData buzzAtIndex:indexPath.row];
     
-    cell.nameLabel.text = buzz.userName;
-    cell.bodyLabel.text = buzz.text;
-    [cell.bodyLabel setNumberOfLines:0];
-    [cell.bodyLabel sizeToFit];
-    cell.timeLabel.text = buzz.date;
-    
-    cell.iconImageView.image = buzz.iconImage;
-    if (cell.iconImageView.image == nil) {
-        [self downloadIconImage:buzz forIndexPath:indexPath];
-    }
-    
-    return cell;
+    return [RMPPlaceCollectionViewCellFactory createCellWithCollectionView:collectionView
+                                                    cellForItemAtIndexPath:indexPath
+                                                                     place:place];
 }
 
 - (void)downloadIconImage:(RMPPlace *)buzz forIndexPath:(NSIndexPath *)indexPath
@@ -107,12 +95,22 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 - (void)showCell:(NSNotification *)center
 {
-    [self reloadData];
+    // Load the cells of both sides, to arrage layouts correctly.
+    static dispatch_once_t onceToken;
+    static CGRect bounds;
+    dispatch_once(&onceToken, ^{
+        CGRect thisBounds = self.bounds;
+        bounds = CGRectMake(thisBounds.origin.x + 1, thisBounds.origin.y, thisBounds.size.width - 2, thisBounds.size.height);
+    });
+    self.bounds = bounds;
+    
+    
     NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
-    CGFloat pageWidth = self.frame.size.width;
-    CGPoint newPoint = CGPointMake(pageWidth * annotationIndex, self.contentOffset.y);
+    CGFloat offset = self.frame.size.width * annotationIndex;
+    CGPoint newPoint = CGPointMake(offset, self.contentOffset.y);
     self.contentOffset = newPoint;
 }
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
