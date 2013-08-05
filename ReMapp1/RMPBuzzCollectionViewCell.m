@@ -62,7 +62,7 @@ static CGPoint _currentLikeAndMuteViewCenter;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _currentLikeAndMuteViewCenter = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height - - self.likeAndMuteView.frame.size.height / 2.0);
+        _currentLikeAndMuteViewCenter = CGPointMake(self.frame.size.width / 2.0, self.frame.size.height - self.likeAndMuteView.frame.size.height / 2.0);
     });
     self.likeAndMuteView.layer.position = _currentLikeAndMuteViewCenter;
 }

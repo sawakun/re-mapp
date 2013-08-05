@@ -20,6 +20,8 @@
 @property (nonatomic) NSString *date;
 @property (nonatomic) float lat;
 @property (nonatomic) float lot;
+@property (nonatomic) BOOL like;
+@property (nonatomic) BOOL mute;
 @property (nonatomic) RMPBuzzAnnotation* annotation;
 @end
 
@@ -79,6 +81,8 @@
         self.lat      = [buzzDictionary[@"lat"] floatValue];
         self.lot      = [buzzDictionary[@"lot"] floatValue];
         self.date     = buzzDictionary[@"time"];
+        self.like      = [buzzDictionary[@"like"] boolValue];
+        self.mute      = [buzzDictionary[@"mute"] boolValue];
         self.annotation = [[RMPBuzzAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;
@@ -118,6 +122,8 @@
         self.lat      = [buzzDictionary[@"lat"] floatValue];
         self.lot      = [buzzDictionary[@"lot"] floatValue];
         self.date     = buzzDictionary[@"time"];
+        self.like      = [buzzDictionary[@"like"] boolValue];
+        self.mute      = [buzzDictionary[@"mute"] boolValue];
         self.annotation = [[RMPPlayAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;
@@ -156,6 +162,8 @@
         self.lat      = [buzzDictionary[@"lat"] floatValue];
         self.lot      = [buzzDictionary[@"lot"] floatValue];
         self.date     = buzzDictionary[@"time"];
+        self.like      = [buzzDictionary[@"like"] boolValue];
+        self.mute      = [buzzDictionary[@"mute"] boolValue];
         self.annotation = [[RMPEatAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;
@@ -195,6 +203,8 @@
         self.lat      = [buzzDictionary[@"lat"] floatValue];
         self.lot      = [buzzDictionary[@"lot"] floatValue];
         self.date     = buzzDictionary[@"time"];
+        self.like      = [buzzDictionary[@"like"] boolValue];
+        self.mute      = [buzzDictionary[@"mute"] boolValue];
         self.annotation = [[RMPShopAnnotation alloc] init];
         self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
         self.iconImage = nil;

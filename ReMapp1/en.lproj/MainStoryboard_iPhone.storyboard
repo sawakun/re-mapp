@@ -744,10 +744,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="567"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="2gk-8D-MgM">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="2gk-8D-MgM">
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" type="user" id="O47-ZG-kue"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="832" constant="28" type="user" id="Ohg-ch-yqJ"/>
+                                                        <constraint firstAttribute="height" constant="46" id="fww-AB-F6p"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -926,7 +927,7 @@
                                                                 <constraint firstAttribute="width" constant="160" id="FGJ-LY-R4s"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                            <state key="normal" image="MUTE_BUTTON.png">
+                                                            <state key="normal" title="sample">
                                                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
@@ -935,8 +936,11 @@
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bn0-fh-2Dz">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="160" id="m63-bx-FP8"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                            <state key="normal" image="LIKE_BUTTON.png">
+                                                            <state key="normal" title="like">
                                                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
@@ -950,6 +954,7 @@
                                                         <constraint firstItem="VgX-yx-rbE" firstAttribute="leading" secondItem="fj3-In-46A" secondAttribute="leading" constant="161" id="Gfj-hd-ueg"/>
                                                         <constraint firstItem="bn0-fh-2Dz" firstAttribute="leading" secondItem="fj3-In-46A" secondAttribute="leading" type="default" id="Wh2-cZ-72F"/>
                                                         <constraint firstItem="VgX-yx-rbE" firstAttribute="bottom" secondItem="fj3-In-46A" secondAttribute="bottom" type="user" id="ZPj-Ut-xto"/>
+                                                        <constraint firstItem="bn0-fh-2Dz" firstAttribute="bottom" secondItem="fj3-In-46A" secondAttribute="bottom" type="default" id="mTF-0a-7i5"/>
                                                         <constraint firstItem="VgX-yx-rbE" firstAttribute="top" secondItem="fj3-In-46A" secondAttribute="top" type="default" id="oVg-14-ibc"/>
                                                         <constraint firstItem="bn0-fh-2Dz" firstAttribute="top" secondItem="fj3-In-46A" secondAttribute="top" type="default" id="zbM-2g-ZqK"/>
                                                     </constraints>
@@ -967,6 +972,7 @@
                                             <constraint firstItem="qNU-ob-pOq" firstAttribute="bottom" secondItem="q2u-qa-d61" secondAttribute="bottom" type="default" id="OyK-p0-9SG"/>
                                             <constraint firstItem="G96-0o-m5d" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="26" id="WTW-im-vjD"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="leading" secondItem="G96-0o-m5d" secondAttribute="leading" type="default" id="ZMt-Sl-8nh"/>
+                                            <constraint firstItem="fj3-In-46A" firstAttribute="top" secondItem="eXe-Zt-q7H" secondAttribute="top" constant="425" id="Zwt-KI-sjy"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="qNU-ob-pOq" secondAttribute="top" type="default" id="brK-RU-xRq"/>
                                             <constraint firstItem="q2u-qa-d61" firstAttribute="top" secondItem="zvF-nc-bCm" secondAttribute="top" type="default" id="fzy-zQ-LiK"/>
                                             <constraint firstItem="fj3-In-46A" firstAttribute="leading" secondItem="eXe-Zt-q7H" secondAttribute="leading" type="default" id="vLT-qz-bBS"/>
@@ -974,8 +980,9 @@
                                         <connections>
                                             <outlet property="bodyLabel" destination="G96-0o-m5d" id="erO-dW-QXc"/>
                                             <outlet property="iconImageView" destination="zvF-nc-bCm" id="AE6-Wi-Yk8"/>
-                                            <outlet property="likeAndMuteButtonVerticalConstraint" destination="ZPj-Ut-xto" id="Igl-13-OFb"/>
                                             <outlet property="likeAndMuteView" destination="fj3-In-46A" id="S2T-wi-aIe"/>
+                                            <outlet property="likeButton" destination="bn0-fh-2Dz" id="bC2-wD-iIW"/>
+                                            <outlet property="muteButton" destination="VgX-yx-rbE" id="VuT-ua-WbZ"/>
                                             <outlet property="nameLabel" destination="q2u-qa-d61" id="3C3-xj-dhb"/>
                                             <outlet property="timeLabel" destination="qNU-ob-pOq" id="f4u-xh-clP"/>
                                         </connections>
@@ -1122,7 +1129,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LIKE_BUTTON.png" width="160" height="35"/>
         <image name="MENU_CHECK LIST_BUTTON.png" width="161" height="72"/>
         <image name="MENU_LIST_BAR.png" width="322" height="32"/>
         <image name="MENU_LOGOUT_BUTTON.png" width="161" height="72"/>
@@ -1134,7 +1140,6 @@
         <image name="MENU_TERM OF USE_BUTTON.png" width="161" height="72"/>
         <image name="MENU_YOUR TIMELINE_BUTTON.png" width="161" height="72"/>
         <image name="MENU_YOU_BAR.png" width="322" height="32"/>
-        <image name="MUTE_BUTTON.png" width="159" height="35"/>
         <image name="currentLocation.png" width="44" height="44"/>
     </resources>
     <classes>
@@ -1179,8 +1184,9 @@
             <relationships>
                 <relationship kind="outlet" name="bodyLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="likeAndMuteButtonVerticalConstraint" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="likeAndMuteView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="likeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="muteButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
             </relationships>

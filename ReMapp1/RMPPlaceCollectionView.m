@@ -84,6 +84,29 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
         [self downloadIconImage:buzz forIndexPath:indexPath];
     }
     
+    // set image for like and mute button.
+    UIImage *likeImage = [UIImage imageNamed:@"LIKE_BUTTON.png"];
+    UIImage *likedImage = [UIImage imageNamed:@"LIKED_BUTTON.png"];
+    UIImage *muteImage = [UIImage imageNamed:@"MUTE_BUTTON.png"];
+    UIImage *mutedImage = [UIImage imageNamed:@"MUTED_BUTTON.png"];
+    
+    
+    if (buzz.isLiked) {
+        [cell.likeButton setImage:likedImage forState:UIControlStateNormal];
+        [cell.likeButton setImage:likeImage forState:UIControlStateHighlighted];
+    } else {
+        [cell.likeButton setImage:likeImage forState:UIControlStateNormal];
+        [cell.likeButton setImage:likedImage forState:UIControlStateHighlighted];
+    }
+    
+    if (buzz.isMuted) {
+        [cell.muteButton setImage:mutedImage forState:UIControlStateNormal];
+        [cell.muteButton setImage:muteImage forState:UIControlStateHighlighted];
+    } else {
+        [cell.muteButton setImage:muteImage forState:UIControlStateNormal];
+        [cell.muteButton setImage:mutedImage forState:UIControlStateHighlighted];
+    }
+
     return cell;
 }
 
@@ -117,8 +140,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     
     
     NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
-    NSLog(@"%d",  annotationIndex);
-    NSLog(@"%f",  self.frame.size.width);
     CGFloat offset = self.frame.size.width * annotationIndex;
     CGPoint newPoint = CGPointMake(offset, self.contentOffset.y);
     self.contentOffset = newPoint;

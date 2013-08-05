@@ -24,6 +24,8 @@
 @property (nonatomic, readonly) NSString *date;
 @property (nonatomic, readonly) float lot;
 @property (nonatomic, readonly) float lat;
+@property (nonatomic, readonly, getter = isLiked) BOOL like;
+@property (nonatomic, readonly, getter = isMuted) BOOL mute;
 @property (nonatomic, readonly) RMPAnnotation* annotation;
 @property (nonatomic) NSInteger annotationIndex;
 
