@@ -906,8 +906,8 @@
                                                         <constraint firstAttribute="width" constant="237" id="dgK-qS-7fA"/>
                                                         <constraint firstAttribute="height" constant="20" id="el9-nJ-EoT"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.078570656920784132" green="0.58533960459183676" blue="0.13265469423103926" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="texttexttexttexttexttexttexttexttexttexttexttexttexttext" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="TV3-dA-eNi">
@@ -917,7 +917,7 @@
                                                         <constraint firstAttribute="height" constant="45" id="fVH-B0-zAa"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhj-UL-txi">
@@ -949,11 +949,6 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BUZZ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAd-zZ-rgs">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="JPM-po-U7M">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="299" id="3WZ-Au-n2V"/>
@@ -966,7 +961,6 @@
                                         <constraints>
                                             <constraint firstItem="KbZ-Vb-z93" firstAttribute="top" secondItem="AI4-1A-saP" secondAttribute="top" type="default" id="0lf-re-KSn"/>
                                             <constraint firstItem="AI4-1A-saP" firstAttribute="leading" secondItem="8ye-f3-CD8" secondAttribute="leading" constant="10" id="36E-1U-Pff"/>
-                                            <constraint firstItem="IAd-zZ-rgs" firstAttribute="leading" secondItem="TV3-dA-eNi" secondAttribute="leading" type="default" id="5Ey-Vb-24j"/>
                                             <constraint firstItem="AI4-1A-saP" firstAttribute="top" secondItem="8ye-f3-CD8" secondAttribute="top" constant="10" id="DF4-rr-0HF"/>
                                             <constraint firstItem="KbZ-Vb-z93" firstAttribute="top" secondItem="Py0-lB-KKM" secondAttribute="top" type="default" id="PUE-zx-524"/>
                                             <constraint firstItem="XQ5-Uq-JO8" firstAttribute="leading" secondItem="8ye-f3-CD8" secondAttribute="leading" type="default" id="QWt-77-aen"/>
@@ -979,7 +973,6 @@
                                             <constraint firstItem="Py0-lB-KKM" firstAttribute="bottom" secondItem="KbZ-Vb-z93" secondAttribute="bottom" type="default" id="j7f-xq-xuY"/>
                                             <constraint firstItem="JPM-po-U7M" firstAttribute="top" secondItem="Qhj-UL-txi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kAd-5y-sSC"/>
                                             <constraint firstItem="TV3-dA-eNi" firstAttribute="top" secondItem="8ye-f3-CD8" secondAttribute="top" constant="26" id="nOY-5X-hrI"/>
-                                            <constraint firstItem="IAd-zZ-rgs" firstAttribute="top" secondItem="8ye-f3-CD8" secondAttribute="top" constant="73" id="qFL-tm-Trc"/>
                                             <constraint firstItem="JPM-po-U7M" firstAttribute="top" secondItem="XQ5-Uq-JO8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sl0-WN-e5b"/>
                                             <constraint firstItem="KbZ-Vb-z93" firstAttribute="leading" secondItem="8ye-f3-CD8" secondAttribute="leading" constant="59" id="ucm-0e-8CF"/>
                                         </constraints>
