@@ -58,7 +58,7 @@ NSString *const RMPPlaceViewControllerFrameDidMove = @"RMPPlaceViewControllerFra
 {
 
     if (self.view.frame.origin.y >= 320.0) {
-        CGRect newFrame = CGRectMake(self.view.frame.origin.x, 295, self.view.frame.size.width, self.view.frame.size.height);
+        CGRect newFrame = CGRectMake(self.view.frame.origin.x,  self.view.frame.size.height - 140, self.view.frame.size.width, self.view.frame.size.height);
         self.view.frame = newFrame;
         [self frameDidMove];
     }
