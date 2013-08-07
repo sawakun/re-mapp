@@ -384,19 +384,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPPlaceCollectionView.m"
-         timestampString = "397395924.836102"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
-         landmarkName = "-showCell:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPInitialSlidingViewController.m"
          timestampString = "397298056.921809"
          startingColumnNumber = "9223372036854775807"
@@ -424,12 +411,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPBuzzCollectionViewCell.m"
-         timestampString = "397309041.817974"
+         timestampString = "397565348.647545"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
-         landmarkName = "-setUp"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
+         landmarkName = "-setValuesWithBuzz:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -437,12 +424,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPBuzzCollectionViewCell.m"
-         timestampString = "397309041.817974"
+         timestampString = "397574339.852476"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-setUp"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-setValuesWithBuzz:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -450,12 +437,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPBuzzCollectionViewCell.m"
-         timestampString = "397397409.960491"
+         timestampString = "397574244.889038"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
-         landmarkName = "-frameDidMove:"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
+         landmarkName = "-setValuesWithBuzz:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

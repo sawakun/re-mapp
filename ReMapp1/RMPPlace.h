@@ -20,7 +20,7 @@
 @property (nonatomic) UIImage *iconImage;
 @property (nonatomic, readonly) NSString *text;
 @property (nonatomic, readonly) NSString *imageURL;
-@property (nonatomic, readonly) UIImage *image;
+@property (nonatomic) UIImage *image;
 @property (nonatomic, readonly) NSString *date;
 @property (nonatomic, readonly) float lot;
 @property (nonatomic, readonly) float lat;
