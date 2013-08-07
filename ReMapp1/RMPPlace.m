@@ -16,7 +16,6 @@
 @property (nonatomic) NSString *iconURL;
 @property (nonatomic) NSString *text;
 @property (nonatomic) NSString *imageURL;
-@property (nonatomic) UIImage *image;
 @property (nonatomic) NSString *date;
 @property (nonatomic) float lat;
 @property (nonatomic) float lot;

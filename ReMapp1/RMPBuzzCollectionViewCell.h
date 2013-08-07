@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bodyLabel;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (weak, nonatomic) IBOutlet UIButton *muteButton;
+@property (weak, nonatomic) IBOutlet UIImageView *buzzImageView;
 - (void)setValuesWithBuzz:(RMPBuzzPlace *)buzz;
 @end
