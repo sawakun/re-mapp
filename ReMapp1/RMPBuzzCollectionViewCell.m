@@ -9,7 +9,7 @@
 #import "RMPBuzzCollectionViewCell.h"
 #import "RMPPlaceViewController.h"
 #import "RMPSlidingViewController.h"
-
+#import "UIImageView+WebCache.h"
 
 @implementation RMPBuzzCollectionViewCell
 
@@ -48,22 +48,18 @@
      self.bodyLabel.text = buzz.text;
      self.timeLabel.text = buzz.date;
     
-    self.iconImageView.image = buzz.iconImage;
-    if (!buzz.iconImage) {
-         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-         dispatch_async(queue, ^{
-             NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:buzz.iconURL]];
-             buzz.iconImage = [UIImage imageWithData:iconData];
-             self.iconImageView.image= buzz.iconImage;
-        });
-    }
+    [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
+                       placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     
-     // set image for like and mute button.
-     UIImage *likeImage = [UIImage imageNamed:@"LIKE_BUTTON.png"];
-     UIImage *likedImage = [UIImage imageNamed:@"LIKED_BUTTON.png"];
-     UIImage *muteImage = [UIImage imageNamed:@"MUTE_BUTTON.png"];
-     UIImage *mutedImage = [UIImage imageNamed:@"MUTED_BUTTON.png"];
-     
+    [self.buzzImageView setImageWithURL:[NSURL URLWithString:buzz.imageURL]
+                       placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
+ 
+    // set image for like and mute button.
+    UIImage *likeImage = [UIImage imageNamed:@"LIKE_BUTTON.png"];
+    UIImage *likedImage = [UIImage imageNamed:@"LIKED_BUTTON.png"];
+    UIImage *muteImage = [UIImage imageNamed:@"MUTE_BUTTON.png"];
+    UIImage *mutedImage = [UIImage imageNamed:@"MUTED_BUTTON.png"];
+    
      
      if (buzz.isLiked) {
          [self.likeButton setImage:likedImage forState:UIControlStateNormal];
