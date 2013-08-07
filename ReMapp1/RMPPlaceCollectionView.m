@@ -76,16 +76,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
                                                                      place:place];
 }
 
-- (void)downloadIconImage:(RMPPlace *)buzz forIndexPath:(NSIndexPath *)indexPath
-{
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-        NSData *iconData = [NSData dataWithContentsOfURL:[NSURL URLWithString:buzz.iconURL]];
-        buzz.iconImage = [UIImage imageWithData:iconData];
-        RMPBuzzCollectionViewCell *cell = (RMPBuzzCollectionViewCell*)[self cellForItemAtIndexPath:indexPath];
-        cell.iconImageView.image= buzz.iconImage;
-    });
-}
 
 - (void)reload
 {
@@ -95,16 +85,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 - (void)showCell:(NSNotification *)center
 {
-    // Load the cells of both sides, to arrage layouts correctly.
-    static dispatch_once_t onceToken;
-    static CGRect bounds;
-    dispatch_once(&onceToken, ^{
-        CGRect thisBounds = self.bounds;
-        bounds = CGRectMake(thisBounds.origin.x + 1, thisBounds.origin.y, thisBounds.size.width - 2, thisBounds.size.height);
-    });
-    self.bounds = bounds;
-    
-    
     NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
     CGFloat offset = self.frame.size.width * annotationIndex;
     CGPoint newPoint = CGPointMake(offset, self.contentOffset.y);
