@@ -930,6 +930,7 @@
 				45DABF06179D7755001E9A7C /* buzzPin.png in Resources */,
 				45DABF08179D7927001E9A7C /* playPin.png in Resources */,
 				45C537FB179D7DCB0077FFA3 /* currentLocation.png in Resources */,
+<<<<<<< HEAD
 				45E9977B17A66C7A00C8675A /* PROBLEM_BAR.png in Resources */,
 				45E9977E17A66C9600C8675A /* PROFILE_BAR.png in Resources */,
 				450452F717ABAD03002F0981 /* MENU_CHECK LIST_BUTTON.png in Resources */,
@@ -960,6 +961,10 @@
 				4536736A17AEA112002F0F88 /* PIN_BUZZ@2x.png in Resources */,
 				4573184217B2801200DB02C9 /* NO_IMAGE.png in Resources */,
 				4744003517B60B35006CCACB /* .gitignore in Resources */,
+=======
+				472B8E6E17A37C9C00AFB170 /* README.md in Resources */,
+				472B8E6F17A37C9C00AFB170 /* release_notes.md in Resources */,
+>>>>>>> origin/master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
