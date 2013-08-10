@@ -24,7 +24,7 @@
     
     self.bottomViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPPlaceViewController"];
     self.rightViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPTimeLineViewController"];
-    self.leftViewController = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    self.leftViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPMenuViewController"];
     
     self.bottomViewHeightAtMiddlePosition = 105.0;
     self.anchorRightPeekAmount = 0.0f;
