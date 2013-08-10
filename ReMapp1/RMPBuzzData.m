@@ -237,7 +237,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     else
     {
         NSLog(@"fetch data.");
-        NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSShiftJISStringEncoding];
         NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
         NSLog(@"set array.");
         NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
