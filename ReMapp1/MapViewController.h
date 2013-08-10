@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "RMPAnnotation.h"
+#import "RMPSlidingViewController.h"
 
 @class RMPBuzzData;
 @class InfoViewController;
@@ -16,10 +17,11 @@
 @class RMPNonVisibleSearchBar;
 @class RMPMapView;
 
+
 /** Notification that gets posted when the map was reloaded. */
 extern NSString *const MapViewDidReload;
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, RMPSlidingViewDelegate>
 
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;
@@ -30,6 +32,7 @@ extern NSString *const MapViewDidReload;
 
 @property (weak, nonatomic) IBOutlet RMPNonVisibleSearchBar *searchBar;
 
+@property (weak, nonatomic) IBOutlet UIView *maskView;
 
 - (void)showCenter:(NSInteger)index;
 - (void)showAnnotation:(NSInteger)index;
