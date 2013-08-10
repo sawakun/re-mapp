@@ -12,7 +12,6 @@
 @class RMPAnnotation;
 
 @interface RMPPlace : NSObject
-
 @property (nonatomic, readonly) NSString *buzzId;
 @property (nonatomic, readonly) NSString *userId;
 @property (nonatomic, readonly) NSString *userName;
@@ -31,6 +30,13 @@
 @property (nonatomic) NSInteger annotationIndex;
 
 - (id)initWithDictionary:(NSDictionary *)buzzDictionary;
+// For TimeLine
+- (CGFloat)heightForTimeLineCell;
++ (NSString *)timeLineCellIdentifier;
+
+// For TimeLineDetail
+- (CGFloat)heightForDetailCell;
++ (NSString *)detailCellIdentifier;
 
 @end
 

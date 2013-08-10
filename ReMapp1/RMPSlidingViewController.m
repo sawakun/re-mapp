@@ -28,7 +28,6 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 @property (nonatomic) UIPanGestureRecognizer *leftInnerPanGesture;
 @property (nonatomic) UIPanGestureRecognizer *rightPanGesture;
 @property (nonatomic) UIPanGestureRecognizer *leftPanGesture;
-
 @end
 
 @implementation RMPSlidingViewController
