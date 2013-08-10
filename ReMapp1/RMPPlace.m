@@ -8,6 +8,17 @@
 
 #import "RMPPlace.h"
 #import "RMPAnnotation.h"
+#import "RMPPlaceTimeLineCell.h"
+#import "RMPBuzzTimeLineCell.h"
+#import "RMPPlayTimeLineCell.h"
+#import "RMPEatTimeLineCell.h"
+#import "RMPShopTimeLineCell.h"
+
+#import "RMPPlaceTimeLineDetailCell.h"
+#import "RMPBuzzTimeLineDetailCell.h"
+#import "RMPPlayTimeLineDetailCell.h"
+#import "RMPEatTimeLineDetailCell.h"
+#import "RMPShopTimeLineDetailCell.h"
 
 @interface RMPPlace()
 @property (nonatomic) NSString *buzzId;
@@ -26,14 +37,27 @@
 @end
 
 @implementation RMPPlace
-- (id)init
++ (NSString *)timeLineCellIdentifier
 {
-    self = [super init];
-    if( self )
-    {
-    }
-    
-    return self;
+    return @"RMPPlaceTimeLineCell";
+}
+
+- (CGFloat)heightForTimeLineCell
+{
+    return [RMPPlaceTimeLineCell heightForPlace:self];
+}
+
+
+
+
++ (NSString *)detailCellIdentifier
+{
+    return @"RMPPlaceTimeLineDetailCell";
+}
+
+- (CGFloat)heightForDetailCell
+{
+    return [RMPPlaceTimeLineDetailCell heightForPlace:self];
 }
 
 - (void)setAnnotationIndex:(NSInteger)index
@@ -52,17 +76,29 @@
     return nil;
 }
 
+
 @end
 
 
 @implementation RMPBuzzPlace
-
-- (id)init
++ (NSString *)timeLineCellIdentifier
 {
-    self = [super init];
-    if( self )
-    {}
-    return self;
+    return @"RMPBuzzTimeLineCell";
+}
+
+- (CGFloat)heightForTimeLineCell
+{
+    return [RMPBuzzTimeLineCell heightForPlace:self];
+}
+
++ (NSString *)detailCellIdentifier
+{
+    return @"RMPBuzzTimeLineDetailCell";
+}
+
+- (CGFloat)heightForDetailCell
+{
+    return [RMPBuzzTimeLineDetailCell heightForPlace:self];
 }
 
 
@@ -98,13 +134,24 @@
 
 
 @implementation RMPPlayPlace
-
-- (id)init
++ (NSString *)timeLineCellIdentifier
 {
-    self = [super init];
-    if( self )
-    {}
-    return self;
+    return @"RMPPlayTimeLineCell";
+}
+
+- (CGFloat)heightForTimeLineCell
+{
+    return [RMPPlayTimeLineCell heightForPlace:self];
+}
+
++ (NSString *)detailCellIdentifier
+{
+    return @"RMPPlayTimeLineDetailCell";
+}
+
+- (CGFloat)heightForDetailCell
+{
+    return [RMPPlayTimeLineDetailCell heightForPlace:self];
 }
 
 
@@ -139,13 +186,24 @@
 @end
 
 @implementation RMPEatPlace
-
-- (id)init
++ (NSString *)timeLineCellIdentifier
 {
-    self = [super init];
-    if( self )
-    {}
-    return self;
+    return @"RMPEatTimeLineCell";
+}
+
+- (CGFloat)heightForTimeLineCell
+{
+    return [RMPEatTimeLineCell heightForPlace:self];
+}
+
++ (NSString *)detailCellIdentifier
+{
+    return @"RMPEatTimeLineDetailCell";
+}
+
+- (CGFloat)heightForDetailCell
+{
+    return [RMPEatTimeLineDetailCell heightForPlace:self];
 }
 
 
@@ -181,13 +239,24 @@
 
 
 @implementation RMPShopPlace
-
-- (id)init
++ (NSString *)timeLineCellIdentifier
 {
-    self = [super init];
-    if( self )
-    {}
-    return self;
+    return @"RMPShopTimeLineCell";
+}
+
+- (CGFloat)heightForTimeLineCell
+{
+    return [RMPShopTimeLineCell heightForPlace:self];
+}
+
++ (NSString *)detailCellIdentifier
+{
+    return @"RMPShopTimeLineDetailCell";
+}
+
+- (CGFloat)heightForDetailCell
+{
+    return [RMPShopTimeLineDetailCell heightForPlace:self];
 }
 
 

@@ -23,7 +23,7 @@
     self.underViewController = [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
     
     self.bottomViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPPlaceViewController"];
-    self.rightViewController = [storyboard instantiateViewControllerWithIdentifier:@"TimeLine"];
+    self.rightViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPTimeLineViewController"];
     self.leftViewController = [storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     
     self.bottomViewHeightAtMiddlePosition = 105.0;
