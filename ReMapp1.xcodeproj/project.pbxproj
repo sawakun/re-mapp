@@ -17,6 +17,11 @@
 		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
 		4536736A17AEA112002F0F88 /* PIN_BUZZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4536736917AEA112002F0F88 /* PIN_BUZZ@2x.png */; };
 		4557179217A4FD5800F6483F /* RMPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4557179117A4FD5800F6483F /* RMPMenuViewController.m */; };
+		455C2A9517B670E6004C03F9 /* RMPPostRequestCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C2A9417B670E6004C03F9 /* RMPPostRequestCreator.m */; };
+		4573181E17B27A7D00DB02C9 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181717B27A7D00DB02C9 /* UIImage+Alpha.m */; };
+		4573181F17B27A7D00DB02C9 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181917B27A7D00DB02C9 /* UIImage+Resize.m */; };
+		4573182017B27A7D00DB02C9 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181B17B27A7D00DB02C9 /* UIImage+RoundedCorner.m */; };
+		4573182117B27A7D00DB02C9 /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181D17B27A7D00DB02C9 /* UIImage+Scaling.m */; };
 		4573183717B27A8600DB02C9 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182417B27A8600DB02C9 /* MKAnnotationView+WebCache.m */; };
 		4573183D17B27A8600DB02C9 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183417B27A8600DB02C9 /* UIButton+WebCache.m */; };
 		4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4573183F17B27C7600DB02C9 /* ImageIO.framework */; };
@@ -151,6 +156,8 @@
 		4536736917AEA112002F0F88 /* PIN_BUZZ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PIN_BUZZ@2x.png"; sourceTree = "<group>"; };
 		4557179017A4FD5800F6483F /* RMPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMenuViewController.h; sourceTree = "<group>"; };
 		4557179117A4FD5800F6483F /* RMPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMenuViewController.m; sourceTree = "<group>"; };
+		455C2A9317B670E6004C03F9 /* RMPPostRequestCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPostRequestCreator.h; sourceTree = "<group>"; };
+		455C2A9417B670E6004C03F9 /* RMPPostRequestCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPostRequestCreator.m; sourceTree = "<group>"; };
 		4573181617B27A7D00DB02C9 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		4573181717B27A7D00DB02C9 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		4573181817B27A7D00DB02C9 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -425,6 +432,15 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		455C2A9217B670D0004C03F9 /* RMPPostRequestCreator */ = {
+			isa = PBXGroup;
+			children = (
+				455C2A9317B670E6004C03F9 /* RMPPostRequestCreator.h */,
+				455C2A9417B670E6004C03F9 /* RMPPostRequestCreator.m */,
+			);
+			name = RMPPostRequestCreator;
+			sourceTree = "<group>";
+		};
 		4573181517B27A7D00DB02C9 /* UIImage+Resize */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +500,7 @@
 		457D15FC17942CCE007F2E8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				455C2A9217B670D0004C03F9 /* RMPPostRequestCreator */,
 				4573182217B27A8600DB02C9 /* SDWebImage */,
 				4573181517B27A7D00DB02C9 /* UIImage+Resize */,
 				452C975A17A3FB8E0000CF51 /* RMPLazyImageView */,
@@ -1040,6 +1057,7 @@
 				45952DCA177FE7250083B7D0 /* RMPBuzzData.m in Sources */,
 				45952DCE177FE7340083B7D0 /* RMPPlace.m in Sources */,
 				45952DD2177FE7750083B7D0 /* CSVHandler.m in Sources */,
+				455C2A9517B670E6004C03F9 /* RMPPostRequestCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
