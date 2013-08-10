@@ -1,0 +1,6 @@
+[submodule "UIImage_Resize"]
+	path = UIImage_Resize
+	url = https://github.com/coryalder/UIImage_Resize.git
+[submodule "SDWebImage"]
+	path = SDWebImage
+	url = https://github.com/rs/SDWebImage.git

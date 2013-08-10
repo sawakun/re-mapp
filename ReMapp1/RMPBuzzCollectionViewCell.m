@@ -9,7 +9,7 @@
 #import "RMPBuzzCollectionViewCell.h"
 #import "RMPPlaceViewController.h"
 #import "RMPSlidingViewController.h"
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation RMPBuzzCollectionViewCell
 

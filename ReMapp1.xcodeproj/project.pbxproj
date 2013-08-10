@@ -18,18 +18,8 @@
 		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
 		4536736A17AEA112002F0F88 /* PIN_BUZZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4536736917AEA112002F0F88 /* PIN_BUZZ@2x.png */; };
 		4557179217A4FD5800F6483F /* RMPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4557179117A4FD5800F6483F /* RMPMenuViewController.m */; };
-		4573181E17B27A7D00DB02C9 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181717B27A7D00DB02C9 /* UIImage+Alpha.m */; };
-		4573181F17B27A7D00DB02C9 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181917B27A7D00DB02C9 /* UIImage+Resize.m */; };
-		4573182017B27A7D00DB02C9 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181B17B27A7D00DB02C9 /* UIImage+RoundedCorner.m */; };
-		4573182117B27A7D00DB02C9 /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181D17B27A7D00DB02C9 /* UIImage+Scaling.m */; };
 		4573183717B27A8600DB02C9 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182417B27A8600DB02C9 /* MKAnnotationView+WebCache.m */; };
-		4573183817B27A8600DB02C9 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182617B27A8600DB02C9 /* SDImageCache.m */; };
-		4573183917B27A8600DB02C9 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182A17B27A8600DB02C9 /* SDWebImageDecoder.m */; };
-		4573183A17B27A8600DB02C9 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182C17B27A8600DB02C9 /* SDWebImageDownloader.m */; };
-		4573183B17B27A8600DB02C9 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182F17B27A8600DB02C9 /* SDWebImageManager.m */; };
-		4573183C17B27A8600DB02C9 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183217B27A8600DB02C9 /* SDWebImagePrefetcher.m */; };
 		4573183D17B27A8600DB02C9 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183417B27A8600DB02C9 /* UIButton+WebCache.m */; };
-		4573183E17B27A8600DB02C9 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183617B27A8600DB02C9 /* UIImageView+WebCache.m */; };
 		4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4573183F17B27C7600DB02C9 /* ImageIO.framework */; };
 		4573184217B2801200DB02C9 /* NO_IMAGE.png in Resources */ = {isa = PBXBuildFile; fileRef = 4573184117B2801200DB02C9 /* NO_IMAGE.png */; };
 		45757AD517ADF4BF008E5397 /* LIKE_BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 45757AD117ADF4BF008E5397 /* LIKE_BUTTON.png */; };
@@ -118,6 +108,8 @@
 		45F6EBAE179819580091C4E0 /* RMPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F6EBAD179819580091C4E0 /* RMPUser.m */; };
 		472B8E6D17A37C9C00AFB170 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 472B8E6917A37C9C00AFB170 /* libTestFlight.a */; };
 		472B8E7117A37CC200AFB170 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 472B8E7017A37CC200AFB170 /* libz.dylib */; };
+		4744003517B60B35006CCACB /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4744003417B60B35006CCACB /* .gitignore */; };
+		4744003717B60B9B006CCACB /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4744003617B60B9B006CCACB /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +289,8 @@
 		472B8E6B17A37C9C00AFB170 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		472B8E6C17A37C9C00AFB170 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		472B8E7017A37CC200AFB170 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4744003417B60B35006CCACB /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4744003617B60B9B006CCACB /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,16 +298,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E4AC4C177E95D5006619F1 /* MapKit.framework in Frameworks */,
 				4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */,
 				472B8E7117A37CC200AFB170 /* libz.dylib in Frameworks */,
 				45E4AC50177E95F3006619F1 /* CoreLocation.framework in Frameworks */,
 				45E4AC4E177E95DF006619F1 /* AddressBook.framework in Frameworks */,
-				45E4AC4C177E95D5006619F1 /* MapKit.framework in Frameworks */,
 				45E4AC4A177E95CC006619F1 /* MobileCoreServices.framework in Frameworks */,
 				45E4AC0B177E8ADF006619F1 /* UIKit.framework in Frameworks */,
 				45E4AC0D177E8ADF006619F1 /* Foundation.framework in Frameworks */,
 				45E4AC0F177E8ADF006619F1 /* CoreGraphics.framework in Frameworks */,
 				472B8E6D17A37C9C00AFB170 /* libTestFlight.a in Frameworks */,
+				4744003717B60B9B006CCACB /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +582,8 @@
 		45E4ABFE177E8ADF006619F1 = {
 			isa = PBXGroup;
 			children = (
+				4744003617B60B9B006CCACB /* SDWebImage.framework */,
+				4744003417B60B35006CCACB /* .gitignore */,
 				4573183F17B27C7600DB02C9 /* ImageIO.framework */,
 				472B8E7017A37CC200AFB170 /* libz.dylib */,
 				472B8E6817A37C9C00AFB170 /* TestFlightSDK */,
@@ -874,6 +871,7 @@
 				45757AD817ADF4BF008E5397 /* MUTED_BUTTON.png in Resources */,
 				4536736A17AEA112002F0F88 /* PIN_BUZZ@2x.png in Resources */,
 				4573184217B2801200DB02C9 /* NO_IMAGE.png in Resources */,
+				4744003517B60B35006CCACB /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,18 +944,8 @@
 				45286EB017AFC9E300B0CCCC /* RMPShopCollectionViewCell.m in Sources */,
 				45286EB317AFCA7700B0CCCC /* RMPEatCollectionViewCell.m in Sources */,
 				45286EB617AFCA9500B0CCCC /* RMPPlayCollectionViewCell.m in Sources */,
-				4573181E17B27A7D00DB02C9 /* UIImage+Alpha.m in Sources */,
-				4573181F17B27A7D00DB02C9 /* UIImage+Resize.m in Sources */,
-				4573182017B27A7D00DB02C9 /* UIImage+RoundedCorner.m in Sources */,
-				4573182117B27A7D00DB02C9 /* UIImage+Scaling.m in Sources */,
 				4573183717B27A8600DB02C9 /* MKAnnotationView+WebCache.m in Sources */,
-				4573183817B27A8600DB02C9 /* SDImageCache.m in Sources */,
-				4573183917B27A8600DB02C9 /* SDWebImageDecoder.m in Sources */,
-				4573183A17B27A8600DB02C9 /* SDWebImageDownloader.m in Sources */,
-				4573183B17B27A8600DB02C9 /* SDWebImageManager.m in Sources */,
-				4573183C17B27A8600DB02C9 /* SDWebImagePrefetcher.m in Sources */,
 				4573183D17B27A8600DB02C9 /* UIButton+WebCache.m in Sources */,
-				4573183E17B27A8600DB02C9 /* UIImageView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1077,6 +1065,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yohei Sawayama (6BK9PQX9ZN)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReMapp1/ReMapp1-Prefix.pch";
 				INFOPLIST_FILE = "ReMapp1/ReMapp1-Info.plist";
@@ -1095,8 +1087,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yohei Sawayama (6BK9PQX9ZN)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ReMapp1/ReMapp1-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/SDWebImage";
 				INFOPLIST_FILE = "ReMapp1/ReMapp1-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
