@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPPlaceTimeLineDetailCell.h"
+#import "RMPPlaceDetailCell.h"
 
-@interface RMPEatTimeLineDetailCell : RMPPlaceTimeLineDetailCell
+@interface RMPEatDetailCell : RMPPlaceDetailCell
 
 @end

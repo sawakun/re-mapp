@@ -1,14 +1,14 @@
 //
-//  RMPShopCollectionViewCell.m
+//  RMPEatTimeLineDetailCell.m
 //  ReMapp1
 //
-//  Created by nishiba on 2013/08/05.
+//  Created by nishiba on 2013/08/10.
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPShopCollectionViewCell.h"
+#import "RMPEatDetailCell.h"
 
-@implementation RMPShopCollectionViewCell
+@implementation RMPEatDetailCell
 
 - (id)initWithFrame:(CGRect)frame
 {

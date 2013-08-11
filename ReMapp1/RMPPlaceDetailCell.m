@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPPlaceTimeLineDetailCell.h"
+#import "RMPPlaceDetailCell.h"
 #import "RMPPlace.h"
 
 
-@implementation RMPPlaceTimeLineDetailCell
+@implementation RMPPlaceDetailCell
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -34,14 +34,13 @@
 @end
 
 
-@implementation RMPPlaceTimeLineDetailCellFactory
+@implementation RMPPlaceDetailCellFactory
 
-+ (RMPPlaceTimeLineDetailCell *)createCellWithCollectionView:(UICollectionView *)collectionView
++ (RMPPlaceDetailCell *)createCellWithCollectionView:(UICollectionView *)collectionView
                                       cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                        place:(RMPPlace *)place
 {
-    RMPPlaceTimeLineDetailCell *cell = (RMPPlaceTimeLineDetailCell *)[collectionView
-                                                                      dequeueReusableCellWithReuseIdentifier:[[place class] detailCellIdentifier] forIndexPath:indexPath];
+    RMPPlaceDetailCell *cell = (RMPPlaceDetailCell *)[collectionView dequeueReusableCellWithReuseIdentifier:[[place class] detailCellIdentifier] forIndexPath:indexPath];
     [cell setDataWithPlace:place];
     return cell;
 }

@@ -10,14 +10,14 @@
 
 @class RMPPlace;
 
-@interface RMPPlaceTimeLineDetailCell : UICollectionViewCell
+@interface RMPPlaceDetailCell : UICollectionViewCell
 - (void)setDataWithPlace:(RMPPlace *)place;
 + (CGFloat)heightForPlace:(RMPPlace *)place;
 @end
 
 
-@interface RMPPlaceTimeLineDetailCellFactory : NSObject
-+ (RMPPlaceTimeLineDetailCell *)createCellWithCollectionView:(UICollectionView *)collectionView
+@interface RMPPlaceDetailCellFactory : NSObject
++ (RMPPlaceDetailCell *)createCellWithCollectionView:(UICollectionView *)collectionView
                                       cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                        place:(RMPPlace *)place;
 @end

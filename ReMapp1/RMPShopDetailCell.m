@@ -1,14 +1,14 @@
 //
-//  RMPEatTimeLineDetailCell.m
+//  RMPShopTimeLineDetailCell.m
 //  ReMapp1
 //
 //  Created by nishiba on 2013/08/10.
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPEatTimeLineDetailCell.h"
+#import "RMPShopDetailCell.h"
 
-@implementation RMPEatTimeLineDetailCell
+@implementation RMPShopDetailCell
 
 - (id)initWithFrame:(CGRect)frame
 {

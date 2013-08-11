@@ -10,7 +10,7 @@
 #import "RMPTimeLineDetailViewController.h"
 #import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
-#import "RMPPlaceTimeLineCell.h"
+#import "RMPPlaceCell.h"
 #import "RMPTimeLineDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -23,16 +23,6 @@
 @end
 
 @implementation RMPTimeLineViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        [self setUp];
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -54,6 +44,20 @@
     self.buzzData = [RMPBuzzMapData sharedManager];
     self.timeLineCollectionView.dataSource = self;
     self.timeLineCollectionView.delegate = self;
+<<<<<<< HEAD
+=======
+    
+    // set nib
+    UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzCell" bundle:nil];
+    UINib *shopCell = [UINib nibWithNibName:@"RMPShopCell" bundle:nil];
+    UINib *eatCell  = [UINib nibWithNibName:@"RMPEatCell"  bundle:nil];
+    UINib *playCell = [UINib nibWithNibName:@"RMPPlayCell" bundle:nil];
+    [self.timeLineCollectionView registerNib:buzzCell forCellWithReuseIdentifier:@"RMPBuzzCell"];
+    [self.timeLineCollectionView registerNib:shopCell forCellWithReuseIdentifier:@"RMPShopCell"];
+    [self.timeLineCollectionView registerNib:eatCell  forCellWithReuseIdentifier:@"RMPEatCell"];
+    [self.timeLineCollectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayCell"];
+    
+>>>>>>> origin/new/TimeLine
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.buzzData];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
@@ -90,7 +94,7 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     RMPPlace *place = [_buzzData buzzAtIndex:indexPath.row];
-    return [RMPPlaceTimeLineCellFactory createCellWithCollectionView:collectionView
+    return [RMPPlaceCellFactory createCellWithCollectionView:collectionView
                                               cellForItemAtIndexPath:indexPath
                                                                place:place];
 }

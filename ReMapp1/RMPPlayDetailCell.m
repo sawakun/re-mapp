@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPPlayTimeLineDetailCell.h"
+#import "RMPPlayDetailCell.h"
 
-@implementation RMPPlayTimeLineDetailCell
+@implementation RMPPlayDetailCell
 
 - (id)initWithFrame:(CGRect)frame
 {

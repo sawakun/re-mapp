@@ -332,32 +332,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPPlaceCollectionView.m"
-         timestampString = "397278778.773415"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-setUp"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPPlaceCollectionView.m"
-         timestampString = "397279044.020134"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-setUp"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPSlidingViewController.m"
          timestampString = "397750529.027504"
          startingColumnNumber = "9223372036854775807"
@@ -437,11 +411,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPTimeLineViewController.m"
-         timestampString = "397750529.027504"
+         timestampString = "397906285.236481"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "29"
+         endingLineNumber = "29"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -451,6 +425,12 @@
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPBuzzData.m"
          timestampString = "397881046.51286"
+<<<<<<< HEAD
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
+=======
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "198"
@@ -468,6 +448,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "200"
          endingLineNumber = "200"
+>>>>>>> origin/new/TimeLine
          landmarkName = "-fetchBuzzDataWithSquareLonLat:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -479,8 +460,13 @@
          timestampString = "397881046.51286"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
+         startingLineNumber = "200"
+         endingLineNumber = "200"
+=======
          startingLineNumber = "203"
          endingLineNumber = "203"
+>>>>>>> origin/new/TimeLine
          landmarkName = "-fetchBuzzDataWithSquareLonLat:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -492,6 +478,25 @@
          timestampString = "397881046.51286"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
+         startingLineNumber = "203"
+         endingLineNumber = "203"
+=======
+         startingLineNumber = "212"
+         endingLineNumber = "212"
+>>>>>>> origin/new/TimeLine
+         landmarkName = "-fetchBuzzDataWithSquareLonLat:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/RMPBuzzData.m"
+         timestampString = "397881046.51286"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
          startingLineNumber = "212"
          endingLineNumber = "212"
          landmarkName = "-fetchBuzzDataWithSquareLonLat:"
@@ -505,6 +510,8 @@
          timestampString = "397881046.51286"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
+=======
+>>>>>>> origin/new/TimeLine
          startingLineNumber = "213"
          endingLineNumber = "213"
          landmarkName = "-fetchBuzzDataWithSquareLonLat:"
@@ -606,11 +613,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPHeightToFitLabel.m"
-         timestampString = "397798629.357972"
+         timestampString = "397911493.020001"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
          landmarkName = "-layoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -630,11 +637,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPTimeLineDetailViewController.m"
-         timestampString = "397793475.108287"
+         timestampString = "397908186.719285"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-setPlace:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -656,11 +663,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPTimeLineDetailViewController.m"
-         timestampString = "397801712.273774"
+         timestampString = "397908186.719285"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "78"
-         endingLineNumber = "78"
+         startingLineNumber = "88"
+         endingLineNumber = "88"
          landmarkName = "-collectionView:layout:sizeForItemAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -819,6 +826,45 @@
          endingLineNumber = "20"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/RMPBuzzTimeLineDetailCell.m"
+         timestampString = "397896586.302887"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
+         landmarkName = "-setDataWithPlace:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/RMPBuzzTimeLineDetailCell.m"
+         timestampString = "397896620.109466"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-setDataWithPlace:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/RMPRearrangedView.m"
+         timestampString = "397897841.08281"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
+         landmarkName = "@implementation RMPRearrangedView"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
    <SymbolicBreakpoints>
