@@ -10,10 +10,13 @@
 
 /** Notification that gets posted when frame was moved. */
 extern NSString *const RMPPlaceViewControllerFrameDidMove;
+/** Notification that gets posted when Cell moved. */
+extern NSString *const RMPPlaceCollectionViewCellDidMove;
 
 
 @class RMPPlaceCollectionView;
-@interface RMPPlaceViewController : UIViewController
-@property (weak, nonatomic) IBOutlet RMPPlaceCollectionView *collectionView;
+
+@interface RMPPlaceViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end

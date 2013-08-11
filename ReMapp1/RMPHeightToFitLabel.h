@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RMPHeightToFitLabel : UILabel
-
+@property (nonatomic) CGFloat width;
 @end

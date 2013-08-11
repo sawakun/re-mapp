@@ -7,7 +7,7 @@
 //
 
 #import "MapViewController.h"
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
@@ -15,7 +15,7 @@
 #import "RMPAnnotation.h"
 #import "RMPNonVisibleSearchBar.h"
 #import "RMPMapView.h"
-#import "RMPPlaceCollectionView.h"
+#import "RMPPlaceViewController.h"
 
 // TEST
 @interface NSObject (Extension)
@@ -95,7 +95,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reload)
-                                                 name:RMPBuzzDataReloaded
+                                                 name:RMPBuzzMapDataReloaded
                                                object:self.buzzData];
 }
 
@@ -104,7 +104,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     [super viewDidAppear:animated];
     //set BuzzData
-    self.buzzData = [RMPBuzzData sharedManager];
+    self.buzzData = [RMPBuzzMapData sharedManager];
     // TEST
     //[self test];
 }
@@ -221,7 +221,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 #pragma mark - RMPSlidingViewDelegate
 - (void)leftViewDidMove:(CGFloat)horizontalCenter
 {
-    self.maskView.alpha = 0.00000976562 * (horizontalCenter + 160) * (horizontalCenter + 160);
+//    self.maskView.alpha = 0.00000976562 * (horizontalCenter + 160) * (horizontalCenter + 160);
 }
 
 
