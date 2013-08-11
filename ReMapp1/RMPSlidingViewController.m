@@ -257,9 +257,9 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 - (void)moveLeftViewControllerWhileSlidingWithHorizontalCenter:(CGFloat)newHorizontalCenterPosition
 {
     if (newHorizontalCenterPosition <= [self screenHorizontalCenter]) {
-        [self rightViewHorizontalCenterWillChange:newHorizontalCenterPosition];
+        [self leftViewHorizontalCenterWillChange:newHorizontalCenterPosition];
         [self updateLeftViewHorizontalCenter:newHorizontalCenterPosition];
-        [self rightViewHorizontalCenterDidChange:newHorizontalCenterPosition];
+        [self leftViewHorizontalCenterDidChange:newHorizontalCenterPosition];
     }
 }
 
@@ -490,14 +490,23 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 
 - (void)bottomViewVerticalCenterDidChange:(CGFloat)newVerticalCenter
 {
+    if ([self.delegate respondsToSelector:@selector(bottomViewDidMove:)]) {
+        [self.delegate bottomViewDidMove:newVerticalCenter];
+    }
 }
 
 - (void)rightViewHorizontalCenterDidChange:(CGFloat)newHorizontalCenter
 {
+    if ([self.delegate respondsToSelector:@selector(rightViewDidMove:)]) {
+        [self.delegate rightViewDidMove:newHorizontalCenter];
+    }
 }
 
 - (void)leftViewHorizontalCenterDidChange:(CGFloat)newHorizontalCenter
 {
+    if ([self.delegate respondsToSelector:@selector(leftViewDidMove:)]) {
+        [self.delegate leftViewDidMove:newHorizontalCenter];
+    }
 }
 
 - (void)underViewWillAppear

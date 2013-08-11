@@ -77,6 +77,10 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     
     //set the map delegate
     self.mapView.delegate = self.mapView;
+    
+    //set sliding view delegate
+    self.rmp_verticalSlidingViewController.delegate = self;
+    self.maskView.alpha = 0;
  
     //set notifications related to the map
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -212,6 +216,14 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+
+#pragma mark - RMPSlidingViewDelegate
+- (void)leftViewDidMove:(CGFloat)horizontalCenter
+{
+    self.maskView.alpha = 0.00000976562 * (horizontalCenter + 160) * (horizontalCenter + 160);
+}
+
 
 
 
