@@ -9,7 +9,7 @@
 #import "RMPRearrangedView.h"
 
 @implementation RMPRearrangedView
-static CGFloat originY;
+CGFloat originY;
 
 - (void)setOriginY:(CGFloat)aOriginY
 {

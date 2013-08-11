@@ -490,167 +490,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RMPBuzzTimeLineCollectionViewCell" reuseIdentifier="RMPBuzzTimeLineCell" id="XJM-om-8bF" customClass="RMPBuzzTimeLineCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaD-7t-x9P">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="17Y-64-Qd6"/>
-                                                        <constraint firstAttribute="width" constant="44" id="t5B-ee-3qS"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name5678901234567890" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pO-HK-34Z">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="178" id="YAL-bv-vUb"/>
-                                                        <constraint firstAttribute="height" constant="21" id="bqR-iL-ppb"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.11811929267471205" green="0.5499441964285714" blue="0.38524102199802274" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="OTh-rh-Htd" customClass="RMPHeightToFitLabel">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="130" type="user" id="DJe-LX-udT"/>
-                                                        <constraint firstAttribute="height" constant="130" id="KBE-T6-dVK"/>
-                                                        <constraint firstAttribute="width" constant="245" id="eAZ-Ta-oV9"/>
-                                                    </constraints>
-                                                    <string key="text">body5978901234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890</string>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                    <color key="textColor" red="0.16820790816326525" green="0.16820790816326525" blue="0.16820790816326525" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00 00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1O3-zV-fiV">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="hr2-Ac-h0x"/>
-                                                        <constraint firstAttribute="width" constant="143" id="y4O-NV-jMK"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="1O3-zV-fiV" secondAttribute="bottom" constant="5" id="4cO-3b-07g"/>
-                                            <constraint firstItem="OTh-rh-Htd" firstAttribute="top" secondItem="XJM-om-8bF" secondAttribute="top" constant="28" id="E6b-eR-7dC"/>
-                                            <constraint firstItem="qaD-7t-x9P" firstAttribute="leading" secondItem="XJM-om-8bF" secondAttribute="leading" constant="8" id="Gv8-TV-kWX"/>
-                                            <constraint firstItem="OTh-rh-Htd" firstAttribute="leading" secondItem="qaD-7t-x9P" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="WUR-0J-N09"/>
-                                            <constraint firstItem="7pO-HK-34Z" firstAttribute="leading" secondItem="qaD-7t-x9P" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="g8U-Av-cxx"/>
-                                            <constraint firstItem="qaD-7t-x9P" firstAttribute="top" secondItem="XJM-om-8bF" secondAttribute="top" constant="8" id="lTT-D7-jz0"/>
-                                            <constraint firstAttribute="trailing" secondItem="1O3-zV-fiV" secondAttribute="trailing" constant="13" id="lYB-M9-vJN"/>
-                                            <constraint firstItem="7pO-HK-34Z" firstAttribute="top" secondItem="qaD-7t-x9P" secondAttribute="top" type="default" id="m3P-n4-ZU0"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="bodyLabel" destination="OTh-rh-Htd" id="tGq-Tu-CLj"/>
-                                            <outlet property="dateLabel" destination="1O3-zV-fiV" id="hcP-hC-w8Y"/>
-                                            <outlet property="iconImageView" destination="qaD-7t-x9P" id="p86-Or-aKW"/>
-                                            <outlet property="nameLabel" destination="7pO-HK-34Z" id="IK1-xe-cu0"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RMPPlaceTimeLineCell" reuseIdentifier="RMPPlaceTimeLineCell" id="i8S-HI-szS" customClass="RMPPlaceTimeLineCell">
-                                        <rect key="frame" x="0.0" y="182" width="320" height="180"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PLACE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-5y-xCp">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="103" id="QZh-PT-hx8"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="hqZ-5y-xCp" firstAttribute="leading" secondItem="i8S-HI-szS" secondAttribute="leading" constant="117" id="H3T-Zs-aI4"/>
-                                            <constraint firstItem="hqZ-5y-xCp" firstAttribute="top" secondItem="i8S-HI-szS" secondAttribute="top" constant="34" id="O10-Zm-aLB"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RMPEatTimeLineCell" reuseIdentifier="RMPEatTimeLineCell" id="XP2-t3-lFe" customClass="RMPEatTimeLineCell">
-                                        <rect key="frame" x="0.0" y="364" width="320" height="180"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="EAT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtn-1V-J99">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="103" id="E6p-nn-kOi"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="wtn-1V-J99" firstAttribute="leading" secondItem="XP2-t3-lFe" secondAttribute="leading" constant="117" id="AUo-Mz-EpG"/>
-                                            <constraint firstItem="wtn-1V-J99" firstAttribute="top" secondItem="XP2-t3-lFe" secondAttribute="top" constant="34" id="GBF-yl-oGf"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RMPShopTimeLineCell" reuseIdentifier="RMPShopTimeLineCell" id="REZ-kO-TNi" customClass="RMPShopTimeLineCell">
-                                        <rect key="frame" x="0.0" y="546" width="320" height="180"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SHOP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDD-of-mUe">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="103" id="RA7-vV-muZ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="xDD-of-mUe" firstAttribute="top" secondItem="REZ-kO-TNi" secondAttribute="top" constant="34" id="PEK-Kb-csv"/>
-                                            <constraint firstItem="xDD-of-mUe" firstAttribute="leading" secondItem="REZ-kO-TNi" secondAttribute="leading" constant="117" id="mVr-Hh-O0b"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RMPPlayTimeLineCell" reuseIdentifier="RMPPlayTimeLineCell" id="tdZ-ZL-VYH" customClass="RMPPlayTimeLineCell">
-                                        <rect key="frame" x="0.0" y="728" width="320" height="180"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PLAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-1c-8mo">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="103" id="b7b-Fy-8DZ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="Q7E-1c-8mo" firstAttribute="top" secondItem="tdZ-ZL-VYH" secondAttribute="top" constant="34" id="GZq-vv-rK7"/>
-                                            <constraint firstItem="Q7E-1c-8mo" firstAttribute="leading" secondItem="tdZ-ZL-VYH" secondAttribute="leading" constant="117" id="gyS-ph-Gcw"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="rDI-re-ZzE" id="N7C-D4-jbF"/>
                                     <outlet property="delegate" destination="rDI-re-ZzE" id="VhB-yu-UW2"/>
@@ -691,225 +531,15 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OiS-o3-XgS">
                                 <color key="backgroundColor" red="0.78852439409999997" green="0.78852439409999997" blue="0.78852439409999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="548" id="tDL-gQ-Uff"/>
+                                    <constraint firstAttribute="height" constant="416" id="Kyt-Mn-0Qq"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1nj-cm-Wja">
-                                    <size key="itemSize" width="320" height="200"/>
+                                    <size key="itemSize" width="320" height="620"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RMPBuzzTimeLineCollectionViewDetailCell" reuseIdentifier="RMPBuzzTimeLineDetailCell" id="0rp-Ow-fbY" customClass="RMPBuzzTimeLineDetailCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qLg-4B-qHI">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="0UW-yA-u7b"/>
-                                                        <constraint firstAttribute="height" constant="44" id="WNV-z9-8WC"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name5678901234567890" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibo-AT-dyD">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="178" id="aIs-2g-dVl"/>
-                                                        <constraint firstAttribute="height" constant="21" id="kmK-Ng-rps"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.1181192927" green="0.54994419640000003" blue="0.38524102199999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-GG-WdF" customClass="RMPHeightToFitLabel">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="130" type="user" id="ekw-Uz-2pc"/>
-                                                    </constraints>
-                                                    <string key="text">body5978901234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.16820790820000001" green="0.16820790820000001" blue="0.16820790820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00 00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3S-VF-oBa">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="245" id="MDl-XI-reF"/>
-                                                        <constraint firstAttribute="height" constant="17" id="nFi-iM-vFD"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="DcW-Bv-pS5">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="304" id="dIL-Ab-z8T"/>
-                                                        <constraint firstAttribute="height" constant="312" id="okw-Ed-CxB"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdl-uw-igk" customClass="RMPRearrangedView">
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHn-ju-YZq">
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="116" id="PEN-Mj-NE9"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                            <state key="normal" title="Like">
-                                                                <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                            <state key="highlighted">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2W-fC-8Zv">
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="116" id="ZpT-6V-b9k"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                            <state key="normal" title="Mute">
-                                                                <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                            <state key="highlighted">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.91466039540816324" green="0.91466039540816324" blue="0.91466039540816324" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="e2W-fC-8Zv" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="3hU-A4-m8d"/>
-                                                        <constraint firstItem="LHn-ju-YZq" firstAttribute="top" secondItem="Xdl-uw-igk" secondAttribute="top" constant="-1" id="DbK-qn-dmN"/>
-                                                        <constraint firstItem="LHn-ju-YZq" firstAttribute="baseline" secondItem="e2W-fC-8Zv" secondAttribute="baseline" type="default" id="Rho-2n-3vi"/>
-                                                        <constraint firstItem="LHn-ju-YZq" firstAttribute="leading" secondItem="Xdl-uw-igk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="acl-RU-Euh"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="Ibo-AT-dyD" firstAttribute="leading" secondItem="0rp-Ow-fbY" secondAttribute="leading" constant="62" id="2OF-BG-fRB"/>
-                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="top" relation="lessThanOrEqual" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="237" type="user" id="5XU-7F-H7E"/>
-                                            <constraint firstAttribute="bottom" secondItem="Xdl-uw-igk" secondAttribute="bottom" constant="57" id="5vX-j4-aZq"/>
-                                            <constraint firstItem="Ibo-AT-dyD" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="12" id="7Sq-g0-8qp"/>
-                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="trailing" secondItem="DcW-Bv-pS5" secondAttribute="trailing" type="default" id="8Du-Bo-wMr"/>
-                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="leading" secondItem="DcW-Bv-pS5" secondAttribute="leading" type="default" id="8uE-M6-JdC"/>
-                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="top" secondItem="iAb-GG-WdF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Bo2-e8-iVA"/>
-                                            <constraint firstItem="d3S-VF-oBa" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="33" id="MXQ-ek-eiz"/>
-                                            <constraint firstItem="qLg-4B-qHI" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="8" id="OPC-yP-rh0"/>
-                                            <constraint firstItem="d3S-VF-oBa" firstAttribute="leading" secondItem="Ibo-AT-dyD" secondAttribute="leading" type="default" id="ORB-Fi-woy"/>
-                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="520" id="eUW-EL-o8H"/>
-                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="leading" secondItem="d3S-VF-oBa" secondAttribute="leading" type="default" id="h2b-N7-rqy"/>
-                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="centerX" secondItem="0rp-Ow-fbY" secondAttribute="centerX" type="default" id="kMl-ZG-sHQ"/>
-                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="50" type="user" id="oxf-bh-g9j"/>
-                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="leading" secondItem="qLg-4B-qHI" secondAttribute="leading" type="default" id="wp5-eu-v39"/>
-                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="50" type="user" id="xqW-rR-LJO"/>
-                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="trailing" secondItem="d3S-VF-oBa" secondAttribute="trailing" type="default" id="yWt-Ih-Uw9"/>
-                                        </constraints>
-                                        <size key="customSize" width="320" height="620"/>
-                                        <connections>
-                                            <outlet property="bodyImageView" destination="DcW-Bv-pS5" id="ebo-5i-PJx"/>
-                                            <outlet property="bodyLabel" destination="iAb-GG-WdF" id="q8G-Y6-cj2"/>
-                                            <outlet property="dateLabel" destination="d3S-VF-oBa" id="csc-wc-VaT"/>
-                                            <outlet property="iconImageView" destination="qLg-4B-qHI" id="Rfc-lF-a26"/>
-                                            <outlet property="likeAndMuteButtonView" destination="Xdl-uw-igk" id="2aT-5c-rU4"/>
-                                            <outlet property="nameLabel" destination="Ibo-AT-dyD" id="4a7-SV-CLS"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RMPPlaceTimeLineDetailCell" id="jbx-ZP-Cxq" customClass="RMPPlaceTimeLineDetailCell">
-                                        <rect key="frame" x="0.0" y="630" width="320" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Detail Cell" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AY-Jx-FH2">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="6AY-Jx-FH2" firstAttribute="centerX" secondItem="jbx-ZP-Cxq" secondAttribute="centerX" type="default" id="OEz-MQ-Z2g"/>
-                                            <constraint firstItem="6AY-Jx-FH2" firstAttribute="top" secondItem="jbx-ZP-Cxq" secondAttribute="top" constant="81" id="Tqi-s1-YVB"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RMPEatTimeLineDetailCell" id="w0I-qW-u7R" customClass="RMPEatTimeLineDetailCell">
-                                        <rect key="frame" x="0.0" y="840" width="320" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="EAT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJt-5b-Sw7">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="78" id="5zU-In-8Bo"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="aJt-5b-Sw7" firstAttribute="centerX" secondItem="w0I-qW-u7R" secondAttribute="centerX" type="default" id="863-qd-41E"/>
-                                            <constraint firstItem="aJt-5b-Sw7" firstAttribute="top" secondItem="w0I-qW-u7R" secondAttribute="top" constant="81" id="s3G-lU-gu1"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RMPPlayTimeLineDetailCell" id="uo7-Ss-MiN" customClass="RMPPlayTimeLineDetailCell">
-                                        <rect key="frame" x="0.0" y="1050" width="320" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PLAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODI-J2-vYG">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="78" id="Cq9-FY-c5J"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="ODI-J2-vYG" firstAttribute="centerX" secondItem="uo7-Ss-MiN" secondAttribute="centerX" type="default" id="hMw-t3-ZQx"/>
-                                            <constraint firstItem="ODI-J2-vYG" firstAttribute="top" secondItem="uo7-Ss-MiN" secondAttribute="top" constant="81" id="lDJ-p2-TNd"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RMPShopTimeLineDetailCell" id="oED-tr-E66" customClass="RMPShopTimeLineDetailCell">
-                                        <rect key="frame" x="0.0" y="1260" width="320" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SHOP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fQ-XM-jBh">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="78" id="G1A-Rt-ydH"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="7fQ-XM-jBh" firstAttribute="centerX" secondItem="oED-tr-E66" secondAttribute="centerX" type="default" id="geT-jh-Qxp"/>
-                                            <constraint firstItem="7fQ-XM-jBh" firstAttribute="top" secondItem="oED-tr-E66" secondAttribute="top" constant="81" id="lBb-Hi-ubV"/>
-                                        </constraints>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="TIN-eR-h7w" id="6p9-w8-28k"/>
                                     <outlet property="delegate" destination="TIN-eR-h7w" id="96N-Bu-ur8"/>
@@ -1980,25 +1610,6 @@
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
-        <class className="RMPBuzzTimeLineCell" superclassName="RMPPlaceTimeLineCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPBuzzTimeLineCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bodyLabel" candidateClass="RMPHeightToFitLabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RMPBuzzTimeLineDetailCell" superclassName="RMPPlaceTimeLineDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPBuzzTimeLineDetailCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bodyImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bodyLabel" candidateClass="RMPHeightToFitLabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
         <class className="RMPCheckListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPCheckListViewController.h"/>
             <relationships>
@@ -2007,15 +1618,6 @@
         </class>
         <class className="RMPEatCollectionViewCell" superclassName="RMPPlaceCollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPEatCollectionViewCell.h"/>
-        </class>
-        <class className="RMPEatTimeLineCell" superclassName="RMPPlaceTimeLineCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPEatTimeLineCell.h"/>
-        </class>
-        <class className="RMPEatTimeLineDetailCell" superclassName="RMPPlaceTimeLineDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPEatTimeLineDetailCell.h"/>
-        </class>
-        <class className="RMPHeightToFitLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPHeightToFitLabel.h"/>
         </class>
         <class className="RMPInitialSlidingViewController" superclassName="RMPSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPInitialSlidingViewController.h"/>
@@ -2050,12 +1652,6 @@
         <class className="RMPPlaceCollectionViewCell" superclassName="UICollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlaceCollectionViewCell.h"/>
         </class>
-        <class className="RMPPlaceTimeLineCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlaceTimeLineCell.h"/>
-        </class>
-        <class className="RMPPlaceTimeLineDetailCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlaceTimeLineDetailCell.h"/>
-        </class>
         <class className="RMPPlaceViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlaceViewController.h"/>
             <relationships>
@@ -2064,12 +1660,6 @@
         </class>
         <class className="RMPPlayCollectionViewCell" superclassName="RMPPlaceCollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlayCollectionViewCell.h"/>
-        </class>
-        <class className="RMPPlayTimeLineCell" superclassName="RMPPlaceTimeLineCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlayTimeLineCell.h"/>
-        </class>
-        <class className="RMPPlayTimeLineDetailCell" superclassName="RMPPlaceTimeLineDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlayTimeLineDetailCell.h"/>
         </class>
         <class className="RMPProblemViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPProblemViewController.h"/>
@@ -2089,9 +1679,6 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
-        <class className="RMPRearrangedView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPRearrangedView.h"/>
-        </class>
         <class className="RMPSettingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPSettingViewController.h"/>
             <relationships>
@@ -2100,12 +1687,6 @@
         </class>
         <class className="RMPShopCollectionViewCell" superclassName="RMPPlaceCollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPShopCollectionViewCell.h"/>
-        </class>
-        <class className="RMPShopTimeLineCell" superclassName="RMPPlaceTimeLineCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPShopTimeLineCell.h"/>
-        </class>
-        <class className="RMPShopTimeLineDetailCell" superclassName="RMPPlaceTimeLineDetailCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPShopTimeLineDetailCell.h"/>
         </class>
         <class className="RMPSlidingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPSlidingViewController.h"/>

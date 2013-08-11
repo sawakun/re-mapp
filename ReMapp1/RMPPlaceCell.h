@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 @class RMPPlace;
 
-@interface RMPPlaceTimeLineCell : UICollectionViewCell
+@interface RMPPlaceCell : UICollectionViewCell
 + (CGFloat)heightForPlace:(RMPPlace *)place;
 - (void)setDataWithPlace:(RMPPlace *)place;
 @end
 
-@interface RMPPlaceTimeLineCellFactory : NSObject
-+ (RMPPlaceTimeLineCell *)createCellWithCollectionView:(UICollectionView *)collectionView
+@interface RMPPlaceCellFactory : NSObject
++ (RMPPlaceCell *)createCellWithCollectionView:(UICollectionView *)collectionView
                                               cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                                place:(RMPPlace *)place;
 @end

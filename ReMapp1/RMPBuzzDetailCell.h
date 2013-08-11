@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RMPPlaceTimeLineDetailCell.h"
+#import "RMPPlaceDetailCell.h"
 @class RMPHeightToFitLabel;
 @class RMPRearrangedView;
 
-@interface RMPBuzzTimeLineDetailCell : RMPPlaceTimeLineDetailCell
+@interface RMPBuzzDetailCell : RMPPlaceDetailCell
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet RMPHeightToFitLabel *bodyLabel;

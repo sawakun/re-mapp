@@ -192,7 +192,7 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     
     
     //json
-    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
+    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz_temp.json.js";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
     NSURLResponse *response;

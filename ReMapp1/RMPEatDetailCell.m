@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPEatTimeLineDetailCell.h"
+#import "RMPEatDetailCell.h"
 
-@implementation RMPEatTimeLineDetailCell
+@implementation RMPEatDetailCell
 
 - (id)initWithFrame:(CGRect)frame
 {

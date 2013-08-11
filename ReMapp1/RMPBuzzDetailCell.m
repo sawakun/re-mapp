@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPBuzzTimeLineDetailCell.h"
+#import "RMPBuzzDetailCell.h"
 #import "RMPPlace.h"
 #import "RMPHeightToFitLabel.h"
 #import "UIImageView+WebCache.h"
 #import "RMPRearrangedView.h"
 
-@implementation RMPBuzzTimeLineDetailCell
+@implementation RMPBuzzDetailCell
 
 
 + (CGFloat)heightForPlace:(RMPPlace *)place
@@ -38,12 +38,11 @@
     [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     
-    self.bodyImageView = nil;
-    if (![buzz.iconImage isEqual:@""]) {
+    self.bodyImageView.image = nil;
+    if (![buzz.imageURL isEqual:@""]) {
         [self.bodyImageView setImageWithURL:[NSURL URLWithString:buzz.imageURL]
                            placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     }
-    [self.likeAndMuteButtonView setOriginY:190];
 }
 
 

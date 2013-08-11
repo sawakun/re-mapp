@@ -6,12 +6,12 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPPlaceTimeLineCell.h"
-#import "RMPBuzzTimeLineCell.h"
+#import "RMPPlaceCell.h"
+#import "RMPBuzzCell.h"
 #import "RMPPlace.h"
 
 
-@implementation RMPPlaceTimeLineCell
+@implementation RMPPlaceCell
 + (CGFloat)heightForPlace:(RMPPlace *)place
 {
     return 100.0f;
@@ -27,12 +27,12 @@
 
 
 
-@implementation RMPPlaceTimeLineCellFactory
-+ (RMPPlaceTimeLineCell *)createCellWithCollectionView:(UICollectionView *)collectionView
+@implementation RMPPlaceCellFactory
++ (RMPPlaceCell *)createCellWithCollectionView:(UICollectionView *)collectionView
                                               cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                                place:(RMPPlace *)place
 {
-    RMPPlaceTimeLineCell *cell = (RMPPlaceTimeLineCell *)[collectionView
+    RMPPlaceCell *cell = (RMPPlaceCell *)[collectionView
                                                           dequeueReusableCellWithReuseIdentifier:[[place class] timeLineCellIdentifier]
                                                           forIndexPath:indexPath];
     [cell setDataWithPlace:place];
