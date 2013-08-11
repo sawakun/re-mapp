@@ -8,7 +8,7 @@
 
 #import "RMPPlaceCollectionView.h"
 #import "RMPBuzzCollectionViewCell.h"
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
 #import "RMPMapView.h"
 
@@ -16,7 +16,7 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 
 @interface RMPPlaceCollectionView()
-@property (weak, nonatomic) RMPBuzzData *buzzData;
+@property (weak, nonatomic) RMPBuzzMapData *buzzData;
 @end
 
 @implementation RMPPlaceCollectionView
@@ -46,9 +46,9 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 {
     self.dataSource = self;
     self.delegate = self;
-    self.buzzData = [RMPBuzzData sharedManager];
+    self.buzzData = [RMPBuzzMapData sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCell:) name:RMPMapViewDidSelectAnnotation object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.buzzData];
 }
 
 

@@ -724,18 +724,17 @@
                                                 </label>
                                                 <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="245" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-GG-WdF" customClass="RMPHeightToFitLabel">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="130" type="user" id="ekw-Uz-2pc"/>
-                                                        <constraint firstAttribute="height" constant="130" id="kme-5P-D83"/>
-                                                        <constraint firstAttribute="width" constant="245" id="xbG-1t-OEQ"/>
+                                                        <constraint firstAttribute="height" constant="130" type="user" id="ekw-Uz-2pc"/>
                                                     </constraints>
                                                     <string key="text">body5978901234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890123456789001234567890</string>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.16820790820000001" green="0.16820790820000001" blue="0.16820790820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0000/00/00 00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3S-VF-oBa">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="84b-8C-1gD"/>
+                                                        <constraint firstAttribute="width" constant="245" id="MDl-XI-reF"/>
+                                                        <constraint firstAttribute="height" constant="17" id="nFi-iM-vFD"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -747,7 +746,7 @@
                                                         <constraint firstAttribute="height" constant="312" id="okw-Ed-CxB"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdl-uw-igk">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdl-uw-igk" customClass="RMPRearrangedView">
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHn-ju-YZq">
                                                             <constraints>
@@ -779,9 +778,8 @@
                                                     <color key="backgroundColor" red="0.91466039540816324" green="0.91466039540816324" blue="0.91466039540816324" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="e2W-fC-8Zv" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="3hU-A4-m8d"/>
-                                                        <constraint firstItem="LHn-ju-YZq" firstAttribute="bottom" secondItem="Xdl-uw-igk" secondAttribute="bottom" type="default" id="9lh-0v-GPU"/>
-                                                        <constraint firstItem="e2W-fC-8Zv" firstAttribute="top" secondItem="Xdl-uw-igk" secondAttribute="top" type="default" id="E8x-qv-wyr"/>
-                                                        <constraint firstItem="LHn-ju-YZq" firstAttribute="top" secondItem="Xdl-uw-igk" secondAttribute="top" type="default" id="Fhe-rS-w04"/>
+                                                        <constraint firstItem="LHn-ju-YZq" firstAttribute="top" secondItem="Xdl-uw-igk" secondAttribute="top" constant="-1" id="DbK-qn-dmN"/>
+                                                        <constraint firstItem="LHn-ju-YZq" firstAttribute="baseline" secondItem="e2W-fC-8Zv" secondAttribute="baseline" type="default" id="Rho-2n-3vi"/>
                                                         <constraint firstItem="LHn-ju-YZq" firstAttribute="leading" secondItem="Xdl-uw-igk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="acl-RU-Euh"/>
                                                     </constraints>
                                                 </view>
@@ -791,18 +789,21 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="Ibo-AT-dyD" firstAttribute="leading" secondItem="0rp-Ow-fbY" secondAttribute="leading" constant="62" id="2OF-BG-fRB"/>
-                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="centerX" secondItem="0rp-Ow-fbY" secondAttribute="centerX" type="default" id="2nR-Gi-jvY"/>
+                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="top" relation="lessThanOrEqual" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="237" type="user" id="5XU-7F-H7E"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xdl-uw-igk" secondAttribute="bottom" constant="57" id="5vX-j4-aZq"/>
                                             <constraint firstItem="Ibo-AT-dyD" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="12" id="7Sq-g0-8qp"/>
                                             <constraint firstItem="Xdl-uw-igk" firstAttribute="trailing" secondItem="DcW-Bv-pS5" secondAttribute="trailing" type="default" id="8Du-Bo-wMr"/>
                                             <constraint firstItem="Xdl-uw-igk" firstAttribute="leading" secondItem="DcW-Bv-pS5" secondAttribute="leading" type="default" id="8uE-M6-JdC"/>
+                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="top" secondItem="iAb-GG-WdF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Bo2-e8-iVA"/>
+                                            <constraint firstItem="d3S-VF-oBa" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="33" id="MXQ-ek-eiz"/>
                                             <constraint firstItem="qLg-4B-qHI" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="8" id="OPC-yP-rh0"/>
-                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="30" id="Oad-uY-6dP"/>
-                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="237" id="QnX-eH-9zC"/>
-                                            <constraint firstItem="d3S-VF-oBa" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="160" id="ebb-7L-gLI"/>
+                                            <constraint firstItem="d3S-VF-oBa" firstAttribute="leading" secondItem="Ibo-AT-dyD" secondAttribute="leading" type="default" id="ORB-Fi-woy"/>
+                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="520" id="eUW-EL-o8H"/>
                                             <constraint firstItem="iAb-GG-WdF" firstAttribute="leading" secondItem="d3S-VF-oBa" secondAttribute="leading" type="default" id="h2b-N7-rqy"/>
-                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="180" id="ivO-1U-zQ1"/>
-                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="leading" secondItem="Ibo-AT-dyD" secondAttribute="leading" type="default" id="kFe-i0-fDb"/>
-                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="leading" secondItem="qLg-4B-qHI" secondAttribute="leading" type="default" id="xty-FO-ndX"/>
+                                            <constraint firstItem="Xdl-uw-igk" firstAttribute="centerX" secondItem="0rp-Ow-fbY" secondAttribute="centerX" type="default" id="kMl-ZG-sHQ"/>
+                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="50" type="user" id="oxf-bh-g9j"/>
+                                            <constraint firstItem="DcW-Bv-pS5" firstAttribute="leading" secondItem="qLg-4B-qHI" secondAttribute="leading" type="default" id="wp5-eu-v39"/>
+                                            <constraint firstItem="iAb-GG-WdF" firstAttribute="top" secondItem="0rp-Ow-fbY" secondAttribute="top" constant="50" type="user" id="xqW-rR-LJO"/>
                                             <constraint firstItem="iAb-GG-WdF" firstAttribute="trailing" secondItem="d3S-VF-oBa" secondAttribute="trailing" type="default" id="yWt-Ih-Uw9"/>
                                         </constraints>
                                         <size key="customSize" width="320" height="620"/>
@@ -811,6 +812,7 @@
                                             <outlet property="bodyLabel" destination="iAb-GG-WdF" id="q8G-Y6-cj2"/>
                                             <outlet property="dateLabel" destination="d3S-VF-oBa" id="csc-wc-VaT"/>
                                             <outlet property="iconImageView" destination="qLg-4B-qHI" id="Rfc-lF-a26"/>
+                                            <outlet property="likeAndMuteButtonView" destination="Xdl-uw-igk" id="2aT-5c-rU4"/>
                                             <outlet property="nameLabel" destination="Ibo-AT-dyD" id="4a7-SV-CLS"/>
                                         </connections>
                                     </collectionViewCell>
@@ -2086,6 +2088,9 @@
                 <relationship kind="outlet" name="profileTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
+        </class>
+        <class className="RMPRearrangedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPRearrangedView.h"/>
         </class>
         <class className="RMPSettingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPSettingViewController.h"/>

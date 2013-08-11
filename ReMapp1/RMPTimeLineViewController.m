@@ -8,7 +8,7 @@
 
 #import "RMPTimeLineViewController.h"
 #import "RMPTimeLineDetailViewController.h"
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
 #import "RMPPlaceTimeLineCell.h"
 #import "RMPTimeLineDetailViewController.h"
@@ -19,7 +19,7 @@
 @property RMPTimeLineDetailViewController *timeLineDetailViewController;
 @property CGRect showFrame;
 @property CGRect hideFrame;
-@property (weak, nonatomic) RMPBuzzData *buzzData;
+@property (weak, nonatomic) RMPBuzzMapData *buzzData;
 @end
 
 @implementation RMPTimeLineViewController
@@ -51,10 +51,10 @@
 
 - (void)setUp
 {
-    self.buzzData = [RMPBuzzData sharedManager];
+    self.buzzData = [RMPBuzzMapData sharedManager];
     self.timeLineCollectionView.dataSource = self;
     self.timeLineCollectionView.delegate = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.buzzData];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     self.timeLineDetailViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPTimeLineDetailViewController"];

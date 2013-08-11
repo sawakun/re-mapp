@@ -10,6 +10,7 @@
 #import "RMPPlace.h"
 #import "RMPHeightToFitLabel.h"
 #import "UIImageView+WebCache.h"
+#import "RMPRearrangedView.h"
 
 @implementation RMPBuzzTimeLineDetailCell
 
@@ -36,10 +37,13 @@
     
     [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
-
-    [self.bodyImageView setImageWithURL:[NSURL URLWithString:buzz.imageURL]
-                       placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     
+    self.bodyImageView = nil;
+    if (![buzz.iconImage isEqual:@""]) {
+        [self.bodyImageView setImageWithURL:[NSURL URLWithString:buzz.imageURL]
+                           placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
+    }
+    [self.likeAndMuteButtonView setOriginY:190];
 }
 
 

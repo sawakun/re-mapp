@@ -30,6 +30,7 @@
 @property (nonatomic) NSInteger annotationIndex;
 
 - (id)initWithDictionary:(NSDictionary *)buzzDictionary;
+
 // For TimeLine
 - (CGFloat)heightForTimeLineCell;
 + (NSString *)timeLineCellIdentifier;
@@ -38,6 +39,8 @@
 - (CGFloat)heightForDetailCell;
 + (NSString *)detailCellIdentifier;
 
+// For PlaceView
+//+ (NSString *)placeViewCellIdentifier;
 @end
 
 

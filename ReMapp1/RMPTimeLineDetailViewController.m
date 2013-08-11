@@ -7,7 +7,7 @@
 //
 
 #import "RMPTimeLineDetailViewController.h"
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
 #import "RMPPlaceTimeLineDetailCell.h"
 
