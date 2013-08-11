@@ -18,10 +18,6 @@
 		4536736A17AEA112002F0F88 /* PIN_BUZZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4536736917AEA112002F0F88 /* PIN_BUZZ@2x.png */; };
 		4557179217A4FD5800F6483F /* RMPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4557179117A4FD5800F6483F /* RMPMenuViewController.m */; };
 		455C2A9517B670E6004C03F9 /* RMPPostRequestCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C2A9417B670E6004C03F9 /* RMPPostRequestCreator.m */; };
-		4573181E17B27A7D00DB02C9 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181717B27A7D00DB02C9 /* UIImage+Alpha.m */; };
-		4573181F17B27A7D00DB02C9 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181917B27A7D00DB02C9 /* UIImage+Resize.m */; };
-		4573182017B27A7D00DB02C9 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181B17B27A7D00DB02C9 /* UIImage+RoundedCorner.m */; };
-		4573182117B27A7D00DB02C9 /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573181D17B27A7D00DB02C9 /* UIImage+Scaling.m */; };
 		4573183717B27A8600DB02C9 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182417B27A8600DB02C9 /* MKAnnotationView+WebCache.m */; };
 		4573183D17B27A8600DB02C9 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183417B27A8600DB02C9 /* UIButton+WebCache.m */; };
 		4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4573183F17B27C7600DB02C9 /* ImageIO.framework */; };
@@ -1032,7 +1028,6 @@
 				45286EB617AFCA9500B0CCCC /* RMPPlayCollectionViewCell.m in Sources */,
 				4573183717B27A8600DB02C9 /* MKAnnotationView+WebCache.m in Sources */,
 				4573183D17B27A8600DB02C9 /* UIButton+WebCache.m in Sources */,
-				4573183E17B27A8600DB02C9 /* UIImageView+WebCache.m in Sources */,
 				458D998617B3A23C000D6EB5 /* RMPTimeLineViewController.m in Sources */,
 				458D998D17B3A6C3000D6EB5 /* RMPPlaceTimeLineCell.m in Sources */,
 				458D999117B3C3DD000D6EB5 /* RMPBuzzTimeLineCell.m in Sources */,
