@@ -39,20 +39,11 @@
     [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     
-<<<<<<< HEAD:ReMapp1/RMPBuzzTimeLineDetailCell.m
-    self.bodyImageView = nil;
-    if (![buzz.iconImage isEqual:@""]) {
-        [self.bodyImageView setImageWithURL:[NSURL URLWithString:buzz.imageURL]
-                           placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
-    }
-    [self.likeAndMuteButtonView setOriginY:190];
-=======
     self.bodyImageView.image = nil;
     if (![buzz.imageURL isEqual:@""]) {
         [self.bodyImageView setImageWithURL:[NSURL URLWithString:buzz.imageURL]
                            placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     }
->>>>>>> origin/new/TimeLine:ReMapp1/RMPBuzzDetailCell.m
 }
 
 

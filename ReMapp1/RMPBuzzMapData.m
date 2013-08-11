@@ -8,10 +8,6 @@
 
 #import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
-<<<<<<< HEAD
-#import "CSVHandler.h"
-=======
->>>>>>> origin/new/TimeLine
 #import "RMPMapView.h"
 #import "RMPPlaceFactory.h"
 
@@ -195,11 +191,7 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     
     
     //json
-<<<<<<< HEAD
-    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
-=======
     NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz_temp.json.js";
->>>>>>> origin/new/TimeLine
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
     NSURLResponse *response;

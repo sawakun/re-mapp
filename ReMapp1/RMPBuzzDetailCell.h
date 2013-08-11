@@ -11,11 +11,7 @@
 @class RMPHeightToFitLabel;
 @class RMPRearrangedView;
 
-<<<<<<< HEAD:ReMapp1/RMPBuzzTimeLineDetailCell.h
-@interface RMPBuzzTimeLineDetailCell : RMPPlaceTimeLineDetailCell
-=======
 @interface RMPBuzzDetailCell : RMPPlaceDetailCell
->>>>>>> origin/new/TimeLine:ReMapp1/RMPBuzzDetailCell.h
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet RMPHeightToFitLabel *bodyLabel;

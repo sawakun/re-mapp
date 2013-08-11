@@ -44,8 +44,6 @@
     self.buzzData = [RMPBuzzMapData sharedManager];
     self.timeLineCollectionView.dataSource = self;
     self.timeLineCollectionView.delegate = self;
-<<<<<<< HEAD
-=======
     
     // set nib
     UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzCell" bundle:nil];
@@ -57,7 +55,6 @@
     [self.timeLineCollectionView registerNib:eatCell  forCellWithReuseIdentifier:@"RMPEatCell"];
     [self.timeLineCollectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayCell"];
     
->>>>>>> origin/new/TimeLine
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.buzzData];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
