@@ -221,7 +221,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 #pragma mark - RMPSlidingViewDelegate
 - (void)leftViewDidMove:(CGFloat)horizontalCenter
 {
-    self.maskView.alpha = 0.00000976562 * (horizontalCenter + 160) * (horizontalCenter + 160);
+//    self.maskView.alpha = 0.00000976562 * (horizontalCenter + 160) * (horizontalCenter + 160);
 }
 
 

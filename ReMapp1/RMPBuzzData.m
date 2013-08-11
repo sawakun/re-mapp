@@ -15,6 +15,50 @@
 NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 
+@implementation RMPSquareLonLat
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.northEastLon = 0;
+        self.northEastLat = 0;
+        self.southWestLon = 0;
+        self.southWestLat = 0;
+    }
+    
+    return self;
+}
+
+- (id)initWithNorthEastLon:(CGFloat)nelon
+              NorthEastLat:(CGFloat)nelat
+              SouthWestLon:(CGFloat)swlon
+              SouthWestLat:(CGFloat)swlat
+{
+    self = [super init];
+    if (self) {
+        self.northEastLon = nelon;
+        self.northEastLat = nelat;
+        self.southWestLon = swlon;
+        self.southWestLat = swlat;
+    }
+    
+    return self;
+}
+
+- (BOOL)isIn:(RMPSquareLonLat *)squareLonLat
+{
+    if (self.northEastLat > squareLonLat.northEastLat &&
+        self.southWestLat < squareLonLat.southWestLat &&
+        self.northEastLon > squareLonLat.northEastLon &&
+        self.southWestLon < squareLonLat.southWestLon)
+    {
+        return YES;
+    }
+    return NO;
+}
+
+@end
+
 @interface RMPBuzzData()
 @end
 
@@ -38,21 +82,14 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     if (self) {
         _currentViewBuzzData = [[NSMutableArray alloc] init];
         _buzzData = [[NSMutableArray alloc] init];
-        _buzzDataNorthEastLat = 0.0f;
-        _buzzDataNorthEastLot = 0.0f;
-        _buzzDataSouthWestLat = 0.0f;
-        _buzzDataSouthWestLot = 0.0f;
-        _urlRequestNorthEastLat = 0.0f;
-        _urlRequestNorthEastLot = 0.0f;
-        _urlRequestSouthWestLat = 0.0f;
-        _urlRequestSouthWestLot = 0.0f;
+        _buzzDataLonLat = [[RMPSquareLonLat alloc] init];
+        _urlRequestLonLat = [[RMPSquareLonLat alloc] init];
         _widthCurrentView = 0.0;
         _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(reload:)
                                                      name:RMPMapViewRegionDidChangeAnimated
                                                    object:nil];
-        
     }
     return self;
 }
@@ -85,108 +122,48 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     });
 }
 
-- (void)reloadWithNorthEastLat:(double)northEastLat
-                  NorthEastLot:(double)northEastLot
-                  SouthWestLat:(double)southWestLat
-                  SouthWestLot:(double)southWestLot
+- (void)reloadWithNorthEastLat:(CGFloat)northEastLat
+                  NorthEastLot:(CGFloat)northEastLon
+                  SouthWestLat:(CGFloat)southWestLat
+                  SouthWestLot:(CGFloat)southWestLon
 {
+    RMPSquareLonLat *thisLonLat = [[RMPSquareLonLat alloc] initWithNorthEastLon:northEastLon
+                                                               NorthEastLat:northEastLat
+                                                               SouthWestLon:southWestLon
+                                                               SouthWestLat:southWestLat];
     
-    if ([self isOutOrRangeBuzzDataWithNorthEastLat:northEastLat
-                                      NorthEastLot:northEastLot
-                                      SouthWestLat:southWestLat
-                                      SouthWestLot:southWestLot] ||
-        (northEastLot- southWestLot) != _widthCurrentView) {
 
-
-        
-        NSLog(@"Case 1");
+    if (![thisLonLat isIn:_buzzDataLonLat] ||
+        (thisLonLat.northEastLon- thisLonLat.southWestLon) != _widthCurrentView) {
         [NSURLConnection cancelPreviousPerformRequestsWithTarget:self];
-        NSLog(@"%f, %f", northEastLat, southWestLat);
-        [self fetchBuzzDataWithNorthEastLat:northEastLat
-                               NorthEastLot:northEastLot
-                               SouthWestLat:southWestLat
-                               SouthWestLot:southWestLot];
-        
-        [self setCurrentBuzzDataWithNorthEastLat:northEastLat
-                                    NorthEastLot:northEastLot
-                                    SouthWestLat:southWestLat
-                                    SouthWestLot:southWestLot];
+        [self fetchBuzzDataWithSquareLonLat:thisLonLat];
+        [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
         return;
     }
     
-    if ([self isOutOrRangeNoURLRequestWithNorthEastLat:northEastLat
-                                          NorthEastLot:northEastLot
-                                          SouthWestLat:southWestLat
-                                          SouthWestLot:southWestLot])
+    if (![thisLonLat isIn:_urlRequestLonLat])
     {
-        NSLog(@"Case 2");
-        [self setCurrentBuzzDataWithNorthEastLat:northEastLat
-                                    NorthEastLot:northEastLot
-                                    SouthWestLat:southWestLat
-                                    SouthWestLot:southWestLot];
-        
-        [self fetchBuzzDataWithNorthEastLat:northEastLat
-                               NorthEastLot:northEastLot
-                               SouthWestLat:southWestLat
-                               SouthWestLot:southWestLot];
+        [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
+        [self fetchBuzzDataWithSquareLonLat:thisLonLat];
         return;
     }
 
-    
-    NSLog(@"Case 3");
-    [self setCurrentBuzzDataWithNorthEastLat:northEastLat
-                                NorthEastLot:northEastLot
-                                SouthWestLat:southWestLat
-                                SouthWestLot:southWestLot];
-    
+    [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
     return;
 }
 
-- (BOOL)isOutOrRangeBuzzDataWithNorthEastLat:(double)northEastLat
-                                NorthEastLot:(double)northEastLot
-                                SouthWestLat:(double)southWestLat
-                                SouthWestLot:(double)southWestLot
-{
-    if (_buzzDataNorthEastLat > northEastLat &&
-        _buzzDataSouthWestLat < southWestLat &&
-        _buzzDataNorthEastLot > northEastLot &&
-        _buzzDataSouthWestLot < southWestLot)
-    {
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)isOutOrRangeNoURLRequestWithNorthEastLat:(double)northEastLat
-                                    NorthEastLot:(double)northEastLot
-                                    SouthWestLat:(double)southWestLat
-                                    SouthWestLot:(double)southWestLot
-{
-    if (_urlRequestNorthEastLat > northEastLat &&
-        _urlRequestSouthWestLat < southWestLat &&
-        _urlRequestNorthEastLot > northEastLot &&
-        _urlRequestSouthWestLot < southWestLot)
-    {
-        return NO;
-    }
-    return YES;
-}
 
 
-- (void)setCurrentBuzzDataWithNorthEastLat:(double)northEastLat
-                              NorthEastLot:(double)northEastLot
-                              SouthWestLat:(double)southWestLat
-                              SouthWestLot:(double)southWestLot
+- (void)setCurrentBuzzDataWithSquareLonLat:(RMPSquareLonLat *)thisSquare
 {
     
     NSInteger index = 0;
-    NSLog(@"Send notification.");
     [_currentViewBuzzData removeAllObjects];
     for (RMPPlace *buzz in _buzzData) {
-        if (buzz.lat < northEastLat &&
-            buzz.lat > southWestLat &&
-            buzz.lot < northEastLot &&
-            buzz.lot > southWestLot)
+        if (buzz.lat < thisSquare.northEastLat &&
+            buzz.lat > thisSquare.southWestLat &&
+            buzz.lot < thisSquare.northEastLon &&
+            buzz.lot > thisSquare.southWestLon)
         {
             buzz.annotationIndex = index;
             [_currentViewBuzzData addObject:buzz];
@@ -198,22 +175,19 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     });
 }
 
-- (void)fetchBuzzDataWithNorthEastLat:(double)northEastLat
-                         NorthEastLot:(double)northEastLot
-                         SouthWestLat:(double)southWestLat
-                         SouthWestLot:(double)southWestLot
+- (void)fetchBuzzDataWithSquareLonLat:(RMPSquareLonLat *)thisSquare
 {
     // set new _buzzDataNorthEastLat...
-    double widthLot = northEastLot - southWestLot;
-    double heigthLat = northEastLat - southWestLat;
-    _buzzDataNorthEastLat = northEastLat + 2 * heigthLat;
-    _buzzDataNorthEastLot = northEastLot + 2 * widthLot;
-    _buzzDataSouthWestLat = southWestLat - 2 * heigthLat;
-    _buzzDataSouthWestLot = southWestLot - 2 * widthLot;
-    _urlRequestNorthEastLat = northEastLat + heigthLat;
-    _urlRequestNorthEastLot = northEastLot + widthLot;
-    _urlRequestSouthWestLat = southWestLat - heigthLat;
-    _urlRequestSouthWestLot = southWestLot - widthLot;
+    double widthLot = thisSquare.northEastLon - thisSquare.southWestLon;
+    double heigthLat = thisSquare.northEastLat - thisSquare.southWestLat;
+    _buzzDataLonLat.northEastLat = thisSquare.northEastLat + 2 * heigthLat;
+    _buzzDataLonLat.northEastLon = thisSquare.northEastLon + 2 * widthLot;
+    _buzzDataLonLat.southWestLat = thisSquare.southWestLat - 2 * heigthLat;
+    _buzzDataLonLat.southWestLon = thisSquare.southWestLon - 2 * widthLot;
+    _urlRequestLonLat.northEastLat = thisSquare.northEastLat + heigthLat;
+    _urlRequestLonLat.northEastLon = thisSquare.northEastLon + widthLot;
+    _urlRequestLonLat.southWestLat = thisSquare.southWestLat - heigthLat;
+    _urlRequestLonLat.southWestLon = thisSquare.southWestLon - widthLot;
     _widthCurrentView = widthLot;
     
     
@@ -227,40 +201,34 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
                                         returningResponse:&response
                                                     error:&error];    
     if (error != nil) {
-        NSLog(@"Error happend.");
         return;
     }
     else if ([data length] == 0) {
-        NSLog(@"Nothing was downloaded.");
         return;
     }
     else
     {
-        NSLog(@"fetch data.");
         NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSShiftJISStringEncoding];
         NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSLog(@"set array.");
         NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
                                                              options:NSJSONReadingAllowFragments
                                                                error:nil];
         
         // NSInteger index = 0;
-        NSLog(@"remove data.");
         [_buzzData removeAllObjects];
         for (NSDictionary *buzzDictionary in buzzArray) {
             double lat = [buzzDictionary[@"lat"] doubleValue];
             double lot = [buzzDictionary[@"lot"] doubleValue];
             // This check must be done on the server.
-            if (lat < _buzzDataNorthEastLat &&
-                lat > _buzzDataSouthWestLat &&
-                lot < _buzzDataNorthEastLot &&
-                lot > _buzzDataSouthWestLot)
+            if (lat < _buzzDataLonLat.northEastLat &&
+                lat > _buzzDataLonLat.southWestLat &&
+                lot < _buzzDataLonLat.northEastLon &&
+                lot > _buzzDataLonLat.southWestLon)
             {
                 RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
                 [_buzzData addObject:place];
             }
         }
-        NSLog(@"Sorted Buzz Data.");
         return;
     }
 
