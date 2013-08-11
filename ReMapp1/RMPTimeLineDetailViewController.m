@@ -78,7 +78,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [RMPPlaceTimeLineDetailCellFactory createCellWithCollectionView:collectionView
+    return [RMPPlaceDetailCellFactory createCellWithCollectionView:collectionView
                                               cellForItemAtIndexPath:indexPath
                                                                place:self.place];
 }

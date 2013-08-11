@@ -34,14 +34,13 @@
 @end
 
 
-@implementation RMPPlaceTimeLineDetailCellFactory
+@implementation RMPPlaceDetailCellFactory
 
 + (RMPPlaceDetailCell *)createCellWithCollectionView:(UICollectionView *)collectionView
                                       cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                        place:(RMPPlace *)place
 {
-    RMPPlaceDetailCell *cell = (RMPPlaceDetailCell *)[collectionView
-                                                                      dequeueReusableCellWithReuseIdentifier:[[place class] detailCellIdentifier] forIndexPath:indexPath];
+    RMPPlaceDetailCell *cell = (RMPPlaceDetailCell *)[collectionView dequeueReusableCellWithReuseIdentifier:[[place class] detailCellIdentifier] forIndexPath:indexPath];
     [cell setDataWithPlace:place];
     return cell;
 }

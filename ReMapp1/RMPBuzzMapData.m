@@ -8,7 +8,6 @@
 
 #import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
-#import "CSVHandler.h"
 #import "RMPMapView.h"
 #import "RMPPlaceFactory.h"
 

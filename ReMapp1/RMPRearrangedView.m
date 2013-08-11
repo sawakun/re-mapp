@@ -15,12 +15,12 @@ CGFloat originY;
 {
     originY = aOriginY;
 }
-
+/*
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     self.layer.position = CGPointMake(self.frame.origin.x + 0.5 * self.frame.size.width,
                                       originY + 0.5 * self.frame.size.height);
 }
-
+*/
 @end

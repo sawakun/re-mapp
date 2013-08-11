@@ -16,7 +16,7 @@
 @end
 
 
-@interface RMPPlaceTimeLineDetailCellFactory : NSObject
+@interface RMPPlaceDetailCellFactory : NSObject
 + (RMPPlaceDetailCell *)createCellWithCollectionView:(UICollectionView *)collectionView
                                       cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                        place:(RMPPlace *)place;

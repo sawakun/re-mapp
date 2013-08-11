@@ -332,32 +332,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPPlaceCollectionView.m"
-         timestampString = "397278778.773415"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-setUp"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ReMapp1/RMPPlaceCollectionView.m"
-         timestampString = "397279044.020134"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-setUp"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPSlidingViewController.m"
          timestampString = "397750529.027504"
          startingColumnNumber = "9223372036854775807"
@@ -606,11 +580,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPHeightToFitLabel.m"
-         timestampString = "397798629.357972"
+         timestampString = "397911493.020001"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
          landmarkName = "-layoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -856,8 +830,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "24"
          endingLineNumber = "24"
-         landmarkName = "-layoutSubviews"
-         landmarkType = "5">
+         landmarkName = "@implementation RMPRearrangedView"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
    <SymbolicBreakpoints>

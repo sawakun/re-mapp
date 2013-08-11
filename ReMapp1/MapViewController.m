@@ -15,7 +15,7 @@
 #import "RMPAnnotation.h"
 #import "RMPNonVisibleSearchBar.h"
 #import "RMPMapView.h"
-#import "RMPPlaceCollectionView.h"
+#import "RMPPlaceViewController.h"
 
 // TEST
 @interface NSObject (Extension)

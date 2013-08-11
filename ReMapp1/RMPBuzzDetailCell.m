@@ -29,11 +29,12 @@
     if (![place isKindOfClass:[RMPBuzzPlace class]]) {
         return;
     }
-
+    
     RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
     self.nameLabel.text = buzz.userName;
     self.bodyLabel.text = buzz.text;
     self.dateLabel.text = buzz.date;
+    self.bodyLabel.width = 245;
     
     [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
