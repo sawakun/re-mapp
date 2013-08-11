@@ -1,29 +1,54 @@
 //
-//  RMPBuzzCell.m
+//  RMPBuzzTimeLineCollectionViewCell.m
 //  ReMapp1
 //
-//  Created by Masahiro Nishiba on 2013/07/20.
+//  Created by nishiba on 2013/08/08.
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
 #import "RMPBuzzCell.h"
+#import "RMPPlace.h"
+#import "UIImageView+WebCache.h"
+#import "RMPHeightToFitLabel.h"
 
 @implementation RMPBuzzCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
++ (CGFloat)heightForPlace:(RMPPlace *)place
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
+    if (![place isKindOfClass:[RMPBuzzPlace class]])
+    {
+        return 0.0;
     }
-    return self;
+    
+    RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
+   
+    CGSize maximumLabelSize = CGSizeMake(245,9999);
+    
+    UIFont *cellFont = [UIFont systemFontOfSize:14];
+    CGSize expectedLabelSize = [buzz.text sizeWithFont:cellFont
+                                     constrainedToSize:maximumLabelSize
+                                         lineBreakMode:NSLineBreakByWordWrapping];
+    
+    //adjust the label the the new height.
+    return expectedLabelSize.height + 55.0f;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+
+- (void)setDataWithPlace:(RMPPlace *)place
 {
-    [super setSelected:selected animated:animated];
+    if (![place isKindOfClass:[RMPBuzzPlace class]])
+    {
+        return;
+    }
     
-    // Configure the view for the selected state
+    RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
+    self.nameLabel.text = buzz.userName;
+    self.bodyLabel.text = buzz.text;
+    self.dateLabel.text = buzz.date;
+    
+    [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
+                       placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
+    
 }
 
 @end

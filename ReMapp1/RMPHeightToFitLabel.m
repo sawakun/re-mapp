@@ -22,6 +22,7 @@
 
 - (void)setUp
 {
+    self.width = 0;
     self.text = nil;
 }
 
@@ -29,13 +30,16 @@
 {
     [super setText:text];
     [self setNumberOfLines:0];
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 0);
+    CGFloat thisWidth = self.width > 0 ? self.width : self.frame.size.width;
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, thisWidth, 0);
     [self sizeToFit];
 }
 
 -(void) layoutSubviews
 {
     [super layoutSubviews];
+    CGFloat thisWidth = self.width > 0 ? self.width : self.frame.size.width;
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, thisWidth, 0);
     [self setNumberOfLines:0];
     [self sizeToFit];
 }

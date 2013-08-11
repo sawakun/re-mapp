@@ -34,7 +34,7 @@
                          location.latitude,
                          location.longitude,
                          nowDateString];
-    addCSVFile(fileName, newLine);
+    //addCSVFile(fileName, newLine);
     return TRUE;
 }
 

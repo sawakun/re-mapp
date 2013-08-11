@@ -8,9 +8,9 @@
 
 #import "RMPTimeLineViewController.h"
 #import "RMPTimeLineDetailViewController.h"
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
-#import "RMPPlaceTimeLineCell.h"
+#import "RMPPlaceCell.h"
 #import "RMPTimeLineDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -19,20 +19,10 @@
 @property RMPTimeLineDetailViewController *timeLineDetailViewController;
 @property CGRect showFrame;
 @property CGRect hideFrame;
-@property (weak, nonatomic) RMPBuzzData *buzzData;
+@property (weak, nonatomic) RMPBuzzMapData *buzzData;
 @end
 
 @implementation RMPTimeLineViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        [self setUp];
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -51,10 +41,21 @@
 
 - (void)setUp
 {
-    self.buzzData = [RMPBuzzData sharedManager];
+    self.buzzData = [RMPBuzzMapData sharedManager];
     self.timeLineCollectionView.dataSource = self;
     self.timeLineCollectionView.delegate = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzDataReloaded object:self.buzzData];
+    
+    // set nib
+    UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzCell" bundle:nil];
+    UINib *shopCell = [UINib nibWithNibName:@"RMPShopCell" bundle:nil];
+    UINib *eatCell  = [UINib nibWithNibName:@"RMPEatCell"  bundle:nil];
+    UINib *playCell = [UINib nibWithNibName:@"RMPPlayCell" bundle:nil];
+    [self.timeLineCollectionView registerNib:buzzCell forCellWithReuseIdentifier:@"RMPBuzzCell"];
+    [self.timeLineCollectionView registerNib:shopCell forCellWithReuseIdentifier:@"RMPShopCell"];
+    [self.timeLineCollectionView registerNib:eatCell  forCellWithReuseIdentifier:@"RMPEatCell"];
+    [self.timeLineCollectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayCell"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.buzzData];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     self.timeLineDetailViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPTimeLineDetailViewController"];
@@ -90,7 +91,7 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     RMPPlace *place = [_buzzData buzzAtIndex:indexPath.row];
-    return [RMPPlaceTimeLineCellFactory createCellWithCollectionView:collectionView
+    return [RMPPlaceCellFactory createCellWithCollectionView:collectionView
                                               cellForItemAtIndexPath:indexPath
                                                                place:place];
 }

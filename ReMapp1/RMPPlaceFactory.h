@@ -10,11 +10,6 @@
 @class RMPPlace;
 
 
-
-
-
-
-
 @interface RMPPlaceFactory : NSObject
 + (RMPPlace *)createPlace:(NSDictionary *)buzzDictionary;
 @end

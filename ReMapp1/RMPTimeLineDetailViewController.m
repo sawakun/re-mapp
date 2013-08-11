@@ -7,9 +7,9 @@
 //
 
 #import "RMPTimeLineDetailViewController.h"
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
-#import "RMPPlaceTimeLineDetailCell.h"
+#import "RMPPlaceDetailCell.h"
 
 @interface RMPTimeLineDetailViewController ()
 @property CGRect hideFrame;
@@ -27,6 +27,16 @@
     self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                               action:nil];
     [self.view addGestureRecognizer:self.panGesture];
+
+    // set nib
+    UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzDetailCell" bundle:nil];
+    UINib *shopCell = [UINib nibWithNibName:@"RMPShopDetailCell" bundle:nil];
+    UINib *eatCell  = [UINib nibWithNibName:@"RMPEatDetailCell"  bundle:nil];
+    UINib *playCell = [UINib nibWithNibName:@"RMPPlayDetailCell" bundle:nil];
+    [self.timeLineDetailCollectionView registerNib:buzzCell forCellWithReuseIdentifier:@"RMPBuzzDetailCell"];
+    [self.timeLineDetailCollectionView registerNib:shopCell forCellWithReuseIdentifier:@"RMPShopDetailCell"];
+    [self.timeLineDetailCollectionView registerNib:eatCell  forCellWithReuseIdentifier:@"RMPEatDetailCell"];
+    [self.timeLineDetailCollectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayDetailCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,7 +78,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [RMPPlaceTimeLineDetailCellFactory createCellWithCollectionView:collectionView
+    return [RMPPlaceDetailCellFactory createCellWithCollectionView:collectionView
                                               cellForItemAtIndexPath:indexPath
                                                                place:self.place];
 }
