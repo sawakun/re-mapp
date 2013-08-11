@@ -11,7 +11,7 @@
 @class RMPBuzzPlace;
 
 /** Notification that gets posted when the buzz date are reloaded. */
-extern NSString *const RMPBuzzDataReloaded;
+extern NSString *const RMPBuzzMapDataReloaded;
 
 
 /*
@@ -33,7 +33,7 @@ extern NSString *const RMPBuzzDataReloaded;
 - (BOOL)isIn:(RMPSquareLonLat *)squareLonLat;
 @end
 
-@interface RMPBuzzData : NSObject
+@interface RMPBuzzMapData : NSObject
 {
 @private
     NSMutableArray *_currentViewBuzzData;
@@ -48,7 +48,7 @@ extern NSString *const RMPBuzzDataReloaded;
 @property (nonatomic, readonly) NSInteger count;
 @property (atomic, readonly) NSMutableArray *buzzes;
 
-+(RMPBuzzData*)sharedManager;
++(RMPBuzzMapData*)sharedManager;
 
 - (void)reloadWithNorthEastLat:(CGFloat)northEastLat
                   NorthEastLot:(CGFloat)northEastLon

@@ -7,7 +7,7 @@
 //
 
 #import "MapViewController.h"
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
@@ -95,7 +95,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reload)
-                                                 name:RMPBuzzDataReloaded
+                                                 name:RMPBuzzMapDataReloaded
                                                object:self.buzzData];
 }
 
@@ -104,7 +104,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     [super viewDidAppear:animated];
     //set BuzzData
-    self.buzzData = [RMPBuzzData sharedManager];
+    self.buzzData = [RMPBuzzMapData sharedManager];
     // TEST
     //[self test];
 }

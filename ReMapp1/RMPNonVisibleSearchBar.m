@@ -28,7 +28,9 @@
 - (void)drawRect:(CGRect)rect
 {
 
-    [[self.subviews objectAtIndex:0] removeFromSuperview];
+    if ([self.subviews objectAtIndex:0]) {
+        [[self.subviews objectAtIndex:0] removeFromSuperview];
+    }
 }
 
 

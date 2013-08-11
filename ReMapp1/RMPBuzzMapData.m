@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPBuzzData.h"
+#import "RMPBuzzMapData.h"
 #import "RMPPlace.h"
 #import "CSVHandler.h"
 #import "RMPMapView.h"
 #import "RMPPlaceFactory.h"
 
-NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
+NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
 
 
 @implementation RMPSquareLonLat
@@ -59,19 +59,19 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
 
 @end
 
-@interface RMPBuzzData()
+@interface RMPBuzzMapData()
 @end
 
-@implementation RMPBuzzData
+@implementation RMPBuzzMapData
 @synthesize buzzes = _currentViewBuzzData;
 
 
-+(RMPBuzzData*)sharedManager
++(RMPBuzzMapData*)sharedManager
 {
-    static RMPBuzzData *sharedBuzzData;
+    static RMPBuzzMapData *sharedBuzzData;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedBuzzData = [[RMPBuzzData alloc] initSharedInstance];
+        sharedBuzzData = [[RMPBuzzMapData alloc] initSharedInstance];
     });
     return sharedBuzzData;
 }
@@ -171,7 +171,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
         }
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzDataReloaded object:self userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzMapDataReloaded object:self userInfo:nil];
     });
 }
 
@@ -194,7 +194,7 @@ NSString *const RMPBuzzDataReloaded = @"RMPBuzzDataReloaded";
     //json
     NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
     NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10.0f];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
     NSURLResponse *response;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
