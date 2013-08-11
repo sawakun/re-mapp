@@ -36,7 +36,6 @@
 		4573183B17B27A8600DB02C9 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573182F17B27A8600DB02C9 /* SDWebImageManager.m */; };
 		4573183C17B27A8600DB02C9 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183217B27A8600DB02C9 /* SDWebImagePrefetcher.m */; };
 		4573183D17B27A8600DB02C9 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183417B27A8600DB02C9 /* UIButton+WebCache.m */; };
-		4573183E17B27A8600DB02C9 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4573183617B27A8600DB02C9 /* UIImageView+WebCache.m */; };
 		4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4573183F17B27C7600DB02C9 /* ImageIO.framework */; };
 		4573184217B2801200DB02C9 /* NO_IMAGE.png in Resources */ = {isa = PBXBuildFile; fileRef = 4573184117B2801200DB02C9 /* NO_IMAGE.png */; };
 		45757AD517ADF4BF008E5397 /* LIKE_BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 45757AD117ADF4BF008E5397 /* LIKE_BUTTON.png */; };
@@ -1112,10 +1111,6 @@
 				45286EB017AFC9E300B0CCCC /* RMPShopCollectionViewCell.m in Sources */,
 				45286EB317AFCA7700B0CCCC /* RMPEatCollectionViewCell.m in Sources */,
 				45286EB617AFCA9500B0CCCC /* RMPPlayCollectionViewCell.m in Sources */,
-				4573181E17B27A7D00DB02C9 /* UIImage+Alpha.m in Sources */,
-				4573181F17B27A7D00DB02C9 /* UIImage+Resize.m in Sources */,
-				4573182017B27A7D00DB02C9 /* UIImage+RoundedCorner.m in Sources */,
-				4573182117B27A7D00DB02C9 /* UIImage+Scaling.m in Sources */,
 				4573183717B27A8600DB02C9 /* MKAnnotationView+WebCache.m in Sources */,
 				4573183817B27A8600DB02C9 /* SDImageCache.m in Sources */,
 				4573183917B27A8600DB02C9 /* SDWebImageDecoder.m in Sources */,
@@ -1265,7 +1260,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F4FFC329-D6FD-4872-BA0A-1695E26D092D";
+				PROVISIONING_PROFILE = "3054A54C-515D-4293-B064-4E266CC4B42C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1283,7 +1278,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F4FFC329-D6FD-4872-BA0A-1695E26D092D";
+				PROVISIONING_PROFILE = "3054A54C-515D-4293-B064-4E266CC4B42C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
