@@ -14,19 +14,32 @@
 extern NSString *const RMPBuzzDataReloaded;
 
 
+/*
+ double northEastLot = [center.userInfo[@"northEastLot"] doubleValue];
+ double southWestLat = [center.userInfo[@"southWestLat"] doubleValue];
+ double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
+
+ */
+// keep lon & lat for rectangle area
+@interface RMPSquareLonLat : NSObject
+@property (nonatomic) CGFloat northEastLon;
+@property (nonatomic) CGFloat northEastLat;
+@property (nonatomic) CGFloat southWestLon;
+@property (nonatomic) CGFloat southWestLat;
+- (id)initWithNorthEastLon:(CGFloat)nelon
+              NorthEastLat:(CGFloat)nelat
+              SouthWestLon:(CGFloat)swlon
+              SouthWestLat:(CGFloat)swlat;
+- (BOOL)isIn:(RMPSquareLonLat *)squareLonLat;
+@end
+
 @interface RMPBuzzData : NSObject
 {
 @private
     NSMutableArray *_currentViewBuzzData;
     NSMutableArray *_buzzData;
-    double _buzzDataNorthEastLat;
-    double _buzzDataNorthEastLot;
-    double _buzzDataSouthWestLat;
-    double _buzzDataSouthWestLot;
-    double _urlRequestNorthEastLat;
-    double _urlRequestNorthEastLot;
-    double _urlRequestSouthWestLat;
-    double _urlRequestSouthWestLot;
+    RMPSquareLonLat *_buzzDataLonLat;
+    RMPSquareLonLat *_urlRequestLonLat;
     double _widthCurrentView;
     dispatch_queue_t _queue;
 }
@@ -37,9 +50,9 @@ extern NSString *const RMPBuzzDataReloaded;
 
 +(RMPBuzzData*)sharedManager;
 
-- (void)reloadWithNorthEastLat:(double)northEastLat
-                  NorthEastLot:(double)northEastLot
-                  SouthWestLat:(double)southWestLat
-                  SouthWestLot:(double)southWestLot;
+- (void)reloadWithNorthEastLat:(CGFloat)northEastLat
+                  NorthEastLot:(CGFloat)northEastLon
+                  SouthWestLat:(CGFloat)southWestLat
+                  SouthWestLot:(CGFloat)southWestLon;
 - (RMPBuzzPlace *)buzzAtIndex:(NSInteger)index;
 @end
