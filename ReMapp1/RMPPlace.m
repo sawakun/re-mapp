@@ -22,7 +22,7 @@
 
 @interface RMPPlace()
 @property (nonatomic) NSString *buzzId;
-@property (nonatomic) NSString *userId;
+@property (nonatomic) NSInteger userId;
 @property (nonatomic) NSString *userName;
 @property (nonatomic) NSString *iconURL;
 @property (nonatomic) NSString *text;
@@ -109,7 +109,7 @@
     if (self && buzzDictionary)
     {
         self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = buzzDictionary[@"user_id"];
+        self.userId   = [buzzDictionary[@"user_id"] integerValue];
         self.userName = buzzDictionary[@"user_name"];
         self.iconURL  = buzzDictionary[@"user_img_url"];
         self.text     = buzzDictionary[@"buzz_body"];
@@ -162,7 +162,7 @@
     if (self && buzzDictionary)
     {
         self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = buzzDictionary[@"user_id"];
+        self.userId   = [buzzDictionary[@"user_id"] integerValue];
         self.userName = buzzDictionary[@"user_name"];
         self.iconURL  = buzzDictionary[@"user_img_url"];
         self.text     = buzzDictionary[@"buzz_body"];
@@ -214,7 +214,7 @@
     if (self && buzzDictionary)
     {
         self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = buzzDictionary[@"user_id"];
+        self.userId   = [buzzDictionary[@"user_id"] integerValue];
         self.userName = buzzDictionary[@"user_name"];
         self.iconURL  = buzzDictionary[@"user_img_url"];
         self.text     = buzzDictionary[@"buzz_body"];
@@ -267,7 +267,7 @@
     if (self && buzzDictionary)
     {
         self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = buzzDictionary[@"user_id"];
+        self.userId   = [buzzDictionary[@"user_id"] integerValue];
         self.userName = buzzDictionary[@"user_name"];
         self.iconURL  = buzzDictionary[@"user_img_url"];
         self.text     = buzzDictionary[@"buzz_body"];

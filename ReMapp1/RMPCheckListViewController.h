@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMPTimeLineViewController.h"
 
-@interface RMPCheckListViewController : UIViewController
+@interface RMPCheckListViewController : RMPTimeLineViewController
 - (IBAction)tappedToReturnToMenu:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UICollectionView *timeLineCollectionView;
 @end

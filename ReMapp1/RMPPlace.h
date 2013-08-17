@@ -13,7 +13,7 @@
 
 @interface RMPPlace : NSObject
 @property (nonatomic, readonly) NSString *buzzId;
-@property (nonatomic, readonly) NSString *userId;
+@property (nonatomic, readonly) NSInteger userId;
 @property (nonatomic, readonly) NSString *userName;
 @property (nonatomic, readonly) NSString *iconURL;
 @property (nonatomic) UIImage *iconImage;

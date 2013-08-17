@@ -48,6 +48,8 @@ extern NSString *const RMPSlidingViewLeftViewWillAppear;
 @property (nonatomic, readonly) UIPanGestureRecognizer *rightPanGesture;
 /** Returns horizontal panning gesture for moving the left view. */
 @property (nonatomic, readonly) UIPanGestureRecognizer *leftPanGesture;
+/** Returns horizontal panning gesture for moving the bottom view. */
+@property (nonatomic, readonly) UIPanGestureRecognizer *bottomPanGesture;
 
 @property(nonatomic, assign) id <RMPSlidingViewDelegate> delegate;
 
