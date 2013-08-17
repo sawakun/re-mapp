@@ -462,7 +462,6 @@
 		45500B3717957CC500DCE98D /* Annotation */ = {
 			isa = PBXGroup;
 			children = (
-				45C76F321796BF9600BD184C /* image */,
 				457FEB521795E20900616D23 /* RMPAnnotation.h */,
 				457FEB531795E20900616D23 /* RMPAnnotation.m */,
 			);
@@ -501,8 +500,25 @@
 		45757AD017ADF4A9008E5397 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				45C537FA179D7DCB0077FFA3 /* currentLocation.png */,
 				4573184117B2801200DB02C9 /* NO_IMAGE.png */,
 				45757AD117ADF4BF008E5397 /* LIKE_BUTTON.png */,
+				45DE4BBB17ABE0A50088C2AB /* PIN_PLAY.png */,
+				45E64EC117AC793B007DC8CB /* PIN_BUZZ_SELECTED.png */,
+				45E64EC217AC793B007DC8CB /* PIN_EAT_SELECTED.png */,
+				45E64EC317AC793B007DC8CB /* PIN_PLAY_SELECTED.png */,
+				4536736917AEA112002F0F88 /* PIN_BUZZ@2x.png */,
+				45E64EC417AC793B007DC8CB /* PIN_SHOP_SELECTED.png */,
+				45DE4BC117ABE0C70088C2AB /* PIN_SHOP.png */,
+				45DABF05179D7755001E9A7C /* buzzPin.png */,
+				45DE4BBF17ABE0BC0088C2AB /* PIN_BUZZ.png */,
+				45DE4BBD17ABE0B40088C2AB /* PIN_EAT.png */,
+				45DABF07179D7927001E9A7C /* playPin.png */,
+				45F39AAE1797550E003B943A /* writeFormPin.png */,
+				45952DC2177FDFFD0083B7D0 /* pin.png */,
+				45C76F2E1796BF7000BD184C /* pin1.png */,
+				45C76F2F1796BF7000BD184C /* pin2.png */,
+				450C35B51787831D00484A9E /* bigmarker.png */,
 				45757AD217ADF4BF008E5397 /* LIKED_BUTTON.png */,
 				45757AD317ADF4BF008E5397 /* MUTE_BUTTON.png */,
 				45757AD417ADF4BF008E5397 /* MUTED_BUTTON.png */,
@@ -600,6 +616,8 @@
 				459A591417A55D180089BCC9 /* RMPCheckListViewController.m */,
 				459A591617A55D2D0089BCC9 /* RMPMuteListViewController.h */,
 				459A591717A55D2D0089BCC9 /* RMPMuteListViewController.m */,
+				45E64F6917AD5EEF007DC8CB /* RMPPlaceViewController.h */,
+				45E64F6A17AD5EEF007DC8CB /* RMPPlaceViewController.m */,
 			);
 			name = TimeLineViewController;
 			sourceTree = "<group>";
@@ -642,29 +660,6 @@
 				45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */,
 			);
 			name = UIPlaceHolderTextView;
-			sourceTree = "<group>";
-		};
-		45C76F321796BF9600BD184C /* image */ = {
-			isa = PBXGroup;
-			children = (
-				45DE4BBB17ABE0A50088C2AB /* PIN_PLAY.png */,
-				45E64EC117AC793B007DC8CB /* PIN_BUZZ_SELECTED.png */,
-				45E64EC217AC793B007DC8CB /* PIN_EAT_SELECTED.png */,
-				45E64EC317AC793B007DC8CB /* PIN_PLAY_SELECTED.png */,
-				4536736917AEA112002F0F88 /* PIN_BUZZ@2x.png */,
-				45E64EC417AC793B007DC8CB /* PIN_SHOP_SELECTED.png */,
-				45DE4BC117ABE0C70088C2AB /* PIN_SHOP.png */,
-				45DABF05179D7755001E9A7C /* buzzPin.png */,
-				45DE4BBF17ABE0BC0088C2AB /* PIN_BUZZ.png */,
-				45DE4BBD17ABE0B40088C2AB /* PIN_EAT.png */,
-				45DABF07179D7927001E9A7C /* playPin.png */,
-				45F39AAE1797550E003B943A /* writeFormPin.png */,
-				45952DC2177FDFFD0083B7D0 /* pin.png */,
-				45C76F2E1796BF7000BD184C /* pin1.png */,
-				45C76F2F1796BF7000BD184C /* pin2.png */,
-				450C35B51787831D00484A9E /* bigmarker.png */,
-			);
-			name = image;
 			sourceTree = "<group>";
 		};
 		45C76F331796C30000BD184C /* RMPNonVisibleToolBar */ = {
@@ -721,16 +716,6 @@
 			name = Place;
 			sourceTree = "<group>";
 		};
-		45E48971177F9A43002FF5FB /* PlaceView */ = {
-			isa = PBXGroup;
-			children = (
-				45E64F6F17AD6160007DC8CB /* Cells */,
-				45E64F6917AD5EEF007DC8CB /* RMPPlaceViewController.h */,
-				45E64F6A17AD5EEF007DC8CB /* RMPPlaceViewController.m */,
-			);
-			name = PlaceView;
-			sourceTree = "<group>";
-		};
 		45E48978177FB85A002FF5FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,6 +764,7 @@
 		45E4AC10177E8ADF006619F1 /* ReMapp1 */ = {
 			isa = PBXGroup;
 			children = (
+				45757AD017ADF4A9008E5397 /* Images */,
 				45CF18C017B7B2EF004271AD /* MainStoryboard_iPhone.storyboard */,
 				4557178F17A4FD3400F6483F /* Menu */,
 				45274E69179A772E00A4CE59 /* TimeLine */,
@@ -786,7 +772,6 @@
 				45F6EBAB179819250091C4E0 /* User */,
 				45E4AC19177E8ADF006619F1 /* AppDelegate.h */,
 				45E4AC1A177E8ADF006619F1 /* AppDelegate.m */,
-				45E48971177F9A43002FF5FB /* PlaceView */,
 				457D15FC17942CCE007F2E8A /* Library */,
 				45E4AC48177E93FF006619F1 /* Map */,
 				45E48978177FB85A002FF5FB /* Model */,
@@ -835,7 +820,6 @@
 		45E4AC48177E93FF006619F1 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				45C537FA179D7DCB0077FFA3 /* currentLocation.png */,
 				45500B3717957CC500DCE98D /* Annotation */,
 				45E4AC28177E8ADF006619F1 /* MapViewController.h */,
 				45E4AC29177E8ADF006619F1 /* MapViewController.m */,
@@ -843,14 +827,6 @@
 				45DABF03179D3530001E9A7C /* RMPMapView.m */,
 			);
 			name = Map;
-			sourceTree = "<group>";
-		};
-		45E64F6F17AD6160007DC8CB /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				45757AD017ADF4A9008E5397 /* Images */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 		45E9977C17A66C8700C8675A /* image */ = {

@@ -24,7 +24,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 @implementation RMPPlaceViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,6 +48,12 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     [self.collectionView registerNib:shopCell forCellWithReuseIdentifier:@"RMPShopDetailCell"];
     [self.collectionView registerNib:eatCell  forCellWithReuseIdentifier:@"RMPEatDetailCell"];
     [self.collectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayDetailCell"];
+    
+    CGFloat height =  self.view.frame.size.height;
+    CGFloat width = self.view.frame.size.width;
+    [self.collectionView setFrame:CGRectMake(0, 0, width, height)];
+    [self.collectionView setContentSize:CGSizeMake(width, height)];
+    [self.flowLayout setItemSize:CGSizeMake(width, height)];
 }
 
 
