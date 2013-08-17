@@ -60,7 +60,7 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
 - (void)fetchNewDataWithConditions:(NSDictionary *)conditions
 {
     //json
-    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz_temp.json.js";
+    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
                                                 cachePolicy:NSURLRequestReloadIgnoringCacheData
@@ -77,7 +77,12 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
         return;
     }
     
-    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSShiftJISStringEncoding];
+    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
+    if (dataStr == nil) {
+        NSLog(@"%@", data);
+        NSLog(@"Error in fetchNewDataWithConditions");
+        return;
+    }
     NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
                                                          options:NSJSONReadingAllowFragments

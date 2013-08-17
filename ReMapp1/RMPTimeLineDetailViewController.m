@@ -18,6 +18,12 @@
 
 @implementation RMPTimeLineDetailViewController
 
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

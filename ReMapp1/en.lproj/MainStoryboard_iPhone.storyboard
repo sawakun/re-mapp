@@ -528,11 +528,8 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OiS-o3-XgS">
+                            <collectionView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OiS-o3-XgS">
                                 <color key="backgroundColor" red="0.78852439409999997" green="0.78852439409999997" blue="0.78852439409999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="416" id="Kyt-Mn-0Qq"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1nj-cm-Wja">
                                     <size key="itemSize" width="320" height="620"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -560,6 +557,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OiS-o3-XgS" firstAttribute="leading" secondItem="C5o-6c-A92" secondAttribute="leading" type="default" id="3tP-Mc-e7O"/>
+                            <constraint firstItem="OiS-o3-XgS" firstAttribute="bottom" secondItem="C5o-6c-A92" secondAttribute="bottom" type="default" id="E8G-Ca-F0P"/>
                             <constraint firstItem="DNd-Hg-gMz" firstAttribute="top" secondItem="C5o-6c-A92" secondAttribute="top" type="default" id="Ed0-OC-U1P"/>
                             <constraint firstItem="DNd-Hg-gMz" firstAttribute="leading" secondItem="C5o-6c-A92" secondAttribute="leading" type="default" id="R3h-aX-iBH"/>
                             <constraint firstItem="DNd-Hg-gMz" firstAttribute="trailing" secondItem="C5o-6c-A92" secondAttribute="trailing" type="default" id="fN7-8q-y6x"/>
@@ -1006,12 +1004,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw" customClass="RMPMapView">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="336" id="2qv-ly-cpu"/>
-                                    <constraint firstAttribute="height" constant="508" id="JlJ-YK-0f1"/>
-                                </constraints>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw" customClass="RMPMapView"/>
                             <searchBar contentMode="redraw" barStyle="blackTranslucent" placeholder="What..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO" customClass="RMPNonVisibleSearchBar">
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1045,22 +1038,24 @@
                         <constraints>
                             <constraint firstItem="tL3-Ro-ddN" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="8" id="3WV-VM-uJW"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="4XG-FD-B4v"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="5sl-mO-hcI"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="5LE-ZQ-3e2"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="Bd8-62-ThR"/>
                             <constraint firstItem="ayf-VO-otW" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="EDu-Wc-8Ca"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="HFQ-lN-ZyA"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="HvL-fK-kLQ"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerX" secondItem="uEB-Cb-ne0" secondAttribute="centerX" type="default" id="PGI-2T-27p"/>
                             <constraint firstAttribute="trailing" secondItem="ayf-VO-otW" secondAttribute="trailing" constant="285" id="Prm-61-ky9"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="Ptf-n1-Dw6"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="283" id="SQB-6c-nS5"/>
                             <constraint firstItem="ayf-VO-otW" firstAttribute="top" secondItem="VRc-20-keO" secondAttribute="bottom" type="default" id="VwS-W9-CsS"/>
-                            <constraint firstItem="ayf-VO-otW" firstAttribute="centerY" secondItem="uEB-Cb-ne0" secondAttribute="centerY" type="default" id="Wxm-fF-Hvz"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="X6o-go-jYp"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="bfo-E5-ky8"/>
                             <constraint firstAttribute="trailing" secondItem="2SP-CV-J8J" secondAttribute="trailing" constant="2" id="dXt-QV-UFG"/>
                             <constraint firstAttribute="bottom" secondItem="tL3-Ro-ddN" secondAttribute="bottom" constant="8" id="hMj-Mx-dMs"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="kMR-MO-SGw"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="kda-Us-lFs"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="m1V-JG-baJ"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="n3m-De-vGa"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerY" secondItem="ayf-VO-otW" secondAttribute="centerY" type="default" id="p7S-R0-MF8"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="top" secondItem="ayf-VO-otW" secondAttribute="top" type="default" id="rhy-Gv-uZ1"/>
                         </constraints>
                     </view>
@@ -1189,13 +1184,10 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" horizontalHuggingPriority="224" verticalHuggingPriority="282" horizontalCompressionResistancePriority="224" verticalCompressionResistancePriority="229" restorationIdentifier="RMPPlaceCollectionView" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Z0-rC-5ep">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="460" id="bv0-Tu-87V"/>
-                                </constraints>
+                            <collectionView autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="224" verticalHuggingPriority="282" horizontalCompressionResistancePriority="224" verticalCompressionResistancePriority="229" restorationIdentifier="RMPPlaceCollectionView" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Z0-rC-5ep">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="kel-G2-wdV">
-                                    <size key="itemSize" width="320" height="460"/>
+                                    <size key="itemSize" width="320" height="548"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1203,14 +1195,17 @@
                                 <cells/>
                             </collectionView>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="trailing" secondItem="C9r-8Y-U1Z" secondAttribute="trailing" type="default" id="Atc-TO-Abu"/>
-                            <constraint firstItem="9Z0-rC-5ep" firstAttribute="leading" secondItem="C9r-8Y-U1Z" secondAttribute="leading" type="default" id="nbf-xg-flI"/>
+                            <constraint firstItem="9Z0-rC-5ep" firstAttribute="bottom" secondItem="C9r-8Y-U1Z" secondAttribute="bottom" type="default" id="NBu-vX-o0Y"/>
+                            <constraint firstItem="9Z0-rC-5ep" firstAttribute="leading" secondItem="C9r-8Y-U1Z" secondAttribute="leading" type="user" id="nbf-xg-flI"/>
                             <constraint firstItem="9Z0-rC-5ep" firstAttribute="top" secondItem="C9r-8Y-U1Z" secondAttribute="top" type="default" id="pZ6-uL-amF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="9Z0-rC-5ep" id="0OQ-wL-TFt"/>
+                        <outlet property="flowLayout" destination="kel-G2-wdV" id="Nz9-ap-DGD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v02-CP-BR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1307,6 +1302,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPMuteListViewController.h"/>
             <relationships>
                 <relationship kind="action" name="tappedToReturnToMenu:"/>
+                <relationship kind="outlet" name="timeLineCollectionView" candidateClass="UICollectionView"/>
             </relationships>
         </class>
         <class className="RMPNonVisibleSearchBar" superclassName="UISearchBar">
@@ -1316,6 +1312,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RMPPlaceViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="flowLayout" candidateClass="UICollectionViewFlowLayout"/>
             </relationships>
         </class>
         <class className="RMPProblemViewController" superclassName="UIViewController">
