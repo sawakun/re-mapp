@@ -18,5 +18,6 @@ extern NSString *const RMPPlaceCollectionViewCellDidMove;
 
 @interface RMPPlaceViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end

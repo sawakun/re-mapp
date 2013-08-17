@@ -58,6 +58,7 @@
     self.timeLineDetailViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPTimeLineDetailViewController"];
     
     CGRect bounds = self.view.bounds;
+    NSLog(@"%f", bounds.size.height);
     self.hideFrame = CGRectMake(bounds.origin.x + bounds.size.width, bounds.origin.y, bounds.size.width, bounds.size.height);
     self.showFrame = CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
     [self addChildViewController:self.timeLineDetailViewController];

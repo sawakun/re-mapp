@@ -600,6 +600,8 @@
 				459A591417A55D180089BCC9 /* RMPCheckListViewController.m */,
 				459A591617A55D2D0089BCC9 /* RMPMuteListViewController.h */,
 				459A591717A55D2D0089BCC9 /* RMPMuteListViewController.m */,
+				45E64F6917AD5EEF007DC8CB /* RMPPlaceViewController.h */,
+				45E64F6A17AD5EEF007DC8CB /* RMPPlaceViewController.m */,
 			);
 			name = TimeLineViewController;
 			sourceTree = "<group>";
@@ -721,16 +723,6 @@
 			name = Place;
 			sourceTree = "<group>";
 		};
-		45E48971177F9A43002FF5FB /* PlaceView */ = {
-			isa = PBXGroup;
-			children = (
-				45E64F6F17AD6160007DC8CB /* Cells */,
-				45E64F6917AD5EEF007DC8CB /* RMPPlaceViewController.h */,
-				45E64F6A17AD5EEF007DC8CB /* RMPPlaceViewController.m */,
-			);
-			name = PlaceView;
-			sourceTree = "<group>";
-		};
 		45E48978177FB85A002FF5FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,6 +771,7 @@
 		45E4AC10177E8ADF006619F1 /* ReMapp1 */ = {
 			isa = PBXGroup;
 			children = (
+				45757AD017ADF4A9008E5397 /* Images */,
 				45CF18C017B7B2EF004271AD /* MainStoryboard_iPhone.storyboard */,
 				4557178F17A4FD3400F6483F /* Menu */,
 				45274E69179A772E00A4CE59 /* TimeLine */,
@@ -786,7 +779,6 @@
 				45F6EBAB179819250091C4E0 /* User */,
 				45E4AC19177E8ADF006619F1 /* AppDelegate.h */,
 				45E4AC1A177E8ADF006619F1 /* AppDelegate.m */,
-				45E48971177F9A43002FF5FB /* PlaceView */,
 				457D15FC17942CCE007F2E8A /* Library */,
 				45E4AC48177E93FF006619F1 /* Map */,
 				45E48978177FB85A002FF5FB /* Model */,
@@ -843,14 +835,6 @@
 				45DABF03179D3530001E9A7C /* RMPMapView.m */,
 			);
 			name = Map;
-			sourceTree = "<group>";
-		};
-		45E64F6F17AD6160007DC8CB /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				45757AD017ADF4A9008E5397 /* Images */,
-			);
-			name = Cells;
 			sourceTree = "<group>";
 		};
 		45E9977C17A66C8700C8675A /* image */ = {
