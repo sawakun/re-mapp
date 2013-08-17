@@ -14,6 +14,11 @@
 
 @implementation BuzzFormViewController
 
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
 
 - (void)viewDidLoad
 {

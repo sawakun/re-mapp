@@ -1004,12 +1004,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw" customClass="RMPMapView">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="336" id="2qv-ly-cpu"/>
-                                    <constraint firstAttribute="height" constant="508" id="JlJ-YK-0f1"/>
-                                </constraints>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw" customClass="RMPMapView"/>
                             <searchBar contentMode="redraw" barStyle="blackTranslucent" placeholder="What..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO" customClass="RMPNonVisibleSearchBar">
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -1043,22 +1038,24 @@
                         <constraints>
                             <constraint firstItem="tL3-Ro-ddN" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="8" id="3WV-VM-uJW"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="4XG-FD-B4v"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="5sl-mO-hcI"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="5LE-ZQ-3e2"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="Bd8-62-ThR"/>
                             <constraint firstItem="ayf-VO-otW" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="EDu-Wc-8Ca"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="HFQ-lN-ZyA"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="HvL-fK-kLQ"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerX" secondItem="uEB-Cb-ne0" secondAttribute="centerX" type="default" id="PGI-2T-27p"/>
                             <constraint firstAttribute="trailing" secondItem="ayf-VO-otW" secondAttribute="trailing" constant="285" id="Prm-61-ky9"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="Ptf-n1-Dw6"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="283" id="SQB-6c-nS5"/>
                             <constraint firstItem="ayf-VO-otW" firstAttribute="top" secondItem="VRc-20-keO" secondAttribute="bottom" type="default" id="VwS-W9-CsS"/>
-                            <constraint firstItem="ayf-VO-otW" firstAttribute="centerY" secondItem="uEB-Cb-ne0" secondAttribute="centerY" type="default" id="Wxm-fF-Hvz"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="X6o-go-jYp"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="bfo-E5-ky8"/>
                             <constraint firstAttribute="trailing" secondItem="2SP-CV-J8J" secondAttribute="trailing" constant="2" id="dXt-QV-UFG"/>
                             <constraint firstAttribute="bottom" secondItem="tL3-Ro-ddN" secondAttribute="bottom" constant="8" id="hMj-Mx-dMs"/>
                             <constraint firstItem="VRc-20-keO" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="kMR-MO-SGw"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="kda-Us-lFs"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="m1V-JG-baJ"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="n3m-De-vGa"/>
+                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerY" secondItem="ayf-VO-otW" secondAttribute="centerY" type="default" id="p7S-R0-MF8"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="top" secondItem="ayf-VO-otW" secondAttribute="top" type="default" id="rhy-Gv-uZ1"/>
                         </constraints>
                     </view>
@@ -1379,9 +1376,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIPlaceHolderTextView" superclassName="UITextView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPlaceHolderTextView.h"/>

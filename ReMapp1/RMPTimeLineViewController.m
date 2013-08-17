@@ -23,6 +23,13 @@
 
 @implementation RMPTimeLineViewController
 
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -24,7 +24,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 @implementation RMPPlaceViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
