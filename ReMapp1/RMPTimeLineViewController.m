@@ -8,18 +8,17 @@
 
 #import "RMPTimeLineViewController.h"
 #import "RMPTimeLineDetailViewController.h"
-#import "RMPBuzzMapData.h"
+#import "RMPPlaceData.h"
 #import "RMPPlace.h"
 #import "RMPPlaceCell.h"
 #import "RMPTimeLineDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
+#import "RMPMapPlaceData.h"
 
 @interface RMPTimeLineViewController ()
 @property RMPTimeLineDetailViewController *timeLineDetailViewController;
 @property CGRect showFrame;
 @property CGRect hideFrame;
-@property (weak, nonatomic) RMPBuzzMapData *buzzData;
 @end
 
 @implementation RMPTimeLineViewController
@@ -41,7 +40,6 @@
 
 - (void)setUp
 {
-    self.buzzData = [RMPBuzzMapData sharedManager];
     self.timeLineCollectionView.dataSource = self;
     self.timeLineCollectionView.delegate = self;
     
@@ -55,7 +53,6 @@
     [self.timeLineCollectionView registerNib:eatCell  forCellWithReuseIdentifier:@"RMPEatCell"];
     [self.timeLineCollectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayCell"];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.buzzData];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     self.timeLineDetailViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPTimeLineDetailViewController"];
@@ -84,13 +81,13 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return self.buzzData.count;
+    return _placeData.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RMPPlace *place = [_buzzData buzzAtIndex:indexPath.row];
+    RMPPlace *place = [_placeData placeAtIndex:indexPath.row];
     return [RMPPlaceCellFactory createCellWithCollectionView:collectionView
                                               cellForItemAtIndexPath:indexPath
                                                                place:place];
@@ -98,14 +95,14 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout  *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RMPPlace *place = [_buzzData buzzAtIndex:indexPath.row];
+    RMPPlace *place = [_placeData placeAtIndex:indexPath.row];
     return CGSizeMake(320, place.heightForTimeLineCell);
 }
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.timeLineDetailViewController.place = [_buzzData buzzAtIndex:indexPath.row];
+    self.timeLineDetailViewController.place = [_placeData placeAtIndex:indexPath.row];
     [UIView animateWithDuration:0.4f animations:^{
         [self.timeLineDetailViewController.view setFrame:self.showFrame];
     } completion:nil];

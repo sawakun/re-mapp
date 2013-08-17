@@ -8,7 +8,7 @@
 
 #import "RMPMapView.h"
 #import "RMPAnnotation.h"
-#import "RMPBuzzMapData.h"
+#import "RMPMapPlaceData.h"
 
 NSString *const RMPMapViewDidSelectAnnotation = @"RMPMapViewDidSelectAnnotation";
 NSString *const RMPMapViewRegionDidChangeAnimated = @"RMPMapViewRegionDidChangeAnimated";

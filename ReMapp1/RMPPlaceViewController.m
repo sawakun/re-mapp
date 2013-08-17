@@ -8,7 +8,8 @@
 
 #import "RMPPlaceViewController.h"
 #import "RMPSlidingViewController.h"
-#import "RMPBuzzMapData.h"
+#import "RMPPlaceData.h"
+#import "RMPMapPlaceData.h"
 #import "RMPMapView.h"
 #import "RMPPlace.h"
 #import "RMPPlaceDetailCell.h"
@@ -18,7 +19,7 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 
 @interface RMPPlaceViewController()
-@property (weak, nonatomic) RMPBuzzMapData *buzzData;
+@property (weak, nonatomic) RMPPlaceData *placeData;
 @end
 
 @implementation RMPPlaceViewController
@@ -33,9 +34,11 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.buzzData = [RMPBuzzMapData sharedManager];
+    self.placeData = (RMPPlaceData*)[RMPMapPlaceData sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCell:) name:RMPMapViewDidSelectAnnotation object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.buzzData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.placeData];
+
+    [self.collectionView removeGestureRecognizer:self.rmp_verticalSlidingViewController.bottomPanGesture];
 
     // set nib
     UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzDetailCell" bundle:nil];
@@ -91,13 +94,13 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return self.buzzData.count;
+    return self.placeData.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    RMPPlace *place = [_buzzData buzzAtIndex:indexPath.row];
+    RMPPlace *place = [self.placeData placeAtIndex:indexPath.row];
     
     return [RMPPlaceDetailCellFactory createCellWithCollectionView:collectionView
                                                     cellForItemAtIndexPath:indexPath

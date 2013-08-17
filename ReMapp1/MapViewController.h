@@ -11,7 +11,7 @@
 #import "RMPAnnotation.h"
 #import "RMPSlidingViewController.h"
 
-@class RMPBuzzMapData;
+@class RMPMapPlaceData;
 @class InfoViewController;
 @class BuzzFormViewController;
 @class RMPNonVisibleSearchBar;
@@ -25,7 +25,7 @@ extern NSString *const MapViewDidReload;
 
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;
-@property (nonatomic) RMPBuzzMapData *buzzData;
+@property (nonatomic) RMPMapPlaceData *buzzData;
 @property (weak, nonatomic) IBOutlet UIView *rightScratchView;
 @property (weak, nonatomic) IBOutlet UIView *leftScratchView;
 @property (weak, nonatomic) IBOutlet RMPMapView *mapView;

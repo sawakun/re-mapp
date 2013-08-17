@@ -27,8 +27,8 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-
-    if ([self.subviews objectAtIndex:0]) {
+    [super drawRect:rect];
+    if ([self.subviews count] > 0) {
         [[self.subviews objectAtIndex:0] removeFromSuperview];
     }
 }
