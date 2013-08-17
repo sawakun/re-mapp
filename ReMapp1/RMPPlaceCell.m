@@ -32,9 +32,8 @@
                                               cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                                place:(RMPPlace *)place
 {
-    RMPPlaceCell *cell = (RMPPlaceCell *)[collectionView
-                                                          dequeueReusableCellWithReuseIdentifier:[[place class] timeLineCellIdentifier]
-                                                          forIndexPath:indexPath];
+    RMPPlaceCell *cell = (RMPPlaceCell *)[collectionView dequeueReusableCellWithReuseIdentifier:[[place class] timeLineCellIdentifier]
+                                                                                   forIndexPath:indexPath];
     [cell setDataWithPlace:place];
     return cell;
 }

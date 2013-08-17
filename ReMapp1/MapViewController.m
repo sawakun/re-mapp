@@ -7,7 +7,7 @@
 //
 
 #import "MapViewController.h"
-#import "RMPBuzzMapData.h"
+#import "RMPMapPlaceData.h"
 #import "RMPPlace.h"
 #import "BuzzFormViewController.h"
 #import "RMPAnnotation.h"
@@ -16,6 +16,7 @@
 #import "RMPNonVisibleSearchBar.h"
 #import "RMPMapView.h"
 #import "RMPPlaceViewController.h"
+#import "RMPPlaceData.h"
 
 // TEST
 @interface NSObject (Extension)
@@ -36,6 +37,7 @@
     block();
 }
 @end
+
 
 @interface MapViewController ()
 
@@ -104,7 +106,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     [super viewDidAppear:animated];
     //set BuzzData
-    self.buzzData = [RMPBuzzMapData sharedManager];
+    self.buzzData = [RMPMapPlaceData sharedManager];
     // TEST
     //[self test];
 }
@@ -127,7 +129,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)showCenter:(NSInteger)index
 {
-    RMPPlace *buzz = [_buzzData buzzAtIndex:index];
+    RMPPlace *buzz = [_buzzData placeAtIndex:index];
     CLLocationCoordinate2D centerLocation;
     centerLocation.latitude = buzz.lat;
     centerLocation.longitude = buzz.lot;
@@ -136,7 +138,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)showAnnotation:(NSInteger)index
 {
-    RMPPlace *buzz = [_buzzData buzzAtIndex:index];
+    RMPPlace *buzz = [_buzzData placeAtIndex:index];
     [_mapView selectAnnotation:buzz.annotation animated:NO];
 }
 
@@ -179,13 +181,10 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 - (void)reload
 {
 
-    NSMutableArray *annotations = [NSMutableArray array];
-    for (RMPPlace *buzz in _buzzData.buzzes)
-    {
-        [annotations addObject:buzz.annotation];
-    }
-    [_mapView removeAnnotations:_mapView.annotations];
+    NSMutableArray *annotations = [self.buzzData annotations];
+    NSArray *oldAnnotations = self.mapView.annotations;
     [_mapView addAnnotations:annotations];
+    [_mapView removeAnnotations:oldAnnotations];
 }
 
 

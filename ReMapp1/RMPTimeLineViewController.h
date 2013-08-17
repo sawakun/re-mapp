@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class RMPTimeLineCollectionView;
-@interface RMPTimeLineViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
-@property (weak, nonatomic) IBOutlet UICollectionView *timeLineCollectionView;
+@class RMPTimeLineCollectionView, RMPPlaceData;
 
+@interface RMPTimeLineViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+{
+@protected
+    RMPPlaceData *_placeData;
+}
+
+@property (weak, nonatomic) IBOutlet UICollectionView *timeLineCollectionView;
+- (void)reload;
 @end

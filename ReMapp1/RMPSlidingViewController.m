@@ -28,6 +28,7 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 @property (nonatomic) UIPanGestureRecognizer *leftInnerPanGesture;
 @property (nonatomic) UIPanGestureRecognizer *rightPanGesture;
 @property (nonatomic) UIPanGestureRecognizer *leftPanGesture;
+@property (nonatomic) UIPanGestureRecognizer *bottomPanGesture;
 @end
 
 @implementation RMPSlidingViewController
@@ -129,6 +130,10 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
     self.leftPanGesture = [[UIPanGestureRecognizer alloc]
                                 initWithTarget:self
                                 action:@selector(updateLeftViewHorizontalCenterWithRecognize:)];
+    
+    self.bottomPanGesture = [[UIPanGestureRecognizer alloc]
+                           initWithTarget:self
+                           action:@selector(updateBottomViewVerticalCenterWithRecognize:)];
     
     self.bottomViewHeightAtMiddlePosition = 0.0f;
     self.anchorRightPeekAmount = 0.0f;

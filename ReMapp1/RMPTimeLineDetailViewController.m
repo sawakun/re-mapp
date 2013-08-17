@@ -7,7 +7,7 @@
 //
 
 #import "RMPTimeLineDetailViewController.h"
-#import "RMPBuzzMapData.h"
+#import "RMPPlaceData.h"
 #import "RMPPlace.h"
 #import "RMPPlaceDetailCell.h"
 
@@ -24,8 +24,7 @@
     // Do any additional setup after loading the view.
     CGRect bounds = self.view.bounds;
     self.hideFrame = CGRectMake(bounds.origin.x + bounds.size.width, bounds.origin.y, bounds.size.width, bounds.size.height);
-    self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self
-                                                              action:nil];
+    self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:nil];
     [self.view addGestureRecognizer:self.panGesture];
 
     // set nib
