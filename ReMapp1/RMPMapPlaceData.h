@@ -8,18 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "RMPPlaceData.h"
+
 @class RMPBuzzPlace;
 
 /** Notification that gets posted when the buzz date are reloaded. */
 extern NSString *const RMPBuzzMapDataReloaded;
 
 
-/*
- double northEastLot = [center.userInfo[@"northEastLot"] doubleValue];
- double southWestLat = [center.userInfo[@"southWestLat"] doubleValue];
- double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
 
- */
 // keep lon & lat for rectangle area
 @interface RMPSquareLonLat : NSObject
 @property (nonatomic) CGFloat northEastLon;
@@ -33,26 +30,17 @@ extern NSString *const RMPBuzzMapDataReloaded;
 - (BOOL)isIn:(RMPSquareLonLat *)squareLonLat;
 @end
 
-@interface RMPBuzzMapData : NSObject
+@interface RMPMapPlaceData : RMPPlaceData
 {
 @private
     NSMutableArray *_currentViewBuzzData;
-    NSMutableArray *_buzzData;
     RMPSquareLonLat *_buzzDataLonLat;
     RMPSquareLonLat *_urlRequestLonLat;
     double _widthCurrentView;
     dispatch_queue_t _queue;
 }
 
-// return the number of buzzes
-@property (nonatomic, readonly) NSInteger count;
-@property (atomic, readonly) NSMutableArray *buzzes;
+@property (nonatomic, readonly) NSMutableArray *annotations;
++(RMPMapPlaceData*)sharedManager;
 
-+(RMPBuzzMapData*)sharedManager;
-
-- (void)reloadWithNorthEastLat:(CGFloat)northEastLat
-                  NorthEastLot:(CGFloat)northEastLon
-                  SouthWestLat:(CGFloat)southWestLat
-                  SouthWestLot:(CGFloat)southWestLon;
-- (RMPBuzzPlace *)buzzAtIndex:(NSInteger)index;
 @end

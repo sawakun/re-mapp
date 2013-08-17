@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		450452F717ABAD03002F0981 /* MENU_CHECK LIST_BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 450452F617ABAD03002F0981 /* MENU_CHECK LIST_BUTTON.png */; };
 		450C35B61787831D00484A9E /* bigmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 450C35B51787831D00484A9E /* bigmarker.png */; };
-		4518DB1617B7483400E15F6F /* RMPBuzzListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1517B7483400E15F6F /* RMPBuzzListData.m */; };
+		4518DB1617B7483400E15F6F /* RMPPlaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1517B7483400E15F6F /* RMPPlaceData.m */; };
 		4518DB1A17B7547F00E15F6F /* RMPRearrangedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */; };
 		452802F717B7D06400802EBF /* RMPBuzzCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F017B7D06300802EBF /* RMPBuzzCell.xib */; };
 		452802F817B7D06400802EBF /* RMPEatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F117B7D06400802EBF /* RMPEatCell.xib */; };
-		452802F917B7D06400802EBF /* RMPPlaceCellNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F217B7D06400802EBF /* RMPPlaceCellNib.xib */; };
+		452802F917B7D06400802EBF /* RMPPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F217B7D06400802EBF /* RMPPlaceCell.xib */; };
 		452802FA17B7D06400802EBF /* RMPPlayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F317B7D06400802EBF /* RMPPlayCell.xib */; };
 		452802FB17B7D06400802EBF /* RMPShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F417B7D06400802EBF /* RMPShopCell.xib */; };
 		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
@@ -40,17 +40,18 @@
 		457D160017942E20007F2E8A /* RMPSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D15FF17942E20007F2E8A /* RMPSlidingViewController.m */; };
 		457D160317942F57007F2E8A /* RMPInitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457D160217942F57007F2E8A /* RMPInitialSlidingViewController.m */; };
 		457FEB541795E20900616D23 /* RMPAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FEB531795E20900616D23 /* RMPAnnotation.m */; };
-		458D998617B3A23C000D6EB5 /* RMPTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458D998517B3A23C000D6EB5 /* RMPTimeLineViewController.m */; };
+		458D998617B3A23C000D6EB5 /* RMPMapTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458D998517B3A23C000D6EB5 /* RMPMapTimeLineViewController.m */; };
 		458D999417B448C8000D6EB5 /* RMPHeightToFitLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 458D999317B448C8000D6EB5 /* RMPHeightToFitLabel.m */; };
 		458D999717B5217A000D6EB5 /* RMPTimeLineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458D999617B5217A000D6EB5 /* RMPTimeLineDetailViewController.m */; };
+		4593274617BD0E7A002C2FC3 /* RMPYourTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4593274517BD0E7A002C2FC3 /* RMPYourTimeLineViewController.m */; };
+		4593274D17BE4097002C2FC3 /* RMPTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4593274C17BE4097002C2FC3 /* RMPTimeLineViewController.m */; };
 		45952DBB177FDE5D0083B7D0 /* BuzzData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 45952DBA177FDE5D0083B7D0 /* BuzzData.csv */; };
 		45952DC3177FDFFD0083B7D0 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45952DC2177FDFFD0083B7D0 /* pin.png */; };
-		45952DC9177FE7250083B7D0 /* RMPBuzzMapData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* RMPBuzzMapData.m */; };
-		45952DCA177FE7250083B7D0 /* RMPBuzzMapData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* RMPBuzzMapData.m */; };
+		45952DC9177FE7250083B7D0 /* RMPMapPlaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* RMPMapPlaceData.m */; };
+		45952DCA177FE7250083B7D0 /* RMPMapPlaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DC8177FE7250083B7D0 /* RMPMapPlaceData.m */; };
 		45952DCD177FE7340083B7D0 /* RMPPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DCC177FE7340083B7D0 /* RMPPlace.m */; };
 		45952DCE177FE7340083B7D0 /* RMPPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45952DCC177FE7340083B7D0 /* RMPPlace.m */; };
 		459A590F17A55CD70089BCC9 /* RMPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A590E17A55CD70089BCC9 /* RMPProfileViewController.m */; };
-		459A591217A55D010089BCC9 /* RMPYourTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A591117A55D010089BCC9 /* RMPYourTimeLineViewController.m */; };
 		459A591517A55D190089BCC9 /* RMPCheckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A591417A55D180089BCC9 /* RMPCheckListViewController.m */; };
 		459A591817A55D2D0089BCC9 /* RMPMuteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A591717A55D2D0089BCC9 /* RMPMuteListViewController.m */; };
 		459A591B17A55D440089BCC9 /* RMPSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A591A17A55D440089BCC9 /* RMPSettingViewController.m */; };
@@ -151,7 +152,6 @@
 		45E64F6B17AD5EEF007DC8CB /* RMPPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E64F6A17AD5EEF007DC8CB /* RMPPlaceViewController.m */; };
 		45E9977B17A66C7A00C8675A /* PROBLEM_BAR.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E9977A17A66C7A00C8675A /* PROBLEM_BAR.png */; };
 		45E9977E17A66C9600C8675A /* PROFILE_BAR.png in Resources */ = {isa = PBXBuildFile; fileRef = 45E9977D17A66C9600C8675A /* PROFILE_BAR.png */; };
-		45F29A4717AA70B5007E7205 /* RMPHTTPImageUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F29A4617AA70B5007E7205 /* RMPHTTPImageUpload.m */; };
 		45F39AAA17975002003B943A /* RMPNonVisibleSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45F39AA917975002003B943A /* RMPNonVisibleSearchBar.m */; };
 		45F39AAF1797550E003B943A /* writeFormPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F39AAE1797550E003B943A /* writeFormPin.png */; };
 		45F39AB01797550E003B943A /* writeFormPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 45F39AAE1797550E003B943A /* writeFormPin.png */; };
@@ -173,13 +173,13 @@
 /* Begin PBXFileReference section */
 		450452F617ABAD03002F0981 /* MENU_CHECK LIST_BUTTON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MENU_CHECK LIST_BUTTON.png"; sourceTree = "<group>"; };
 		450C35B51787831D00484A9E /* bigmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigmarker.png; sourceTree = "<group>"; };
-		4518DB1417B7483400E15F6F /* RMPBuzzListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPBuzzListData.h; sourceTree = "<group>"; };
-		4518DB1517B7483400E15F6F /* RMPBuzzListData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPBuzzListData.m; sourceTree = "<group>"; };
+		4518DB1417B7483400E15F6F /* RMPPlaceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPlaceData.h; sourceTree = "<group>"; };
+		4518DB1517B7483400E15F6F /* RMPPlaceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPlaceData.m; sourceTree = "<group>"; };
 		4518DB1817B7547F00E15F6F /* RMPRearrangedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPRearrangedView.h; sourceTree = "<group>"; };
 		4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPRearrangedView.m; sourceTree = "<group>"; };
 		452802F017B7D06300802EBF /* RMPBuzzCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPBuzzCell.xib; sourceTree = "<group>"; };
 		452802F117B7D06400802EBF /* RMPEatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPEatCell.xib; sourceTree = "<group>"; };
-		452802F217B7D06400802EBF /* RMPPlaceCellNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPPlaceCellNib.xib; sourceTree = "<group>"; };
+		452802F217B7D06400802EBF /* RMPPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPPlaceCell.xib; sourceTree = "<group>"; };
 		452802F317B7D06400802EBF /* RMPPlayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPPlayCell.xib; sourceTree = "<group>"; };
 		452802F417B7D06400802EBF /* RMPShopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPShopCell.xib; sourceTree = "<group>"; };
 		452C975B17A3FBE00000CF51 /* RMPLazyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPLazyImageView.h; sourceTree = "<group>"; };
@@ -212,22 +212,25 @@
 		457D160217942F57007F2E8A /* RMPInitialSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPInitialSlidingViewController.m; sourceTree = "<group>"; };
 		457FEB521795E20900616D23 /* RMPAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPAnnotation.h; sourceTree = "<group>"; };
 		457FEB531795E20900616D23 /* RMPAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPAnnotation.m; sourceTree = "<group>"; };
-		458D998517B3A23C000D6EB5 /* RMPTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPTimeLineViewController.m; sourceTree = "<group>"; };
-		458D998E17B3A7BC000D6EB5 /* RMPTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPTimeLineViewController.h; sourceTree = "<group>"; };
+		458D998517B3A23C000D6EB5 /* RMPMapTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMapTimeLineViewController.m; sourceTree = "<group>"; };
+		458D998E17B3A7BC000D6EB5 /* RMPMapTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMapTimeLineViewController.h; sourceTree = "<group>"; };
 		458D999217B448C8000D6EB5 /* RMPHeightToFitLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPHeightToFitLabel.h; sourceTree = "<group>"; };
 		458D999317B448C8000D6EB5 /* RMPHeightToFitLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPHeightToFitLabel.m; sourceTree = "<group>"; };
 		458D999517B5217A000D6EB5 /* RMPTimeLineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPTimeLineDetailViewController.h; sourceTree = "<group>"; };
 		458D999617B5217A000D6EB5 /* RMPTimeLineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPTimeLineDetailViewController.m; sourceTree = "<group>"; };
+		4593274417BD0E7A002C2FC3 /* RMPYourTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPYourTimeLineViewController.h; sourceTree = "<group>"; };
+		4593274517BD0E7A002C2FC3 /* RMPYourTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPYourTimeLineViewController.m; sourceTree = "<group>"; };
+		4593274B17BE4097002C2FC3 /* RMPTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPTimeLineViewController.h; sourceTree = "<group>"; };
+		4593274C17BE4097002C2FC3 /* RMPTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPTimeLineViewController.m; sourceTree = "<group>"; };
+		4593274F17BE54AB002C2FC3 /* RMPPlaceData+protected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RMPPlaceData+protected.h"; sourceTree = "<group>"; };
 		45952DBA177FDE5D0083B7D0 /* BuzzData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BuzzData.csv; sourceTree = "<group>"; };
 		45952DC2177FDFFD0083B7D0 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
-		45952DC7177FE7250083B7D0 /* RMPBuzzMapData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPBuzzMapData.h; sourceTree = "<group>"; };
-		45952DC8177FE7250083B7D0 /* RMPBuzzMapData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPBuzzMapData.m; sourceTree = "<group>"; };
+		45952DC7177FE7250083B7D0 /* RMPMapPlaceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMapPlaceData.h; sourceTree = "<group>"; };
+		45952DC8177FE7250083B7D0 /* RMPMapPlaceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMapPlaceData.m; sourceTree = "<group>"; };
 		45952DCB177FE7340083B7D0 /* RMPPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPlace.h; sourceTree = "<group>"; };
 		45952DCC177FE7340083B7D0 /* RMPPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPlace.m; sourceTree = "<group>"; };
 		459A590D17A55CD70089BCC9 /* RMPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPProfileViewController.h; sourceTree = "<group>"; };
 		459A590E17A55CD70089BCC9 /* RMPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPProfileViewController.m; sourceTree = "<group>"; };
-		459A591017A55D010089BCC9 /* RMPYourTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPYourTimeLineViewController.h; sourceTree = "<group>"; };
-		459A591117A55D010089BCC9 /* RMPYourTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPYourTimeLineViewController.m; sourceTree = "<group>"; };
 		459A591317A55D180089BCC9 /* RMPCheckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPCheckListViewController.h; sourceTree = "<group>"; };
 		459A591417A55D180089BCC9 /* RMPCheckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPCheckListViewController.m; sourceTree = "<group>"; };
 		459A591617A55D2D0089BCC9 /* RMPMuteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMuteListViewController.h; sourceTree = "<group>"; };
@@ -372,8 +375,6 @@
 		45E64F6A17AD5EEF007DC8CB /* RMPPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPlaceViewController.m; sourceTree = "<group>"; };
 		45E9977A17A66C7A00C8675A /* PROBLEM_BAR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PROBLEM_BAR.png; sourceTree = "<group>"; };
 		45E9977D17A66C9600C8675A /* PROFILE_BAR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PROFILE_BAR.png; sourceTree = "<group>"; };
-		45F29A4517AA70B5007E7205 /* RMPHTTPImageUpload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPHTTPImageUpload.h; sourceTree = "<group>"; };
-		45F29A4617AA70B5007E7205 /* RMPHTTPImageUpload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPHTTPImageUpload.m; sourceTree = "<group>"; };
 		45F39AA817975002003B943A /* RMPNonVisibleSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPNonVisibleSearchBar.h; sourceTree = "<group>"; };
 		45F39AA917975002003B943A /* RMPNonVisibleSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPNonVisibleSearchBar.m; sourceTree = "<group>"; };
 		45F39AAE1797550E003B943A /* writeFormPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeFormPin.png; sourceTree = "<group>"; };
@@ -438,12 +439,13 @@
 		45274E69179A772E00A4CE59 /* TimeLine */ = {
 			isa = PBXGroup;
 			children = (
-				458D999817B5CFE5000D6EB5 /* DetailCells */,
 				458D998A17B3A688000D6EB5 /* Cells */,
+				458D999817B5CFE5000D6EB5 /* DetailCells */,
 				458D999517B5217A000D6EB5 /* RMPTimeLineDetailViewController.h */,
 				458D999617B5217A000D6EB5 /* RMPTimeLineDetailViewController.m */,
-				458D998E17B3A7BC000D6EB5 /* RMPTimeLineViewController.h */,
-				458D998517B3A23C000D6EB5 /* RMPTimeLineViewController.m */,
+				4593274B17BE4097002C2FC3 /* RMPTimeLineViewController.h */,
+				4593274C17BE4097002C2FC3 /* RMPTimeLineViewController.m */,
+				4593274E17BE5077002C2FC3 /* TimeLineViewController */,
 			);
 			name = TimeLine;
 			sourceTree = "<group>";
@@ -475,12 +477,6 @@
 				4557179117A4FD5800F6483F /* RMPMenuViewController.m */,
 				459A590D17A55CD70089BCC9 /* RMPProfileViewController.h */,
 				459A590E17A55CD70089BCC9 /* RMPProfileViewController.m */,
-				459A591017A55D010089BCC9 /* RMPYourTimeLineViewController.h */,
-				459A591117A55D010089BCC9 /* RMPYourTimeLineViewController.m */,
-				459A591317A55D180089BCC9 /* RMPCheckListViewController.h */,
-				459A591417A55D180089BCC9 /* RMPCheckListViewController.m */,
-				459A591617A55D2D0089BCC9 /* RMPMuteListViewController.h */,
-				459A591717A55D2D0089BCC9 /* RMPMuteListViewController.m */,
 				459A591917A55D440089BCC9 /* RMPSettingViewController.h */,
 				459A591A17A55D440089BCC9 /* RMPSettingViewController.m */,
 				459A591C17A55D570089BCC9 /* RMPTermOfUseViewController.h */,
@@ -541,6 +537,21 @@
 		458D998A17B3A688000D6EB5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				452802F017B7D06300802EBF /* RMPBuzzCell.xib */,
+				452802F117B7D06400802EBF /* RMPEatCell.xib */,
+				452802F217B7D06400802EBF /* RMPPlaceCell.xib */,
+				452802F317B7D06400802EBF /* RMPPlayCell.xib */,
+				452802F417B7D06400802EBF /* RMPShopCell.xib */,
+				45CF189D17B7B19F004271AD /* RMPBuzzCell.h */,
+				45CF189E17B7B19F004271AD /* RMPBuzzCell.m */,
+				45CF18A517B7B1AA004271AD /* RMPEatCell.h */,
+				45CF18A617B7B1AA004271AD /* RMPEatCell.m */,
+				45CF18AD17B7B1C3004271AD /* RMPPlaceCell.h */,
+				45CF18AE17B7B1C3004271AD /* RMPPlaceCell.m */,
+				45CF18B017B7B1D0004271AD /* RMPPlayCell.h */,
+				45CF18B117B7B1D0004271AD /* RMPPlayCell.m */,
+				45CF18B817B7B1E6004271AD /* RMPShopCell.h */,
+				45CF18B917B7B1E6004271AD /* RMPShopCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -548,40 +559,49 @@
 		458D999817B5CFE5000D6EB5 /* DetailCells */ = {
 			isa = PBXGroup;
 			children = (
-				452802F017B7D06300802EBF /* RMPBuzzCell.xib */,
-				452802F117B7D06400802EBF /* RMPEatCell.xib */,
-				452802F217B7D06400802EBF /* RMPPlaceCellNib.xib */,
-				452802F317B7D06400802EBF /* RMPPlayCell.xib */,
-				452802F417B7D06400802EBF /* RMPShopCell.xib */,
-				45CF189D17B7B19F004271AD /* RMPBuzzCell.h */,
-				45CF189E17B7B19F004271AD /* RMPBuzzCell.m */,
 				45CF189F17B7B19F004271AD /* RMPBuzzDetailCell.h */,
 				45CF18A017B7B19F004271AD /* RMPBuzzDetailCell.m */,
 				45CF18A117B7B19F004271AD /* RMPBuzzDetailCell.xib */,
-				45CF18A517B7B1AA004271AD /* RMPEatCell.h */,
-				45CF18A617B7B1AA004271AD /* RMPEatCell.m */,
 				45CF18A717B7B1AA004271AD /* RMPEatDetailCell.h */,
 				45CF18A817B7B1AA004271AD /* RMPEatDetailCell.m */,
 				45CF18A917B7B1AA004271AD /* RMPEatDetailCell.xib */,
-				45CF18AD17B7B1C3004271AD /* RMPPlaceCell.h */,
-				45CF18AE17B7B1C3004271AD /* RMPPlaceCell.m */,
 				45CF18C317B7B45E004271AD /* RMPPlaceDetailCell.h */,
 				45CF18C417B7B45E004271AD /* RMPPlaceDetailCell.m */,
 				45CF18C517B7B45E004271AD /* RMPPlaceDetailCell.xib */,
-				45CF18B017B7B1D0004271AD /* RMPPlayCell.h */,
-				45CF18B117B7B1D0004271AD /* RMPPlayCell.m */,
 				45CF18B217B7B1D0004271AD /* RMPPlayDetailCell.h */,
 				45CF18B317B7B1D0004271AD /* RMPPlayDetailCell.m */,
 				45CF18B417B7B1D0004271AD /* RMPPlayDetailCell.xib */,
 				4518DB1817B7547F00E15F6F /* RMPRearrangedView.h */,
 				4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */,
-				45CF18B817B7B1E6004271AD /* RMPShopCell.h */,
-				45CF18B917B7B1E6004271AD /* RMPShopCell.m */,
 				45CF18BA17B7B1E6004271AD /* RMPShopDetailCell.h */,
 				45CF18BB17B7B1E6004271AD /* RMPShopDetailCell.m */,
 				45CF18BC17B7B1E6004271AD /* RMPShopDetailCell.xib */,
 			);
 			name = DetailCells;
+			sourceTree = "<group>";
+		};
+		4593274A17BE3EE3002C2FC3 /* PlaceData */ = {
+			isa = PBXGroup;
+			children = (
+				45952DC7177FE7250083B7D0 /* RMPMapPlaceData.h */,
+				45952DC8177FE7250083B7D0 /* RMPMapPlaceData.m */,
+			);
+			name = PlaceData;
+			sourceTree = "<group>";
+		};
+		4593274E17BE5077002C2FC3 /* TimeLineViewController */ = {
+			isa = PBXGroup;
+			children = (
+				458D998E17B3A7BC000D6EB5 /* RMPMapTimeLineViewController.h */,
+				458D998517B3A23C000D6EB5 /* RMPMapTimeLineViewController.m */,
+				4593274417BD0E7A002C2FC3 /* RMPYourTimeLineViewController.h */,
+				4593274517BD0E7A002C2FC3 /* RMPYourTimeLineViewController.m */,
+				459A591317A55D180089BCC9 /* RMPCheckListViewController.h */,
+				459A591417A55D180089BCC9 /* RMPCheckListViewController.m */,
+				459A591617A55D2D0089BCC9 /* RMPMuteListViewController.h */,
+				459A591717A55D2D0089BCC9 /* RMPMuteListViewController.m */,
+			);
+			name = TimeLineViewController;
 			sourceTree = "<group>";
 		};
 		45952DB9177FDE4E0083B7D0 /* TestData */ = {
@@ -595,13 +615,13 @@
 		45AD9DCC1785749400242750 /* Buzz */ = {
 			isa = PBXGroup;
 			children = (
+				4593274A17BE3EE3002C2FC3 /* PlaceData */,
 				45DE4BB717ABDC9D0088C2AB /* Place */,
-				45952DC7177FE7250083B7D0 /* RMPBuzzMapData.h */,
-				45952DC8177FE7250083B7D0 /* RMPBuzzMapData.m */,
 				45DE4BB417ABD55A0088C2AB /* RMPPlaceFactory.h */,
 				45DE4BB517ABD55A0088C2AB /* RMPPlaceFactory.m */,
-				4518DB1417B7483400E15F6F /* RMPBuzzListData.h */,
-				4518DB1517B7483400E15F6F /* RMPBuzzListData.m */,
+				4518DB1417B7483400E15F6F /* RMPPlaceData.h */,
+				4518DB1517B7483400E15F6F /* RMPPlaceData.m */,
+				4593274F17BE54AB002C2FC3 /* RMPPlaceData+protected.h */,
 			);
 			name = Buzz;
 			sourceTree = "<group>";
@@ -611,8 +631,6 @@
 			children = (
 				45B2BDDA1799FE400051B90A /* RMPHTTPConnection.h */,
 				45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */,
-				45F29A4517AA70B5007E7205 /* RMPHTTPImageUpload.h */,
-				45F29A4617AA70B5007E7205 /* RMPHTTPImageUpload.m */,
 			);
 			name = HTTPConnection;
 			sourceTree = "<group>";
@@ -724,8 +742,6 @@
 		45E4ABFE177E8ADF006619F1 = {
 			isa = PBXGroup;
 			children = (
-				4573183F17B27C7600DB02C9 /* ImageIO.framework */,
-				472B8E7017A37CC200AFB170 /* libz.dylib */,
 				472B8E6817A37C9C00AFB170 /* TestFlightSDK */,
 				45E4AC09177E8ADF006619F1 /* Frameworks */,
 				45E4AC08177E8ADF006619F1 /* Products */,
@@ -746,6 +762,8 @@
 		45E4AC09177E8ADF006619F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4573183F17B27C7600DB02C9 /* ImageIO.framework */,
+				472B8E7017A37CC200AFB170 /* libz.dylib */,
 				45E4AC4D177E95DF006619F1 /* AddressBook.framework */,
 				45E4AC0E177E8ADF006619F1 /* CoreGraphics.framework */,
 				45E4AC4F177E95F3006619F1 /* CoreLocation.framework */,
@@ -1051,7 +1069,7 @@
 				45CF18C717B7B45E004271AD /* RMPPlaceDetailCell.xib in Resources */,
 				452802F717B7D06400802EBF /* RMPBuzzCell.xib in Resources */,
 				452802F817B7D06400802EBF /* RMPEatCell.xib in Resources */,
-				452802F917B7D06400802EBF /* RMPPlaceCellNib.xib in Resources */,
+				452802F917B7D06400802EBF /* RMPPlaceCell.xib in Resources */,
 				452802FA17B7D06400802EBF /* RMPPlayCell.xib in Resources */,
 				452802FB17B7D06400802EBF /* RMPShopCell.xib in Resources */,
 			);
@@ -1092,7 +1110,7 @@
 				45E4AC17177E8ADF006619F1 /* main.m in Sources */,
 				45E4AC1B177E8ADF006619F1 /* AppDelegate.m in Sources */,
 				45E4AC2A177E8ADF006619F1 /* MapViewController.m in Sources */,
-				45952DC9177FE7250083B7D0 /* RMPBuzzMapData.m in Sources */,
+				45952DC9177FE7250083B7D0 /* RMPMapPlaceData.m in Sources */,
 				45952DCD177FE7340083B7D0 /* RMPPlace.m in Sources */,
 				45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */,
 				45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */,
@@ -1107,20 +1125,18 @@
 				452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */,
 				4557179217A4FD5800F6483F /* RMPMenuViewController.m in Sources */,
 				459A590F17A55CD70089BCC9 /* RMPProfileViewController.m in Sources */,
-				459A591217A55D010089BCC9 /* RMPYourTimeLineViewController.m in Sources */,
 				459A591517A55D190089BCC9 /* RMPCheckListViewController.m in Sources */,
 				459A591817A55D2D0089BCC9 /* RMPMuteListViewController.m in Sources */,
 				459A591B17A55D440089BCC9 /* RMPSettingViewController.m in Sources */,
 				459A591E17A55D570089BCC9 /* RMPTermOfUseViewController.m in Sources */,
 				459A592117A55D6D0089BCC9 /* RMPProblemViewController.m in Sources */,
 				459A592417A55D7E0089BCC9 /* RMPLogOutViewController.m in Sources */,
-				45F29A4717AA70B5007E7205 /* RMPHTTPImageUpload.m in Sources */,
 				45DE4BB617ABD55A0088C2AB /* RMPPlaceFactory.m in Sources */,
 				45E64F6B17AD5EEF007DC8CB /* RMPPlaceViewController.m in Sources */,
-				458D998617B3A23C000D6EB5 /* RMPTimeLineViewController.m in Sources */,
+				458D998617B3A23C000D6EB5 /* RMPMapTimeLineViewController.m in Sources */,
 				458D999417B448C8000D6EB5 /* RMPHeightToFitLabel.m in Sources */,
 				458D999717B5217A000D6EB5 /* RMPTimeLineDetailViewController.m in Sources */,
-				4518DB1617B7483400E15F6F /* RMPBuzzListData.m in Sources */,
+				4518DB1617B7483400E15F6F /* RMPPlaceData.m in Sources */,
 				4518DB1A17B7547F00E15F6F /* RMPRearrangedView.m in Sources */,
 				45CF18A217B7B19F004271AD /* RMPBuzzCell.m in Sources */,
 				45CF18A317B7B19F004271AD /* RMPBuzzDetailCell.m in Sources */,
@@ -1146,6 +1162,8 @@
 				45CF18F117B7B5A4004271AD /* UIImage+MultiFormat.m in Sources */,
 				45CF18F217B7B5A4004271AD /* UIImage+WebP.m in Sources */,
 				45CF18F317B7B5A4004271AD /* UIImageView+WebCache.m in Sources */,
+				4593274617BD0E7A002C2FC3 /* RMPYourTimeLineViewController.m in Sources */,
+				4593274D17BE4097002C2FC3 /* RMPTimeLineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,7 +1172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E4AC3F177E8ADF006619F1 /* ReMapp1Tests.m in Sources */,
-				45952DCA177FE7250083B7D0 /* RMPBuzzMapData.m in Sources */,
+				45952DCA177FE7250083B7D0 /* RMPMapPlaceData.m in Sources */,
 				45952DCE177FE7340083B7D0 /* RMPPlace.m in Sources */,
 				455C2A9517B670E6004C03F9 /* RMPPostRequestCreator.m in Sources */,
 			);

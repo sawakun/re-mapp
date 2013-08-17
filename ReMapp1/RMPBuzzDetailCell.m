@@ -35,6 +35,7 @@
     self.bodyLabel.text = buzz.text;
     self.dateLabel.text = buzz.date;
     self.bodyLabel.width = 245;
+    [self.innerScrollView setContentOffset:CGPointMake(0, 0)];
     
     [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];

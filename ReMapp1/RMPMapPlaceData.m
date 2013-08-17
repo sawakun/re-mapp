@@ -6,10 +6,11 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPBuzzMapData.h"
+#import "RMPMapPlaceData.h"
 #import "RMPPlace.h"
 #import "RMPMapView.h"
 #import "RMPPlaceFactory.h"
+#import "RMPPlaceData+protected.h"
 
 NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
 
@@ -58,19 +59,18 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
 
 @end
 
-@interface RMPBuzzMapData()
+@interface RMPMapPlaceData()
 @end
 
-@implementation RMPBuzzMapData
-@synthesize buzzes = _currentViewBuzzData;
+@implementation RMPMapPlaceData
 
 
-+(RMPBuzzMapData*)sharedManager
++(RMPMapPlaceData*)sharedManager
 {
-    static RMPBuzzMapData *sharedBuzzData;
+    static RMPMapPlaceData *sharedBuzzData;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedBuzzData = [[RMPBuzzMapData alloc] initSharedInstance];
+        sharedBuzzData = [[RMPMapPlaceData alloc] initSharedInstance];
     });
     return sharedBuzzData;
 }
@@ -80,13 +80,12 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     self = [super init];
     if (self) {
         _currentViewBuzzData = [[NSMutableArray alloc] init];
-        _buzzData = [[NSMutableArray alloc] init];
         _buzzDataLonLat = [[RMPSquareLonLat alloc] init];
         _urlRequestLonLat = [[RMPSquareLonLat alloc] init];
         _widthCurrentView = 0.0;
         _queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(reload:)
+                                                 selector:@selector(reloadWithNotification:)
                                                      name:RMPMapViewRegionDidChangeAnimated
                                                    object:nil];
     }
@@ -101,16 +100,7 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
 
 
 
-- (RMPBuzzPlace *)buzzAtIndex:(NSInteger)index
-{
-    if (index >= [_currentViewBuzzData count] || _currentViewBuzzData == nil) {
-        return nil;
-    }
-    return [_currentViewBuzzData objectAtIndex:index];
-}
-
-
-- (void)reload:(NSNotification *)center
+- (void)reloadWithNotification:(NSNotification *)center
 {
     double northEastLat = [center.userInfo[@"northEastLat"] doubleValue];
     double northEastLot = [center.userInfo[@"northEastLot"] doubleValue];
@@ -118,6 +108,9 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
     dispatch_async(_queue, ^{
         [self reloadWithNorthEastLat:northEastLat NorthEastLot:northEastLot SouthWestLat:southWestLat SouthWestLot:southWestLot];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzMapDataReloaded object:self userInfo:nil];
+        });
     });
 }
 
@@ -158,20 +151,17 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     
     NSInteger index = 0;
     [_currentViewBuzzData removeAllObjects];
-    for (RMPPlace *buzz in _buzzData) {
-        if (buzz.lat < thisSquare.northEastLat &&
-            buzz.lat > thisSquare.southWestLat &&
-            buzz.lot < thisSquare.northEastLon &&
-            buzz.lot > thisSquare.southWestLon)
+    for (RMPPlace *place in self.places) {
+        if (place.lat < thisSquare.northEastLat &&
+            place.lat > thisSquare.southWestLat &&
+            place.lot < thisSquare.northEastLon &&
+            place.lot > thisSquare.southWestLon)
         {
-            buzz.annotationIndex = index;
-            [_currentViewBuzzData addObject:buzz];
+            place.annotationIndex = index;
+            [_currentViewBuzzData addObject:place];
             ++index;
         }
     }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzMapDataReloaded object:self userInfo:nil];
-    });
 }
 
 - (void)fetchBuzzDataWithSquareLonLat:(RMPSquareLonLat *)thisSquare
@@ -189,54 +179,30 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     _urlRequestLonLat.southWestLon = thisSquare.southWestLon - widthLot;
     _widthCurrentView = widthLot;
     
-    
-    //json
-    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz_temp.json.js";
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30.0f];
-    NSURLResponse *response;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
-                                        returningResponse:&response
-                                                    error:&error];    
-    if (error != nil) {
-        return;
-    }
-    else if ([data length] == 0) {
-        return;
-    }
-    else
-    {
-        NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSShiftJISStringEncoding];
-        NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                             options:NSJSONReadingAllowFragments
-                                                               error:nil];
-        
-        // NSInteger index = 0;
-        [_buzzData removeAllObjects];
-        for (NSDictionary *buzzDictionary in buzzArray) {
-            double lat = [buzzDictionary[@"lat"] doubleValue];
-            double lot = [buzzDictionary[@"lot"] doubleValue];
-            // This check must be done on the server.
-            if (lat < _buzzDataLonLat.northEastLat &&
-                lat > _buzzDataLonLat.southWestLat &&
-                lot < _buzzDataLonLat.northEastLon &&
-                lot > _buzzDataLonLat.southWestLon)
-            {
-                RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
-                [_buzzData addObject:place];
-            }
-        }
-        return;
-    }
-
+    [self fetchNewDataWithConditions:nil];
 }
-
 
 - (NSInteger)count
 {
     return [_currentViewBuzzData count];
+}
+
+- (RMPPlace *)placeAtIndex:(NSInteger)index
+{
+    if (index >= [_currentViewBuzzData count] || _currentViewBuzzData == nil) {
+        return nil;
+    }
+    return [_currentViewBuzzData objectAtIndex:index];
+}
+
+- (NSMutableArray*)annotations
+{
+    NSMutableArray *thisAnnotations = [NSMutableArray array];
+    for (RMPPlace *place in _currentViewBuzzData)
+    {
+        [thisAnnotations addObject:place.annotation];
+    }
+    return thisAnnotations;
 }
 
 @end

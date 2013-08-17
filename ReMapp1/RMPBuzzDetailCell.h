@@ -18,4 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bodyImageView;
 @property (weak, nonatomic) IBOutlet RMPRearrangedView *likeAndMuteButtonView;
+@property (weak, nonatomic) IBOutlet UIScrollView *innerScrollView;
 @end

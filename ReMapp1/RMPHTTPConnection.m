@@ -17,7 +17,7 @@
 {
     // I send a new buzz data (userSystemId, buzzText, lat, lot, image) to the serve.
     // The following is a test code.
-    
+    /*
     static NSString *fileName = @"BuzzData.csv";
     
     NSDate *nowDate = [NSDate date];
@@ -35,6 +35,7 @@
                          location.longitude,
                          nowDateString];
     //addCSVFile(fileName, newLine);
+    */
     return TRUE;
 }
 
