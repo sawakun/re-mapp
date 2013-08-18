@@ -9,18 +9,16 @@
 #import "RMPRearrangedView.h"
 
 @implementation RMPRearrangedView
-CGFloat originY;
+static CGFloat centerY;
 
-- (void)setOriginY:(CGFloat)aOriginY
+- (void)setCenterY:(CGFloat)newCenterY
 {
-    originY = aOriginY;
+    centerY = newCenterY;
 }
-/*
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.layer.position = CGPointMake(self.frame.origin.x + 0.5 * self.frame.size.width,
-                                      originY + 0.5 * self.frame.size.height);
+    self.layer.position = CGPointMake(self.layer.position.x, centerY);
 }
-*/
 @end

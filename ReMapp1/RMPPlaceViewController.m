@@ -12,7 +12,8 @@
 #import "RMPMapPlaceData.h"
 #import "RMPMapView.h"
 #import "RMPPlace.h"
-#import "RMPPlaceDetailCell.h"
+#import "RMPPlaceMapCell.h"
+#import "constants.h"
 
 NSString *const RMPPlaceViewControllerFrameDidMove = @"RMPPlaceViewControllerFrameDidMove";
 NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCellDidMove";
@@ -40,6 +41,7 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     [self.collectionView removeGestureRecognizer:self.rmp_verticalSlidingViewController.bottomPanGesture];
 
     // set nib
+    /*
     UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzDetailCell" bundle:nil];
     UINib *shopCell = [UINib nibWithNibName:@"RMPShopDetailCell" bundle:nil];
     UINib *eatCell  = [UINib nibWithNibName:@"RMPEatDetailCell"  bundle:nil];
@@ -48,7 +50,15 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     [self.collectionView registerNib:shopCell forCellWithReuseIdentifier:@"RMPShopDetailCell"];
     [self.collectionView registerNib:eatCell  forCellWithReuseIdentifier:@"RMPEatDetailCell"];
     [self.collectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayDetailCell"];
+    */
     
+    // --- test
+    UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzMapCell" bundle:nil];
+    [self.collectionView registerNib:buzzCell forCellWithReuseIdentifier:@"RMPBuzzMapCell"];
+//    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slide:)];
+//    [self.collectionView addGestureRecognizer:panGesture];
+
+    // --- end
     CGFloat height =  self.view.frame.size.height;
     CGFloat width = self.view.frame.size.width;
     [self.collectionView setFrame:CGRectMake(0, 0, width, height)];
@@ -70,6 +80,7 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 }
 
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -82,7 +93,7 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 {
 
     if (self.view.frame.origin.y >= 320.0) {
-        CGRect newFrame = CGRectMake(self.view.frame.origin.x,  self.view.frame.size.height - 140, self.view.frame.size.width, self.view.frame.size.height);
+        CGRect newFrame = CGRectMake(self.view.frame.origin.x,  self.view.frame.size.height - SECOND_MAP_CELL_HEIGHT, self.view.frame.size.width, self.view.frame.size.height);
         self.view.frame = newFrame;
         [self frameDidMove];
     }
@@ -107,9 +118,9 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 {
     RMPPlace *place = [self.placeData placeAtIndex:indexPath.row];
     
-    return [RMPPlaceDetailCellFactory createCellWithCollectionView:collectionView
-                                                    cellForItemAtIndexPath:indexPath
-                                                                     place:place];
+    return [RMPPlaceMapCellFactory createCellWithCollectionView:collectionView
+                                         cellForItemAtIndexPath:indexPath
+                                                          place:place];
 }
 
 
