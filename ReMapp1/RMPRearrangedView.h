@@ -10,5 +10,5 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface RMPRearrangedView : UIView
-- (void)setOriginY:(CGFloat)aOriginY;
+- (void)setCenterY:(CGFloat)newCenterY;
 @end
