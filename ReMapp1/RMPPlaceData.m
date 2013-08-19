@@ -60,7 +60,9 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
 - (void)fetchNewDataWithConditions:(NSDictionary *)conditions
 {
     //json
-    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
+//    NSString *urlStr = @"http://sky.geocities.jp/nishiba_m/buzz.json.js";
+    // /api/listen/<lat>/<lon>/<rad>
+    NSString *urlStr = @"http://re-mapp.herokuapp.com/api/listen/35.685562/139.753562/0.3";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
                                                 cachePolicy:NSURLRequestReloadIgnoringCacheData

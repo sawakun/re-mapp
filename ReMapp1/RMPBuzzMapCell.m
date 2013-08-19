@@ -24,7 +24,11 @@
     RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
     self.nameLabel.text = buzz.userName;
     self.bodyLabel.text = buzz.text;
-    self.dateLabel.text = buzz.date;
+
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd hh:mm:ss"];
+    self.dateLabel.text = [formatter stringFromDate:buzz.date];
+
     self.bodyLabel.width = 245;
     [self.innerScrollView setContentOffset:CGPointMake(0, 0)];
     
