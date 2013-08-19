@@ -14,7 +14,7 @@
 @implementation RMPPlaceFactory
 +(RMPPlace*)createPlace:(NSDictionary *)buzzDictionary
 {
-    NSString *thisType = buzzDictionary[@"type"];
+    NSString *thisType = buzzDictionary[@"buzz_type"];
     if ([thisType isEqualToString:@"buzz"]) {
         return [[RMPBuzzPlace alloc] initWithDictionary:buzzDictionary];
     }

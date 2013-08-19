@@ -44,7 +44,11 @@
     RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
     self.nameLabel.text = buzz.userName;
     self.bodyLabel.text = buzz.text;
-    self.dateLabel.text = buzz.date;
+    
+    // NSDateFormatter を用意します。
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd hh:mm:ss"];
+    self.dateLabel.text = [formatter stringFromDate:buzz.date];
     
     [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
