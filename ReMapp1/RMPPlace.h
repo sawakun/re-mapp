@@ -20,10 +20,10 @@
 @property (nonatomic, readonly) NSString *text;
 @property (nonatomic, readonly) NSString *imageURL;
 @property (nonatomic) UIImage *image;
-@property (nonatomic, readonly) NSString *date;
+@property (nonatomic, readonly) NSDate *date;
 @property (nonatomic, readonly) float lot;
 @property (nonatomic, readonly) float lat;
-@property (nonatomic, readonly) NSString *type;
+@property (nonatomic, readonly) NSString *buzz_type;
 @property (nonatomic, readonly, getter = isLiked) BOOL like;
 @property (nonatomic, readonly, getter = isMuted) BOOL mute;
 @property (nonatomic, readonly) RMPAnnotation* annotation;
