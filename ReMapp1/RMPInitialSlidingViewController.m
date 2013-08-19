@@ -7,9 +7,9 @@
 //
 
 #import "RMPInitialSlidingViewController.h"
+#import "constants.h"
 
 @interface RMPInitialSlidingViewController ()
-
 @end
 
 @implementation RMPInitialSlidingViewController
@@ -26,7 +26,7 @@
     self.rightViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPMapTimeLineViewController"];
     self.leftViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPMenuViewController"];
     
-    self.bottomViewHeightAtMiddlePosition = 105.0;
+    self.bottomViewHeightAtMiddlePosition = FIRST_MAP_CELL_HEIGHT;
     self.anchorRightPeekAmount = 0.0f;
     self.anchorLeftPeekAmount = 0.0f;
     
