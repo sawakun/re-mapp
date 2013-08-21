@@ -14,28 +14,69 @@
                            BuzzText:(NSString*)buzzText
                            Location:(CLLocationCoordinate2D)location
                               Image:(UIImage*)image
-{
-    // I send a new buzz data (userSystemId, buzzText, lat, lot, image) to the serve.
-    // The following is a test code.
+{    
+    // JSON to post
     /*
-    static NSString *fileName = @"BuzzData.csv";
+     {
+     "user_id":3,
+     "buzz_body":"test data:18",
+     "buzz_img_url":"http://re-mapp.herokuapp.com/assets/images/IMG_0732.jpg",
+     "lat":35.106876588753444,
+     "lon":139.10971074251088,
+     "buzz_type":"eat"
+     }
+     */
+    //making buzz
+    //TODO: uploading image, treating buzz_type
+    NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
+    [mutableDic setValue:[NSString stringWithFormat:@"%d", userSystemId] forKey:@"user_id"];
+    [mutableDic setValue:buzzText forKey:@"buzz_body"];
+    [mutableDic setValue:@"http://re-mapp.herokuapp.com/assets/images/IMG_0732.jpg" forKey:@"buzz_img_url"];
+    [mutableDic setValue:[NSString stringWithFormat:@"%f", location.latitude] forKey:@"lat"];
+    [mutableDic setValue:[NSString stringWithFormat:@"%f", location.longitude] forKey:@"lon"];
+    [mutableDic setValue:@"buzz" forKey:@"buzz_type"];
     
-    NSDate *nowDate = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
-    NSString *nowDateString = [formatter stringFromDate:nowDate];
-
-    //make a new  csv line
-    NSString *newLine = [[NSString alloc] initWithFormat:@"\n%@,%d,%@,%@,%f,%f,%@",
-                         nowDateString,
-                         userSystemId,
-                         buzzText,
-                         @"",
-                         location.latitude,
-                         location.longitude,
-                         nowDateString];
-    //addCSVFile(fileName, newLine);
-    */
+    //convert to JSON
+    NSError*   error = nil;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:mutableDic options:NSJSONWritingPrettyPrinted error:&error];
+    
+    //debug
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:requestData
+                                                     options:NSJSONReadingAllowFragments
+                                                       error:&error];
+    
+    NSMutableURLRequest *request;
+    request =
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://re-mapp.herokuapp.com/api/post"]
+                            cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    //set HTTP POST
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json"
+   forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d",
+                       [requestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody: requestData];
+    
+    //response
+    NSURLResponse *resp=nil;
+    NSError *err=nil;
+    
+    NSData *result;
+    NSArray *resultArray;
+    BOOL *flag = TRUE;
+    while(flag){
+        //HTTP request send
+        result = [NSURLConnection sendSynchronousRequest:request
+                                           returningResponse:&resp error:&err];
+        resultArray = [NSJSONSerialization JSONObjectWithData:result
+                                                     options:NSJSONReadingAllowFragments
+                                                       error:&error];
+        //TODO: check succeeded in sending
+        //TODO: show dialog and ask 'resend' or 'save to draft'
+        flag=FALSE;
+    }
     return TRUE;
 }
 
