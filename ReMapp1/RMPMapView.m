@@ -15,7 +15,7 @@ NSString *const RMPMapViewRegionDidChangeAnimated = @"RMPMapViewRegionDidChangeA
 NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnnotationView";
 
 @interface RMPMapView()
-@property RMPSelectedAnnotation *selectedAnnotation;
+@property RMPAnnotation *selectedAnnotation;
 @end
 
 @implementation RMPMapView
@@ -35,11 +35,11 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
 -(MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     if ([annotation isKindOfClass:[MKUserLocation class]] ||
-        ![annotation isKindOfClass:[RMPAnnotationData class]]) {
+        ![annotation isKindOfClass:[RMPAnnotation class]]) {
         return nil;
     }
     
-    RMPAnnotationData *thisAnnotation = (RMPAnnotationData*)annotation;
+    RMPAnnotation *thisAnnotation = (RMPAnnotation*)annotation;
     NSString* identifier = thisAnnotation.identifier;
     
     MKAnnotationView *annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
@@ -79,6 +79,7 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
     });
 }
 
+
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     if (![view.annotation isKindOfClass:[RMPAnnotation class]]) {
@@ -86,10 +87,16 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
     }
     
     RMPAnnotation *thisAnnotation = (RMPAnnotation *)view.annotation;
-    self.selectedAnnotation = [thisAnnotation createSelectedAnnotation];
-    view.image = nil;
-    [self addAnnotation:self.selectedAnnotation];
-    
+    CGRect frame = view.frame;
+    [UIView animateWithDuration:0.2f animations:^{
+        view.frame = CGRectMake(frame.origin.x + thisAnnotation.additionalCenterOffset.x,
+                                frame.origin.y + thisAnnotation.additionalCenterOffset.y,
+                                frame.size.width,
+                                frame.size.height);
+        view.image = thisAnnotation.selectedPinImage;
+        self.selectedAnnotation = view.annotation;
+    } completion:nil];
+
     //post notification
     NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:self.selectedAnnotation.index]};
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -105,11 +112,15 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
         return;
     }
     
-    RMPAnnotation *annotation = [self.selectedAnnotation createAnnotation];
-    if (annotation != nil) {
-        view.image = annotation.pinImage;
-        [self removeAnnotation:self.selectedAnnotation];
-    }
+    RMPAnnotation *thisAnnotation = (RMPAnnotation *)view.annotation;
+    CGRect frame = view.frame;
+    [UIView animateWithDuration:0.2f animations:^{
+        view.frame = CGRectMake(frame.origin.x - thisAnnotation.additionalCenterOffset.x,
+                                frame.origin.y - thisAnnotation.additionalCenterOffset.y,
+                                frame.size.width,
+                                frame.size.height);
+        view.image = thisAnnotation.pinImage;
+    } completion:nil];
 
     //post notification
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -118,4 +129,10 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
                                                           userInfo:nil];
     });
 }
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
+{
+
+}
+
 @end
