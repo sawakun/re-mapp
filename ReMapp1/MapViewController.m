@@ -182,9 +182,12 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
 
     NSMutableArray *annotations = [self.buzzData annotations];
-    NSArray *oldAnnotations = self.mapView.annotations;
+    //NSArray *oldAnnotations = self.mapView.annotations;
+    NSMutableArray *oldAnnotations = [self.mapView.annotations mutableCopy];
+    [oldAnnotations removeObjectsInArray:annotations];
     [_mapView addAnnotations:annotations];
     [_mapView removeAnnotations:oldAnnotations];
+    NSLog(@"reload");
 }
 
 
