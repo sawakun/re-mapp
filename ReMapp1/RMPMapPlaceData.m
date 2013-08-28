@@ -47,10 +47,10 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
 
 - (BOOL)isIn:(RMPSquareLonLat *)squareLonLat
 {
-    if (self.northEastLat > squareLonLat.northEastLat &&
-        self.southWestLat < squareLonLat.southWestLat &&
-        self.northEastLon > squareLonLat.northEastLon &&
-        self.southWestLon < squareLonLat.southWestLon)
+    if (self.northEastLat < squareLonLat.northEastLat &&
+        self.southWestLat > squareLonLat.southWestLat &&
+        self.northEastLon < squareLonLat.northEastLon &&
+        self.southWestLon > squareLonLat.southWestLon)
     {
         return YES;
     }
@@ -108,9 +108,6 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     double southWestLot = [center.userInfo[@"southWestLot"] doubleValue];
     dispatch_async(_queue, ^{
         [self reloadWithNorthEastLat:northEastLat NorthEastLot:northEastLot SouthWestLat:southWestLat SouthWestLot:southWestLot];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzMapDataReloaded object:self userInfo:nil];
-        });
     });
 }
 
@@ -125,21 +122,27 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
                                                                SouthWestLat:southWestLat];
     
 
+    
     if (![thisLonLat isIn:_buzzDataLonLat] ||
-        (thisLonLat.northEastLon- thisLonLat.southWestLon) != _widthCurrentView) {
+        (thisLonLat.northEastLon - thisLonLat.southWestLon) != _widthCurrentView)
+    {
+        
+        NSLog(@"Case 1");
         [NSURLConnection cancelPreviousPerformRequestsWithTarget:self];
         [self fetchBuzzDataWithSquareLonLat:thisLonLat];
         [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
         return;
     }
-    
+
     if (![thisLonLat isIn:_urlRequestLonLat])
     {
+        NSLog(@"Case 2");
         [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
         [self fetchBuzzDataWithSquareLonLat:thisLonLat];
         return;
     }
-
+    
+    NSLog(@"Case 3");
     [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
     return;
 }
@@ -162,6 +165,10 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
             ++index;
         }
     }
+    NSLog(@"Set new buzz set.");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzMapDataReloaded object:self userInfo:nil];
+    });
 }
 
 - (void)fetchBuzzDataWithSquareLonLat:(RMPSquareLonLat *)thisSquare

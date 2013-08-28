@@ -8,21 +8,15 @@
 
 #import <MapKit/MapKit.h>
 
-@interface RMPAnnotationData : MKPointAnnotation
+@interface RMPAnnotation : MKPointAnnotation
 @property (nonatomic) UIImage *pinImage;
-@property (nonatomic) NSString *identifier;
+@property (nonatomic) UIImage *selectedPinImage;
 @property (nonatomic) CGPoint centerOffset;
+@property (nonatomic) CGPoint additionalCenterOffset;
+@property (nonatomic) NSString *identifier;
 @property (nonatomic) NSInteger index;
 @end
 
-@class RMPSelectedAnnotation;
-@interface RMPAnnotation : RMPAnnotationData
-- (RMPSelectedAnnotation *)createSelectedAnnotation;
-@end
-
-@interface RMPSelectedAnnotation : RMPAnnotationData
-- (RMPAnnotation *)createAnnotation;
-@end
 
 
 @interface RMPBuzzAnnotation : RMPAnnotation
@@ -37,17 +31,6 @@
 @interface RMPEatAnnotation : RMPAnnotation
 @end
 
-@interface RMPSelectedBuzzAnnotation : RMPSelectedAnnotation
-@end
-
-@interface RMPSelectedPlayAnnotation : RMPSelectedAnnotation
-@end
-
-@interface RMPSelectedShopAnnotation : RMPSelectedAnnotation
-@end
-
-@interface RMPSelectedEatAnnotation : RMPSelectedAnnotation
-@end
 
 @interface RMPWriteFormAnnotation : RMPAnnotation
 @property (nonatomic) CGPoint tapPointOffset;
