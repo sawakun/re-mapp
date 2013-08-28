@@ -26,12 +26,46 @@
      "buzz_type":"eat"
      }
      */
-    //making buzz
-    //TODO: uploading image, treating buzz_type
+    //uploading image
+
+    NSString *url=@"";
+    NSMutableURLRequest *requestForImage;
+    requestForImage =
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://re-mapp.herokuapp.com/api/uploadTest"]
+                            cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    NSData *imageData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+    //set HTTP POST
+    [requestForImage setHTTPMethod:@"POST"];
+    [requestForImage setValue:@"image/png" forHTTPHeaderField:@"Accept"];
+    [requestForImage setValue:@"image/png" forHTTPHeaderField:@"Content-Type"];
+    [requestForImage setValue:[NSString stringWithFormat:@"%d",
+                       [imageData length]] forHTTPHeaderField:@"Content-Length"];
+    [requestForImage setHTTPBody: imageData];
+    
+    //response
+    NSURLResponse *respForImage=nil;
+    NSError *errForImage=nil;
+    
+    NSData *resultForImage;
+    NSArray *resultArrayForImage;
+    BOOL *flagForImage = TRUE;
+    while(flagForImage){
+        //HTTP request send
+        resultForImage = [NSURLConnection sendSynchronousRequest:requestForImage
+                                       returningResponse:&respForImage error:&errForImage];
+        resultArrayForImage = [NSJSONSerialization JSONObjectWithData:resultForImage
+                                                      options:NSJSONReadingAllowFragments
+                                                                error:&errForImage];
+    }
+    if([resultArrayForImage count]!=0) url=resultArrayForImage[0];
+    
+    //TODO: treating buzz_type
+    // upload buzz data
     NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
     [mutableDic setValue:[NSString stringWithFormat:@"%d", userSystemId] forKey:@"user_id"];
     [mutableDic setValue:buzzText forKey:@"buzz_body"];
-    [mutableDic setValue:@"http://re-mapp.herokuapp.com/assets/images/IMG_0732.jpg" forKey:@"buzz_img_url"];
+    [mutableDic setValue:url forKey:@"buzz_img_url"];
     [mutableDic setValue:[NSString stringWithFormat:@"%f", location.latitude] forKey:@"lat"];
     [mutableDic setValue:[NSString stringWithFormat:@"%f", location.longitude] forKey:@"lon"];
     [mutableDic setValue:@"buzz" forKey:@"buzz_type"];
