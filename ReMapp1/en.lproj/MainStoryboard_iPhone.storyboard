@@ -1005,12 +1005,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fUz-D1-JIw" customClass="RMPMapView"/>
-                            <searchBar contentMode="redraw" barStyle="blackTranslucent" placeholder="What..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO" customClass="RMPNonVisibleSearchBar">
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="2" id="kVV-3b-vcr"/>
-                                </connections>
-                            </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tL3-Ro-ddN">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Uu1-MX-UXB"/>
@@ -1033,30 +1027,74 @@
                             <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-VO-otW">
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgy-Nv-SJV">
+                                <subviews>
+                                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zMI-ha-nZX" customClass="RMPSearchResultsCollectionView">
+                                        <color key="backgroundColor" red="0.97647064920000004" green="0.94901967050000002" blue="0.87058830259999997" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="504" id="3RX-tf-oX7"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="0.0" id="0b5-BR-0xu">
+                                            <size key="itemSize" width="300" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="gG7-hh-Sht">
+                                                <rect key="frame" x="10" y="0.0" width="300" height="50"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97647064924240112" green="0.9490196704864502" blue="0.87058830261230469" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zMI-ha-nZX" firstAttribute="bottom" secondItem="Qgy-Nv-SJV" secondAttribute="bottom" type="default" id="jZ3-pH-5WD"/>
+                                    <constraint firstItem="zMI-ha-nZX" firstAttribute="leading" secondItem="Qgy-Nv-SJV" secondAttribute="leading" type="default" id="vJZ-fi-V3s"/>
+                                    <constraint firstItem="zMI-ha-nZX" firstAttribute="trailing" secondItem="Qgy-Nv-SJV" secondAttribute="trailing" type="default" id="ySV-UL-1Ny"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" barStyle="blackTranslucent" text="" placeholder="What..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO" customClass="RMPNonVisibleSearchBar">
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="kVV-3b-vcr"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qgy-Nv-SJV" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="0c0-6c-vDX"/>
                             <constraint firstItem="tL3-Ro-ddN" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="8" id="3WV-VM-uJW"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="4XG-FD-B4v"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="5LE-ZQ-3e2"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="Bd8-62-ThR"/>
+                            <constraint firstItem="VRc-20-keO" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="Dtn-X9-Jl9"/>
                             <constraint firstItem="ayf-VO-otW" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="EDu-Wc-8Ca"/>
-                            <constraint firstItem="VRc-20-keO" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="HFQ-lN-ZyA"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="HvL-fK-kLQ"/>
+                            <constraint firstItem="VRc-20-keO" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="O9H-6p-3hM"/>
                             <constraint firstAttribute="trailing" secondItem="ayf-VO-otW" secondAttribute="trailing" constant="285" id="Prm-61-ky9"/>
                             <constraint firstItem="uEB-Cb-ne0" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="Ptf-n1-Dw6"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="283" id="SQB-6c-nS5"/>
-                            <constraint firstItem="ayf-VO-otW" firstAttribute="top" secondItem="VRc-20-keO" secondAttribute="bottom" type="default" id="VwS-W9-CsS"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="X6o-go-jYp"/>
-                            <constraint firstItem="VRc-20-keO" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="bfo-E5-ky8"/>
+                            <constraint firstItem="Qgy-Nv-SJV" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="aWy-S1-qWl"/>
                             <constraint firstAttribute="trailing" secondItem="2SP-CV-J8J" secondAttribute="trailing" constant="2" id="dXt-QV-UFG"/>
+                            <constraint firstItem="Qgy-Nv-SJV" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" type="default" id="fm1-wD-5u6"/>
                             <constraint firstAttribute="bottom" secondItem="tL3-Ro-ddN" secondAttribute="bottom" constant="8" id="hMj-Mx-dMs"/>
-                            <constraint firstItem="VRc-20-keO" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="kMR-MO-SGw"/>
+                            <constraint firstItem="ayf-VO-otW" firstAttribute="top" secondItem="VRc-20-keO" secondAttribute="bottom" type="default" id="hSb-Ys-e22"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="kda-Us-lFs"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" type="default" id="m1V-JG-baJ"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="n3m-De-vGa"/>
-                            <constraint firstItem="fUz-D1-JIw" firstAttribute="centerY" secondItem="ayf-VO-otW" secondAttribute="centerY" type="default" id="p7S-R0-MF8"/>
+                            <constraint firstItem="Qgy-Nv-SJV" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" type="default" id="q60-vx-JfF"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="top" secondItem="ayf-VO-otW" secondAttribute="top" type="default" id="rhy-Gv-uZ1"/>
+                            <constraint firstItem="VRc-20-keO" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" type="default" id="w48-4d-WAB"/>
+                            <constraint firstItem="ayf-VO-otW" firstAttribute="centerY" secondItem="uEB-Cb-ne0" secondAttribute="centerY" type="default" id="wDt-sK-emm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1064,7 +1102,9 @@
                         <outlet property="mapView" destination="fUz-D1-JIw" id="4T9-au-RCO"/>
                         <outlet property="maskView" destination="uEB-Cb-ne0" id="XoJ-3b-SCS"/>
                         <outlet property="rightScratchView" destination="2SP-CV-J8J" id="6WO-Pg-ryw"/>
-                        <outlet property="searchBar" destination="VRc-20-keO" id="nB1-Fy-7MP"/>
+                        <outlet property="searchBar" destination="VRc-20-keO" id="37L-DW-FmB"/>
+                        <outlet property="searchResultsCollectionView" destination="zMI-ha-nZX" id="7fx-o8-4Qd"/>
+                        <outlet property="searchResultsView" destination="Qgy-Nv-SJV" id="8CL-f1-VpG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -1110,6 +1150,11 @@
                             <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-ky-eIo">
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="k55-I9-xUZ"/>
+                                    <barButtonItem title="Camera" id="xGm-zT-Xvu">
+                                        <connections>
+                                            <action selector="tappedCameraidsender:" destination="PGe-qp-L6R" id="NpV-Uv-oxP"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Photos" id="zvp-2N-ezR">
                                         <connections>
                                             <action selector="tappedPhotos:" destination="PGe-qp-L6R" id="l2E-KM-rQA"/>
