@@ -24,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *textCountLabel;
 - (IBAction)tappedCancel:(id)sender;
 - (IBAction)tappedPhotos:(id)sender;
+- (IBAction)tappedCameraidsender:(id)sender;
 
 @end

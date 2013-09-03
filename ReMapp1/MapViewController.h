@@ -10,18 +10,19 @@
 #import <MapKit/MapKit.h>
 #import "RMPAnnotation.h"
 #import "RMPSlidingViewController.h"
+#import "RMPSearchResultsCollectionView.h"
 
 @class RMPMapPlaceData;
 @class InfoViewController;
 @class BuzzFormViewController;
 @class RMPNonVisibleSearchBar;
 @class RMPMapView;
-@class RMPSearchResultsCollectionView;
 
 /** Notification that gets posted when the map was reloaded. */
 extern NSString *const MapViewDidReload;
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, RMPSlidingViewDelegate, UISearchBarDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate,
+RMPSlidingViewDelegate, RMPSearchResultsCollectionViewDelegate, UISearchBarDelegate>
 
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;

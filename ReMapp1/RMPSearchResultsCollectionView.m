@@ -9,7 +9,6 @@
 #import "RMPSearchResultsCollectionView.h"
 #import "RMPHTTPConnection.h"
 #import "RMPSearchResultsCell.h"
-#import "MapViewController.h"
 
 @interface RMPSearchResultsCollectionView()
 @end

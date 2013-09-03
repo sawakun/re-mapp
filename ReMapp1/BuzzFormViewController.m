@@ -108,6 +108,7 @@
     [self useCameraRoll];
 }
 
+
 - (void) useCameraRoll
 {
     if ([UIImagePickerController isSourceTypeAvailable:
@@ -149,7 +150,26 @@
     [sheet showInView:self.view];
 }
 
+#pragma mark - Related to run Camera
+- (void)runCamera
+{
+    BOOL cameraIsAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+    if (!cameraIsAvailable) {
+        return;
+    }
+    
+    UIImagePickerController *imagePickerController =[[UIImagePickerController alloc] init];
+    
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imagePickerController.delegate = self;
+    imagePickerController.allowsEditing = YES;
+    
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
 
+- (IBAction)tappedCameraidsender:(id)sender {
+    [self runCamera];
+}
 
 #pragma mark - UIActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{

@@ -168,14 +168,13 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)reload
 {
-
     NSMutableArray *annotations = [self.buzzData annotations];
     //NSArray *oldAnnotations = self.mapView.annotations;
     NSMutableArray *oldAnnotations = [self.mapView.annotations mutableCopy];
     [oldAnnotations removeObjectsInArray:annotations];
     [_mapView addAnnotations:annotations];
     [_mapView removeAnnotations:oldAnnotations];
-    NSLog(@"reload");
+    NSLog(@"Call 'reload' in MapViewController.");
 }
 
 
@@ -196,6 +195,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     self.mapView.showsUserLocation = NO;
 }
+
 - (void)searchResultsViewDisappear
 {
     [UIView animateWithDuration:0.3f animations:^{self.searchResultsView.alpha = 0.0f;} completion:nil];
@@ -236,6 +236,11 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void) searchBarSearchButtonClicked: (UISearchBar *) searchBar {
     [self.searchResultsCollectionView searchPointOfInterest:searchBar.text];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    self.searchResultsCollectionView.searchResults = nil;
 }
 
 

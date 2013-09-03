@@ -1150,6 +1150,11 @@
                             <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="eSA-ky-eIo">
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="k55-I9-xUZ"/>
+                                    <barButtonItem title="Camera" id="xGm-zT-Xvu">
+                                        <connections>
+                                            <action selector="tappedCameraidsender:" destination="PGe-qp-L6R" id="NpV-Uv-oxP"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Photos" id="zvp-2N-ezR">
                                         <connections>
                                             <action selector="tappedPhotos:" destination="PGe-qp-L6R" id="l2E-KM-rQA"/>
