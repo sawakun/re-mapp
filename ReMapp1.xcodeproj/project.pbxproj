@@ -31,6 +31,9 @@
 		4536736A17AEA112002F0F88 /* PIN_BUZZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4536736917AEA112002F0F88 /* PIN_BUZZ@2x.png */; };
 		4557179217A4FD5800F6483F /* RMPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4557179117A4FD5800F6483F /* RMPMenuViewController.m */; };
 		455C2A9517B670E6004C03F9 /* RMPPostRequestCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C2A9417B670E6004C03F9 /* RMPPostRequestCreator.m */; };
+		455CC8E117D4AFB400C2B5DB /* RMPSearchResultsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 455CC8E017D4AFB400C2B5DB /* RMPSearchResultsCollectionView.m */; };
+		455CC8E317D531E400C2B5DB /* RMPSearchResultsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 455CC8E217D531E400C2B5DB /* RMPSearchResultsCell.xib */; };
+		455CC8E617D5324F00C2B5DB /* RMPSearchResultsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 455CC8E517D5324F00C2B5DB /* RMPSearchResultsCell.m */; };
 		4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4573183F17B27C7600DB02C9 /* ImageIO.framework */; };
 		4573184217B2801200DB02C9 /* NO_IMAGE.png in Resources */ = {isa = PBXBuildFile; fileRef = 4573184117B2801200DB02C9 /* NO_IMAGE.png */; };
 		45757AD517ADF4BF008E5397 /* LIKE_BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 45757AD117ADF4BF008E5397 /* LIKE_BUTTON.png */; };
@@ -206,6 +209,11 @@
 		4557179117A4FD5800F6483F /* RMPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMenuViewController.m; sourceTree = "<group>"; };
 		455C2A9317B670E6004C03F9 /* RMPPostRequestCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPostRequestCreator.h; sourceTree = "<group>"; };
 		455C2A9417B670E6004C03F9 /* RMPPostRequestCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPostRequestCreator.m; sourceTree = "<group>"; };
+		455CC8DF17D4AFB400C2B5DB /* RMPSearchResultsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPSearchResultsCollectionView.h; sourceTree = "<group>"; };
+		455CC8E017D4AFB400C2B5DB /* RMPSearchResultsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPSearchResultsCollectionView.m; sourceTree = "<group>"; };
+		455CC8E217D531E400C2B5DB /* RMPSearchResultsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPSearchResultsCell.xib; sourceTree = "<group>"; };
+		455CC8E417D5324F00C2B5DB /* RMPSearchResultsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPSearchResultsCell.h; sourceTree = "<group>"; };
+		455CC8E517D5324F00C2B5DB /* RMPSearchResultsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPSearchResultsCell.m; sourceTree = "<group>"; };
 		4573183F17B27C7600DB02C9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4573184117B2801200DB02C9 /* NO_IMAGE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NO_IMAGE.png; sourceTree = "<group>"; };
 		45757AD117ADF4BF008E5397 /* LIKE_BUTTON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LIKE_BUTTON.png; sourceTree = "<group>"; };
@@ -852,6 +860,11 @@
 				45E4AC29177E8ADF006619F1 /* MapViewController.m */,
 				45DABF02179D3530001E9A7C /* RMPMapView.h */,
 				45DABF03179D3530001E9A7C /* RMPMapView.m */,
+				455CC8DF17D4AFB400C2B5DB /* RMPSearchResultsCollectionView.h */,
+				455CC8E017D4AFB400C2B5DB /* RMPSearchResultsCollectionView.m */,
+				455CC8E217D531E400C2B5DB /* RMPSearchResultsCell.xib */,
+				455CC8E417D5324F00C2B5DB /* RMPSearchResultsCell.h */,
+				455CC8E517D5324F00C2B5DB /* RMPSearchResultsCell.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -1080,6 +1093,7 @@
 				457FC26917BF7FC5004DB077 /* RMPBuzzMapCell.xib in Resources */,
 				475C1F5217C2583A00BCF827 /* README.md in Resources */,
 				475C1F5317C2583A00BCF827 /* release_notes.md in Resources */,
+				455CC8E317D531E400C2B5DB /* RMPSearchResultsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,6 +1188,8 @@
 				4593274D17BE4097002C2FC3 /* RMPTimeLineViewController.m in Sources */,
 				457FC26C17BF80B6004DB077 /* RMPPlaceMapCell.m in Sources */,
 				457FC26F17BF82A8004DB077 /* RMPBuzzMapCell.m in Sources */,
+				455CC8E117D4AFB400C2B5DB /* RMPSearchResultsCollectionView.m in Sources */,
+				455CC8E617D5324F00C2B5DB /* RMPSearchResultsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

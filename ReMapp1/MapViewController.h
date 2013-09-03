@@ -16,12 +16,12 @@
 @class BuzzFormViewController;
 @class RMPNonVisibleSearchBar;
 @class RMPMapView;
-
+@class RMPSearchResultsCollectionView;
 
 /** Notification that gets posted when the map was reloaded. */
 extern NSString *const MapViewDidReload;
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, RMPSlidingViewDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, RMPSlidingViewDelegate, UISearchBarDelegate>
 
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;
@@ -29,12 +29,16 @@ extern NSString *const MapViewDidReload;
 @property (weak, nonatomic) IBOutlet UIView *rightScratchView;
 @property (weak, nonatomic) IBOutlet UIView *leftScratchView;
 @property (weak, nonatomic) IBOutlet RMPMapView *mapView;
-
 @property (weak, nonatomic) IBOutlet RMPNonVisibleSearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIView *searchResultsView;
+
 
 @property (weak, nonatomic) IBOutlet UIView *maskView;
+@property (weak, nonatomic) IBOutlet RMPSearchResultsCollectionView *searchResultsCollectionView;
 
 - (void)showCenter:(NSInteger)index;
 - (void)showAnnotation:(NSInteger)index;
+- (void)moveMapWithLon:(CGFloat)lon Lat:(CGFloat)lat;
+- (void)searchResultsViewDisappear;
 @end
 

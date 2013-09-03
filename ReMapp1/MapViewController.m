@@ -17,27 +17,8 @@
 #import "RMPMapView.h"
 #import "RMPPlaceViewController.h"
 #import "RMPPlaceData.h"
-
-// TEST
-@interface NSObject (Extension)
-- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
-@end
-
-// TEST
-@implementation NSObject (Extension)
-- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay
-{
-    [self performSelector:@selector(executeBlock__:)
-               withObject:[block copy]
-               afterDelay:delay];
-}
-
-- (void)executeBlock__:(void (^)(void))block
-{
-    block();
-}
-@end
-
+#import "RMPHTTPConnection.h"
+#import "RMPSearchResultsCollectionView.h"
 
 @interface MapViewController ()
 
@@ -62,6 +43,13 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     // set BuzzForm
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     self.buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
+    
+    // related to serach bar
+    self.searchBar.delegate = self;
+    self.searchBar.delegate = self;
+    
+    // related to search results view
+    self.searchResultsCollectionView.mapDelegate = self;
     
     // regist UIGestureRecognizer
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
@@ -208,12 +196,48 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     self.mapView.showsUserLocation = NO;
 }
+- (void)searchResultsViewDisappear
+{
+    [UIView animateWithDuration:0.3f animations:^{self.searchResultsView.alpha = 0.0f;} completion:nil];
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+}
 
-#pragma mark - UISearchBar
 
-- (void) searchBarSearchButtonClicked: (UISearchBar *) searchBar {
+#pragma mark - RMPSearchResultsCollectionViewDelegate
+
+- (void)moveMapWithLon:(CGFloat)lon Lat:(CGFloat)lat
+{
+    CLLocationCoordinate2D centerLocation;
+    centerLocation.latitude = lat;
+    centerLocation.longitude = lon;
+    [self.mapView setCenterCoordinate:centerLocation animated:YES];
+    [self searchResultsViewDisappear];
+}
+
+
+
+#pragma mark - UISearchBarDelsegate
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [UIView animateWithDuration:0.3f animations:^{
+        self.searchResultsView.alpha = 1.0f;
+    } completion:nil];
+    [searchBar setShowsCancelButton:YES animated:YES];
+    return;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [self searchResultsViewDisappear];
+    return;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
 }
+
+- (void) searchBarSearchButtonClicked: (UISearchBar *) searchBar {
+    [self.searchResultsCollectionView searchPointOfInterest:searchBar.text];
+}
+
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
@@ -227,112 +251,5 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 }
 
 
-
-
-#pragma mark - TEST
-
-- (void)test
-{
-     // TEST
-     [self performBlock:^(void){
-     double lat1 = 35.6584;
-     double lot1 = 139.7017;
-     double lat2 = lat1 - 1;
-     double lot2 = lot1 - 2;
-     NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
-     @"northEastLot":[NSNumber numberWithDouble:lot1],
-     @"southWestLat":[NSNumber numberWithDouble:lat2],
-     @"southWestLot":[NSNumber numberWithDouble:lot2]};
-     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
-     object:nil
-     userInfo:userInfo];
-     });} afterDelay:1];
-     
-     
-     // TEST
-     [self performBlock:^(void){
-     double lat1 = 30.6584;
-     double lot1 = 130.7017;
-     double lat2 = lat1 - 1;
-     double lot2 = lot1 - 2;
-     NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
-     @"northEastLot":[NSNumber numberWithDouble:lot1],
-     @"southWestLat":[NSNumber numberWithDouble:lat2],
-     @"southWestLot":[NSNumber numberWithDouble:lot2]};
-     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
-     object:nil
-     userInfo:userInfo];
-     });} afterDelay:2];
-     
-     [self performBlock:^(void){
-         double lat1 = 35.6584;
-         double lot1 = 139.7017;
-         double lat2 = lat1 - 1;
-         double lot2 = lot1 - 2;
-     NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
-     @"northEastLot":[NSNumber numberWithDouble:lot1],
-     @"southWestLat":[NSNumber numberWithDouble:lat2],
-     @"southWestLot":[NSNumber numberWithDouble:lot2]};
-     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
-     object:nil
-     userInfo:userInfo];
-     });} afterDelay:3];
-     
-     
-     [self performBlock:^(void){
-     double lat1 = 20.6584;
-     double lot1 = 120.7017;
-     double lat2 = lat1 - 1;
-     double lot2 = lot1 - 2;
-     NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
-     @"northEastLot":[NSNumber numberWithDouble:lot1],
-     @"southWestLat":[NSNumber numberWithDouble:lat2],
-     @"southWestLot":[NSNumber numberWithDouble:lot2]};
-     
-     dispatch_async(dispatch_get_main_queue(), ^{
-     [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
-     object:nil
-     userInfo:userInfo];
-     });} afterDelay:4];
-
-    [self performBlock:^(void){
-        double lat1 = 35.6584;
-        double lot1 = 139.7017;
-        double lat2 = lat1 - 1;
-        double lot2 = lot1 - 2;
-        NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
-                                   @"northEastLot":[NSNumber numberWithDouble:lot1],
-                                   @"southWestLat":[NSNumber numberWithDouble:lat2],
-                                   @"southWestLot":[NSNumber numberWithDouble:lot2]};
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
-                                                                object:nil
-                                                              userInfo:userInfo];
-        });} afterDelay:5];
-    
-    
-    [self performBlock:^(void){
-        double lat1 = 20.6584;
-        double lot1 = 120.7017;
-        double lat2 = lat1 - 1;
-        double lot2 = lot1 - 2;
-        NSDictionary *userInfo = @{@"northEastLat":[NSNumber numberWithDouble:lat1],
-                                   @"northEastLot":[NSNumber numberWithDouble:lot1],
-                                   @"southWestLat":[NSNumber numberWithDouble:lat2],
-                                   @"southWestLot":[NSNumber numberWithDouble:lot2]};
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewRegionDidChangeAnimated
-                                                                object:nil
-                                                              userInfo:userInfo];
-        });} afterDelay:6];
-}
 
 @end

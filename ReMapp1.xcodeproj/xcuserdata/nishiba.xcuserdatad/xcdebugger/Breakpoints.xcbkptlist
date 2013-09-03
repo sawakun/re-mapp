@@ -124,19 +124,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "ReMapp1/MapViewController.m"
-         timestampString = "399388094.267841"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "219"
-         endingLineNumber = "219"
-         landmarkName = "-touchesBegan:withEvent:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "ReMapp1/RMPProfileViewController.m"
          timestampString = "396886838.91442"
          startingColumnNumber = "9223372036854775807"
@@ -708,11 +695,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "398359237.947732"
+         timestampString = "399896220.250258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1200,11 +1187,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "398416706.699993"
+         timestampString = "399896220.250258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "168"
-         endingLineNumber = "168"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
          landmarkName = "-handleLongPress:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1213,11 +1200,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "398416716.929591"
+         timestampString = "399896220.250258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
          landmarkName = "-handleLongPress:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1226,11 +1213,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "398416719.674449"
+         timestampString = "399896220.250258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "169"
-         endingLineNumber = "169"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-handleLongPress:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1447,11 +1434,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "399387693.284344"
+         timestampString = "399896220.250258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "185"
-         endingLineNumber = "185"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-reload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1460,12 +1447,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ReMapp1/MapViewController.m"
-         timestampString = "399388094.267841"
+         timestampString = "399896220.250258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
+         startingLineNumber = "174"
+         endingLineNumber = "174"
          landmarkName = "-reload"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/RMPSearchResultsCollectionView.m"
+         timestampString = "399895609.644653"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "30"
+         endingLineNumber = "30"
+         landmarkName = "-initWithCoder:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/RMPSearchResultsCollectionView.m"
+         timestampString = "399895609.644653"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-collectionView:cellForItemAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ReMapp1/MapViewController.m"
+         timestampString = "399896226.487915"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
+         landmarkName = "-moveMapWithLon:Lat:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
