@@ -53,4 +53,36 @@
     return TRUE;
 }
 
+
++ (NSArray *)searchPointOfInterest:(NSString*)key
+{
+    // UNDER CONSTRUCTION - change url
+    NSString *urlStr = @"http://re-mapp.herokuapp.com/api/listen/35.685562/139.753562/0.3";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                                cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                            timeoutInterval:30.0f];
+    NSURLResponse *response;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                         returningResponse:&response
+                                                     error:&error];
+    if (error != nil) {
+        return nil;
+    }
+    if ([data length] == 0) {
+        return nil;
+    }
+    
+    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
+
+    NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                         options:NSJSONReadingAllowFragments
+                                                           error:nil];
+
+    return dataArray;
+}
+
+
 @end

@@ -19,4 +19,6 @@
                        Email:(NSString*)email
                      Profile:(NSString*)profile;
 
++ (NSArray *)searchPointOfInterest:(NSString*)key;
+
 @end
