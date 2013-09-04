@@ -171,10 +171,8 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
                                          returningResponse:&response
                                                      error:&error];
-    if (error != nil) {
-        return nil;
-    }
-    if ([data length] == 0) {
+    
+    if (error != nil || [data length] == 0) {
         return nil;
     }
     

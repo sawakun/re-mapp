@@ -212,6 +212,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     centerLocation.longitude = lon;
     [self.mapView setCenterCoordinate:centerLocation animated:YES];
     [self searchResultsViewDisappear];
+    [self.searchBar resignFirstResponder];
 }
 
 
@@ -226,7 +227,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    [self searchResultsViewDisappear];
+    //[self searchResultsViewDisappear];
     return;
 }
 
@@ -235,7 +236,16 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 }
 
 - (void) searchBarSearchButtonClicked: (UISearchBar *) searchBar {
-    [self.searchResultsCollectionView searchPointOfInterest:searchBar.text];
+    [self.activityIndicatorView startAnimating];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        [self.searchResultsCollectionView searchPointOfInterest:searchBar.text];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.searchResultsCollectionView reloadData];
+            [self.activityIndicatorView stopAnimating];
+            [self.searchBar resignFirstResponder];
+        });
+    });
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText

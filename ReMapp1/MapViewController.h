@@ -36,6 +36,7 @@ RMPSlidingViewDelegate, RMPSearchResultsCollectionViewDelegate, UISearchBarDeleg
 
 @property (weak, nonatomic) IBOutlet UIView *maskView;
 @property (weak, nonatomic) IBOutlet RMPSearchResultsCollectionView *searchResultsCollectionView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
 - (void)showCenter:(NSInteger)index;
 - (void)showAnnotation:(NSInteger)index;
