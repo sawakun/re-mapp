@@ -88,19 +88,28 @@
     //upload image
     NSString *url=@"";
     
-/*
-    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://re-mapp.herokuapp.com/api/uploadTest"]
-                            cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://re-mapp.herokuapp.com/api/uploadImage"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     NSData *imageData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
 
     //set HTTP POST
     //TODO: treat image format png/jpg/gif
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"image/png" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"image/png" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%d", [imageData length]] forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody: imageData];
+
+    NSString *boundary = @"1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableData *body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+
+    //TODO: ここのfilenameがどこに使われるのか要調査
+    [body appendData:[@"Content-Disposition: form-data; name=\"picture\"; filename=\"test.png\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+
+    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:imageData]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:body];
     
     //response
     NSURLResponse *response=nil;
@@ -126,10 +135,6 @@
             url=[resultDic objectForKey:@"url"];
         }
     }
-*/
-    
-    // for dev
-    url=@"http://re-mapp.herokuapp.com/assets/images/IMG_0732.jpg";
     return url;
 }
 
