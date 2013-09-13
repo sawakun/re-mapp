@@ -14,30 +14,128 @@
                            BuzzText:(NSString*)buzzText
                            Location:(CLLocationCoordinate2D)location
                               Image:(UIImage*)image
-{
-    // I send a new buzz data (userSystemId, buzzText, lat, lot, image) to the serve.
-    // The following is a test code.
+{    
+    // post JSON like as follows
     /*
-    static NSString *fileName = @"BuzzData.csv";
+     {
+     "user_id":3,
+     "buzz_body":"test data:18",
+     "buzz_img_url":"http://re-mapp.herokuapp.com/assets/images/IMG_0732.jpg",
+     "lat":35.106876588753444,
+     "lon":139.10971074251088,
+     "buzz_type":"eat"
+     }
+     */
     
-    NSDate *nowDate = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
-    NSString *nowDateString = [formatter stringFromDate:nowDate];
+    //upload image and get url
+    NSString *buzz_img_url=[self sendImage:image userSystemId:userSystemId];
+    
+    // upload buzz data
+    NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
+    [mutableDic setValue:[NSNumber numberWithInt:userSystemId] forKey:@"user_id"];
+    [mutableDic setValue:buzzText forKey:@"buzz_body"];
+    [mutableDic setValue:buzz_img_url forKey:@"buzz_img_url"];
+    [mutableDic setValue:[NSNumber numberWithDouble:location.latitude] forKey:@"lat"];
+    [mutableDic setValue:[NSNumber numberWithDouble:location.longitude] forKey:@"lon"];
+    //TODO: treating buzz_type
+    [mutableDic setValue:@"buzz" forKey:@"buzz_type"];
+    
+    //convert to JSON
+    NSError*   errorJson = nil;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:mutableDic options:NSJSONWritingPrettyPrinted error:&errorJson];
 
-    //make a new  csv line
-    NSString *newLine = [[NSString alloc] initWithFormat:@"\n%@,%d,%@,%@,%f,%f,%@",
-                         nowDateString,
-                         userSystemId,
-                         buzzText,
-                         @"",
-                         location.latitude,
-                         location.longitude,
-                         nowDateString];
-    //addCSVFile(fileName, newLine);
-    */
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://re-mapp.herokuapp.com/api/post"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+
+// for debug. send to localhost
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:9000/api/post"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    
+    //set HTTP POST
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody: requestData];
+    
+    //response
+    NSURLResponse *response=nil;
+    NSError *error=nil;
+    NSData *result;
+    NSMutableDictionary *resultDic;
+    BOOL flag = YES;
+    while(flag){
+        //HTTP request send
+        result = [NSURLConnection sendSynchronousRequest:request
+                                           returningResponse:&response error:&error];
+        resultDic = [NSJSONSerialization JSONObjectWithData:result
+                                                     options:NSJSONReadingAllowFragments
+                                                       error:&errorJson];
+        NSString *status = [resultDic objectForKey:@"status"];
+        if(![status isEqualToString:@"ok"]){
+            //TODO: show dialog and ask 'resend' or 'save to draft'
+            
+        }else{
+            // successfully posted
+            flag=NO;
+        }
+    }
     return TRUE;
 }
+
+
++ (NSString*)sendImage:(UIImage*)image userSystemId:(NSInteger)userSystemId
+{
+    //upload image
+    NSString *url=@"";
+    
+/*
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://re-mapp.herokuapp.com/api/uploadTest"]
+                            cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    NSData *imageData = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+
+    //set HTTP POST
+    //TODO: treat image format png/jpg/gif
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"image/png" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"image/png" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d", [imageData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody: imageData];
+    
+    //response
+    NSURLResponse *response=nil;
+    NSError *error=nil;
+    NSError *errorJson=nil;
+    NSData *result;
+    NSMutableDictionary *resultDic;
+    BOOL flag = YES;
+    while(flag){
+        //HTTP request send
+        result = [NSURLConnection sendSynchronousRequest:request
+                                       returningResponse:&response error:&error];
+        resultDic = [NSJSONSerialization JSONObjectWithData:result
+                                                    options:NSJSONReadingAllowFragments
+                                                      error:&errorJson];
+        NSString *status = [resultDic objectForKey:@"status"];
+        if(![status isEqualToString:@"ok"]){
+            //TODO: show dialog and ask 'resend' or 'save to draft'
+            
+        }else{
+            // successfully posted
+            flag=NO;
+            url=[resultDic objectForKey:@"url"];
+        }
+    }
+*/
+    
+    // for dev
+    url=@"http://re-mapp.herokuapp.com/assets/images/IMG_0732.jpg";
+    return url;
+}
+
+
+
+
 
 + (BOOL)sendModifiedUserName:(NSString*)name
                        Email:(NSString*)email
