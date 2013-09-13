@@ -25,7 +25,6 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
         self.southWestLon = 0;
         self.southWestLat = 0;
     }
-    
     return self;
 }
 
@@ -50,8 +49,7 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     if (self.northEastLat < squareLonLat.northEastLat &&
         self.southWestLat > squareLonLat.southWestLat &&
         self.northEastLon < squareLonLat.northEastLon &&
-        self.southWestLon > squareLonLat.southWestLon)
-    {
+        self.southWestLon > squareLonLat.southWestLon) {
         return YES;
     }
     return NO;

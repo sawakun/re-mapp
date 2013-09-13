@@ -66,39 +66,38 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
                                                 cachePolicy:NSURLRequestReloadIgnoringCacheData
                                             timeoutInterval:30.0f];
-    NSURLResponse *response;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
-                                         returningResponse:&response
-                                                     error:&error];
-    if (error != nil) {
-        return;
-    }
-    else if ([data length] == 0) {
-        return;
-    }
     
-    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
-    if (dataStr == nil) {
-        NSLog(@"%@", data);
-        NSLog(@"Error in fetchNewDataWithConditions");
-        return;
-    }
-    NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                         options:NSJSONReadingAllowFragments
-                                                           error:nil];
+    self.currentRequestNumber = (self.currentRequestNumber + 1) % 1000;
+    int thisRequestNumber = self.currentRequestNumber;
     
-    [self.places removeAllObjects];
-    for (NSDictionary *buzzDictionary in buzzArray) {
-        // This check must be done on the server.
-        RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
-        if ([self availableForPlace:place])
-        {
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+    {
+
+        if (thisRequestNumber != self.currentRequestNumber || error != nil || [data length] == 0) {
+            return;
+        }
+        
+        NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
+        if (dataStr == nil) {
+            return;
+        }
+        
+        NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:nil];
+        
+        [self.places removeAllObjects];
+        for (NSDictionary *buzzDictionary in buzzArray) {
+            RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
             [self.places addObject:place];
         }
-    }
-    return;
+        return;
+    }];
 }
 
 
