@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		450452F717ABAD03002F0981 /* MENU_CHECK LIST_BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 450452F617ABAD03002F0981 /* MENU_CHECK LIST_BUTTON.png */; };
+		450532A017D74B3700F7FC40 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4505329F17D74B3700F7FC40 /* Empty.xib */; };
 		450C35B61787831D00484A9E /* bigmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 450C35B51787831D00484A9E /* bigmarker.png */; };
 		4518DB1617B7483400E15F6F /* RMPPlaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1517B7483400E15F6F /* RMPPlaceData.m */; };
 		4518DB1A17B7547F00E15F6F /* RMPRearrangedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */; };
@@ -181,6 +182,7 @@
 /* Begin PBXFileReference section */
 		450265F417C0538900C64B25 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		450452F617ABAD03002F0981 /* MENU_CHECK LIST_BUTTON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MENU_CHECK LIST_BUTTON.png"; sourceTree = "<group>"; };
+		4505329F17D74B3700F7FC40 /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		450C35B51787831D00484A9E /* bigmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigmarker.png; sourceTree = "<group>"; };
 		4518DB1417B7483400E15F6F /* RMPPlaceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPlaceData.h; sourceTree = "<group>"; };
 		4518DB1517B7483400E15F6F /* RMPPlaceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPlaceData.m; sourceTree = "<group>"; };
@@ -439,6 +441,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4505329E17D74B2400F7FC40 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4505329F17D74B3700F7FC40 /* Empty.xib */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		4518DB1717B74D6000E15F6F /* RMPHeightToFitLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -798,6 +808,7 @@
 		45E4AC10177E8ADF006619F1 /* ReMapp1 */ = {
 			isa = PBXGroup;
 			children = (
+				4505329E17D74B2400F7FC40 /* Utility */,
 				45757AD017ADF4A9008E5397 /* Images */,
 				45CF18C017B7B2EF004271AD /* MainStoryboard_iPhone.storyboard */,
 				4557178F17A4FD3400F6483F /* Menu */,
@@ -1094,6 +1105,7 @@
 				475C1F5217C2583A00BCF827 /* README.md in Resources */,
 				475C1F5317C2583A00BCF827 /* release_notes.md in Resources */,
 				455CC8E317D531E400C2B5DB /* RMPSearchResultsCell.xib in Resources */,
+				450532A017D74B3700F7FC40 /* Empty.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

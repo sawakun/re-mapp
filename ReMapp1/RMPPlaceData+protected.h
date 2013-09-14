@@ -9,7 +9,8 @@
 #import "RMPPlaceData.h"
 
 @interface RMPPlaceData(protected)
-@property (nonatomic, readonly) NSMutableArray *places;
-- (void)fetchNewDataWithConditions:(NSDictionary *)conditions;
+@property (atomic, readonly) NSMutableArray *places;
+//- (void)fetchNewDataWithConditions:(NSDictionary *)conditions;
+- (void)fetchPlaceDataWithConditions:(NSDictionary *)conditions completionHandler:(void (^)())handler;
 - (BOOL)availableForPlace:(RMPPlace*)place;
 @end

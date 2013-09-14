@@ -30,6 +30,8 @@ extern NSString *const RMPBuzzMapDataReloaded;
 - (BOOL)isIn:(RMPSquareLonLat *)squareLonLat;
 @end
 
+
+
 @interface RMPMapPlaceData : RMPPlaceData
 {
 @private

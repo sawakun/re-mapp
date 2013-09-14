@@ -171,10 +171,8 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
                                          returningResponse:&response
                                                      error:&error];
-    if (error != nil) {
-        return nil;
-    }
-    if ([data length] == 0) {
+    
+    if (error != nil || [data length] == 0) {
         return nil;
     }
     
@@ -186,6 +184,22 @@
                                                            error:nil];
 
     return dataArray;
+}
+
+
++ (NSURL *)createPlaceDataURLWithConditions:(NSDictionary *)conditions
+{
+    // /api/listen?lat={lat}&lon={lon}&rad={rad}
+    NSMutableString *urlStr = [NSMutableString stringWithString:@"http://re-mapp.herokuapp.com/api/listen?"];
+    for (NSString *key in conditions) {
+        [urlStr appendFormat:@"%@=%@&", key, conditions[key]];
+    }
+    
+    // delete the last character of url
+    [urlStr deleteCharactersInRange:NSMakeRange([urlStr length] - 1, 1)];
+    
+    NSLog(@"%@", urlStr);
+    return [NSURL URLWithString:urlStr];
 }
 
 

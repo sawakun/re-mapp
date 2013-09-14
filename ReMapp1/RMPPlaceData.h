@@ -16,7 +16,7 @@ extern NSString *const RMPPlaceDataReloaded;
 @interface RMPPlaceData : NSObject
 @property (nonatomic, readonly) NSInteger count;
 - (RMPPlace *)placeAtIndex:(NSInteger)index;
-- (void)reload;
+//- (void)reload;
 @end
 
 
