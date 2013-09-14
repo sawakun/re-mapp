@@ -31,7 +31,9 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    //set BuzzData
+    self.buzzData = [RMPMapPlaceData sharedManager];
+
     // set Map
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 35.6584;
@@ -93,10 +95,6 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    //set BuzzData
-    self.buzzData = [RMPMapPlaceData sharedManager];
-    // TEST
-    //[self test];
 }
 
 - (void)showInfoView
@@ -174,7 +172,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     [oldAnnotations removeObjectsInArray:annotations];
     [_mapView addAnnotations:annotations];
     [_mapView removeAnnotations:oldAnnotations];
-    NSLog(@"Call 'reload' in MapViewController.");
+    NSLog(@"Call 'reload' in MapViewController with Annoations(%d).", annotations.count);
 }
 
 

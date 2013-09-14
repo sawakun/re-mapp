@@ -187,4 +187,20 @@
 }
 
 
++ (NSURL *)createPlaceDataURLWithConditions:(NSDictionary *)conditions
+{
+    // /api/listen?lat={lat}&lon={lon}&rad={rad}
+    NSMutableString *urlStr = [NSMutableString stringWithString:@"http://re-mapp.herokuapp.com/api/listen?"];
+    for (NSString *key in conditions) {
+        [urlStr appendFormat:@"%@=%@&", key, conditions[key]];
+    }
+    
+    // delete the last character of url
+    [urlStr deleteCharactersInRange:NSMakeRange([urlStr length] - 1, 1)];
+    
+    NSLog(@"%@", urlStr);
+    return [NSURL URLWithString:urlStr];
+}
+
+
 @end

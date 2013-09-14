@@ -10,12 +10,14 @@
 #import "RMPPlace.h"
 #import "RMPUser.h"
 #import "RMPPlaceData+protected.h"
+#import "RMPHTTPConnection.h"
 
 NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
 
 @interface RMPPlaceData()
 @property (nonatomic) NSMutableArray *places;
 @property (atomic) int currentRequestNumber;
+@property NSOperationQueue *fetchQueue;
 @end
 
 
@@ -30,10 +32,14 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
     return self;
 }
 
+/**
+ Sets up.
+ */
 - (void)setUp
 {
-    self.places = [[NSMutableArray alloc] init];
-    self.currentRequestNumber = 0;
+    _places = [[NSMutableArray alloc] init];
+    _currentRequestNumber = 0;
+    _fetchQueue = [[NSOperationQueue alloc] init];
 }
 
 - (NSInteger)count
@@ -46,6 +52,7 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
     return YES;
 }
 
+/*
 - (void)reload
 {
     dispatch_queue_t queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
@@ -56,14 +63,14 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
         });
     });
 }
+*/
 
-
-
+/*
 - (void)fetchNewDataWithConditions:(NSDictionary *)conditions
 {
     //json
-    // /api/listen/<lat>/<lon>/<rad>
-    NSString *urlStr = @"http://re-mapp.herokuapp.com/api/listen/35.685562/139.753562/0.3";
+    // /api/listen?lat={lat}&lon={lon}&rad={rad}
+    NSString *urlStr = @"http://re-mapp.herokuapp.com/api/listen?lat=35.685562&lon=139.753562&rad=0.3";
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
                                                 cachePolicy:NSURLRequestReloadIgnoringCacheData
@@ -78,7 +85,7 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
                                        queue:queue
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
     {
-
+        NSLog(@"%d, %d",  self.currentRequestNumber, thisRequestNumber);
         if (thisRequestNumber != self.currentRequestNumber || error != nil || [data length] == 0) {
             return;
         }
@@ -100,6 +107,54 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
         }
         return;
     }];
+}
+*/
+
+
+/**
+ @brief Fetch the place data with conditions and executes a handler block when the fetch completes.
+
+ @param conditions The conditions to fetch.
+ @param handler The handler block to execute.
+ 
+ */
+- (void)fetchPlaceDataWithConditions:(NSDictionary *)conditions completionHandler:(void (^)())handler
+{
+    // cancel fetch in progress
+    [self.fetchQueue cancelAllOperations];
+    
+    //json
+    NSURL *url = [RMPHTTPConnection createPlaceDataURLWithConditions:conditions];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                                cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                            timeoutInterval:30.0f];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:self.fetchQueue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         if (error != nil || [data length] == 0) return;
+         
+         NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
+
+         if (dataStr == nil) return;
+         
+         // set encoding mode for data. It must be obtaind for header of data.
+         NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+         NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                              options:NSJSONReadingAllowFragments
+                                                                error:nil];
+         
+         [self.places removeAllObjects];
+         for (NSDictionary *buzzDictionary in buzzArray) {
+             RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
+             [self.places addObject:place];
+         }
+
+         if (handler) handler();
+
+         return;
+     }];
 }
 
 

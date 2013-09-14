@@ -21,4 +21,5 @@
 
 + (NSArray *)searchPointOfInterest:(NSString*)key;
 
++ (NSURL *)createPlaceDataURLWithConditions:(NSDictionary *)conditions;
 @end

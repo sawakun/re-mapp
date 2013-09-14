@@ -127,8 +127,9 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
         
         NSLog(@"Case 1");
         [NSURLConnection cancelPreviousPerformRequestsWithTarget:self];
-        [self fetchBuzzDataWithSquareLonLat:thisLonLat];
-        [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
+        [self fetchBuzzDataWithSquareLonLat:thisLonLat completionHandler:^(){
+            [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
+        }];
         return;
     }
 
@@ -136,7 +137,7 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     {
         NSLog(@"Case 2");
         [self setCurrentBuzzDataWithSquareLonLat:thisLonLat];
-        [self fetchBuzzDataWithSquareLonLat:thisLonLat];
+        [self fetchBuzzDataWithSquareLonLat:thisLonLat completionHandler:nil];
         return;
     }
     
@@ -163,28 +164,36 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
             ++index;
         }
     }
-    NSLog(@"Set new buzz set.");
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:RMPBuzzMapDataReloaded object:self userInfo:nil];
     });
 }
 
-- (void)fetchBuzzDataWithSquareLonLat:(RMPSquareLonLat *)thisSquare
+- (void)fetchBuzzDataWithSquareLonLat:(RMPSquareLonLat *)thisSquare completionHandler:(void (^)())handler
 {
-    // set new _buzzDataNorthEastLat...
-    double widthLot = thisSquare.northEastLon - thisSquare.southWestLon;
     double heigthLat = thisSquare.northEastLat - thisSquare.southWestLat;
-    _buzzDataLonLat.northEastLat = thisSquare.northEastLat + 2 * heigthLat;
-    _buzzDataLonLat.northEastLon = thisSquare.northEastLon + 2 * widthLot;
-    _buzzDataLonLat.southWestLat = thisSquare.southWestLat - 2 * heigthLat;
-    _buzzDataLonLat.southWestLon = thisSquare.southWestLon - 2 * widthLot;
-    _urlRequestLonLat.northEastLat = thisSquare.northEastLat + heigthLat;
-    _urlRequestLonLat.northEastLon = thisSquare.northEastLon + widthLot;
-    _urlRequestLonLat.southWestLat = thisSquare.southWestLat - heigthLat;
-    _urlRequestLonLat.southWestLon = thisSquare.southWestLon - widthLot;
-    _widthCurrentView = widthLot;
+    double widthLot = thisSquare.northEastLon - thisSquare.southWestLon;
     
-    [self fetchNewDataWithConditions:nil];
+    // set current map data
+    CGFloat lat = 0.5 * (thisSquare.northEastLat + thisSquare.southWestLat);
+    CGFloat lon = 0.5 * (thisSquare.northEastLon + thisSquare.southWestLon);
+    CGFloat rad = 3.0 * (heigthLat / 2.0);
+    NSDictionary *placeConditions = @{ @"lat":@(lat), @"lon":@(lon), @"rad":@(rad)};
+    
+    [self fetchPlaceDataWithConditions:placeConditions completionHandler:^(){
+        // set new _buzzDataNorthEastLat
+        _buzzDataLonLat.northEastLat = thisSquare.northEastLat + 2 * heigthLat;
+        _buzzDataLonLat.northEastLon = thisSquare.northEastLon + 2 * widthLot;
+        _buzzDataLonLat.southWestLat = thisSquare.southWestLat - 2 * heigthLat;
+        _buzzDataLonLat.southWestLon = thisSquare.southWestLon - 2 * widthLot;
+        _urlRequestLonLat.northEastLat = thisSquare.northEastLat + heigthLat;
+        _urlRequestLonLat.northEastLon = thisSquare.northEastLon + widthLot;
+        _urlRequestLonLat.southWestLat = thisSquare.southWestLat - heigthLat;
+        _urlRequestLonLat.southWestLon = thisSquare.southWestLon - widthLot;
+        _widthCurrentView = widthLot;
+        if (handler) handler();
+    }];
 }
 
 - (NSInteger)count
