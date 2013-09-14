@@ -20,7 +20,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _placeData = [[RMPMutePlaceData alloc] init];
-    [_placeData reload];
+    //[_placeData reload];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPPlaceDataReloaded object:_placeData];
 }
 

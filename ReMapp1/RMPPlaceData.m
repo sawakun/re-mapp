@@ -10,11 +10,14 @@
 #import "RMPPlace.h"
 #import "RMPUser.h"
 #import "RMPPlaceData+protected.h"
+#import "RMPHTTPConnection.h"
 
 NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
 
 @interface RMPPlaceData()
 @property (nonatomic) NSMutableArray *places;
+@property (atomic) int currentRequestNumber;
+@property NSOperationQueue *fetchQueue;
 @end
 
 
@@ -29,9 +32,14 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
     return self;
 }
 
+/**
+ Sets up.
+ */
 - (void)setUp
 {
-    self.places = [[NSMutableArray alloc] init];
+    _places = [[NSMutableArray alloc] init];
+    _currentRequestNumber = 0;
+    _fetchQueue = [[NSOperationQueue alloc] init];
 }
 
 - (NSInteger)count
@@ -44,6 +52,7 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
     return YES;
 }
 
+/*
 - (void)reload
 {
     dispatch_queue_t queue = dispatch_queue_create("com.re-mapp", DISPATCH_QUEUE_SERIAL);
@@ -54,9 +63,9 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
         });
     });
 }
+*/
 
-
-
+/*
 - (void)fetchNewDataWithConditions:(NSDictionary *)conditions
 {
     //json
@@ -66,39 +75,86 @@ NSString *const RMPPlaceDataReloaded = @"RMPPlaceDataReloaded";
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
                                                 cachePolicy:NSURLRequestReloadIgnoringCacheData
                                             timeoutInterval:30.0f];
-    NSURLResponse *response;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
-                                         returningResponse:&response
-                                                     error:&error];
-    if (error != nil) {
-        return;
-    }
-    else if ([data length] == 0) {
-        return;
-    }
     
-    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
-    if (dataStr == nil) {
-        NSLog(@"%@", data);
-        NSLog(@"Error in fetchNewDataWithConditions");
-        return;
-    }
-    NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                         options:NSJSONReadingAllowFragments
-                                                           error:nil];
+    self.currentRequestNumber = (self.currentRequestNumber + 1) % 1000;
+    int thisRequestNumber = self.currentRequestNumber;
     
-    [self.places removeAllObjects];
-    for (NSDictionary *buzzDictionary in buzzArray) {
-        // This check must be done on the server.
-        RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
-        if ([self availableForPlace:place])
-        {
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+    {
+        NSLog(@"%d, %d",  self.currentRequestNumber, thisRequestNumber);
+        if (thisRequestNumber != self.currentRequestNumber || error != nil || [data length] == 0) {
+            return;
+        }
+        
+        NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
+        if (dataStr == nil) {
+            return;
+        }
+        
+        NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                             options:NSJSONReadingAllowFragments
+                                                               error:nil];
+        
+        [self.places removeAllObjects];
+        for (NSDictionary *buzzDictionary in buzzArray) {
+            RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
             [self.places addObject:place];
         }
-    }
-    return;
+        return;
+    }];
+}
+*/
+
+
+/**
+ @brief Fetch the place data with conditions and executes a handler block when the fetch completes.
+
+ @param conditions The conditions to fetch.
+ @param handler The handler block to execute.
+ 
+ */
+- (void)fetchPlaceDataWithConditions:(NSDictionary *)conditions completionHandler:(void (^)())handler
+{
+    // cancel fetch in progress
+    [self.fetchQueue cancelAllOperations];
+    
+    //json
+    NSURL *url = [RMPHTTPConnection createPlaceDataURLWithConditions:conditions];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                                cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                            timeoutInterval:30.0f];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:self.fetchQueue
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         if (error != nil || [data length] == 0) return;
+         
+         NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSJapaneseEUCStringEncoding];
+
+         if (dataStr == nil) return;
+         
+         // set encoding mode for data. It must be obtaind for header of data.
+         NSData *jsonData = [dataStr dataUsingEncoding:NSUTF8StringEncoding];
+         NSArray *buzzArray = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                              options:NSJSONReadingAllowFragments
+                                                                error:nil];
+         
+         [self.places removeAllObjects];
+         for (NSDictionary *buzzDictionary in buzzArray) {
+             RMPPlace *place = [RMPPlaceFactory createPlace:buzzDictionary];
+             [self.places addObject:place];
+         }
+
+         if (handler) handler();
+
+         return;
+     }];
 }
 
 

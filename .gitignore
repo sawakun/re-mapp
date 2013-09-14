@@ -6,6 +6,9 @@
 # Build dir
 build/
   
+# docs dir
+docs/
+
 # Xcode project files except for the project file
 *.xcodeproj/
 !*.xcodeproj/project.pbxproj
