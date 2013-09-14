@@ -159,9 +159,7 @@
 
 + (NSArray *)searchPointOfInterest:(NSString*)key
 {
-    // UNDER CONSTRUCTION - change url
-    // /api/listen?lat={lat}&lon={lon}&rad={rad}
-    NSString *urlStr = @"http://re-mapp.herokuapp.com/api/listen?lat=35.685562&lon=139.753562&rad=0.3";
+    NSString *urlStr = [NSString stringWithFormat:@"http://re-mapp.herokuapp.com/api/search?q=%@", key];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
                                                 cachePolicy:NSURLRequestReloadIgnoringCacheData
