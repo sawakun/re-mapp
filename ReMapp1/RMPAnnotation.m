@@ -19,8 +19,40 @@
     self = [super init];
     if (self) {
         self.identifier             = @"RMPBuzzAnnotation";
-        self.pinImage               = [UIImage imageNamed:@"PIN_BUZZ.png"];
-        self.selectedPinImage       = [UIImage imageNamed:@"PIN_BUZZ_SELECTED.png"];
+        self.pinImage               = [UIImage imageNamed:@"pin_a1.png"];
+        self.selectedPinImage       = [UIImage imageNamed:@"pin_a2.png"];
+        self.centerOffset           = CGPointMake(0.0f, -16.5f);
+        self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
+    }
+    return self;
+}
+@end
+
+
+@implementation RMPEatAnnotation
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.identifier             = @"RMPEatAnnotation";
+        self.pinImage               = [UIImage imageNamed:@"pin_b1.png"];
+        self.selectedPinImage       = [UIImage imageNamed:@"pin_b2.png"];
+        self.centerOffset           = CGPointMake(0.0f, -16.5f);
+        self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
+    }
+    return self;
+}
+@end
+
+
+@implementation RMPShopAnnotation
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.identifier             = @"RMPShopAnnotation";
+        self.pinImage               = [UIImage imageNamed:@"pin_c1.png"];
+        self.selectedPinImage       = [UIImage imageNamed:@"pin_c2.png"];
         self.centerOffset           = CGPointMake(0.0f, -16.5f);
         self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
     }
@@ -34,8 +66,8 @@
     self = [super init];
     if (self) {
         self.identifier             = @"RMPPlayAnnotation";
-        self.pinImage               = [UIImage imageNamed:@"PIN_PLAY.png"];
-        self.selectedPinImage       = [UIImage imageNamed:@"PIN_PLAY_SELECTED.png"];
+        self.pinImage               = [UIImage imageNamed:@"pin_d1.png"];
+        self.selectedPinImage       = [UIImage imageNamed:@"pin_d2.png"];
         self.centerOffset           = CGPointMake(0.0f, -16.5f);
         self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
     }
@@ -43,35 +75,6 @@
 }
 @end
 
-@implementation RMPShopAnnotation
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        self.identifier             = @"RMPShopAnnotation";
-        self.pinImage               = [UIImage imageNamed:@"PIN_SHOP.png"];
-        self.selectedPinImage       = [UIImage imageNamed:@"PIN_SHOP_SELECTED.png"];
-        self.centerOffset           = CGPointMake(0.0f, -16.5f);
-        self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
-    }
-    return self;
-}
-@end
-
-@implementation RMPEatAnnotation
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        self.identifier             = @"RMPEatAnnotation";
-        self.pinImage               = [UIImage imageNamed:@"PIN_EAT.png"];
-        self.selectedPinImage       = [UIImage imageNamed:@"PIN_EAT_SELECTED.png"];
-        self.centerOffset           = CGPointMake(0.0f, -16.5f);
-        self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
-    }
-    return self;
-}
-@end
 
 
 @implementation RMPWriteFormAnnotation
