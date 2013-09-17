@@ -14,9 +14,10 @@
 #import "RMPTimeLineDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMPMapPlaceData.h"
+#import "RMPDetailViewController.h"
 
 @interface RMPTimeLineViewController ()
-@property RMPTimeLineDetailViewController *timeLineDetailViewController;
+@property RMPDetailViewController *detailViewController;
 @property CGRect showFrame;
 @property CGRect hideFrame;
 @end
@@ -62,16 +63,15 @@
     
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    self.timeLineDetailViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPTimeLineDetailViewController"];
+    self.detailViewController = [storyboard instantiateViewControllerWithIdentifier:@"RMPDetailViewController"];
     
     CGRect bounds = self.view.bounds;
-    NSLog(@"%f", bounds.size.height);
     self.hideFrame = CGRectMake(bounds.origin.x + bounds.size.width, bounds.origin.y, bounds.size.width, bounds.size.height);
     self.showFrame = CGRectMake(bounds.origin.x, bounds.origin.y, bounds.size.width, bounds.size.height);
-    [self addChildViewController:self.timeLineDetailViewController];
-    [self.timeLineDetailViewController didMoveToParentViewController:self];
-    [self.timeLineDetailViewController.view setFrame:self.hideFrame];
-    [self.view addSubview:self.timeLineDetailViewController.view];
+    [self addChildViewController:self.detailViewController];
+    [self.detailViewController didMoveToParentViewController:self];
+    [self.detailViewController.view setFrame:self.hideFrame];
+    [self.view addSubview:self.detailViewController.view];
 }
 
 - (void)reload
@@ -110,9 +110,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.timeLineDetailViewController.place = [_placeData placeAtIndex:indexPath.row];
+    self.detailViewController.place = [_placeData placeAtIndex:indexPath.row];
     [UIView animateWithDuration:0.4f animations:^{
-        [self.timeLineDetailViewController.view setFrame:self.showFrame];
+        [self.detailViewController.view setFrame:self.showFrame];
     } completion:nil];
 }
 

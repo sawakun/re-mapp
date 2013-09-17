@@ -8,32 +8,26 @@
 
 #import "RMPPlace.h"
 #import "RMPAnnotation.h"
-#import "RMPPlaceCell.h"
-#import "RMPBuzzCell.h"
-#import "RMPPlayCell.h"
-#import "RMPEatCell.h"
-#import "RMPShopCell.h"
 
+#import "RMPPlaceCell.h"
 #import "RMPPlaceDetailCell.h"
-#import "RMPBuzzDetailCell.h"
-#import "RMPPlayDetailCell.h"
-#import "RMPEatDetailCell.h"
-#import "RMPShopDetailCell.h"
+
 
 @interface RMPPlace()
-@property (nonatomic) NSString *buzzId;
+@property (nonatomic) float lat;
+@property (nonatomic) float lon;
+@property (nonatomic) NSInteger buzzId;
 @property (nonatomic) NSInteger userId;
 @property (nonatomic) NSString *userName;
-@property (nonatomic) NSString *iconURL;
-@property (nonatomic) NSString *text;
-@property (nonatomic) NSString *imageURL;
-@property (nonatomic) NSDate *date;
-@property (nonatomic) float lat;
-@property (nonatomic) float lot;
+@property (nonatomic) NSString *userImgURL;
+@property (nonatomic) NSString *buzzBody;
+@property (nonatomic) NSString *buzzImgUrl;
+@property (nonatomic) NSDate *time;
 @property (nonatomic) BOOL like;
 @property (nonatomic) BOOL mute;
-@property (nonatomic) NSString *buzz_type;
+@property (nonatomic) NSString *buzzType;
 @property (nonatomic) RMPBuzzAnnotation* annotation;
+@property (nonatomic) UIColor *bgColor;
 @end
 
 @implementation RMPPlace
@@ -42,17 +36,30 @@
     return @"RMPPlaceCell";
 }
 
++ (NSString *)detailCellIdentifier
+{
+    return @"RMPPlaceDetailCell";
+}
+
+- (NSString *)placeViewNibName
+{
+    return @"RMPPlaceView";
+}
+
+
+- (RMPAnnotation *)createAnnotaion
+{
+    return [[RMPAnnotation alloc] init];
+}
+
 - (CGFloat)heightForTimeLineCell
 {
     return [RMPPlaceCell heightForPlace:self];
 }
 
-
-
-
-+ (NSString *)detailCellIdentifier
+- (UIColor *)backgroundColor
 {
-    return @"RMPPlaceDetailCell";
+    return nil;
 }
 
 - (CGFloat)heightForDetailCell
@@ -72,58 +79,26 @@
 
 - (id)initWithDictionary:(NSDictionary *)buzzDictionary
 {
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
-}
-
-
-@end
-
-
-@implementation RMPBuzzPlace
-+ (NSString *)timeLineCellIdentifier
-{
-    return @"RMPBuzzCell";
-}
-
-- (CGFloat)heightForTimeLineCell
-{
-    return [RMPBuzzCell heightForPlace:self];
-}
-
-+ (NSString *)detailCellIdentifier
-{
-    return @"RMPBuzzDetailCell";
-}
-
-- (CGFloat)heightForDetailCell
-{
-    return [RMPBuzzDetailCell heightForPlace:self];
-}
-
-
-
-- (id)initWithDictionary:(NSDictionary *)buzzDictionary
-{
-    self = [self init];
+    self = [super init];
     if (self && buzzDictionary)
     {
-        self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = [buzzDictionary[@"user_id"] integerValue];
-        self.userName = buzzDictionary[@"user_name"];
-        self.iconURL  = buzzDictionary[@"user_img_url"];
-        self.text     = buzzDictionary[@"buzz_body"];
-        self.imageURL = buzzDictionary[@"buzz_img_url"];
-        self.lat      = [buzzDictionary[@"lat"] floatValue];
-        self.lot      = [buzzDictionary[@"lon"] floatValue];
-        self.date     =  [NSDate dateWithTimeIntervalSince1970:[buzzDictionary[@"time"] doubleValue] / 1000];
-        self.like      = [buzzDictionary[@"like"] boolValue];
-        self.mute      = [buzzDictionary[@"mute"] boolValue];
-        self.buzz_type      = buzzDictionary[@"buzz_type"];
-        self.annotation = [[RMPBuzzAnnotation alloc] init];
-        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
-        self.iconImage = nil;
-        self.image = nil;
+        self.buzzId         = [buzzDictionary[@"buzz_id"] integerValue];
+        self.userId         = [buzzDictionary[@"user_id"] integerValue];
+        self.userName       = buzzDictionary[@"user_name"];
+        self.userImgURL     = buzzDictionary[@"user_img_url"];
+        self.buzzBody       = buzzDictionary[@"buzz_body"];
+        self.buzzImgUrl     = buzzDictionary[@"buzz_img_url"];
+        self.lat            = [buzzDictionary[@"lat"] floatValue];
+        self.lon            = [buzzDictionary[@"lon"] floatValue];
+        self.time           = [NSDate dateWithTimeIntervalSince1970:[buzzDictionary[@"time"] doubleValue] / 1000];
+        self.like           = [buzzDictionary[@"like"] boolValue];
+        self.mute           = [buzzDictionary[@"mute"] boolValue];
+        self.buzzType       = buzzDictionary[@"buzz_type"];
+        self.annotation     = [self createAnnotaion];
+        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lon);
+        self.bgColor        = [self backgroundColor];
+        self.userImg = nil;
+        self.buzzImg = nil;
     }
     
     return self;
@@ -131,163 +106,3 @@
 
 
 @end
-
-
-@implementation RMPPlayPlace
-+ (NSString *)timeLineCellIdentifier
-{
-    return @"RMPPlayCell";
-}
-
-- (CGFloat)heightForTimeLineCell
-{
-    return [RMPPlayCell heightForPlace:self];
-}
-
-+ (NSString *)detailCellIdentifier
-{
-    return @"RMPPlayDetailCell";
-}
-
-- (CGFloat)heightForDetailCell
-{
-    return [RMPPlayDetailCell heightForPlace:self];
-}
-
-
-
-- (id)initWithDictionary:(NSDictionary *)buzzDictionary
-{
-    self = [self init];
-    if (self && buzzDictionary)
-    {
-        self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = [buzzDictionary[@"user_id"] integerValue];
-        self.userName = buzzDictionary[@"user_name"];
-        self.iconURL  = buzzDictionary[@"user_img_url"];
-        self.text     = buzzDictionary[@"buzz_body"];
-        self.imageURL = buzzDictionary[@"buzz_img_url"];
-        self.lat      = [buzzDictionary[@"lat"] floatValue];
-        self.lot      = [buzzDictionary[@"lon"] floatValue];
-        self.date     =  [NSDate dateWithTimeIntervalSince1970:[buzzDictionary[@"time"] doubleValue] / 1000];
-        self.like      = [buzzDictionary[@"like"] boolValue];
-        self.mute      = [buzzDictionary[@"mute"] boolValue];
-        self.buzz_type      = buzzDictionary[@"buzz_type"];
-        self.annotation = [[RMPPlayAnnotation alloc] init];
-        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
-        self.iconImage = nil;
-        self.image = nil;
-    }
-    
-    return self;
-}
-
-
-@end
-
-@implementation RMPEatPlace
-+ (NSString *)timeLineCellIdentifier
-{
-    return @"RMPEatCell";
-}
-
-- (CGFloat)heightForTimeLineCell
-{
-    return [RMPEatCell heightForPlace:self];
-}
-
-+ (NSString *)detailCellIdentifier
-{
-    return @"RMPEatDetailCell";
-}
-
-- (CGFloat)heightForDetailCell
-{
-    return [RMPEatDetailCell heightForPlace:self];
-}
-
-
-
-- (id)initWithDictionary:(NSDictionary *)buzzDictionary
-{
-    self = [self init];
-    if (self && buzzDictionary)
-    {
-        self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = [buzzDictionary[@"user_id"] integerValue];
-        self.userName = buzzDictionary[@"user_name"];
-        self.iconURL  = buzzDictionary[@"user_img_url"];
-        self.text     = buzzDictionary[@"buzz_body"];
-        self.imageURL = buzzDictionary[@"buzz_img_url"];
-        self.lat      = [buzzDictionary[@"lat"] floatValue];
-        self.lot      = [buzzDictionary[@"lon"] floatValue];
-        self.date     =  [NSDate dateWithTimeIntervalSince1970:[buzzDictionary[@"time"] doubleValue] / 1000];
-        self.like      = [buzzDictionary[@"like"] boolValue];
-        self.mute      = [buzzDictionary[@"mute"] boolValue];
-        self.buzz_type      = buzzDictionary[@"buzz_type"];
-        self.annotation = [[RMPEatAnnotation alloc] init];
-        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
-        self.iconImage = nil;
-        self.image = nil;
-    }
-    
-    return self;
-}
-
-
-@end
-
-
-@implementation RMPShopPlace
-+ (NSString *)timeLineCellIdentifier
-{
-    return @"RMPShopCell";
-}
-
-- (CGFloat)heightForTimeLineCell
-{
-    return [RMPShopCell heightForPlace:self];
-}
-
-+ (NSString *)detailCellIdentifier
-{
-    return @"RMPShopDetailCell";
-}
-
-- (CGFloat)heightForDetailCell
-{
-    return [RMPShopDetailCell heightForPlace:self];
-}
-
-
-
-- (id)initWithDictionary:(NSDictionary *)buzzDictionary
-{
-    self = [self init];
-    if (self && buzzDictionary)
-    {
-        self.buzzId   = buzzDictionary[@"buzz_id"];
-        self.userId   = [buzzDictionary[@"user_id"] integerValue];
-        self.userName = buzzDictionary[@"user_name"];
-        self.iconURL  = buzzDictionary[@"user_img_url"];
-        self.text     = buzzDictionary[@"buzz_body"];
-        self.imageURL = buzzDictionary[@"buzz_img_url"];
-        self.lat      = [buzzDictionary[@"lat"] floatValue];
-        self.lot      = [buzzDictionary[@"lon"] floatValue];
-        self.date     =  [NSDate dateWithTimeIntervalSince1970:[buzzDictionary[@"time"] doubleValue] / 1000];
-        self.like      = [buzzDictionary[@"like"] boolValue];
-        self.mute      = [buzzDictionary[@"mute"] boolValue];
-        self.buzz_type      = buzzDictionary[@"buzz_type"];
-        self.annotation = [[RMPShopAnnotation alloc] init];
-        self.annotation.coordinate = CLLocationCoordinate2DMake(self.lat, self.lot);
-        self.iconImage = nil;
-        self.image = nil;
-    }
-    
-    return self;
-}
-
-
-@end
-
-

@@ -8,7 +8,7 @@
 
 #import "RMPPlaceFactory.h"
 #import "RMPAnnotation.h"
-#import "RMPPlace.h"
+#import "RMPPlaceAll.h"
 
 
 @implementation RMPPlaceFactory
