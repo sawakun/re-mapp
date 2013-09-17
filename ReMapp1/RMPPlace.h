@@ -12,22 +12,23 @@
 @class RMPAnnotation;
 
 @interface RMPPlace : NSObject
-@property (nonatomic, readonly) NSString *buzzId;
+@property (nonatomic, readonly) NSInteger buzzId;
 @property (nonatomic, readonly) NSInteger userId;
 @property (nonatomic, readonly) NSString *userName;
-@property (nonatomic, readonly) NSString *iconURL;
-@property (nonatomic) UIImage *iconImage;
-@property (nonatomic, readonly) NSString *text;
-@property (nonatomic, readonly) NSString *imageURL;
-@property (nonatomic) UIImage *image;
-@property (nonatomic, readonly) NSDate *date;
-@property (nonatomic, readonly) float lot;
+@property (nonatomic, readonly) NSString *userImgURL;
+@property (nonatomic, readonly) NSString *buzzBody;
+@property (nonatomic, readonly) NSString *buzzImgUrl;
+@property (nonatomic, readonly) NSDate *time;
+@property (nonatomic, readonly) float lon;
 @property (nonatomic, readonly) float lat;
-@property (nonatomic, readonly) NSString *buzz_type;
+@property (nonatomic, readonly) NSString *buzzType;
 @property (nonatomic, readonly, getter = isLiked) BOOL like;
 @property (nonatomic, readonly, getter = isMuted) BOOL mute;
 @property (nonatomic, readonly) RMPAnnotation* annotation;
 @property (nonatomic) NSInteger annotationIndex;
+@property (nonatomic, readonly) UIColor *bgColor;
+@property (nonatomic) UIImage *buzzImg;
+@property (nonatomic) UIImage *userImg;
 
 - (id)initWithDictionary:(NSDictionary *)buzzDictionary;
 
@@ -39,21 +40,12 @@
 - (CGFloat)heightForDetailCell;
 + (NSString *)detailCellIdentifier;
 
+- (RMPAnnotation *)createAnnotaion;
+- (UIColor *)backgroundColor;
+
+- (NSString *)placeViewNibName;
 // For PlaceView
 //+ (NSString *)placeViewCellIdentifier;
 @end
 
-
-
-@interface RMPBuzzPlace : RMPPlace
-@end
-
-@interface RMPPlayPlace : RMPPlace
-@end
-
-@interface RMPShopPlace : RMPPlace
-@end
-
-@interface RMPEatPlace : RMPPlace
-@end
 

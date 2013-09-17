@@ -7,7 +7,7 @@
 //
 
 #import "RMPBuzzCell.h"
-#import "RMPPlace.h"
+#import "RMPPlaceAll.h"
 #import "UIImageView+WebCache.h"
 #import "RMPHeightToFitLabel.h"
 
@@ -25,7 +25,7 @@
     CGSize maximumLabelSize = CGSizeMake(245,9999);
     
     UIFont *cellFont = [UIFont systemFontOfSize:14];
-    CGSize expectedLabelSize = [buzz.text sizeWithFont:cellFont
+    CGSize expectedLabelSize = [buzz.buzzBody sizeWithFont:cellFont
                                      constrainedToSize:maximumLabelSize
                                          lineBreakMode:NSLineBreakByWordWrapping];
     
@@ -43,14 +43,14 @@
     
     RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
     self.nameLabel.text = buzz.userName;
-    self.bodyLabel.text = buzz.text;
+    self.bodyLabel.text = buzz.buzzBody;
     
     // NSDateFormatter を用意します。
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd hh:mm:ss"];
-    self.dateLabel.text = [formatter stringFromDate:buzz.date];
+    self.dateLabel.text = [formatter stringFromDate:buzz.time];
     
-    [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
+    [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.userImgURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     
 }
