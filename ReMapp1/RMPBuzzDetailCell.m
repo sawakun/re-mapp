@@ -7,7 +7,7 @@
 //
 
 #import "RMPBuzzDetailCell.h"
-#import "RMPPlace.h"
+#import "RMPPlaceAll.h"
 #import "RMPHeightToFitLabel.h"
 #import "UIImageView+WebCache.h"
 #import "RMPRearrangedView.h"
@@ -17,7 +17,7 @@
 
 + (CGFloat)heightForPlace:(RMPPlace *)place
 {
-    if ([place.imageURL isEqualToString:@""]) {
+    if ([place.buzzImgUrl isEqualToString:@""]) {
         return 237;
     }
     return 620.0f;
@@ -32,22 +32,22 @@
     
     RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
     self.nameLabel.text = buzz.userName;
-    self.bodyLabel.text = buzz.text;
+    self.bodyLabel.text = buzz.buzzBody;
 
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd hh:mm:ss"];
-    self.dateLabel.text = [formatter stringFromDate:buzz.date];
+    self.dateLabel.text = [formatter stringFromDate:buzz.time];
 
     self.bodyLabel.width = 245;
     [self.innerScrollView setContentOffset:CGPointMake(0, 0)];
     
     
-    [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.iconURL]
+    [self.iconImageView setImageWithURL:[NSURL URLWithString:buzz.userImgURL]
                        placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     
     self.bodyImageView.image = nil;
-    if (![buzz.imageURL isEqual:@""]) {
-        [self.bodyImageView setImageWithURL:[NSURL URLWithString:buzz.imageURL]
+    if (![buzz.buzzImgUrl isEqual:@""]) {
+        [self.bodyImageView setImageWithURL:[NSURL URLWithString:buzz.buzzImgUrl]
                            placeholderImage:[UIImage imageNamed:@"NO_IMAGE.png"]];
     }
 }

@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RMPPlace;
 
 @interface RMPDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIView *view;
+@property (nonatomic) RMPPlace *place;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
+- (void)setPlace:(RMPPlace *)place;
+- (IBAction)tappedToHide:(id)sender;
 @end

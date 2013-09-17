@@ -156,8 +156,8 @@ NSString *const RMPBuzzMapDataReloaded = @"RMPBuzzMapDataReloaded";
     for (RMPPlace *place in self.places) {
         if (place.lat < thisSquare.northEastLat &&
             place.lat > thisSquare.southWestLat &&
-            place.lot < thisSquare.northEastLon &&
-            place.lot > thisSquare.southWestLon)
+            place.lon < thisSquare.northEastLon &&
+            place.lon > thisSquare.southWestLon)
         {
             place.annotationIndex = index;
             [_currentViewBuzzData addObject:place];

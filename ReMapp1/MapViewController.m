@@ -118,7 +118,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     RMPPlace *buzz = [_buzzData placeAtIndex:index];
     CLLocationCoordinate2D centerLocation;
     centerLocation.latitude = buzz.lat;
-    centerLocation.longitude = buzz.lot;
+    centerLocation.longitude = buzz.lon;
     [self.mapView setCenterCoordinate:centerLocation animated:YES];
 }
 

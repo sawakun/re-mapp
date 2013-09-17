@@ -7,64 +7,53 @@
 //
 
 #import "RMPDetailViewController.h"
+#import "RMPPlaceAll.h"
+#import "RMPPlaceView.h"
 
 @interface RMPDetailViewController ()
-
+@property (nonatomic) UIPanGestureRecognizer *panGesture;
+@property CGRect hideFrame;
 @end
 
 @implementation RMPDetailViewController
-
-// Background color of BUZZ.
-static const NSUInteger BG_RED_BUZZ    = 30;
-static const NSUInteger BG_GREEN_BUZZ  = 184;
-static const NSUInteger BG_BLUE_BUZZ   = 203;
-// Background color of EAT.
-static const NSUInteger BG_RED_EAT     = 32;
-static const NSUInteger BG_GREEN_EAT   = 200;
-static const NSUInteger BG_BLUE_EAT    = 155;
-// Background color of SHOP.
-static const NSUInteger BG_RED_SHOP    = 86;
-static const NSUInteger BG_GREEN_SHOP  = 198;
-static const NSUInteger BG_BLUE_SHOP   = 35;
-// Background color of PLAY.
-static const NSUInteger BG_RED_PLAY    = 30;
-static const NSUInteger BG_GREEN_PLAY  = 198;
-static const NSUInteger BG_BLUE_PLAY   = 83;
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UINib *buzzViewNib = [UINib nibWithNibName:@"RMPBuzzView" bundle:nil];
-    UIView *buzzView = [[buzzViewNib instantiateWithOwner:self options:nil] objectAtIndex:0];
-    NSLog(@"%f, %f, %f, %f",
-          buzzView.frame.origin.x,
-          buzzView.frame.origin.y,
-          buzzView.frame.size.width,
-          buzzView.frame.size.height);
-    [self.scrollView addSubview:buzzView];
-    self.scrollView.contentSize = buzzView.bounds.size;
-    // set background color
-    [self.view setBackgroundColor:[UIColor colorWithRed:(BG_RED_BUZZ / 255.0)
-                                                  green:(BG_GREEN_BUZZ / 255.0)
-                                                   blue:(BG_BLUE_BUZZ / 255.0)
-                                                  alpha:1.0]];
+
+    CGRect bounds = self.view.bounds;
+    self.hideFrame = CGRectMake(bounds.origin.x + bounds.size.width, bounds.origin.y, bounds.size.width, bounds.size.height);
+    
+    // Disable the pangesture.
+    self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:nil];
+    [self.view addGestureRecognizer:self.panGesture];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setPlace:(RMPPlace *)place
+{
+    UINib *placeViewNib = [UINib nibWithNibName:[place placeViewNibName] bundle:nil];
+    RMPPlaceView *placeView = (RMPPlaceView *)[[placeViewNib instantiateWithOwner:self options:nil] objectAtIndex:0];
+    [placeView setPlace:place];
+    
+    [self.scrollView addSubview:placeView];
+    self.scrollView.contentSize = placeView.bounds.size;
+    
+    [self.view setBackgroundColor:[place backgroundColor]];
+    self.userNameLabel.text = place.userName;
+}
+
+- (IBAction)tappedToHide:(id)sender {
+    [UIView animateWithDuration:0.4f animations:^{
+        [self.view setFrame:self.hideFrame];
+    } completion:nil];
 }
 
 @end
