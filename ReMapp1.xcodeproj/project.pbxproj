@@ -10,6 +10,7 @@
 		450532A017D74B3700F7FC40 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4505329F17D74B3700F7FC40 /* Empty.xib */; };
 		4518DB1617B7483400E15F6F /* RMPPlaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1517B7483400E15F6F /* RMPPlaceData.m */; };
 		4518DB1A17B7547F00E15F6F /* RMPRearrangedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */; };
+		451F662D17E9B7C70017848A /* RMPFixedPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F662C17E9B7C70017848A /* RMPFixedPlace.m */; };
 		452802F717B7D06400802EBF /* RMPBuzzCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F017B7D06300802EBF /* RMPBuzzCell.xib */; };
 		452802F817B7D06400802EBF /* RMPEatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F117B7D06400802EBF /* RMPEatCell.xib */; };
 		452802F917B7D06400802EBF /* RMPPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F217B7D06400802EBF /* RMPPlaceCell.xib */; };
@@ -574,6 +575,8 @@
 		4518DB1517B7483400E15F6F /* RMPPlaceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPlaceData.m; sourceTree = "<group>"; };
 		4518DB1817B7547F00E15F6F /* RMPRearrangedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPRearrangedView.h; sourceTree = "<group>"; };
 		4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPRearrangedView.m; sourceTree = "<group>"; };
+		451F662B17E9B7C70017848A /* RMPFixedPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPFixedPlace.h; sourceTree = "<group>"; };
+		451F662C17E9B7C70017848A /* RMPFixedPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPFixedPlace.m; sourceTree = "<group>"; };
 		452802F017B7D06300802EBF /* RMPBuzzCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPBuzzCell.xib; sourceTree = "<group>"; };
 		452802F117B7D06400802EBF /* RMPEatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPEatCell.xib; sourceTree = "<group>"; };
 		452802F217B7D06400802EBF /* RMPPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPPlaceCell.xib; sourceTree = "<group>"; };
@@ -1554,6 +1557,8 @@
 				45626A4E17E55DAF00E7B2B4 /* RMPShopPlace.h */,
 				45626A4F17E55DAF00E7B2B4 /* RMPShopPlace.m */,
 				45626A5117E55ECB00E7B2B4 /* RMPPlaceAll.h */,
+				451F662B17E9B7C70017848A /* RMPFixedPlace.h */,
+				451F662C17E9B7C70017848A /* RMPFixedPlace.m */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -2346,6 +2351,7 @@
 				45626A5B17E5A98100E7B2B4 /* RMPShopView.m in Sources */,
 				45626A6317E5A99D00E7B2B4 /* RMPEatView.m in Sources */,
 				45626A6517E5A99D00E7B2B4 /* RMPPlayView.m in Sources */,
+				451F662D17E9B7C70017848A /* RMPFixedPlace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

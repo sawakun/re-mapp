@@ -561,6 +561,7 @@
                             <constraint firstItem="E0P-W4-dcG" firstAttribute="trailing" secondItem="sSV-t5-XfW" secondAttribute="trailing" type="default" id="5t0-py-yfB"/>
                             <constraint firstItem="E0P-W4-dcG" firstAttribute="leading" secondItem="sSV-t5-XfW" secondAttribute="leading" type="default" id="7yA-gJ-dwj"/>
                             <constraint firstItem="4l3-I6-xja" firstAttribute="centerX" secondItem="E0P-W4-dcG" secondAttribute="centerX" type="default" id="9eh-BB-MS0"/>
+                            <constraint firstItem="E0P-W4-dcG" firstAttribute="bottom" secondItem="sSV-t5-XfW" secondAttribute="bottom" type="user" id="Atr-K7-1Qm"/>
                             <constraint firstItem="OOd-5o-iCq" firstAttribute="bottom" secondItem="4l3-I6-xja" secondAttribute="bottom" type="default" id="BEn-KH-O05"/>
                             <constraint firstItem="Ykv-FN-4z6" firstAttribute="leading" secondItem="sSV-t5-XfW" secondAttribute="leading" constant="1" id="F1a-RF-eSj"/>
                             <constraint firstItem="zah-kR-bcN" firstAttribute="bottom" secondItem="Ykv-FN-4z6" secondAttribute="bottom" type="default" id="NAY-K4-Zec"/>
@@ -1605,9 +1606,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIPlaceHolderTextView" superclassName="UITextView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIPlaceHolderTextView.h"/>

@@ -22,7 +22,8 @@
     #ifdef TESTING
     
     #pragma GCC diagnostic ignored "-Wdeprecated-declarations" // 非推薦メソッドの警告を無視
-    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    // Error. Because xcode was upgraded.
+    //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
     #pragma GCC diagnostic warning "-Wdeprecated-declarations" // 非推薦メソッドの警告を再開
     
     [TestFlight passCheckpoint:@"didFinishLaunchingWithOptions"];  // チェックポイントの追加
