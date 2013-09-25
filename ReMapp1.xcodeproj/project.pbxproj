@@ -17,6 +17,8 @@
 		452802FA17B7D06400802EBF /* RMPPlayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F317B7D06400802EBF /* RMPPlayCell.xib */; };
 		452802FB17B7D06400802EBF /* RMPShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F417B7D06400802EBF /* RMPShopCell.xib */; };
 		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
+		4555A51917F30C3D00133480 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4555A51817F30C3D00133480 /* QuartzCore.framework */; };
+		4555A51D17F30F3500133480 /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4555A51C17F30F3500133480 /* AMBlurView.m */; };
 		4557179217A4FD5800F6483F /* RMPMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4557179117A4FD5800F6483F /* RMPMenuViewController.m */; };
 		455C2A9517B670E6004C03F9 /* RMPPostRequestCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C2A9417B670E6004C03F9 /* RMPPostRequestCreator.m */; };
 		455CC8E117D4AFB400C2B5DB /* RMPSearchResultsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 455CC8E017D4AFB400C2B5DB /* RMPSearchResultsCollectionView.m */; };
@@ -30,8 +32,8 @@
 		45626A5717E59D6A00E7B2B4 /* RMPBuzzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45626A5617E59D6A00E7B2B4 /* RMPBuzzView.m */; };
 		45626A5B17E5A98100E7B2B4 /* RMPShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45626A5917E5A98100E7B2B4 /* RMPShopView.m */; };
 		45626A5C17E5A98100E7B2B4 /* RMPShopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45626A5A17E5A98100E7B2B4 /* RMPShopView.xib */; };
-		45626A6317E5A99D00E7B2B4 /* RMPEatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45626A5E17E5A99C00E7B2B4 /* RMPEatView.m */; };
-		45626A6417E5A99D00E7B2B4 /* RMPEatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45626A5F17E5A99D00E7B2B4 /* RMPEatView.xib */; };
+		45626A6317E5A99D00E7B2B4 /* RMPFixedPlaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45626A5E17E5A99C00E7B2B4 /* RMPFixedPlaceView.m */; };
+		45626A6417E5A99D00E7B2B4 /* RMPFixedPlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45626A5F17E5A99D00E7B2B4 /* RMPFixedPlaceView.xib */; };
 		45626A6517E5A99D00E7B2B4 /* RMPPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45626A6117E5A99D00E7B2B4 /* RMPPlayView.m */; };
 		45626A6617E5A99D00E7B2B4 /* RMPPlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45626A6217E5A99D00E7B2B4 /* RMPPlayView.xib */; };
 		4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4573183F17B27C7600DB02C9 /* ImageIO.framework */; };
@@ -58,6 +60,7 @@
 		459A591E17A55D570089BCC9 /* RMPTermOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A591D17A55D570089BCC9 /* RMPTermOfUseViewController.m */; };
 		459A592117A55D6D0089BCC9 /* RMPProblemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A592017A55D6D0089BCC9 /* RMPProblemViewController.m */; };
 		459A592417A55D7E0089BCC9 /* RMPLogOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A592317A55D7D0089BCC9 /* RMPLogOutViewController.m */; };
+		459C019917F1C87000118033 /* UILabel+VerticalAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = 459C019817F1C87000118033 /* UILabel+VerticalAlign.m */; };
 		45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */; };
 		45AF0A8517E67315007B437C /* home_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 45AF09AD17E67315007B437C /* home_menu.png */; };
 		45AF0A8617E67315007B437C /* home_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 45AF09AD17E67315007B437C /* home_menu.png */; };
@@ -584,6 +587,9 @@
 		452802F417B7D06400802EBF /* RMPShopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPShopCell.xib; sourceTree = "<group>"; };
 		452C975B17A3FBE00000CF51 /* RMPLazyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPLazyImageView.h; sourceTree = "<group>"; };
 		452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPLazyImageView.m; sourceTree = "<group>"; };
+		4555A51817F30C3D00133480 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4555A51B17F30F3500133480 /* AMBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMBlurView.h; sourceTree = "<group>"; };
+		4555A51C17F30F3500133480 /* AMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBlurView.m; sourceTree = "<group>"; };
 		4557179017A4FD5800F6483F /* RMPMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMenuViewController.h; sourceTree = "<group>"; };
 		4557179117A4FD5800F6483F /* RMPMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMenuViewController.m; sourceTree = "<group>"; };
 		455C2A9317B670E6004C03F9 /* RMPPostRequestCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPostRequestCreator.h; sourceTree = "<group>"; };
@@ -609,9 +615,9 @@
 		45626A5817E5A98100E7B2B4 /* RMPShopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPShopView.h; sourceTree = "<group>"; };
 		45626A5917E5A98100E7B2B4 /* RMPShopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPShopView.m; sourceTree = "<group>"; };
 		45626A5A17E5A98100E7B2B4 /* RMPShopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPShopView.xib; sourceTree = "<group>"; };
-		45626A5D17E5A99C00E7B2B4 /* RMPEatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPEatView.h; sourceTree = "<group>"; };
-		45626A5E17E5A99C00E7B2B4 /* RMPEatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPEatView.m; sourceTree = "<group>"; };
-		45626A5F17E5A99D00E7B2B4 /* RMPEatView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPEatView.xib; sourceTree = "<group>"; };
+		45626A5D17E5A99C00E7B2B4 /* RMPFixedPlaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPFixedPlaceView.h; sourceTree = "<group>"; };
+		45626A5E17E5A99C00E7B2B4 /* RMPFixedPlaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPFixedPlaceView.m; sourceTree = "<group>"; };
+		45626A5F17E5A99D00E7B2B4 /* RMPFixedPlaceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPFixedPlaceView.xib; sourceTree = "<group>"; };
 		45626A6017E5A99D00E7B2B4 /* RMPPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPlayView.h; sourceTree = "<group>"; };
 		45626A6117E5A99D00E7B2B4 /* RMPPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPlayView.m; sourceTree = "<group>"; };
 		45626A6217E5A99D00E7B2B4 /* RMPPlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPPlayView.xib; sourceTree = "<group>"; };
@@ -657,6 +663,8 @@
 		459A592017A55D6D0089BCC9 /* RMPProblemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPProblemViewController.m; sourceTree = "<group>"; };
 		459A592217A55D7D0089BCC9 /* RMPLogOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPLogOutViewController.h; sourceTree = "<group>"; };
 		459A592317A55D7D0089BCC9 /* RMPLogOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPLogOutViewController.m; sourceTree = "<group>"; };
+		459C019717F1C87000118033 /* UILabel+VerticalAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VerticalAlign.h"; sourceTree = "<group>"; };
+		459C019817F1C87000118033 /* UILabel+VerticalAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VerticalAlign.m"; sourceTree = "<group>"; };
 		45AD9DC51784EC9900242750 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		45AD9DC61784EC9900242750 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		45AF09AD17E67315007B437C /* home_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_menu.png; sourceTree = "<group>"; };
@@ -990,6 +998,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4555A51917F30C3D00133480 /* QuartzCore.framework in Frameworks */,
 				4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */,
 				472B8E7117A37CC200AFB170 /* libz.dylib in Frameworks */,
 				45E4AC50177E95F3006619F1 /* CoreLocation.framework in Frameworks */,
@@ -1074,6 +1083,15 @@
 				457FEB531795E20900616D23 /* RMPAnnotation.m */,
 			);
 			name = Annotation;
+			sourceTree = "<group>";
+		};
+		4555A51A17F30F1D00133480 /* AMBlurView */ = {
+			isa = PBXGroup;
+			children = (
+				4555A51B17F30F3500133480 /* AMBlurView.h */,
+				4555A51C17F30F3500133480 /* AMBlurView.m */,
+			);
+			name = AMBlurView;
 			sourceTree = "<group>";
 		};
 		4557178F17A4FD3400F6483F /* Menu */ = {
@@ -1330,6 +1348,7 @@
 		457D15FC17942CCE007F2E8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				4555A51A17F30F1D00133480 /* AMBlurView */,
 				45CF18C817B7B5A4004271AD /* SDWebImage */,
 				4518DB1717B74D6000E15F6F /* RMPHeightToFitLabel */,
 				455C2A9217B670D0004C03F9 /* RMPPostRequestCreator */,
@@ -1338,6 +1357,8 @@
 				45F39AA717974FDB003B943A /* RMPNonVisibleSearchBar */,
 				45C76F331796C30000BD184C /* RMPNonVisibleToolBar */,
 				457D15FD17942DF4007F2E8A /* RMPSlidingViewController */,
+				459C019717F1C87000118033 /* UILabel+VerticalAlign.h */,
+				459C019817F1C87000118033 /* UILabel+VerticalAlign.m */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -1483,9 +1504,9 @@
 				45BBCD5D17E52EC2003F08A5 /* RMPBuzzView.xib */,
 				45BBCD5F17E52FA4003F08A5 /* RMPDetailViewController.h */,
 				45BBCD6017E52FA4003F08A5 /* RMPDetailViewController.m */,
-				45626A5D17E5A99C00E7B2B4 /* RMPEatView.h */,
-				45626A5E17E5A99C00E7B2B4 /* RMPEatView.m */,
-				45626A5F17E5A99D00E7B2B4 /* RMPEatView.xib */,
+				45626A5D17E5A99C00E7B2B4 /* RMPFixedPlaceView.h */,
+				45626A5E17E5A99C00E7B2B4 /* RMPFixedPlaceView.m */,
+				45626A5F17E5A99D00E7B2B4 /* RMPFixedPlaceView.xib */,
 				45626A5217E59D1A00E7B2B4 /* RMPPlaceView.h */,
 				45626A5317E59D1A00E7B2B4 /* RMPPlaceView.m */,
 				45626A6017E5A99D00E7B2B4 /* RMPPlayView.h */,
@@ -1596,6 +1617,7 @@
 		45E4AC09177E8ADF006619F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4555A51817F30C3D00133480 /* QuartzCore.framework */,
 				4573183F17B27C7600DB02C9 /* ImageIO.framework */,
 				472B8E7017A37CC200AFB170 /* libz.dylib */,
 				45E4AC4D177E95DF006619F1 /* AddressBook.framework */,
@@ -1812,7 +1834,7 @@
 				45E3C0CD17E47A69002B0F90 /* application_icon@2x.png in Resources */,
 				45BBCD5E17E52EC2003F08A5 /* RMPBuzzView.xib in Resources */,
 				45626A5C17E5A98100E7B2B4 /* RMPShopView.xib in Resources */,
-				45626A6417E5A99D00E7B2B4 /* RMPEatView.xib in Resources */,
+				45626A6417E5A99D00E7B2B4 /* RMPFixedPlaceView.xib in Resources */,
 				45626A6617E5A99D00E7B2B4 /* RMPPlayView.xib in Resources */,
 				45AF0A8517E67315007B437C /* home_menu.png in Resources */,
 				45AF0A8717E67315007B437C /* home_menu@2x.png in Resources */,
@@ -2345,11 +2367,13 @@
 				45626A4717E55D7900E7B2B4 /* RMPBuzzPlace.m in Sources */,
 				45626A4A17E55D9400E7B2B4 /* RMPEatPlace.m in Sources */,
 				45626A4D17E55DA100E7B2B4 /* RMPPlayPlace.m in Sources */,
+				459C019917F1C87000118033 /* UILabel+VerticalAlign.m in Sources */,
 				45626A5017E55DAF00E7B2B4 /* RMPShopPlace.m in Sources */,
 				45626A5417E59D1A00E7B2B4 /* RMPPlaceView.m in Sources */,
 				45626A5717E59D6A00E7B2B4 /* RMPBuzzView.m in Sources */,
 				45626A5B17E5A98100E7B2B4 /* RMPShopView.m in Sources */,
-				45626A6317E5A99D00E7B2B4 /* RMPEatView.m in Sources */,
+				45626A6317E5A99D00E7B2B4 /* RMPFixedPlaceView.m in Sources */,
+				4555A51D17F30F3500133480 /* AMBlurView.m in Sources */,
 				45626A6517E5A99D00E7B2B4 /* RMPPlayView.m in Sources */,
 				451F662D17E9B7C70017848A /* RMPFixedPlace.m in Sources */,
 			);

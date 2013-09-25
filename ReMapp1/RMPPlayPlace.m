@@ -30,7 +30,7 @@
 
 - (NSString *)placeViewNibName
 {
-    return @"RMPPlayView";
+    return @"RMPFixedPlaceView";
 }
 
 
