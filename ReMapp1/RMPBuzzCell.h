@@ -13,9 +13,9 @@
 @class RMPHeightToFitLabel;
 
 @interface RMPBuzzCell : RMPPlaceCell
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet RMPHeightToFitLabel *bodyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet RMPHeightToFitLabel *buzzBodyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end

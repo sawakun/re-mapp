@@ -29,7 +29,7 @@
 
 - (NSString *)placeViewNibName
 {
-    return @"RMPShopView";
+    return @"RMPFixedPlaceView";
 }
 
 

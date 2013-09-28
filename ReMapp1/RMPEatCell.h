@@ -7,7 +7,12 @@
 //
 
 #import "RMPPlaceCell.h"
+#import "RMPHeightToFitLabel.h"
 
 @interface RMPEatCell : RMPPlaceCell
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet RMPHeightToFitLabel *buzzBodyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end

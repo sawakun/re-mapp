@@ -10,6 +10,7 @@
 #define ReMapp1_RMPPlaceAll_h
 
 #import "RMPPlace.h"
+#import "RMPFixedPlace.h"
 #import "RMPBuzzPlace.h"
 #import "RMPEatPlace.h"
 #import "RMPShopPlace.h"

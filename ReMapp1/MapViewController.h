@@ -15,7 +15,6 @@
 @class RMPMapPlaceData;
 @class InfoViewController;
 @class BuzzFormViewController;
-@class RMPNonVisibleSearchBar;
 @class RMPMapView;
 
 /** Notification that gets posted when the map was reloaded. */
@@ -30,7 +29,7 @@ RMPSlidingViewDelegate, RMPSearchResultsCollectionViewDelegate, UISearchBarDeleg
 @property (weak, nonatomic) IBOutlet UIView *rightScratchView;
 @property (weak, nonatomic) IBOutlet UIView *leftScratchView;
 @property (weak, nonatomic) IBOutlet RMPMapView *mapView;
-@property (weak, nonatomic) IBOutlet RMPNonVisibleSearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIView *searchResultsView;
 
 

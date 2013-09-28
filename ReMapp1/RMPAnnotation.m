@@ -21,7 +21,8 @@
         self.identifier             = @"RMPBuzzAnnotation";
         self.pinImage               = [UIImage imageNamed:@"pin_a1.png"];
         self.selectedPinImage       = [UIImage imageNamed:@"pin_a2.png"];
-        self.centerOffset           = CGPointMake(0.0f, -16.5f);
+        self.centerOffset           = CGPointMake(0.0f, -15.5f);
+        self.selectedCenterOffset   = CGPointMake(0.0f, -21.0f);
         self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
     }
     return self;
@@ -37,7 +38,8 @@
         self.identifier             = @"RMPEatAnnotation";
         self.pinImage               = [UIImage imageNamed:@"pin_b1.png"];
         self.selectedPinImage       = [UIImage imageNamed:@"pin_b2.png"];
-        self.centerOffset           = CGPointMake(0.0f, -16.5f);
+        self.centerOffset           = CGPointMake(0.0f, -15.5f);
+        self.selectedCenterOffset   = CGPointMake(0.0f, -21.0f);
         self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
     }
     return self;
@@ -53,7 +55,8 @@
         self.identifier             = @"RMPShopAnnotation";
         self.pinImage               = [UIImage imageNamed:@"pin_c1.png"];
         self.selectedPinImage       = [UIImage imageNamed:@"pin_c2.png"];
-        self.centerOffset           = CGPointMake(0.0f, -16.5f);
+        self.centerOffset           = CGPointMake(0.0f, -15.5f);
+        self.selectedCenterOffset   = CGPointMake(0.0f, -21.0f);
         self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
     }
     return self;
@@ -68,7 +71,8 @@
         self.identifier             = @"RMPPlayAnnotation";
         self.pinImage               = [UIImage imageNamed:@"pin_d1.png"];
         self.selectedPinImage       = [UIImage imageNamed:@"pin_d2.png"];
-        self.centerOffset           = CGPointMake(0.0f, -16.5f);
+        self.centerOffset           = CGPointMake(0.0f, -15.5f);
+        self.selectedCenterOffset   = CGPointMake(0.0f, -21.0f);
         self.additionalCenterOffset = CGPointMake(0.0f, -5.5f);
     }
     return self;

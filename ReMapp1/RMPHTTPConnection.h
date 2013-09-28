@@ -10,6 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface RMPHTTPConnection : NSObject
++ (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password;
++ (BOOL)registerWithUserName:(NSString*)userName Email:(NSString*)email Password:(NSString*)password UserImage:(UIImage*)userImage;
+
 + (BOOL)sendNewBuzzWithUserSystemId:(NSInteger)userSystemId
                            BuzzText:(NSString*)buzzText
                            Location:(CLLocationCoordinate2D)location
@@ -19,7 +22,7 @@
                        Email:(NSString*)email
                      Profile:(NSString*)profile;
 
-+ (NSArray *)searchPointOfInterest:(NSString*)key;
 
++ (NSArray *)searchPointOfInterest:(NSString*)key;
 + (NSURL *)createPlaceDataURLWithConditions:(NSDictionary *)conditions;
 @end

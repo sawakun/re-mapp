@@ -87,15 +87,11 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
     }
     
     RMPAnnotation *thisAnnotation = (RMPAnnotation *)view.annotation;
-    CGRect frame = view.frame;
     [UIView animateWithDuration:0.2f animations:^{
-        view.frame = CGRectMake(frame.origin.x + thisAnnotation.additionalCenterOffset.x,
-                                frame.origin.y + thisAnnotation.additionalCenterOffset.y,
-                                frame.size.width,
-                                frame.size.height);
+        view.centerOffset = thisAnnotation.selectedCenterOffset;
         view.image = thisAnnotation.selectedPinImage;
-        self.selectedAnnotation = view.annotation;
     } completion:nil];
+    self.selectedAnnotation = view.annotation;
 
     //post notification
     NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:self.selectedAnnotation.index]};
@@ -106,6 +102,7 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
     });
 }
 
+
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
 {
     if (![view.annotation isKindOfClass:[RMPAnnotation class]]) {
@@ -113,15 +110,12 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
     }
     
     RMPAnnotation *thisAnnotation = (RMPAnnotation *)view.annotation;
-    CGRect frame = view.frame;
     [UIView animateWithDuration:0.2f animations:^{
-        view.frame = CGRectMake(frame.origin.x - thisAnnotation.additionalCenterOffset.x,
-                                frame.origin.y - thisAnnotation.additionalCenterOffset.y,
-                                frame.size.width,
-                                frame.size.height);
+        view.centerOffset = thisAnnotation.centerOffset;
         view.image = thisAnnotation.pinImage;
     } completion:nil];
 
+    [self deselectAnnotation:view.annotation animated:NO];
     //post notification
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:RMPMapViewDidDeselectAnnotationView

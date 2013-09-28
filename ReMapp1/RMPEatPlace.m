@@ -31,7 +31,7 @@
 
 - (NSString *)placeViewNibName
 {
-    return @"RMPEatView";
+    return @"RMPFixedPlaceView";
 }
 
 

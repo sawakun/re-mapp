@@ -12,6 +12,7 @@
 #import "RMPPlace.h"
 #import "RMPPlaceCell.h"
 #import "RMPTimeLineDetailViewController.h"
+#import "AMBlurView.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -23,8 +24,10 @@
 	// Do any additional setup after loading the view.
     _placeData = [RMPMapPlaceData sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:_placeData];
-    
-    self.timeButton.highlighted = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
 }
 
 - (void)didReceiveMemoryWarning

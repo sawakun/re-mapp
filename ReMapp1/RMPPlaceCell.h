@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMPHeightToFitLabel.h"
 @class RMPPlace;
 
+
 @interface RMPPlaceCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet RMPHeightToFitLabel *buzzBodyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
 + (CGFloat)heightForPlace:(RMPPlace *)place;
 - (void)setDataWithPlace:(RMPPlace *)place;
 @end
