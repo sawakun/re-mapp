@@ -252,7 +252,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 }
 
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
 

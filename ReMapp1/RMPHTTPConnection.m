@@ -10,6 +10,19 @@
 #import "RMPUser.h"
 
 @implementation RMPHTTPConnection
+
++ (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password
+{
+    // UNDER CONSTRUCTION
+    return YES;
+}
+
++ (BOOL)registerWithUserName:(NSString*)userName Email:(NSString*)email Password:(NSString*)password UserImage:(UIImage*)userImage
+{
+    // UNDER CONSTRUCTION
+    return YES;
+}
+
 + (BOOL)sendNewBuzzWithUserSystemId:(NSInteger)userSystemId
                            BuzzText:(NSString*)buzzText
                            Location:(CLLocationCoordinate2D)location
