@@ -12,10 +12,5 @@
 @class RMPTimeLineCollectionView;
 @interface RMPMapTimeLineViewController : RMPTimeLineViewController
 @property (weak, nonatomic) IBOutlet UICollectionView *timeLineCollectionView;
-@property (weak, nonatomic) IBOutlet UIButton *timeButton;
-@property (weak, nonatomic) IBOutlet UIButton *buzzButton;
-@property (weak, nonatomic) IBOutlet UIButton *eatButton;
-@property (weak, nonatomic) IBOutlet UIButton *shopButton;
-@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @end

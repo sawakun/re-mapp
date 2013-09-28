@@ -12,6 +12,7 @@
 @property (nonatomic) UIImage *pinImage;
 @property (nonatomic) UIImage *selectedPinImage;
 @property (nonatomic) CGPoint centerOffset;
+@property (nonatomic) CGPoint selectedCenterOffset;
 @property (nonatomic) CGPoint additionalCenterOffset;
 @property (nonatomic) NSString *identifier;
 @property (nonatomic) NSInteger index;

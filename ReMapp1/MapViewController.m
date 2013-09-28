@@ -13,7 +13,6 @@
 #import "RMPAnnotation.h"
 #import "RMPSlidingViewController.h"
 #import "RMPAnnotation.h"
-#import "RMPNonVisibleSearchBar.h"
 #import "RMPMapView.h"
 #import "RMPPlaceViewController.h"
 #import "RMPPlaceData.h"
@@ -231,6 +230,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
+    [self searchResultsViewDisappear];
 }
 
 - (void) searchBarSearchButtonClicked: (UISearchBar *) searchBar {

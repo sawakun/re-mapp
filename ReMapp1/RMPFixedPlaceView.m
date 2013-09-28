@@ -47,6 +47,10 @@
     [super layoutSubviews];
     // set initial values
     [self.buzzBodyLabel alignTop];
+    [self.userNameLabel alignTop];
+    [self.addressLabel alignTop];
+    [self.phoneNumberLabel alignTop];
+    [self.siteURLLabel alignTop];
 }
 
 

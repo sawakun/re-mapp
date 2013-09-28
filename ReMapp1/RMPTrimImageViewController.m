@@ -69,7 +69,8 @@
 
     // set scal limit for scroll view
     self.scrollView.frame = self.view.frame;
-    self.scrollView.minimumZoomScale = 1;
+    NSLog(@"%f, %f", self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    self.scrollView.minimumZoomScale = 1.0;
     self.scrollView.maximumZoomScale = 4.0;
     
     // set tail
@@ -86,6 +87,7 @@
     CGSize size = self.imageView.frame.size;
     size.height += _tail + _head;
     self.scrollView.contentSize = size;
+    NSLog(@"%f, %f", self.imageView.frame.size.height, size.height);
     self.scrollView.contentOffset = CGPointMake(0, _head);
 }
 

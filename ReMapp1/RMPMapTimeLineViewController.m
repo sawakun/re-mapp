@@ -24,7 +24,6 @@
 	// Do any additional setup after loading the view.
     _placeData = [RMPMapPlaceData sharedManager];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:_placeData];
-    self.timeButton.highlighted = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated

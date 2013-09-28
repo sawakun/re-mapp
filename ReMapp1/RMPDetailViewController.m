@@ -31,6 +31,7 @@
     
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -48,6 +49,7 @@
     
     [self.view setBackgroundColor:[place backgroundColor]];
     self.userNameLabel.text = place.userName;
+    self.scrollView.contentOffset = CGPointZero;
 }
 
 - (IBAction)tappedToHide:(id)sender {

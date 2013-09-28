@@ -10,19 +10,36 @@
 
 @implementation RMPNonVisibleSearchBar
 
+- (void)setup {
+    self.opaque = NO;
+    self.translucent = YES;
+    self.backgroundColor = [UIColor clearColor];
+//    [[self.subviews objectAtIndex:0] removeFromSuperview];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self setup];
     }
-    self.opaque = NO;
-    self.translucent = YES;
-    self.backgroundColor = [UIColor clearColor];
-    [[self.subviews objectAtIndex:0] removeFromSuperview];
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Initialization code
+        [self setup];
+    }
+    return self;
+}
+
+
+
+/*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
@@ -32,6 +49,7 @@
         [[self.subviews objectAtIndex:0] removeFromSuperview];
     }
 }
+ */
 
 
 @end
