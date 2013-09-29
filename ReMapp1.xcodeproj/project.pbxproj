@@ -17,12 +17,15 @@
 		4518DB1617B7483400E15F6F /* RMPPlaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1517B7483400E15F6F /* RMPPlaceData.m */; };
 		4518DB1A17B7547F00E15F6F /* RMPRearrangedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */; };
 		451F662D17E9B7C70017848A /* RMPFixedPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F662C17E9B7C70017848A /* RMPFixedPlace.m */; };
+		4520E9D317F8568B005A0B8A /* RMPMovingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520E9D217F8568B005A0B8A /* RMPMovingImageView.m */; };
 		452802F717B7D06400802EBF /* RMPBuzzCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F017B7D06300802EBF /* RMPBuzzCell.xib */; };
 		452802F817B7D06400802EBF /* RMPEatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F117B7D06400802EBF /* RMPEatCell.xib */; };
 		452802F917B7D06400802EBF /* RMPPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F217B7D06400802EBF /* RMPPlaceCell.xib */; };
 		452802FA17B7D06400802EBF /* RMPPlayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F317B7D06400802EBF /* RMPPlayCell.xib */; };
 		452802FB17B7D06400802EBF /* RMPShopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F417B7D06400802EBF /* RMPShopCell.xib */; };
 		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
+		4530408B17F84A0800F96F58 /* RMPImageEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 4530408A17F84A0800F96F58 /* RMPImageEffect.m */; };
+		4530408D17F84C5C00F96F58 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4530408C17F84C5C00F96F58 /* CoreImage.framework */; };
 		4540B64C17F6D51000DF1CE9 /* UIImage+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 4540B64B17F6D51000DF1CE9 /* UIImage+Trim.m */; };
 		454F2D7817F58A50007D467A /* RMPKeyboardMoveScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F2D7717F58A50007D467A /* RMPKeyboardMoveScrollView.m */; };
 		4555A51917F30C3D00133480 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4555A51817F30C3D00133480 /* QuartzCore.framework */; };
@@ -598,6 +601,8 @@
 		4518DB1917B7547F00E15F6F /* RMPRearrangedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPRearrangedView.m; sourceTree = "<group>"; };
 		451F662B17E9B7C70017848A /* RMPFixedPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPFixedPlace.h; sourceTree = "<group>"; };
 		451F662C17E9B7C70017848A /* RMPFixedPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPFixedPlace.m; sourceTree = "<group>"; };
+		4520E9D117F8568B005A0B8A /* RMPMovingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMovingImageView.h; sourceTree = "<group>"; };
+		4520E9D217F8568B005A0B8A /* RMPMovingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMovingImageView.m; sourceTree = "<group>"; };
 		452802F017B7D06300802EBF /* RMPBuzzCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPBuzzCell.xib; sourceTree = "<group>"; };
 		452802F117B7D06400802EBF /* RMPEatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPEatCell.xib; sourceTree = "<group>"; };
 		452802F217B7D06400802EBF /* RMPPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPPlaceCell.xib; sourceTree = "<group>"; };
@@ -605,6 +610,9 @@
 		452802F417B7D06400802EBF /* RMPShopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPShopCell.xib; sourceTree = "<group>"; };
 		452C975B17A3FBE00000CF51 /* RMPLazyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPLazyImageView.h; sourceTree = "<group>"; };
 		452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPLazyImageView.m; sourceTree = "<group>"; };
+		4530408917F84A0800F96F58 /* RMPImageEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPImageEffect.h; sourceTree = "<group>"; };
+		4530408A17F84A0800F96F58 /* RMPImageEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPImageEffect.m; sourceTree = "<group>"; };
+		4530408C17F84C5C00F96F58 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		4540B64A17F6D51000DF1CE9 /* UIImage+Trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Trim.h"; sourceTree = "<group>"; };
 		4540B64B17F6D51000DF1CE9 /* UIImage+Trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Trim.m"; sourceTree = "<group>"; };
 		454F2D7617F58A50007D467A /* RMPKeyboardMoveScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPKeyboardMoveScrollView.h; sourceTree = "<group>"; };
@@ -1020,6 +1028,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4530408D17F84C5C00F96F58 /* CoreImage.framework in Frameworks */,
 				4555A51917F30C3D00133480 /* QuartzCore.framework in Frameworks */,
 				4573184017B27C7700DB02C9 /* ImageIO.framework in Frameworks */,
 				472B8E7117A37CC200AFB170 /* libz.dylib in Frameworks */,
@@ -1080,6 +1089,8 @@
 				4514B5D117F6B7DF007BA436 /* UIImage+Scale.m */,
 				4540B64A17F6D51000DF1CE9 /* UIImage+Trim.h */,
 				4540B64B17F6D51000DF1CE9 /* UIImage+Trim.m */,
+				4530408917F84A0800F96F58 /* RMPImageEffect.h */,
+				4530408A17F84A0800F96F58 /* RMPImageEffect.m */,
 			);
 			name = UIImage;
 			sourceTree = "<group>";
@@ -1100,6 +1111,15 @@
 				45E370D71782EBC5006EE5F9 /* BuzzFormViewController.m */,
 			);
 			name = WriteForm;
+			sourceTree = "<group>";
+		};
+		4520E9D017F8564E005A0B8A /* RMPMovingImageView */ = {
+			isa = PBXGroup;
+			children = (
+				4520E9D117F8568B005A0B8A /* RMPMovingImageView.h */,
+				4520E9D217F8568B005A0B8A /* RMPMovingImageView.m */,
+			);
+			name = RMPMovingImageView;
 			sourceTree = "<group>";
 		};
 		45274E69179A772E00A4CE59 /* TimeLine */ = {
@@ -1421,6 +1441,7 @@
 		457D15FC17942CCE007F2E8A /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				4520E9D017F8564E005A0B8A /* RMPMovingImageView */,
 				4514B5CF17F6B7C3007BA436 /* UIImage */,
 				4514B5C017F65ACE007BA436 /* RMPPickImageViewController */,
 				4514B5BF17F657C5007BA436 /* UILabel */,
@@ -1692,6 +1713,7 @@
 		45E4AC09177E8ADF006619F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4530408C17F84C5C00F96F58 /* CoreImage.framework */,
 				4555A51817F30C3D00133480 /* QuartzCore.framework */,
 				4573183F17B27C7600DB02C9 /* ImageIO.framework */,
 				472B8E7017A37CC200AFB170 /* libz.dylib */,
@@ -2385,6 +2407,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4520E9D317F8568B005A0B8A /* RMPMovingImageView.m in Sources */,
+				4530408B17F84A0800F96F58 /* RMPImageEffect.m in Sources */,
 				45E4AC17177E8ADF006619F1 /* main.m in Sources */,
 				4540B64C17F6D51000DF1CE9 /* UIImage+Trim.m in Sources */,
 				45E4AC1B177E8ADF006619F1 /* AppDelegate.m in Sources */,

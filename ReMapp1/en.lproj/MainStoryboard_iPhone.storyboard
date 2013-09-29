@@ -1463,6 +1463,8 @@
         <image name="leftmenu_h_color.png" width="320" height="65"/>
         <image name="leftmenu_h_mono.png" width="320" height="65"/>
         <image name="opening_a.png" width="198" height="251"/>
+        <image name="opening_a.png" width="198" height="251"/>
+        <image name="opening_a.png" width="198" height="251"/>
         <image name="opening_c1.png" width="25" height="46"/>
         <image name="opening_c2.png" width="63" height="46"/>
         <image name="opening_c3.png" width="63" height="46"/>
