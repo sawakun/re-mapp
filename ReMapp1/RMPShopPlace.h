@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 nishiba. All rights reserved.
 //
 
-#import "RMPPlace.h"
+#import "RMPFixedPlace.h"
 
-@interface RMPShopPlace : RMPPlace
+@interface RMPShopPlace : RMPFixedPlace
 
 @end
