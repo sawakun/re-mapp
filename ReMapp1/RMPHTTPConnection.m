@@ -10,7 +10,6 @@
 #import "RMPUser.h"
 
 @implementation RMPHTTPConnection
-
 + (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password
 {
     // UNDER CONSTRUCTION
@@ -18,6 +17,12 @@
 }
 
 + (BOOL)registerWithUserName:(NSString*)userName Email:(NSString*)email Password:(NSString*)password UserImage:(UIImage*)userImage
+{
+    // UNDER CONSTRUCTION
+    return YES;
+}
+
++ (BOOL)logout
 {
     // UNDER CONSTRUCTION
     return YES;

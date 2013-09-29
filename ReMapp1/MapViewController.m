@@ -18,9 +18,14 @@
 #import "RMPPlaceData.h"
 #import "RMPHTTPConnection.h"
 #import "RMPSearchResultsCollectionView.h"
+#import "RMPImageEffect.h"
+#import "RMPMovingImageView.h"
 
-@interface MapViewController ()
-
+@interface MapViewController () {
+    RMPMovingImageView *_writeImageView;
+    UIImageView *_monochromeMapView;
+    CGFloat offsetImageView;
+}
 @end
 
 NSString *const MapViewDidReload = @"MapViewDidReload";
@@ -88,8 +93,20 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                              selector:@selector(reload)
                                                  name:RMPBuzzMapDataReloaded
                                                object:self.buzzData];
+    
+    // For write form
+    _monochromeMapView = [[UIImageView alloc] initWithFrame:self.mapView.frame];
+    RMPWriteFormAnnotation *writeAnnotation = [[RMPWriteFormAnnotation alloc] init];
+    _writeImageView = [[RMPMovingImageView alloc] initWithFrame:CGRectMake(0, 0, writeAnnotation.pinImage.size.width, writeAnnotation.pinImage.size.height)];
+    _writeImageView.image = writeAnnotation.pinImage;
+    _writeImageView.centerOffset = writeAnnotation.centerOffset;
 }
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -133,34 +150,50 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 }
 
 
-- (void)showBuzzForm:(CLLocationCoordinate2D)tapPoint
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    BuzzFormViewController *buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
-    buzzFormViewController.location = tapPoint;
-    [self presentViewController:buzzFormViewController animated:YES completion:NULL];
-}
 
+
+/**
+    Drag writeFormPin.
+    When dragging ends, show write form view.
+ */
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
-    static RMPWriteFormAnnotation *annotation;
+    // values to displace pin
+    static const CGFloat offset = 100.0f;
     
     CGPoint tapPoint = [gestureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D touchMapCoordinate = [self.mapView convertPoint:tapPoint toCoordinateFromView:_mapView];
-    
+    tapPoint.y -= offset;
+ 
+    // Dragging ended.
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
     {
+        
+        // get corordinate which the pin is pointing at
+        CLLocationCoordinate2D touchMapCoordinate
+            = [self.mapView convertPoint:tapPoint toCoordinateFromView:_mapView];
+        // show buzz form
         [self showBuzzForm:touchMapCoordinate];
-        [self.mapView removeAnnotation:annotation];
+        // remove filter from map view
+        [_monochromeMapView removeFromSuperview];
+        [_writeImageView removeFromSuperview];
         return;
     }
     
+    // Dragging starts
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-        annotation = [[RMPWriteFormAnnotation alloc] init];
+        // add filter to map view
+        // transform map view to image
+        UIImage *mapImage = [RMPImageEffect imageWithView:self.mapView];
+        // make map image to be monochrome
+        UIImage *monochromeMapImage = [RMPImageEffect monochromeImageWithImage:mapImage];
+        _monochromeMapView.frame = self.mapView.frame;
+        _monochromeMapView.image = monochromeMapImage;
+        [self.view addSubview:_monochromeMapView];
+        [self.view addSubview:_writeImageView];
     }
     
-    annotation.coordinate = touchMapCoordinate;
-    [self.mapView addAnnotation:annotation];
+    // Dragging continues.
+    [_writeImageView moveToPosition:tapPoint];
 }
 
 - (void)reload
@@ -197,6 +230,16 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 {
     [UIView animateWithDuration:0.3f animations:^{self.searchResultsView.alpha = 0.0f;} completion:nil];
     [self.searchBar setShowsCancelButton:NO animated:YES];
+}
+
+#pragma mark - Buzz Form
+
+- (void)showBuzzForm:(CLLocationCoordinate2D)tapPoint
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    BuzzFormViewController *buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
+    buzzFormViewController.location = tapPoint;
+    [self presentViewController:buzzFormViewController animated:YES completion:NULL];
 }
 
 

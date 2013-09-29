@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMPMenuViewController : UIViewController
-- (IBAction)tappedToReturnToMap:(id)sender;
+@interface RMPMenuViewController : UIViewController <UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *innerView;
+- (IBAction)tappedLogout:(id)sender;
 
 @end
