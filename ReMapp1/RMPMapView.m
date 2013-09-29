@@ -124,9 +124,15 @@ NSString *const RMPMapViewDidDeselectAnnotationView = @"RMPMapViewDidDeselectAnn
     });
 }
 
-- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
-{
-
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    for (MKAnnotationView * annView in views) {
+        if ([annView.annotation isKindOfClass:[RMPWriteFormAnnotation class]]) {
+            [[annView superview] bringSubviewToFront:annView];
+        }
+        else {
+            [[annView superview] sendSubviewToBack:annView];
+        }
+    }
+    
 }
-
 @end

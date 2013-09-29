@@ -86,9 +86,9 @@
 {
     self = [super init];
     if (self) {
-        self.pinImage = [UIImage imageNamed:@"writeFormPin.png"];
+        self.pinImage = [UIImage imageNamed:@"kakikomi_g.png"];
         self.identifier = @"RMPWriteFormAnnotation";
-        self.tapPointOffset = CGPointMake(0.0f, -55.0f);
+        self.centerOffset = CGPointMake(0.0f, -21.0f);
     }
     return self;
 }

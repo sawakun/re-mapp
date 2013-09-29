@@ -8,6 +8,7 @@
 
 #import "RMPMenuViewController.h"
 #import "RMPSlidingViewController.h"
+#import "RMPHTTPConnection.h"
 
 @interface RMPMenuViewController ()
 
@@ -58,7 +59,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)tappedToReturnToMap:(id)sender {
-    [self.rmp_verticalSlidingViewController anchorLeftViewTo:RMPLeft];
+- (IBAction)tappedLogout:(id)sender {
+    UIActionSheet *sheet =[[UIActionSheet alloc]
+                           initWithTitle:@"Are you sure you'd like to log out from re:mapp?"
+                           delegate:self
+                           cancelButtonTitle:@"Cancel"
+                           destructiveButtonTitle:@"LOG OUT"
+                           otherButtonTitles:nil, nil];
+    
+    [sheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    [sheet showInView:self.view];
 }
+
+
+#pragma mark - UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+        // do nothing
+    }else if (buttonIndex == [actionSheet destructiveButtonIndex]) {
+        // log out and back to opening view.
+        BOOL logoutIsSuccess = [RMPHTTPConnection logout];
+        if (logoutIsSuccess) {
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }else{
+        //[selectLabel setText:[actionSheet buttonTitleAtIndex:buttonIndex]];
+    }
+}
+
 @end

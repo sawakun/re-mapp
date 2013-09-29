@@ -34,6 +34,5 @@
 
 
 @interface RMPWriteFormAnnotation : RMPAnnotation
-@property (nonatomic) CGPoint tapPointOffset;
 @end
 
