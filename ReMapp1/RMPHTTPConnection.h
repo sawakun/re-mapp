@@ -12,6 +12,7 @@
 @interface RMPHTTPConnection : NSObject
 + (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password;
 + (BOOL)registerWithUserName:(NSString*)userName Email:(NSString*)email Password:(NSString*)password UserImage:(UIImage*)userImage;
++ (BOOL)logout;
 
 + (BOOL)sendNewBuzzWithUserSystemId:(NSInteger)userSystemId
                            BuzzText:(NSString*)buzzText
