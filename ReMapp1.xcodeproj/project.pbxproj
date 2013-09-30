@@ -505,6 +505,7 @@
 		45AF0C3217E67316007B437C /* timeline_e2.png in Resources */ = {isa = PBXBuildFile; fileRef = 45AF0A8317E67315007B437C /* timeline_e2.png */; };
 		45AF0C3317E67316007B437C /* timeline_e2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45AF0A8417E67315007B437C /* timeline_e2@2x.png */; };
 		45AF0C3417E67316007B437C /* timeline_e2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45AF0A8417E67315007B437C /* timeline_e2@2x.png */; };
+		45B2866617F99B5B008AC343 /* clearBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B2866517F99B5B008AC343 /* clearBar.png */; };
 		45B2BDDC1799FE400051B90A /* RMPHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */; };
 		45BBCD5E17E52EC2003F08A5 /* RMPBuzzView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BBCD5D17E52EC2003F08A5 /* RMPBuzzView.xib */; };
 		45BBCD6117E52FA4003F08A5 /* RMPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BBCD6017E52FA4003F08A5 /* RMPDetailViewController.m */; };
@@ -913,6 +914,7 @@
 		45AF0A8217E67315007B437C /* timeline_e1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_e1@2x.png"; sourceTree = "<group>"; };
 		45AF0A8317E67315007B437C /* timeline_e2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_e2.png; sourceTree = "<group>"; };
 		45AF0A8417E67315007B437C /* timeline_e2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_e2@2x.png"; sourceTree = "<group>"; };
+		45B2866517F99B5B008AC343 /* clearBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearBar.png; sourceTree = "<group>"; };
 		45B2BDDA1799FE400051B90A /* RMPHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPHTTPConnection.h; sourceTree = "<group>"; };
 		45B2BDDB1799FE400051B90A /* RMPHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPHTTPConnection.m; sourceTree = "<group>"; };
 		45BBCD5D17E52EC2003F08A5 /* RMPBuzzView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPBuzzView.xib; sourceTree = "<group>"; };
@@ -1216,6 +1218,7 @@
 		45757AD017ADF4A9008E5397 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				45B2866517F99B5B008AC343 /* clearBar.png */,
 				4514B5D317F6BC16007BA436 /* test.png */,
 				4514B5CD17F69C52007BA436 /* mask.png */,
 				45AF09AD17E67315007B437C /* home_menu.png */,
@@ -2137,6 +2140,7 @@
 				45AF0C0717E67316007B437C /* register_e@2x.png in Resources */,
 				45AF0C0917E67316007B437C /* register_f.png in Resources */,
 				45AF0C0B17E67316007B437C /* register_f@2x.png in Resources */,
+				45B2866617F99B5B008AC343 /* clearBar.png in Resources */,
 				45AF0C0D17E67316007B437C /* timeline_a1.png in Resources */,
 				45AF0C0F17E67316007B437C /* timeline_a1@2x.png in Resources */,
 				45AF0C1117E67316007B437C /* timeline_a2.png in Resources */,

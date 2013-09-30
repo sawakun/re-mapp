@@ -885,10 +885,6 @@
                                     <attributedString key="attributedTitle"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEB-Cb-ne0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
                             <view alpha="0.10000000000000001" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-CV-J8J">
                                 <rect key="frame" x="283" y="44" width="35" height="470"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -922,9 +918,8 @@
                                     <constraint firstItem="zMI-ha-nZX" firstAttribute="trailing" secondItem="Qgy-Nv-SJV" secondAttribute="trailing" id="ySV-UL-1Ny"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" text="" placeholder="Search..." translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO">
-                                <rect key="frame" x="0.0" y="10" width="320" height="44"/>
-                                <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <searchBar alpha="0.80000000000000004" contentMode="redraw" fixedFrame="YES" text="" placeholder="Search..." backgroundImage="clearBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="VRc-20-keO">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="kVV-3b-vcr"/>
@@ -941,16 +936,12 @@
                             <constraint firstAttribute="bottom" secondItem="tL3-Ro-ddN" secondAttribute="bottom" constant="12" id="0sY-eR-Lh7"/>
                             <constraint firstItem="tL3-Ro-ddN" firstAttribute="top" secondItem="j1U-jg-lHs" secondAttribute="top" id="2dl-vz-GX8"/>
                             <constraint firstItem="tL3-Ro-ddN" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="8" id="3WV-VM-uJW"/>
-                            <constraint firstItem="uEB-Cb-ne0" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" id="4XG-FD-B4v"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" id="5LE-ZQ-3e2"/>
-                            <constraint firstItem="uEB-Cb-ne0" firstAttribute="trailing" secondItem="gCj-i9-D1h" secondAttribute="trailing" id="Bd8-62-ThR"/>
                             <constraint firstAttribute="trailing" secondItem="j1U-jg-lHs" secondAttribute="trailing" constant="8" id="Cl3-Tk-A2P"/>
                             <constraint firstItem="em6-SW-tqX" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" constant="100" id="E4r-Ui-nlQ"/>
                             <constraint firstItem="ayf-VO-otW" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" id="EDu-Wc-8Ca"/>
                             <constraint firstAttribute="bottom" secondItem="2SP-CV-J8J" secondAttribute="bottom" constant="54" id="HKO-6j-xzc"/>
-                            <constraint firstItem="uEB-Cb-ne0" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" id="HvL-fK-kLQ"/>
                             <constraint firstAttribute="trailing" secondItem="ayf-VO-otW" secondAttribute="trailing" constant="285" id="Prm-61-ky9"/>
-                            <constraint firstItem="uEB-Cb-ne0" firstAttribute="top" secondItem="gCj-i9-D1h" secondAttribute="top" id="Ptf-n1-Dw6"/>
                             <constraint firstItem="2SP-CV-J8J" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" constant="283" id="SQB-6c-nS5"/>
                             <constraint firstItem="fUz-D1-JIw" firstAttribute="leading" secondItem="gCj-i9-D1h" secondAttribute="leading" id="X6o-go-jYp"/>
                             <constraint firstItem="Qgy-Nv-SJV" firstAttribute="bottom" secondItem="gCj-i9-D1h" secondAttribute="bottom" id="aWy-S1-qWl"/>
@@ -971,7 +962,6 @@
                         <outlet property="activityIndicatorView" destination="em6-SW-tqX" id="vYf-ap-ee9"/>
                         <outlet property="leftScratchView" destination="ayf-VO-otW" id="Gzj-D6-yDU"/>
                         <outlet property="mapView" destination="fUz-D1-JIw" id="4T9-au-RCO"/>
-                        <outlet property="maskView" destination="uEB-Cb-ne0" id="XoJ-3b-SCS"/>
                         <outlet property="rightScratchView" destination="2SP-CV-J8J" id="6WO-Pg-ryw"/>
                         <outlet property="searchBar" destination="VRc-20-keO" id="37L-DW-FmB"/>
                         <outlet property="searchResultsCollectionView" destination="zMI-ha-nZX" id="7fx-o8-4Qd"/>
@@ -1207,7 +1197,7 @@
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-qK-pw4">
                                         <rect key="frame" x="100" y="376" width="120" height="30"/>
@@ -1353,7 +1343,7 @@
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="    USER NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Nw-qJ-8HF">
                                                 <rect key="frame" x="20" y="287" width="260" height="30"/>
@@ -1444,6 +1434,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clearBar.png" width="474" height="30"/>
         <image name="home_menu.png" width="44" height="47"/>
         <image name="home_you.png" width="44" height="47"/>
         <image name="leftmenu_a_color.png" width="320" height="65"/>
@@ -1462,8 +1453,6 @@
         <image name="leftmenu_g_mono.png" width="320" height="65"/>
         <image name="leftmenu_h_color.png" width="320" height="65"/>
         <image name="leftmenu_h_mono.png" width="320" height="65"/>
-        <image name="opening_a.png" width="198" height="251"/>
-        <image name="opening_a.png" width="198" height="251"/>
         <image name="opening_a.png" width="198" height="251"/>
         <image name="opening_c1.png" width="25" height="46"/>
         <image name="opening_c2.png" width="63" height="46"/>

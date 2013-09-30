@@ -26,7 +26,7 @@
 @end
 
 @implementation RMPPlaceMapCell
-static NSString *notificationName = @"moveCollectionViewWithNewPosition";
+//static NSString *notificationName = @"moveCollectionViewWithNewPosition";
 static CGFloat previousActionButtonPosition;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -137,10 +137,6 @@ static CGFloat previousActionButtonPosition;
                 [self moveCollectionViewWithNewPosition:self.fullScreenPosition];
             } completion:nil];
         }
-        //post notification
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:nil];
-        });
         return;
     }
     return;
@@ -190,11 +186,6 @@ static CGFloat previousActionButtonPosition;
                                     self.collectionView.frame.size.height * 1.5);
     self.fullScreenPosition = CGPointMake(self.collectionView.layer.position.x,
                                           self.collectionView.frame.size.height * 0.5);
-    // regist notification
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moveActionButtonWithNotification:)
-                                                 name:notificationName
-                                               object:nil];
     // set other values
     [self moveActionButton];
     [self.actionButtonView setCenterY:previousActionButtonPosition];
