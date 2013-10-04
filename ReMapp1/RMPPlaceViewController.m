@@ -54,7 +54,9 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     */
     
     UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzMapCell" bundle:nil];
+    UINib *fixedPlaceCell = [UINib nibWithNibName:@"RMPFixedPlaceMapCell" bundle:nil];
     [self.collectionView registerNib:buzzCell forCellWithReuseIdentifier:@"RMPBuzzMapCell"];
+    [self.collectionView registerNib:fixedPlaceCell forCellWithReuseIdentifier:@"RMPFixedPlaceMapCell"];
 
     
     CGFloat height =  self.view.frame.size.height;

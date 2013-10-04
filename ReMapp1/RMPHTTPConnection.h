@@ -9,7 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+enum RMPJudgeKind {
+    LIKE,
+    CHECK,
+    MUTE
+};
+
 @interface RMPHTTPConnection : NSObject
++ (BOOL)judgeBuzz:(NSInteger)buzzId State:(BOOL)state Kind:(enum RMPJudgeKind)kind;
 + (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password;
 + (BOOL)registerWithUserName:(NSString*)userName Email:(NSString*)email Password:(NSString*)password UserImage:(UIImage*)userImage;
 + (BOOL)logout;

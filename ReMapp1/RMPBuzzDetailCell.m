@@ -10,7 +10,6 @@
 #import "RMPPlaceAll.h"
 #import "RMPHeightToFitLabel.h"
 #import "UIImageView+WebCache.h"
-#import "RMPRearrangedView.h"
 
 @implementation RMPBuzzDetailCell
 

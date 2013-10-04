@@ -31,38 +31,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-1e-XsA">
-                    <rect key="frame" x="0.0" y="612" width="300" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="judge_a1.png" translatesAutoresizingMaskIntoConstraints="NO" id="tPI-3b-Jdc">
-                            <rect key="frame" x="60" y="2" width="21" height="20"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="CIc-A7-P7o"/>
-                                <constraint firstAttribute="width" constant="21" id="xmG-7Q-qiO"/>
-                            </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="judge_b1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nfv-UO-1jb">
-                            <rect key="frame" x="170" y="2" width="21" height="20"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="21" id="3DZ-RT-Nvc"/>
-                                <constraint firstAttribute="height" constant="20" id="dRs-0d-uLQ"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="21" id="pY3-aF-OL6"/>
-                            </constraints>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" red="0.93725496529999996" green="0.93725496529999996" blue="0.93333339689999995" alpha="1" colorSpace="deviceRGB"/>
-                    <constraints>
-                        <constraint firstItem="tPI-3b-Jdc" firstAttribute="top" secondItem="tQd-1e-XsA" secondAttribute="top" constant="2" id="8Ds-QL-hYL"/>
-                        <constraint firstItem="Nfv-UO-1jb" firstAttribute="centerY" secondItem="tQd-1e-XsA" secondAttribute="centerY" id="Nke-D1-U7W"/>
-                        <constraint firstItem="Nfv-UO-1jb" firstAttribute="top" secondItem="tPI-3b-Jdc" secondAttribute="top" id="Rs6-oJ-LR0"/>
-                        <constraint firstAttribute="height" constant="24" id="Sur-5w-xGv"/>
-                        <constraint firstItem="Nfv-UO-1jb" firstAttribute="leading" secondItem="tQd-1e-XsA" secondAttribute="leading" constant="170" id="e2u-R2-Dfd"/>
-                        <constraint firstItem="tPI-3b-Jdc" firstAttribute="leading" secondItem="tQd-1e-XsA" secondAttribute="leading" constant="60" id="h5F-gO-cMR"/>
-                    </constraints>
-                </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="judge_a0.png" translatesAutoresizingMaskIntoConstraints="NO" id="hIU-85-qZr">
                     <rect key="frame" x="10" y="5" width="13" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -154,6 +122,38 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-1e-XsA">
+                    <rect key="frame" x="0.0" y="612" width="300" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="top" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbG-Dc-29D" customClass="RMPJudgeButton">
+                            <rect key="frame" x="60" y="2" width="69" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="judge_a1.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="judge_a2.png"/>
+                            <connections>
+                                <action selector="likeButtonDidTapped:" destination="pTz-OO-54V" eventType="touchUpInside" id="oJ1-42-SQ0"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROJ-zw-XoD" customClass="RMPJudgeButton">
+                            <rect key="frame" x="170" y="2" width="78" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="judge_b1.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="judge_b2.png"/>
+                            <connections>
+                                <action selector="muteButtonDidTapped:" destination="pTz-OO-54V" eventType="touchUpInside" id="ueP-fS-aKw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93725496529999996" green="0.93725496529999996" blue="0.93333339689999995" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="Sur-5w-xGv"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -167,6 +167,10 @@
                 <outlet property="addressLabel" destination="X9V-sz-cpF" id="rYq-wb-1cx"/>
                 <outlet property="buzzBodyLabel" destination="tTC-xK-4Tc" id="vwV-nV-p0w"/>
                 <outlet property="buzzImageView" destination="i6f-rb-Ghb" id="mYW-jl-ZRK"/>
+                <outlet property="likeButton" destination="VbG-Dc-29D" id="N4z-I9-jkz"/>
+                <outlet property="likeNumber" destination="oO7-QY-lRS" id="TDu-ee-nDk"/>
+                <outlet property="muteButton" destination="ROJ-zw-XoD" id="ejQ-28-5y8"/>
+                <outlet property="muteNumber" destination="1wp-VQ-r56" id="lBV-5Y-bZH"/>
                 <outlet property="phoneNumberLabel" destination="orf-zJ-302" id="pVJ-u2-4Yu"/>
                 <outlet property="siteURLLabel" destination="9NZ-X6-Tkw" id="fCj-xW-T3t"/>
                 <outlet property="userNameLabel" destination="RZM-6i-ZQE" id="y7j-Of-1fc"/>
@@ -175,8 +179,10 @@
     </objects>
     <resources>
         <image name="judge_a0.png" width="13" height="13"/>
-        <image name="judge_a1.png" width="21" height="20"/>
+        <image name="judge_a1.png" width="57" height="20"/>
+        <image name="judge_a2.png" width="69" height="20"/>
         <image name="judge_b0.png" width="16" height="12"/>
-        <image name="judge_b1.png" width="26" height="20"/>
+        <image name="judge_b1.png" width="67" height="20"/>
+        <image name="judge_b2.png" width="78" height="20"/>
     </resources>
 </document>
