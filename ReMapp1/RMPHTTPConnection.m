@@ -10,6 +10,13 @@
 #import "RMPUser.h"
 
 @implementation RMPHTTPConnection
++ (BOOL)judgeBuzz:(NSInteger)buzzId State:(BOOL)state Kind:(enum RMPJudgeKind)kind
+{
+    //UNDER CONSTRUCTION
+    return YES;
+}
+
+
 + (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password
 {
     // UNDER CONSTRUCTION

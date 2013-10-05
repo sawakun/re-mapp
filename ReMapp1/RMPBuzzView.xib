@@ -42,32 +42,32 @@
                     <rect key="frame" x="0.0" y="519" width="300" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="judge_a1.png" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-5Y-ggl">
-                            <rect key="frame" x="60" y="2" width="21" height="20"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="21" id="knq-hE-bQS"/>
-                                <constraint firstAttribute="height" constant="20" id="obY-H9-x7T"/>
-                            </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="judge_b1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wK0-hF-vo5">
-                            <rect key="frame" x="170" y="2" width="21" height="20"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="U9S-LI-HBk"/>
-                                <constraint firstAttribute="width" constant="21" id="mxZ-Db-5QC"/>
-                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="21" id="xlV-4D-5OV"/>
-                            </constraints>
-                        </imageView>
+                        <button opaque="NO" contentMode="top" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-zl-CC8" customClass="RMPJudgeButton">
+                            <rect key="frame" x="60" y="2" width="69" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="judge_a1.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="judge_a2.png"/>
+                            <connections>
+                                <action selector="likeButtonDidTapped:" destination="Qpn-rk-r1a" eventType="touchUpInside" id="TnQ-RJ-8fP"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-jb-9Xr" customClass="RMPJudgeButton">
+                            <rect key="frame" x="170" y="2" width="78" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="judge_b1.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="judge_b2.png"/>
+                            <connections>
+                                <action selector="muteButtonDidTapped:" destination="Qpn-rk-r1a" eventType="touchUpInside" id="HHW-BR-StG"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.93725496529999996" green="0.93725496529999996" blue="0.93333339689999995" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
-                        <constraint firstItem="1kj-5Y-ggl" firstAttribute="leading" secondItem="HRH-Ja-pNl" secondAttribute="leading" constant="60" id="3Ug-VK-IaM"/>
-                        <constraint firstItem="1kj-5Y-ggl" firstAttribute="top" secondItem="HRH-Ja-pNl" secondAttribute="top" constant="2" id="44D-SL-p12"/>
-                        <constraint firstItem="wK0-hF-vo5" firstAttribute="leading" secondItem="HRH-Ja-pNl" secondAttribute="leading" constant="170" id="Emw-b8-Wzd"/>
-                        <constraint firstItem="wK0-hF-vo5" firstAttribute="top" secondItem="1kj-5Y-ggl" secondAttribute="top" id="iUZ-3F-W8W"/>
                         <constraint firstAttribute="height" constant="24" id="jJb-tk-WBj"/>
-                        <constraint firstItem="wK0-hF-vo5" firstAttribute="centerY" secondItem="HRH-Ja-pNl" secondAttribute="centerY" id="mvH-2u-SeK"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="judge_a0.png" translatesAutoresizingMaskIntoConstraints="NO" id="PSj-OA-4BN">
@@ -128,14 +128,20 @@
             <connections>
                 <outlet property="buzzBodyLabel" destination="rED-HP-mw6" id="jTF-2p-ofn"/>
                 <outlet property="buzzImageView" destination="GaJ-Lx-TvQ" id="bKN-Qj-Now"/>
+                <outlet property="likeButton" destination="Qm7-zl-CC8" id="cbP-xp-Nvw"/>
+                <outlet property="likeNumber" destination="K8U-Jx-vzO" id="iW6-cS-c01"/>
+                <outlet property="muteButton" destination="gLc-jb-9Xr" id="AvW-Xz-vQf"/>
+                <outlet property="muteNumber" destination="YuC-4l-cSV" id="oxu-hw-ffd"/>
                 <outlet property="timeLabel" destination="tDg-Nz-5b6" id="UT0-Ax-E5M"/>
             </connections>
         </view>
     </objects>
     <resources>
         <image name="judge_a0.png" width="13" height="13"/>
-        <image name="judge_a1.png" width="21" height="20"/>
+        <image name="judge_a1.png" width="57" height="20"/>
+        <image name="judge_a2.png" width="69" height="20"/>
         <image name="judge_b0.png" width="16" height="12"/>
-        <image name="judge_b1.png" width="26" height="20"/>
+        <image name="judge_b1.png" width="67" height="20"/>
+        <image name="judge_b2.png" width="78" height="20"/>
     </resources>
 </document>

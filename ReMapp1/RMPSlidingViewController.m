@@ -495,23 +495,17 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 
 - (void)bottomViewVerticalCenterDidChange:(CGFloat)newVerticalCenter
 {
-    if ([self.delegate respondsToSelector:@selector(bottomViewDidMove:)]) {
-        [self.delegate bottomViewDidMove:newVerticalCenter];
-    }
+    [self.delegateBottom bottomViewDidMove:newVerticalCenter];
 }
 
 - (void)rightViewHorizontalCenterDidChange:(CGFloat)newHorizontalCenter
 {
-    if ([self.delegate respondsToSelector:@selector(rightViewDidMove:)]) {
-        [self.delegate rightViewDidMove:newHorizontalCenter];
-    }
+    [self.delegateRight rightViewDidMove:newHorizontalCenter];
 }
 
 - (void)leftViewHorizontalCenterDidChange:(CGFloat)newHorizontalCenter
 {
-    if ([self.delegate respondsToSelector:@selector(leftViewDidMove:)]) {
-        [self.delegate leftViewDidMove:newHorizontalCenter];
-    }
+    [self.delegateLeft leftViewDidMove:newHorizontalCenter];
 }
 
 - (void)underViewWillAppear
@@ -572,7 +566,7 @@ NSString *const RMPSlidingViewLeftViewWillAppear = @"RMPSlidingViewLeftViewWillA
 
 
 @implementation UIViewController(RMPVerticalSlidingViewExtension)
-- (RMPSlidingViewController *) rmp_verticalSlidingViewController
+- (RMPSlidingViewController *) rmp_slidingViewController
 {
     UIViewController *viewController = self.parentViewController;
     while (!(viewController == nil || [viewController isKindOfClass:[RMPSlidingViewController class]])) {

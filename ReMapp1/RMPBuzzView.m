@@ -9,6 +9,13 @@
 #import "RMPBuzzView.h"
 #import "RMPBuzzPlace.h"
 #import "UIImageView+WebCache.h"
+#import "RMPJudgeButton.h"
+#import "RMPHTTPConnection.h"
+
+@interface RMPBuzzView()
+@property (nonatomic) NSInteger buzzId;
+@end
+
 
 @implementation RMPBuzzView
 
@@ -31,6 +38,12 @@
     RMPBuzzPlace *buzz = (RMPBuzzPlace *)place;
     self.buzzBodyLabel.text = buzz.buzzBody;
     
+    self.buzzId = buzz.buzzId;
+    self.likeButton.isJudged = buzz.like;
+    self.muteButton.isJudged = buzz.mute;
+    self.likeNumber.text = [@(buzz.likes) stringValue];
+    self.muteNumber.text = [@(buzz.mutes) stringValue];
+
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd hh:mm:ss"];
     self.timeLabel.text = [formatter stringFromDate:buzz.time];
@@ -41,5 +54,13 @@
     }
 }
 
+- (IBAction)likeButtonDidTapped:(id)sender {
+    [self.likeButton changeJudgement];
+    [RMPHTTPConnection judgeBuzz:self.buzzId State:self.likeButton.isJudged Kind:LIKE];
+}
 
+- (IBAction)muteButtonDidTapped:(id)sender {
+    [self.muteButton changeJudgement];
+    [RMPHTTPConnection judgeBuzz:self.buzzId State:self.likeButton.isJudged Kind:MUTE];
+}
 @end

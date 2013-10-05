@@ -13,9 +13,18 @@
 @class RMPPlace;
 @class RMPRearrangedView;
 
+@interface RMPScrollViewInPlaceMapCell : UIScrollView
+-(void)setPosition:(CGPoint)position;
+@end
+
+@interface RMPViewInPlaceMapCell : UIView
+-(void)setPosition:(CGPoint)position;
+@end
+
+
 @interface RMPPlaceMapCell : UICollectionViewCell <UIGestureRecognizerDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *innerScrollView;
-@property (weak, nonatomic) IBOutlet RMPRearrangedView *actionButtonView;
+@property (weak, nonatomic) RMPScrollViewInPlaceMapCell *innerScrollView;
+@property (weak, nonatomic) RMPViewInPlaceMapCell *actionButtonView;
 - (void)setDataWithPlace:(RMPPlace *)place;
 @end
 

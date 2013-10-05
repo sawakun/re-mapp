@@ -62,8 +62,8 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.0;
     [self.mapView addGestureRecognizer:lpgr];
-    [self.rightScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.rightPanGesture];
-    [self.leftScratchView addGestureRecognizer:self.rmp_verticalSlidingViewController.leftPanGesture];
+    [self.rightScratchView addGestureRecognizer:self.rmp_slidingViewController.rightPanGesture];
+    [self.leftScratchView addGestureRecognizer:self.rmp_slidingViewController.leftPanGesture];
 
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -74,10 +74,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     //set the map delegate
     self.mapView.delegate = self.mapView;
     
-    //set sliding view delegate
-    self.rmp_verticalSlidingViewController.delegate = self;
-    self.maskView.alpha = 0;
- 
+    
     //set notifications related to the map
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showInfoView)
@@ -100,6 +97,8 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
     _writeImageView = [[RMPMovingImageView alloc] initWithFrame:CGRectMake(0, 0, writeAnnotation.pinImage.size.width, writeAnnotation.pinImage.size.height)];
     _writeImageView.image = writeAnnotation.pinImage;
     _writeImageView.centerOffset = writeAnnotation.centerOffset;
+    _monochromeMapView.alpha = 0.0f;
+    _writeImageView.alpha = 0.0f;
 }
 
 
@@ -115,15 +114,15 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)showInfoView
 {
-    if (!self.rmp_verticalSlidingViewController.isBottomViewShowing) {
-        [self.rmp_verticalSlidingViewController anchorBottomViewTo:RMPMiddle];
+    if (!self.rmp_slidingViewController.isBottomViewShowing) {
+        [self.rmp_slidingViewController anchorBottomViewTo:RMPMiddle];
     }
 }
 
 - (void)hideInfoView
 {
-    if (self.rmp_verticalSlidingViewController.isBottomViewShowing) {
-        [self.rmp_verticalSlidingViewController anchorBottomViewTo:RMPBottom];
+    if (self.rmp_slidingViewController.isBottomViewShowing) {
+        [self.rmp_slidingViewController anchorBottomViewTo:RMPBottom];
     }
 }
 
@@ -159,7 +158,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 - (void)handleLongPress:(UIGestureRecognizer *)gestureRecognizer
 {
     // values to displace pin
-    static const CGFloat offset = 100.0f;
+    static const CGFloat offset = 50.0f;
     
     CGPoint tapPoint = [gestureRecognizer locationInView:self.mapView];
     tapPoint.y -= offset;
@@ -171,11 +170,13 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
         // get corordinate which the pin is pointing at
         CLLocationCoordinate2D touchMapCoordinate
             = [self.mapView convertPoint:tapPoint toCoordinateFromView:_mapView];
-        // show buzz form
-        [self showBuzzForm:touchMapCoordinate];
-        // remove filter from map view
-        [_monochromeMapView removeFromSuperview];
-        [_writeImageView removeFromSuperview];
+        // show buzz form and remove filter from map view
+        [self showBuzzForm:touchMapCoordinate completion:^(void){
+            [_monochromeMapView removeFromSuperview];
+            [_writeImageView removeFromSuperview];
+            _monochromeMapView.alpha = 0.0f;
+            _writeImageView.alpha = 0.0f;
+        }];
         return;
     }
     
@@ -188,8 +189,13 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
         UIImage *monochromeMapImage = [RMPImageEffect monochromeImageWithImage:mapImage];
         _monochromeMapView.frame = self.mapView.frame;
         _monochromeMapView.image = monochromeMapImage;
-        [self.view addSubview:_monochromeMapView];
-        [self.view addSubview:_writeImageView];
+        [UIView animateWithDuration:0.2f animations:^{
+            _monochromeMapView.alpha = 1.0f;
+            _writeImageView.alpha = 1.0f;
+        } completion:^(BOOL finished){
+            [self.view addSubview:_monochromeMapView];
+            [self.view addSubview:_writeImageView];
+        }];
     }
     
     // Dragging continues.
@@ -234,12 +240,12 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 #pragma mark - Buzz Form
 
-- (void)showBuzzForm:(CLLocationCoordinate2D)tapPoint
+- (void)showBuzzForm:(CLLocationCoordinate2D)tapPoint completion:(void (^)(void))completion
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
     BuzzFormViewController *buzzFormViewController = [storyboard instantiateViewControllerWithIdentifier:@"BuzzForm"];
     buzzFormViewController.location = tapPoint;
-    [self presentViewController:buzzFormViewController animated:YES completion:NULL];
+    [self presentViewController:buzzFormViewController animated:YES completion:completion];
 }
 
 
@@ -259,6 +265,7 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 #pragma mark - UISearchBarDelsegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [self hideInfoView];
     [UIView animateWithDuration:0.3f animations:^{
         self.searchResultsView.alpha = 1.0f;
     } completion:nil];
@@ -297,13 +304,6 @@ NSString *const MapViewDidReload = @"MapViewDidReload";
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
-}
-
-
-#pragma mark - RMPSlidingViewDelegate
-- (void)leftViewDidMove:(CGFloat)horizontalCenter
-{
-//    self.maskView.alpha = 0.00000976562 * (horizontalCenter + 160) * (horizontalCenter + 160);
 }
 
 

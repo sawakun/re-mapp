@@ -22,6 +22,8 @@
 @property (nonatomic, readonly) float lon;
 @property (nonatomic, readonly) float lat;
 @property (nonatomic, readonly) NSString *buzzType;
+@property (nonatomic, readonly) NSInteger likes;
+@property (nonatomic, readonly) NSInteger mutes;
 @property (nonatomic, readonly, getter = isLiked) BOOL like;
 @property (nonatomic, readonly, getter = isMuted) BOOL mute;
 @property (nonatomic, readonly) RMPAnnotation* annotation;
@@ -39,6 +41,7 @@
 // For TimeLineDetail
 - (CGFloat)heightForDetailCell;
 + (NSString *)detailCellIdentifier;
++ (NSString *)mapCellIdentifier;
 
 - (RMPAnnotation *)createAnnotaion;
 - (UIColor *)backgroundColor;

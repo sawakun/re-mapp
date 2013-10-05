@@ -20,8 +20,7 @@
 /** Notification that gets posted when the map was reloaded. */
 extern NSString *const MapViewDidReload;
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate,
-RMPSlidingViewDelegate, RMPSearchResultsCollectionViewDelegate, UISearchBarDelegate>
+@interface MapViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, RMPSearchResultsCollectionViewDelegate, UISearchBarDelegate>
 
 - (IBAction)tappedToCurrentLocation:(id)sender;
 @property (nonatomic) BuzzFormViewController *buzzFormViewController;
