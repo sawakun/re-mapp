@@ -10,7 +10,7 @@
 #define ReMapp1_constants_h
 
 static const float FIRST_MAP_CELL_HEIGHT = 105.0;
-static const float SECOND_MAP_CELL_HEIGHT = 148.0;
+static const float SECOND_MAP_CELL_HEIGHT = 129.0;
 
 
 #endif

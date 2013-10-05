@@ -24,7 +24,18 @@ extern NSString *const RMPSlidingViewRightViewWillAppear;
 /** Notification that gets posted when the left view will appear */
 extern NSString *const RMPSlidingViewLeftViewWillAppear;
 
-@protocol RMPSlidingViewDelegate;
+/** Protocols **/
+@protocol RMPSlidingLeftViewDelegate <NSObject>
+- (void)leftViewDidMove:(CGFloat)horizontalCenter;
+@end
+
+@protocol RMPSlidingRightViewDelegate <NSObject>
+- (void)rightViewDidMove:(CGFloat)horizontalCenter;
+@end
+
+@protocol RMPSlidingBottomViewDelegate <NSObject>
+- (void)bottomViewDidMove:(CGFloat)verticalCenter;
+@end
 
 @interface RMPSlidingViewController : UIViewController
 /** Returns the view controller that is presented above underViewController and will appear from bottom. */
@@ -51,7 +62,9 @@ extern NSString *const RMPSlidingViewLeftViewWillAppear;
 /** Returns horizontal panning gesture for moving the bottom view. */
 @property (nonatomic, readonly) UIPanGestureRecognizer *bottomPanGesture;
 
-@property(nonatomic, assign) id <RMPSlidingViewDelegate> delegate;
+@property(nonatomic, assign) id <RMPSlidingLeftViewDelegate> delegateLeft;
+@property(nonatomic, assign) id <RMPSlidingRightViewDelegate> delegateRight;
+@property(nonatomic, assign) id <RMPSlidingBottomViewDelegate> delegateBottom;
 
 
 /** RMPSide of screen */
@@ -83,13 +96,9 @@ typedef enum {
 
 @end
 
-@protocol RMPSlidingViewDelegate <NSObject>
-@optional
-- (void)leftViewDidMove:(CGFloat)horizontalCenter;
-- (void)rightViewDidMove:(CGFloat)horizontalCenter;
-- (void)bottomViewDidMove:(CGFloat)verticalCenter;
-@end
+
+
 
 @interface UIViewController(RMPVerticalSlidingViewExtension)
-- (RMPSlidingViewController *)rmp_verticalSlidingViewController;
+- (RMPSlidingViewController *)rmp_slidingViewController;
 @end

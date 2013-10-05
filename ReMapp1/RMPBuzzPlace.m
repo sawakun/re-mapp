@@ -28,6 +28,11 @@
     return @"RMPBuzzDetailCell";
 }
 
++ (NSString *)mapCellIdentifier
+{
+    return @"RMPBuzzMapCell";
+}
+
 
 - (NSString *)placeViewNibName
 {

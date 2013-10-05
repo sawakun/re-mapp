@@ -8,8 +8,49 @@
 
 #import "RMPPlaceMapCell.h"
 #import "RMPPlace.h"
-#import "RMPRearrangedView.h"
 #import "constants.h"
+
+@interface RMPScrollViewInPlaceMapCell()
+{
+    @private
+    CGPoint _position;
+}
+@end
+
+@implementation RMPScrollViewInPlaceMapCell
+-(void)setPosition:(CGPoint)position
+{
+    _position = position;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.layer.position = _position;
+}
+
+@end
+
+@interface RMPViewInPlaceMapCell()
+{
+@private
+    CGPoint _position;
+}
+@end
+
+@implementation RMPViewInPlaceMapCell
+-(void)setPosition:(CGPoint)position
+{
+    _position = position;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.layer.position = _position;
+}
+
+@end
 
 @interface RMPPlaceMapCell()
 @property CGFloat initialTouchPositionY;
@@ -26,8 +67,15 @@
 @end
 
 @implementation RMPPlaceMapCell
-static NSString *notificationName = @"moveCollectionViewWithNewPosition";
-static CGFloat previousActionButtonPosition;
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -54,7 +102,7 @@ static CGFloat previousActionButtonPosition;
         CGPoint currentVelocityPoint = [recognizer velocityInView:self.superview.superview];
         if (fabsf(currentVelocityPoint.x) > fabsf(currentVelocityPoint.y)) {
             self.isVerticalDirection = NO;
-            [self moveActionButton];
+            //[self setActionButtonViewPosition];
             return;
         }
         // set inital values
@@ -85,8 +133,7 @@ static CGFloat previousActionButtonPosition;
         
         CGFloat currentMoveAmount = self.initialCenterY - self.initialParentCenterY;
         CGFloat offset = panAmount-currentMoveAmount + self.initialOffsetY;
-        CGFloat maxOffset = self.innerScrollView.contentSize.height - self.collectionView.frame.size.height;
-    
+        CGFloat maxOffset = self.innerScrollView.frame.size.height - self.collectionView.frame.size.height;
         if (offset >= maxOffset) {
             // update initial values
             self.isVerticalDirection = YES;
@@ -103,7 +150,7 @@ static CGFloat previousActionButtonPosition;
         {
             [self.innerScrollView flashScrollIndicators];
             [self.innerScrollView setContentOffset:CGPointMake(0, offset)];
-            [self moveActionButton];
+            //[self setActionButtonViewPosition];
             // update initial values
             self.isVerticalDirection = YES;
             self.initialTouchPositionY = currentTouchPositionY;
@@ -137,10 +184,6 @@ static CGFloat previousActionButtonPosition;
                 [self moveCollectionViewWithNewPosition:self.fullScreenPosition];
             } completion:nil];
         }
-        //post notification
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:nil];
-        });
         return;
     }
     return;
@@ -149,21 +192,33 @@ static CGFloat previousActionButtonPosition;
 - (void)moveCollectionViewWithNewPosition:(CGPoint)position
 {
     self.collectionView.layer.position = position;
-    [self moveActionButton];
+    [self setActionButtonViewPosition];
+    [self setInnerScrollViewPosition];
 }
 
-- (void)moveActionButton
+- (void)setActionButtonViewPosition
 {
-    CGFloat positionY = self.mapView.frame.size.height - self.collectionView.frame.origin.y - self.actionButtonView.frame.size.height * 0.5;
+    CGFloat mapViewHeight = self.mapView.frame.size.height;
+    CGFloat collectionViewY = self.collectionView.frame.origin.y;
+    CGFloat collectionViewWidth = self.collectionView.frame.size.width;
+    CGFloat actionButtonViewHeight = self.actionButtonView.frame.size.height;
+    CGFloat positionY = mapViewHeight - collectionViewY - actionButtonViewHeight * 0.5;
     positionY = fmaxf(self.minActionButtonCenterY, positionY);
-    previousActionButtonPosition = positionY;
-    self.actionButtonView.layer.position = CGPointMake(self.collectionView.layer.position.x, positionY);
+    CGPoint position = CGPointMake(collectionViewWidth * 0.5, positionY);
+    [self.actionButtonView setPosition:position];
+    self.actionButtonView.layer.position = position;
+    
 }
 
-
-- (void)moveActionButtonWithNotification:(NSNotification *)center
+- (void)setInnerScrollViewPosition;
 {
-    [self moveActionButton];
+    CGFloat originY = -20.0 / self.collectionView.frame.size.height * self.collectionView.frame.origin.y + 20.0;
+    originY = MAX(originY, 5);
+    CGFloat positionY = originY + self.innerScrollView.frame.size.height * 0.5;
+    CGFloat positionX = self.collectionView.frame.size.width * 0.5;
+    CGPoint position = CGPointMake(positionX, positionY);
+    [self.innerScrollView setPosition:position];
+    self.innerScrollView.layer.position = position;
 }
 
 - (void)setDataWithPlace:(RMPPlace *)place
@@ -174,6 +229,9 @@ static CGFloat previousActionButtonPosition;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    // set superviews
+    self.collectionView = self.superview.superview;
+    self.mapView = self.collectionView.superview;
     // set initial values
     self.minActionButtonCenterY = FIRST_MAP_CELL_HEIGHT + self.actionButtonView.frame.size.height * 0.5;
     // set pangesture
@@ -182,28 +240,20 @@ static CGFloat previousActionButtonPosition;
     [panGesture setDelegate:self];
     [self.innerScrollView addGestureRecognizer:panGesture];
     [self.innerScrollView setContentOffset:CGPointMake(0, 0)];
-    // set superviews
-    self.collectionView = self.superview.superview;
-    self.mapView = self.collectionView.superview;
     // set positions
     self.hidePosition = CGPointMake(self.collectionView.layer.position.x,
                                     self.collectionView.frame.size.height * 1.5);
     self.fullScreenPosition = CGPointMake(self.collectionView.layer.position.x,
                                           self.collectionView.frame.size.height * 0.5);
-    // regist notification
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moveActionButtonWithNotification:)
-                                                 name:notificationName
-                                               object:nil];
-    // set other values
-    [self moveActionButton];
-    [self.actionButtonView setCenterY:previousActionButtonPosition];
+
+    [self setInnerScrollViewPosition];
+    [self setActionButtonViewPosition];
+
 }
 
 
-
-
 @end
+
 
 
 @implementation RMPPlaceMapCellFactory
@@ -212,11 +262,7 @@ static CGFloat previousActionButtonPosition;
                               cellForItemAtIndexPath:(NSIndexPath *)indexPath
                                                place:(RMPPlace *)place
 {
-    /*
-    RMPPlaceMapCell *cell = (RMPPlaceMapCell *)[collectionView dequeueReusableCellWithReuseIdentifier:[[place class] detailCellIdentifier]
-                                                                                         forIndexPath:indexPath];
-    */
-    RMPPlaceMapCell *cell = (RMPPlaceMapCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"RMPBuzzMapCell"
+    RMPPlaceMapCell *cell = (RMPPlaceMapCell *)[collectionView dequeueReusableCellWithReuseIdentifier:[[place class] mapCellIdentifier]
                                                                                          forIndexPath:indexPath];
     
     [cell setDataWithPlace:place];

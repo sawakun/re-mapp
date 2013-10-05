@@ -23,6 +23,8 @@
 @property (nonatomic) NSString *buzzBody;
 @property (nonatomic) NSString *buzzImgUrl;
 @property (nonatomic) NSDate *time;
+@property (nonatomic) NSInteger likes;
+@property (nonatomic) NSInteger mutes;
 @property (nonatomic) BOOL like;
 @property (nonatomic) BOOL mute;
 @property (nonatomic) NSString *buzzType;
@@ -40,6 +42,12 @@
 {
     return @"RMPPlaceDetailCell";
 }
+
++ (NSString *)mapCellIdentifier
+{
+    return @"RMPPlaceMapCell";
+}
+
 
 - (NSString *)placeViewNibName
 {
@@ -91,6 +99,8 @@
         self.lat            = [buzzDictionary[@"lat"] floatValue];
         self.lon            = [buzzDictionary[@"lon"] floatValue];
         self.time           = [NSDate dateWithTimeIntervalSince1970:[buzzDictionary[@"time"] doubleValue] / 1000];
+        self.likes         = [buzzDictionary[@"likes"] integerValue];
+        self.mutes         = [buzzDictionary[@"mutes"] integerValue];
         self.like           = [buzzDictionary[@"like"] boolValue];
         self.mute           = [buzzDictionary[@"mute"] boolValue];
         self.buzzType       = buzzDictionary[@"buzz_type"];

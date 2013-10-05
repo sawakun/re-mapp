@@ -10,6 +10,12 @@
 #import "RMPFixedPlace.h"
 #import "UIImageView+WebCache.h"
 #import "UILabel+VerticalAlign.h"
+#import "RMPJudgeButton.h"
+#import "RMPHTTPConnection.h"
+
+@interface RMPFixedPlaceView()
+@property (nonatomic) NSInteger buzzId;
+@end
 
 @implementation RMPFixedPlaceView
 
@@ -34,6 +40,11 @@
     self.addressLabel.text = fixedPlace.address;
     self.phoneNumberLabel.text = fixedPlace.phoneNumber;
     self.siteURLLabel.text = fixedPlace.siteURL;
+    self.buzzId = fixedPlace.buzzId;
+    self.likeButton.isJudged = fixedPlace.like;
+    self.muteButton.isJudged = fixedPlace.mute;
+    self.likeNumber.text = [@(fixedPlace.likes) stringValue];
+    self.muteNumber.text = [@(fixedPlace.mutes) stringValue];
     
     if (![fixedPlace.buzzImgUrl isEqual:@""]) {
         [self.buzzImageView setImageWithURL:[NSURL URLWithString:fixedPlace.buzzImgUrl]
@@ -54,4 +65,13 @@
 }
 
 
+- (IBAction)likeButtonDidTapped:(id)sender {
+    [self.likeButton changeJudgement];
+    [RMPHTTPConnection judgeBuzz:self.buzzId State:self.likeButton.isJudged Kind:LIKE];
+}
+
+- (IBAction)muteButtonDidTapped:(id)sender {
+    [self.muteButton changeJudgement];
+    [RMPHTTPConnection judgeBuzz:self.buzzId State:self.likeButton.isJudged Kind:MUTE];
+}
 @end

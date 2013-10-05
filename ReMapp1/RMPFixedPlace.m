@@ -28,4 +28,10 @@
     return self;
 }
 
++ (NSString *)mapCellIdentifier
+{
+    return @"RMPFixedPlaceMapCell";
+}
+
+
 @end

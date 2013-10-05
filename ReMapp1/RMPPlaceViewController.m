@@ -19,7 +19,9 @@ NSString *const RMPPlaceViewControllerFrameDidMove = @"RMPPlaceViewControllerFra
 NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCellDidMove";
 
 
-@interface RMPPlaceViewController()
+@interface RMPPlaceViewController() <RMPSlidingBottomViewDelegate> {
+    RMPSlidingViewController *_slidingViewController;
+}
 @property (weak, nonatomic) RMPPlaceData *placeData;
 @end
 
@@ -27,7 +29,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
 	// Do any additional setup after loading the view.
     UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedView:)];
     [self.view addGestureRecognizer:singleTapGesture];
@@ -38,7 +39,7 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showCell:) name:RMPMapViewDidSelectAnnotation object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:RMPBuzzMapDataReloaded object:self.placeData];
 
-    [self.collectionView removeGestureRecognizer:self.rmp_verticalSlidingViewController.bottomPanGesture];
+    [self.collectionView removeGestureRecognizer:self.rmp_slidingViewController.bottomPanGesture];
 
     // set nib
     /*
@@ -52,13 +53,12 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     [self.collectionView registerNib:playCell forCellWithReuseIdentifier:@"RMPPlayDetailCell"];
     */
     
-    // --- test
     UINib *buzzCell = [UINib nibWithNibName:@"RMPBuzzMapCell" bundle:nil];
+    UINib *fixedPlaceCell = [UINib nibWithNibName:@"RMPFixedPlaceMapCell" bundle:nil];
     [self.collectionView registerNib:buzzCell forCellWithReuseIdentifier:@"RMPBuzzMapCell"];
-//    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(slide:)];
-//    [self.collectionView addGestureRecognizer:panGesture];
+    [self.collectionView registerNib:fixedPlaceCell forCellWithReuseIdentifier:@"RMPFixedPlaceMapCell"];
 
-    // --- end
+    
     CGFloat height =  self.view.frame.size.height;
     CGFloat width = self.view.frame.size.width;
     [self.collectionView setFrame:CGRectMake(0, 0, width, height)];
@@ -100,6 +100,43 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
 }
 
 
+- (void)reload
+{
+    [self.collectionView reloadData];
+}
+
+
+- (void)showCell:(NSNotification *)center
+{
+    NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
+    CGFloat offset = self.collectionView.frame.size.width * annotationIndex;
+    CGPoint newPoint = CGPointMake(offset, self.collectionView.contentOffset.y);
+    self.collectionView.contentOffset = newPoint;
+}
+
+#pragma mark - RMPSlidingBottomViewDelegate
+
+- (void)bottomViewDidMove:(CGFloat)verticalCenter
+{
+    
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    CGFloat pageWidth = scrollView.frame.size.width;
+    int fractionalPage = MAX(scrollView.contentOffset.x / pageWidth, 0);
+    
+    //post notification
+    NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:fractionalPage]};
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:RMPPlaceCollectionViewCellDidMove
+                                                            object:self
+                                                          userInfo:userInfo];
+    });
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -121,36 +158,6 @@ NSString *const RMPPlaceCollectionViewCellDidMove = @"RMPPlaceCollectionViewCell
     return [RMPPlaceMapCellFactory createCellWithCollectionView:collectionView
                                          cellForItemAtIndexPath:indexPath
                                                           place:place];
-}
-
-
-- (void)reload
-{
-    [self.collectionView reloadData];
-}
-
-
-- (void)showCell:(NSNotification *)center
-{
-    NSInteger annotationIndex = [center.userInfo[@"annotationIndex"] intValue];
-    CGFloat offset = self.collectionView.frame.size.width * annotationIndex;
-    CGPoint newPoint = CGPointMake(offset, self.collectionView.contentOffset.y);
-    self.collectionView.contentOffset = newPoint;
-}
-
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    CGFloat pageWidth = scrollView.frame.size.width;
-    int fractionalPage = MAX(scrollView.contentOffset.x / pageWidth, 0);
-    
-    //post notification
-    NSDictionary *userInfo = @{@"annotationIndex":[NSNumber numberWithInteger:fractionalPage]};
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:RMPPlaceCollectionViewCellDidMove
-                                                            object:self
-                                                          userInfo:userInfo];
-    });
 }
 
 
