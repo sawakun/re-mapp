@@ -12,14 +12,10 @@
 
 @class RMPPlace;
 @class RMPRearrangedView;
+@class RMPScrollViewInPlaceMapCell;
+@class RMPViewInPlaceMapCell;
 
-@interface RMPScrollViewInPlaceMapCell : UIScrollView
--(void)setPosition:(CGPoint)position;
-@end
 
-@interface RMPViewInPlaceMapCell : UIView
--(void)setPosition:(CGPoint)position;
-@end
 
 
 @interface RMPPlaceMapCell : UICollectionViewCell <UIGestureRecognizerDelegate>

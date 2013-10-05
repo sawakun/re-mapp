@@ -11,6 +11,8 @@
 #import "UIImageView+WebCache.h"
 #import "RMPJudgeButton.h"
 #import "RMPHTTPConnection.h"
+#import "RMPViewInPlaceMapCell.h"
+#import "RMPScrollViewInPlaceMapCell.h"
 
 @interface RMPFixedPlaceMapCell()
 @property (nonatomic) NSInteger buzzId;

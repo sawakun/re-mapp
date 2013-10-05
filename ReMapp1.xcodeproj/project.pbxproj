@@ -46,6 +46,8 @@
 		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
 		4530408B17F84A0800F96F58 /* RMPImageEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 4530408A17F84A0800F96F58 /* RMPImageEffect.m */; };
 		4530408D17F84C5C00F96F58 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4530408C17F84C5C00F96F58 /* CoreImage.framework */; };
+		453DB7641800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DB7631800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m */; };
+		453DB7671800440200A0EB93 /* RMPViewInPlaceMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DB7661800440200A0EB93 /* RMPViewInPlaceMapCell.m */; };
 		4540B64C17F6D51000DF1CE9 /* UIImage+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 4540B64B17F6D51000DF1CE9 /* UIImage+Trim.m */; };
 		454F2D7817F58A50007D467A /* RMPKeyboardMoveScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F2D7717F58A50007D467A /* RMPKeyboardMoveScrollView.m */; };
 		4555A51917F30C3D00133480 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4555A51817F30C3D00133480 /* QuartzCore.framework */; };
@@ -627,6 +629,10 @@
 		4530408917F84A0800F96F58 /* RMPImageEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPImageEffect.h; sourceTree = "<group>"; };
 		4530408A17F84A0800F96F58 /* RMPImageEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPImageEffect.m; sourceTree = "<group>"; };
 		4530408C17F84C5C00F96F58 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		453DB7621800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPScrollViewInPlaceMapCell.h; sourceTree = "<group>"; };
+		453DB7631800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPScrollViewInPlaceMapCell.m; sourceTree = "<group>"; };
+		453DB7651800440200A0EB93 /* RMPViewInPlaceMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPViewInPlaceMapCell.h; sourceTree = "<group>"; };
+		453DB7661800440200A0EB93 /* RMPViewInPlaceMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPViewInPlaceMapCell.m; sourceTree = "<group>"; };
 		4540B64A17F6D51000DF1CE9 /* UIImage+Trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Trim.h"; sourceTree = "<group>"; };
 		4540B64B17F6D51000DF1CE9 /* UIImage+Trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Trim.m"; sourceTree = "<group>"; };
 		454F2D7617F58A50007D467A /* RMPKeyboardMoveScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPKeyboardMoveScrollView.h; sourceTree = "<group>"; };
@@ -1493,6 +1499,10 @@
 				451BB57317FEEED400173720 /* RMPFixedPlaceMapCell.xib */,
 				451BB57517FEF13100173720 /* RMPFixedPlaceMapCell.h */,
 				451BB57617FEF13100173720 /* RMPFixedPlaceMapCell.m */,
+				453DB7621800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.h */,
+				453DB7631800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m */,
+				453DB7651800440200A0EB93 /* RMPViewInPlaceMapCell.h */,
+				453DB7661800440200A0EB93 /* RMPViewInPlaceMapCell.m */,
 			);
 			name = MapCells;
 			sourceTree = "<group>";
@@ -2421,6 +2431,7 @@
 				45952DC9177FE7250083B7D0 /* RMPMapPlaceData.m in Sources */,
 				45952DCD177FE7340083B7D0 /* RMPPlace.m in Sources */,
 				45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */,
+				453DB7641800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m in Sources */,
 				45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */,
 				457D160017942E20007F2E8A /* RMPSlidingViewController.m in Sources */,
 				457D160317942F57007F2E8A /* RMPInitialSlidingViewController.m in Sources */,
@@ -2491,6 +2502,7 @@
 				45626A6317E5A99D00E7B2B4 /* RMPFixedPlaceView.m in Sources */,
 				4555A51D17F30F3500133480 /* AMBlurView.m in Sources */,
 				451F662D17E9B7C70017848A /* RMPFixedPlace.m in Sources */,
+				453DB7671800440200A0EB93 /* RMPViewInPlaceMapCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
