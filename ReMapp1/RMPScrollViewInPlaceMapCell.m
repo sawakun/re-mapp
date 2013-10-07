@@ -10,12 +10,12 @@
 
 
 @implementation RMPScrollViewInPlaceMapCell
-NSString *RMPScrollViewInPlaceMapCellDidMove = @"RMPScrollViewInPlaceMapCellDidMove";
+NSString *const RMPScrollViewInPlaceMapCellDidMove = @"RMPScrollViewInPlaceMapCellDidMove";
 static CGPoint _leftTopPosition;
 
 - (void)setup
 {
-    [self updatePosition];
+    //[self updatePosition];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updatePosition)
                                                  name:RMPScrollViewInPlaceMapCellDidMove
@@ -65,6 +65,10 @@ static CGPoint _leftTopPosition;
     CGFloat height = self.frame.size.height;
     CGFloat width = self.frame.size.width;
     return CGPointMake(_leftTopPosition.x + width * 0.5, _leftTopPosition.y + height * 0.5);
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

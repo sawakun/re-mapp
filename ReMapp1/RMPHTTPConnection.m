@@ -13,6 +13,7 @@
 + (BOOL)judgeBuzz:(NSInteger)buzzId State:(BOOL)state Kind:(enum RMPJudgeKind)kind
 {
     //UNDER CONSTRUCTION
+    sleep(2);
     return YES;
 }
 
@@ -20,18 +21,21 @@
 + (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password
 {
     // UNDER CONSTRUCTION
+    sleep(2);
     return YES;
 }
 
 + (BOOL)registerWithUserName:(NSString*)userName Email:(NSString*)email Password:(NSString*)password UserImage:(UIImage*)userImage
 {
     // UNDER CONSTRUCTION
+    sleep(2);
     return YES;
 }
 
 + (BOOL)logout
 {
     // UNDER CONSTRUCTION
+    sleep(2);
     return YES;
 }
 
