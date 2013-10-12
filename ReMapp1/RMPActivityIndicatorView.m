@@ -23,18 +23,14 @@
 
 - (void)startAnimating
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.hidden = NO;
-        [self.activityIndicatorView startAnimating];
-    });
+    self.hidden = NO;
+    [self.activityIndicatorView startAnimating];
 }
 
 - (void)stopAnimating
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.hidden = YES;
-        [self.activityIndicatorView stopAnimating];
-    });
+    self.hidden = YES;
+    [self.activityIndicatorView stopAnimating];
 }
 
 - (void)moveCenterInView:(UIView*)view
@@ -45,4 +41,20 @@
     self.layer.position = center;
 }
 
+-(void)doTask:(bool(^)(void))task competion:(void(^)(bool))comletion
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self startAnimating];
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        bool result = task();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self stopAnimating];
+            comletion(result);
+        });
+    });
+}
+
 @end
+

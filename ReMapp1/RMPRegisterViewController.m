@@ -52,7 +52,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(trimmingDidFinish) name:@"RMPTrimImageViewControllerWillDisappear" object:nil];
 
     
-    //--------------------------------------------
+    //set activity indicator view
     _activityIndicatorView = [RMPActivityIndicatorView createWithOwner:self];
     [self.view addSubview:_activityIndicatorView];
     [_activityIndicatorView moveCenterInView:self.view];
@@ -82,28 +82,24 @@
 - (void)trimmingDidFinish {
     self.userImageView.image = self.trimImageViewController.trimmedImage;
 }
-- (IBAction)tappedRegister:(id)sender {
-    [_activityIndicatorView startAnimating];
-    [self regist];
-}
 
-- (void)regist
-{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        BOOL result = [RMPHTTPConnection registerWithUserName:self.userNameTextField.text Email:self.emailTextField.text Password:self.passwordTextField.text UserImage:self.userImageView.image];
-        [_activityIndicatorView stopAnimating];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (result) {
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-                UIViewController *mainView  = [storyboard instantiateViewControllerWithIdentifier:@"RMPInitialSlidingViewController"];
-                mainView.view.frame = self.view.frame;
-                [self presentViewController:mainView animated:YES completion:nil];
-            }
-        });
-    });
- 
-}
+- (IBAction)tappedRegister:(id)sender {    
+    [_activityIndicatorView
+     doTask:^bool(void){
+         return[RMPHTTPConnection registerWithUserName:self.userNameTextField.text
+                                                 Email:self.emailTextField.text
+                                              Password:self.passwordTextField.text
+                                             UserImage:self.userImageView.image];
+    }
+     competion:^void(bool result){
+         if (result) {
+             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+             UIViewController *mainView  = [storyboard instantiateViewControllerWithIdentifier:@"RMPInitialSlidingViewController"];
+             mainView.view.frame = self.view.frame;
+             [self presentViewController:mainView animated:YES completion:nil];
+         }
+     }];
+ }
 
 
 #pragma mark - UITextFieldDelegate

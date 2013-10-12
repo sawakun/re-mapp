@@ -13,7 +13,6 @@
 + (BOOL)judgeBuzz:(NSInteger)buzzId State:(BOOL)state Kind:(enum RMPJudgeKind)kind
 {
     //UNDER CONSTRUCTION
-    sleep(2);
     return YES;
 }
 
@@ -37,6 +36,19 @@
     // UNDER CONSTRUCTION
     sleep(2);
     return YES;
+}
+
++ (BOOL)sendModifiedUserName:(NSString*)name
+                       Email:(NSString*)email
+                     Profile:(NSString*)profile
+{
+    // UNDER CONSTRUCTION
+    
+    RMPUser *user = [RMPUser sharedManager];
+    user.name = name;
+    user.email = email;
+    user.profile = profile;
+    return TRUE;
 }
 
 + (BOOL)sendNewBuzzWithUserSystemId:(NSInteger)userSystemId
@@ -169,21 +181,6 @@
 
 
 
-
-
-+ (BOOL)sendModifiedUserName:(NSString*)name
-                       Email:(NSString*)email
-                     Profile:(NSString*)profile
-{
-    //Connect to the server...
-    
-    
-    RMPUser *user = [RMPUser sharedManager];
-    user.name = name;
-    user.email = email;
-    user.profile = profile;
-    return TRUE;
-}
 
 
 + (NSArray *)searchPointOfInterest:(NSString*)key

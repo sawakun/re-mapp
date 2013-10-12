@@ -14,4 +14,5 @@
 - (void)startAnimating;
 - (void)stopAnimating;
 - (void)moveCenterInView:(UIView*)view;
+-(void)doTask:(bool(^)(void))task competion:(void(^)(bool))comletion;
 @end
