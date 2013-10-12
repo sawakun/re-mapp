@@ -20,19 +20,35 @@
 + (BOOL)loginWithEmail:(NSString*)email Password:(NSString*)password
 {
     // UNDER CONSTRUCTION
+    sleep(2);
     return YES;
 }
 
 + (BOOL)registerWithUserName:(NSString*)userName Email:(NSString*)email Password:(NSString*)password UserImage:(UIImage*)userImage
 {
     // UNDER CONSTRUCTION
+    sleep(2);
     return YES;
 }
 
 + (BOOL)logout
 {
     // UNDER CONSTRUCTION
+    sleep(2);
     return YES;
+}
+
++ (BOOL)sendModifiedUserName:(NSString*)name
+                       Email:(NSString*)email
+                     Profile:(NSString*)profile
+{
+    // UNDER CONSTRUCTION
+    
+    RMPUser *user = [RMPUser sharedManager];
+    user.name = name;
+    user.email = email;
+    user.profile = profile;
+    return TRUE;
 }
 
 + (BOOL)sendNewBuzzWithUserSystemId:(NSInteger)userSystemId
@@ -165,21 +181,6 @@
 
 
 
-
-
-+ (BOOL)sendModifiedUserName:(NSString*)name
-                       Email:(NSString*)email
-                     Profile:(NSString*)profile
-{
-    //Connect to the server...
-    
-    
-    RMPUser *user = [RMPUser sharedManager];
-    user.name = name;
-    user.email = email;
-    user.profile = profile;
-    return TRUE;
-}
 
 
 + (NSArray *)searchPointOfInterest:(NSString*)key

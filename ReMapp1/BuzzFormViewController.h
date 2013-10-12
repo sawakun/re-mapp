@@ -19,8 +19,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolbarVerticalSpaceConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (assign, nonatomic) CLLocationCoordinate2D location;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textCountLabel;
 - (IBAction)tappedCancel:(id)sender;
 - (IBAction)tappedPhotos:(id)sender;

@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMPProfileViewController : UIViewController <UIScrollViewDelegate,UITextFieldDelegate, UITextViewDelegate, UIActionSheetDelegate>
+@interface RMPProfileViewController : UITableViewController <UIScrollViewDelegate,UITextFieldDelegate, UITextViewDelegate, UIActionSheetDelegate>
 - (IBAction)tappedToReturnToMenu:(id)sender;
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+- (IBAction)tappedToSave:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextView *profileTextView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-- (IBAction)tappedToSave:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @end

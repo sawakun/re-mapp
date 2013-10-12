@@ -9,8 +9,13 @@
 #import "RMPLoginViewController.h"
 #import "RMPKeyboardMoveScrollView.h"
 #import "RMPHTTPConnection.h"
+#import "RMPActivityIndicatorView.h"
 
 @interface RMPLoginViewController () <UITextFieldDelegate>
+{
+@private
+    RMPActivityIndicatorView *_activityIndicatorView;
+}
 
 @end
 
@@ -31,6 +36,11 @@
 	// Do any additional setup after loading the view.
     self.emailTextField.delegate = self;
     self.passwordTextField.delegate = self;
+
+    //set activity indicator view
+    _activityIndicatorView = [RMPActivityIndicatorView createWithOwner:self];
+    [self.view addSubview:_activityIndicatorView];
+    [_activityIndicatorView moveCenterInView:self.view];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,22 +50,39 @@
 }
 
 
+
+
+- (IBAction)tappedLogin:(id)sender {
+    [_activityIndicatorView
+     doTask:^bool(void){
+         return [RMPHTTPConnection loginWithEmail:self.emailTextField.text Password:self.passwordTextField.text];
+     }
+     competion:^void(bool result){
+         if (result) {
+             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+             UIViewController *mainView  = [storyboard instantiateViewControllerWithIdentifier:@"RMPInitialSlidingViewController"];
+             mainView.view.frame = self.view.frame;
+             [self presentViewController:mainView animated:YES completion:nil];
+         }
+     }];
+}
+
+
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [self tappedLogin:nil];
+        [textField resignFirstResponder];
+    }
     return YES;
 }
 
-- (IBAction)tappedLogin:(id)sender {
-    BOOL result = [RMPHTTPConnection loginWithEmail:self.emailTextField.text Password:self.passwordTextField.text];
-
-    // move to map
-    if (result) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-        UIViewController *mainView  = [storyboard instantiateViewControllerWithIdentifier:@"RMPInitialSlidingViewController"];
-        mainView.view.frame = self.view.frame;
-        [self presentViewController:mainView animated:YES completion:nil];
-    }
-}
 @end
