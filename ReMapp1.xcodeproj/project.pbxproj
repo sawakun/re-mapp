@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		450532A017D74B3700F7FC40 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4505329F17D74B3700F7FC40 /* Empty.xib */; };
+		450532A017D74B3700F7FC40 /* RMPActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4505329F17D74B3700F7FC40 /* RMPActivityIndicatorView.xib */; };
 		4514B5C317F65B26007BA436 /* RMPPickImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4514B5C217F65B26007BA436 /* RMPPickImageViewController.m */; };
 		4514B5C617F65F6A007BA436 /* RMPRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4514B5C517F65F6A007BA436 /* RMPRegisterViewController.m */; };
 		4514B5CC17F68AE1007BA436 /* RMPTrimImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4514B5CB17F68AE1007BA436 /* RMPTrimImageViewController.m */; };
@@ -38,6 +38,7 @@
 		451BB57717FEF13100173720 /* RMPFixedPlaceMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451BB57617FEF13100173720 /* RMPFixedPlaceMapCell.m */; };
 		451F662D17E9B7C70017848A /* RMPFixedPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 451F662C17E9B7C70017848A /* RMPFixedPlace.m */; };
 		4520E9D317F8568B005A0B8A /* RMPMovingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4520E9D217F8568B005A0B8A /* RMPMovingImageView.m */; };
+		4525BEDA18014FD1008266CF /* RMPActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4525BED918014FD1008266CF /* RMPActivityIndicatorView.m */; };
 		452802F717B7D06400802EBF /* RMPBuzzCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F017B7D06300802EBF /* RMPBuzzCell.xib */; };
 		452802F817B7D06400802EBF /* RMPEatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F117B7D06400802EBF /* RMPEatCell.xib */; };
 		452802F917B7D06400802EBF /* RMPPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452802F217B7D06400802EBF /* RMPPlaceCell.xib */; };
@@ -46,6 +47,8 @@
 		452C975D17A3FBE00000CF51 /* RMPLazyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 452C975C17A3FBE00000CF51 /* RMPLazyImageView.m */; };
 		4530408B17F84A0800F96F58 /* RMPImageEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 4530408A17F84A0800F96F58 /* RMPImageEffect.m */; };
 		4530408D17F84C5C00F96F58 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4530408C17F84C5C00F96F58 /* CoreImage.framework */; };
+		453DB7641800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DB7631800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m */; };
+		453DB7671800440200A0EB93 /* RMPViewInPlaceMapCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 453DB7661800440200A0EB93 /* RMPViewInPlaceMapCell.m */; };
 		4540B64C17F6D51000DF1CE9 /* UIImage+Trim.m in Sources */ = {isa = PBXBuildFile; fileRef = 4540B64B17F6D51000DF1CE9 /* UIImage+Trim.m */; };
 		454F2D7817F58A50007D467A /* RMPKeyboardMoveScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 454F2D7717F58A50007D467A /* RMPKeyboardMoveScrollView.m */; };
 		4555A51917F30C3D00133480 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4555A51817F30C3D00133480 /* QuartzCore.framework */; };
@@ -577,7 +580,7 @@
 
 /* Begin PBXFileReference section */
 		450265F417C0538900C64B25 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		4505329F17D74B3700F7FC40 /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
+		4505329F17D74B3700F7FC40 /* RMPActivityIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPActivityIndicatorView.xib; sourceTree = "<group>"; };
 		4514B5C117F65B26007BA436 /* RMPPickImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPPickImageViewController.h; sourceTree = "<group>"; };
 		4514B5C217F65B26007BA436 /* RMPPickImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPPickImageViewController.m; sourceTree = "<group>"; };
 		4514B5C417F65F6A007BA436 /* RMPRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPRegisterViewController.h; sourceTree = "<group>"; };
@@ -617,6 +620,8 @@
 		451F662C17E9B7C70017848A /* RMPFixedPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPFixedPlace.m; sourceTree = "<group>"; };
 		4520E9D117F8568B005A0B8A /* RMPMovingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPMovingImageView.h; sourceTree = "<group>"; };
 		4520E9D217F8568B005A0B8A /* RMPMovingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPMovingImageView.m; sourceTree = "<group>"; };
+		4525BED818014FD1008266CF /* RMPActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPActivityIndicatorView.h; sourceTree = "<group>"; };
+		4525BED918014FD1008266CF /* RMPActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPActivityIndicatorView.m; sourceTree = "<group>"; };
 		452802F017B7D06300802EBF /* RMPBuzzCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPBuzzCell.xib; sourceTree = "<group>"; };
 		452802F117B7D06400802EBF /* RMPEatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPEatCell.xib; sourceTree = "<group>"; };
 		452802F217B7D06400802EBF /* RMPPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMPPlaceCell.xib; sourceTree = "<group>"; };
@@ -627,6 +632,10 @@
 		4530408917F84A0800F96F58 /* RMPImageEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPImageEffect.h; sourceTree = "<group>"; };
 		4530408A17F84A0800F96F58 /* RMPImageEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPImageEffect.m; sourceTree = "<group>"; };
 		4530408C17F84C5C00F96F58 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		453DB7621800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPScrollViewInPlaceMapCell.h; sourceTree = "<group>"; };
+		453DB7631800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPScrollViewInPlaceMapCell.m; sourceTree = "<group>"; };
+		453DB7651800440200A0EB93 /* RMPViewInPlaceMapCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPViewInPlaceMapCell.h; sourceTree = "<group>"; };
+		453DB7661800440200A0EB93 /* RMPViewInPlaceMapCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMPViewInPlaceMapCell.m; sourceTree = "<group>"; };
 		4540B64A17F6D51000DF1CE9 /* UIImage+Trim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Trim.h"; sourceTree = "<group>"; };
 		4540B64B17F6D51000DF1CE9 /* UIImage+Trim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Trim.m"; sourceTree = "<group>"; };
 		454F2D7617F58A50007D467A /* RMPKeyboardMoveScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMPKeyboardMoveScrollView.h; sourceTree = "<group>"; };
@@ -1056,7 +1065,9 @@
 		4505329E17D74B2400F7FC40 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				4505329F17D74B3700F7FC40 /* Empty.xib */,
+				4505329F17D74B3700F7FC40 /* RMPActivityIndicatorView.xib */,
+				4525BED818014FD1008266CF /* RMPActivityIndicatorView.h */,
+				4525BED918014FD1008266CF /* RMPActivityIndicatorView.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1493,6 +1504,10 @@
 				451BB57317FEEED400173720 /* RMPFixedPlaceMapCell.xib */,
 				451BB57517FEF13100173720 /* RMPFixedPlaceMapCell.h */,
 				451BB57617FEF13100173720 /* RMPFixedPlaceMapCell.m */,
+				453DB7621800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.h */,
+				453DB7631800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m */,
+				453DB7651800440200A0EB93 /* RMPViewInPlaceMapCell.h */,
+				453DB7661800440200A0EB93 /* RMPViewInPlaceMapCell.m */,
 			);
 			name = MapCells;
 			sourceTree = "<group>";
@@ -1943,7 +1958,7 @@
 				475C1F5217C2583A00BCF827 /* README.md in Resources */,
 				475C1F5317C2583A00BCF827 /* release_notes.md in Resources */,
 				455CC8E317D531E400C2B5DB /* RMPSearchResultsCell.xib in Resources */,
-				450532A017D74B3700F7FC40 /* Empty.xib in Resources */,
+				450532A017D74B3700F7FC40 /* RMPActivityIndicatorView.xib in Resources */,
 				45E3C0CB17E47A61002B0F90 /* application_icon.png in Resources */,
 				45E3C0CD17E47A69002B0F90 /* application_icon@2x.png in Resources */,
 				45BBCD5E17E52EC2003F08A5 /* RMPBuzzView.xib in Resources */,
@@ -2421,6 +2436,7 @@
 				45952DC9177FE7250083B7D0 /* RMPMapPlaceData.m in Sources */,
 				45952DCD177FE7340083B7D0 /* RMPPlace.m in Sources */,
 				45E370D81782EBC5006EE5F9 /* BuzzFormViewController.m in Sources */,
+				453DB7641800438F00A0EB93 /* RMPScrollViewInPlaceMapCell.m in Sources */,
 				45AD9DC71784EC9900242750 /* UIPlaceHolderTextView.m in Sources */,
 				457D160017942E20007F2E8A /* RMPSlidingViewController.m in Sources */,
 				457D160317942F57007F2E8A /* RMPInitialSlidingViewController.m in Sources */,
@@ -2446,6 +2462,7 @@
 				458D999717B5217A000D6EB5 /* RMPTimeLineDetailViewController.m in Sources */,
 				4514B5C617F65F6A007BA436 /* RMPRegisterViewController.m in Sources */,
 				4518DB1617B7483400E15F6F /* RMPPlaceData.m in Sources */,
+				4525BEDA18014FD1008266CF /* RMPActivityIndicatorView.m in Sources */,
 				45CF18A217B7B19F004271AD /* RMPBuzzCell.m in Sources */,
 				45CF18A317B7B19F004271AD /* RMPBuzzDetailCell.m in Sources */,
 				45CF18AA17B7B1AA004271AD /* RMPEatCell.m in Sources */,
@@ -2491,6 +2508,7 @@
 				45626A6317E5A99D00E7B2B4 /* RMPFixedPlaceView.m in Sources */,
 				4555A51D17F30F3500133480 /* AMBlurView.m in Sources */,
 				451F662D17E9B7C70017848A /* RMPFixedPlace.m in Sources */,
+				453DB7671800440200A0EB93 /* RMPViewInPlaceMapCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

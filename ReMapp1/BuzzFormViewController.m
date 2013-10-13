@@ -33,8 +33,6 @@
     
     //set user info
     RMPUser *user = [RMPUser sharedManager];
-    self.iconImageView.image = user.iconImage;
-    self.nameLabel.text = user.name;
     
     self.textCountLabel.text = @"0";
     

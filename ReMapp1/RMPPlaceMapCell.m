@@ -9,48 +9,8 @@
 #import "RMPPlaceMapCell.h"
 #import "RMPPlace.h"
 #import "constants.h"
-
-@interface RMPScrollViewInPlaceMapCell()
-{
-    @private
-    CGPoint _position;
-}
-@end
-
-@implementation RMPScrollViewInPlaceMapCell
--(void)setPosition:(CGPoint)position
-{
-    _position = position;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    self.layer.position = _position;
-}
-
-@end
-
-@interface RMPViewInPlaceMapCell()
-{
-@private
-    CGPoint _position;
-}
-@end
-
-@implementation RMPViewInPlaceMapCell
--(void)setPosition:(CGPoint)position
-{
-    _position = position;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    self.layer.position = _position;
-}
-
-@end
+#import "RMPViewInPlaceMapCell.h"
+#import "RMPScrollViewInPlaceMapCell.h"
 
 @interface RMPPlaceMapCell()
 @property CGFloat initialTouchPositionY;
@@ -200,25 +160,20 @@
 {
     CGFloat mapViewHeight = self.mapView.frame.size.height;
     CGFloat collectionViewY = self.collectionView.frame.origin.y;
-    CGFloat collectionViewWidth = self.collectionView.frame.size.width;
-    CGFloat actionButtonViewHeight = self.actionButtonView.frame.size.height;
-    CGFloat positionY = mapViewHeight - collectionViewY - actionButtonViewHeight * 0.5;
-    positionY = fmaxf(self.minActionButtonCenterY, positionY);
-    CGPoint position = CGPointMake(collectionViewWidth * 0.5, positionY);
-    [self.actionButtonView setPosition:position];
-    self.actionButtonView.layer.position = position;
-    
+    CGFloat originY = mapViewHeight - collectionViewY - self.actionButtonView.frame.size.height;
+    originY = fmaxf(self.minActionButtonCenterY, originY);
+    CGFloat originX = (self.collectionView.frame.size.width - self.innerScrollView.frame.size.width) * 0.5;
+    CGPoint position = CGPointMake(originX, originY);
+    [self.actionButtonView setLeftTopPosition:position];
 }
 
 - (void)setInnerScrollViewPosition;
 {
     CGFloat originY = -20.0 / self.collectionView.frame.size.height * self.collectionView.frame.origin.y + 20.0;
     originY = MAX(originY, 5);
-    CGFloat positionY = originY + self.innerScrollView.frame.size.height * 0.5;
-    CGFloat positionX = self.collectionView.frame.size.width * 0.5;
-    CGPoint position = CGPointMake(positionX, positionY);
-    [self.innerScrollView setPosition:position];
-    self.innerScrollView.layer.position = position;
+    CGFloat originX = (self.collectionView.frame.size.width - self.innerScrollView.frame.size.width) * 0.5;
+    CGPoint position = CGPointMake(originX, originY);
+    [self.innerScrollView setLeftTopPosition:position];
 }
 
 - (void)setDataWithPlace:(RMPPlace *)place
@@ -233,7 +188,7 @@
     self.collectionView = self.superview.superview;
     self.mapView = self.collectionView.superview;
     // set initial values
-    self.minActionButtonCenterY = FIRST_MAP_CELL_HEIGHT + self.actionButtonView.frame.size.height * 0.5;
+    self.minActionButtonCenterY = FIRST_MAP_CELL_HEIGHT;
     // set pangesture
     UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(sliding:)];
     [self.innerScrollView.panGestureRecognizer requireGestureRecognizerToFail:panGesture];
