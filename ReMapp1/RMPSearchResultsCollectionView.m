@@ -56,7 +56,7 @@
 {
     RMPSearchResultsCell *cell = (RMPSearchResultsCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"RMPSearchResultsCell" forIndexPath:indexPath];
     NSDictionary *thisData = self.searchResults[indexPath.row];
-    cell.titleText = thisData[@"user_name"];
+    cell.titleText = thisData[@"label"];
     cell.lon = [thisData[@"lon"] floatValue];
     cell.lat = [thisData[@"lat"] floatValue];
     return cell;
